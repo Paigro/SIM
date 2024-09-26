@@ -18,18 +18,31 @@ using namespace physx;
 PxDefaultAllocator		gAllocator;
 PxDefaultErrorCallback	gErrorCallback;
 
-PxFoundation*			gFoundation = NULL;
-PxPhysics*				gPhysics	= NULL;
+PxFoundation* gFoundation = NULL;
+PxPhysics* gPhysics = NULL;
 
 
-PxMaterial*				gMaterial	= NULL;
+PxMaterial* gMaterial = NULL;
 
-PxPvd*                  gPvd        = NULL;
+PxPvd* gPvd = NULL;
 
-PxDefaultCpuDispatcher*	gDispatcher = NULL;
-PxScene*				gScene      = NULL;
+PxDefaultCpuDispatcher* gDispatcher = NULL;
+PxScene* gScene = NULL;
 ContactReportCallback gContactReportCallback;
 
+// Sphere P0:
+RenderItem* sphere = NULL;
+RenderItem* xSphere = NULL;
+RenderItem* ySphere = NULL;
+RenderItem* zSphere = NULL;
+PxTransform* sphereTransform = NULL;
+PxTransform* xTransform = NULL;
+PxTransform* yTransform = NULL;
+PxTransform* zTransform = NULL;
+Vector4 sphereColor(1.0, 1.0, 1.0, 1.0);
+Vector4 sphereXColor(1.0, 0.0, 0.0, 1.0);
+Vector4 sphereYColor(0.0, 1.0, 0.0, 1.0);
+Vector4 sphereZColor(0.0, 0.0, 1.0, 1.0);
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -40,9 +53,9 @@ void initPhysics(bool interactive)
 
 	gPvd = PxCreatePvd(*gFoundation);
 	PxPvdTransport* transport = PxDefaultPvdSocketTransportCreate(PVD_HOST, 5425, 10);
-	gPvd->connect(*transport,PxPvdInstrumentationFlag::eALL);
+	gPvd->connect(*transport, PxPvdInstrumentationFlag::eALL);
 
-	gPhysics = PxCreatePhysics(PX_PHYSICS_VERSION, *gFoundation, PxTolerancesScale(),true,gPvd);
+	gPhysics = PxCreatePhysics(PX_PHYSICS_VERSION, *gFoundation, PxTolerancesScale(), true, gPvd);
 
 	gMaterial = gPhysics->createMaterial(0.5f, 0.5f, 0.6f);
 
@@ -54,7 +67,17 @@ void initPhysics(bool interactive)
 	sceneDesc.filterShader = contactReportFilterShader;
 	sceneDesc.simulationEventCallback = &gContactReportCallback;
 	gScene = gPhysics->createScene(sceneDesc);
-	}
+
+	// Sphere P0:
+	sphereTransform = new PxTransform(Vector3(0.0, 0.0, 0.0));
+	xTransform = new PxTransform(Vector3(20.0, 0, 0.0));
+	yTransform = new PxTransform(Vector3(0.0, 20.0, 0.0));
+	zTransform = new PxTransform(Vector3(0.0, 0, 20.0));
+	sphere = new RenderItem(CreateShape(PxSphereGeometry(2)), sphereTransform, sphereColor);
+	xSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), xTransform, sphereXColor);
+	ySphere = new RenderItem(CreateShape(PxSphereGeometry(2)), yTransform, sphereYColor);
+	zSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), zTransform, sphereZColor);
+}
 
 
 // Function to configure what happens in each step of physics
@@ -78,23 +101,29 @@ void cleanupPhysics(bool interactive)
 	gScene->release();
 	gDispatcher->release();
 	// -----------------------------------------------------
-	gPhysics->release();	
+	gPhysics->release();
 	PxPvdTransport* transport = gPvd->getTransport();
 	gPvd->release();
 	transport->release();
-	
+
 	gFoundation->release();
-	}
+
+	// Sphere P0:
+	DeregisterRenderItem(sphere);
+	DeregisterRenderItem(xSphere);
+	DeregisterRenderItem(ySphere);
+	DeregisterRenderItem(zSphere);
+}
 
 // Function called when a key is pressed
 void keyPress(unsigned char key, const PxTransform& camera)
 {
 	PX_UNUSED(camera);
 
-	switch(toupper(key))
+	switch (toupper(key))
 	{
-	//case 'B': break;
-	//case ' ':	break;
+		//case 'B': break;
+		//case ' ':	break;
 	case ' ':
 	{
 		break;
@@ -111,7 +140,7 @@ void onCollision(physx::PxActor* actor1, physx::PxActor* actor2)
 }
 
 
-int main(int, const char*const*)
+int main(int, const char* const*)
 {
 #ifndef OFFLINE_EXECUTION 
 	extern void renderLoop();
@@ -119,7 +148,7 @@ int main(int, const char*const*)
 #else
 	static const PxU32 frameCount = 100;
 	initPhysics(false);
-	for(PxU32 i=0; i<frameCount; i++)
+	for (PxU32 i = 0; i < frameCount; i++)
 		stepPhysics(false);
 	cleanupPhysics(false);
 #endif
