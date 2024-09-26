@@ -8,6 +8,8 @@
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"
 
+#include "Vector3D.h"
+
 #include <iostream>
 
 std::string display_text = "This is a test";
@@ -69,10 +71,10 @@ void initPhysics(bool interactive)
 	gScene = gPhysics->createScene(sceneDesc);
 
 	// Sphere P0:
-	sphereTransform = new PxTransform(Vector3(0.0, 0.0, 0.0));
-	xTransform = new PxTransform(Vector3(20.0, 0, 0.0));
-	yTransform = new PxTransform(Vector3(0.0, 20.0, 0.0));
-	zTransform = new PxTransform(Vector3(0.0, 0, 20.0));
+	sphereTransform = new PxTransform(Vector3{ 0.0, 0.0, 0.0 });
+	xTransform = new PxTransform(Vector3{ 20.0, 0, 0.0 });
+	yTransform = new PxTransform(Vector3{ 0.0, 20.0, 0.0 });
+	zTransform = new PxTransform(Vector3{ 0.0, 0, 20.0 });
 	sphere = new RenderItem(CreateShape(PxSphereGeometry(2)), sphereTransform, sphereColor);
 	xSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), xTransform, sphereXColor);
 	ySphere = new RenderItem(CreateShape(PxSphereGeometry(2)), yTransform, sphereYColor);
