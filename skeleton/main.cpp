@@ -32,7 +32,7 @@ PxDefaultCpuDispatcher* gDispatcher = NULL;
 PxScene* gScene = NULL;
 ContactReportCallback gContactReportCallback;
 
-// Sphere P0:
+// Axis P0:
 RenderItem* sphere = NULL;
 RenderItem* xSphere = NULL;
 RenderItem* ySphere = NULL;
@@ -70,7 +70,7 @@ void initPhysics(bool interactive)
 	sceneDesc.simulationEventCallback = &gContactReportCallback;
 	gScene = gPhysics->createScene(sceneDesc);
 
-	// Sphere P0:
+	// Axis P0:
 	sphereTransform = new PxTransform(Vector3{ 0.0, 0.0, 0.0 });
 	xTransform = new PxTransform(Vector3{ 20.0, 0, 0.0 });
 	yTransform = new PxTransform(Vector3{ 0.0, 20.0, 0.0 });
@@ -110,7 +110,7 @@ void cleanupPhysics(bool interactive)
 
 	gFoundation->release();
 
-	// Sphere P0:
+	// Axis P0:
 	DeregisterRenderItem(sphere);
 	DeregisterRenderItem(xSphere);
 	DeregisterRenderItem(ySphere);
