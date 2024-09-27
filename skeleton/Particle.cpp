@@ -5,7 +5,7 @@ Particle::Particle(Vector3 _pos, Vector3 _vel) : pose(_pos), vel(_vel), acc(0)
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, Vector4{ 1.0, 0.5, 0.0 ,1.0 });
 }
 
-Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc) : pose(_pos), vel(_vel), acc(_acc)
+Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam) : pose(_pos), vel(_vel), acc(_acc), damping(_dam)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, Vector4{ 1.0, 0.5, 0.0 ,1.0 });
 }
@@ -15,12 +15,21 @@ Particle::~Particle()
 	DeregisterRenderItem(renderItem);
 }
 
+void Particle::setColor(float _r, float _g, float _b, float _w)
+{
+	renderItem->color.x = _r;
+	renderItem->color.y = _g;
+	renderItem->color.z = _b;
+	renderItem->color.w = _w;
+}
+
 void Particle::integrate(float t)
 {
 	if (acc.x != 0 || acc.y != 0 || acc.z != 0)
 	{
 		pose.p += vel * t;
-		vel = vel + (acc * t);
+		vel += (acc * t);
+		vel *= pow(damping, t);
 	}
 	else
 	{
