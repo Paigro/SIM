@@ -85,8 +85,8 @@ void initPhysics(bool interactive)
 	ySphere = new RenderItem(CreateShape(PxSphereGeometry(2)), yTransform, sphereYColor);
 	zSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), zTransform, sphereZColor);
 	// Particle P1:
-	part = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 });
-	part2 = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, { 0.0, 20, 0.0 }, 0.98);
+	part = new Particle(Vector4{ 1.0, 0.5, 0.0, 1.0 }, Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 });
+	part2 = new Particle(Vector4{ 0.5, 1.0, 0.5, 1.0 }, Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, { 0.0, 2, 0.0 }, 0.98);
 }
 
 

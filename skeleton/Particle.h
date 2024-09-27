@@ -22,8 +22,10 @@ public:
 
 	// Constructora de Particle con posicion y velocidad.
 	Particle(Vector3 _pos, Vector3 _vel);
+	// Constructora de particle con color, posicion y velocidad.
+	Particle(Vector4 _col, Vector3 _pos, Vector3 _vel);
 	// Constructora de Particle con posicion, velocidad y acceleracion.
-	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam);
+	Particle(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam);
 	// Destructora.
 	~Particle();
 
