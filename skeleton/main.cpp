@@ -9,6 +9,7 @@
 #include "callbacks.hpp"
 
 #include "Vector3D.h"
+#include "Particle.h"
 
 #include <iostream>
 
@@ -46,6 +47,10 @@ Vector4 sphereXColor(1.0, 0.0, 0.0, 1.0);
 Vector4 sphereYColor(0.0, 1.0, 0.0, 1.0);
 Vector4 sphereZColor(0.0, 0.0, 1.0, 1.0);
 
+//Particle P1:
+Particle* part;
+Particle* part2;
+
 // Initialize physics engine
 void initPhysics(bool interactive)
 {
@@ -79,6 +84,9 @@ void initPhysics(bool interactive)
 	xSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), xTransform, sphereXColor);
 	ySphere = new RenderItem(CreateShape(PxSphereGeometry(2)), yTransform, sphereYColor);
 	zSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), zTransform, sphereZColor);
+	// Particle P1:
+	part = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 });
+	part2 = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, { 0.0, 20, 0.0 });
 }
 
 
@@ -88,6 +96,10 @@ void initPhysics(bool interactive)
 void stepPhysics(bool interactive, double t)
 {
 	PX_UNUSED(interactive);
+
+	// Particle P1:
+	part->integrate(t);
+	part2->integrate(t);
 
 	gScene->simulate(t);
 	gScene->fetchResults(true);
@@ -115,6 +127,9 @@ void cleanupPhysics(bool interactive)
 	DeregisterRenderItem(xSphere);
 	DeregisterRenderItem(ySphere);
 	DeregisterRenderItem(zSphere);
+	// Particle P1:
+	delete part;
+	delete part2;
 }
 
 // Function called when a key is pressed
