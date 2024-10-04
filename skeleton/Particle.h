@@ -12,9 +12,9 @@ private:
 
 	Vector3 vel; // velocidad de la particaula.
 	physx::PxTransform pose; // Posicion de la particula. La pose tiene un Vector3 p y un cuaternion q.
-	RenderItem* renderItem; // Renderitem de la particula.
+	RenderItem* renderItem; // RenderItem de la particula.
 	Vector3 acc; // Acceleracion de la particula.
-	float damping;
+	float damping; // Damping para que la velocidad no crezca excesivamente.
 
 public:
 
@@ -34,14 +34,23 @@ public:
 
 	// Devuelve la velocidad.
 	Vector3 getVel() const { return vel; }
-	// devuelve la posicion (Vector3).
+	// Devuelve la posicion (Vector3).
 	Vector3 getPos() const { return pose.p; }
 	// Devuelve la aceleracion.
 	Vector3 getAcc() const { return acc; }
 	// Devuelve el dumping.
 	float getDamping() const { return damping; }
+	// Settea la velocidad.
+	void setVel(Vector3 _vel);
+	// Settea la posicion (Vector3).
+	void setPos(Vector3 _pos);
+	// Settea la aceleracion.
+	void setAcc(Vector3 _acc);
+	// Settea el dumping.
+	void setDamping(float _dam);
 	// Settea el color de la particula.
 	void setColor(float _r, float _g, float _b, float _w);
+
 
 	//------Metodos de movimiento:
 

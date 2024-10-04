@@ -10,6 +10,7 @@
 
 #include "Vector3D.h"
 #include "Particle.h"
+#include "Projectile.h"
 
 #include <iostream>
 
@@ -47,9 +48,13 @@ Vector4 sphereXColor(1.0, 0.0, 0.0, 1.0);
 Vector4 sphereYColor(0.0, 1.0, 0.0, 1.0);
 Vector4 sphereZColor(0.0, 0.0, 1.0, 1.0);
 
-//Particle P1:
+// Particle P1:
 Particle* part;
 Particle* part2;
+
+// Projectile P1:
+Projectile* pro;
+
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -85,8 +90,10 @@ void initPhysics(bool interactive)
 	ySphere = new RenderItem(CreateShape(PxSphereGeometry(2)), yTransform, sphereYColor);
 	zSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), zTransform, sphereZColor);
 	// Particle P1:
-	part = new Particle( Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 });
-	part2 = new Particle(Vector4{ 0.5, 1.0, 0.5, 1.0 }, Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, { 0.0, 2, 0.0 }, 0.98);
+	part = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 });
+	part2 = new Particle(Vector4{ 0.5, 1.0, 0.5, 1.0 }, Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, Vector3{ 0.0, 2, 0.0 }, 0.98);
+	// Projectile P1:
+	pro = new Projectile(Vector4{ 0.5, 1.0, 0.5, 1.0 }, Vector3{ 0, 0, 0 }, Vector3{ 0, 25, 25 }, Vector3{ 0.0, 0.0, 2.0 }, 0.98, 2.0, Vector3{ 0.0,-9.8,0.0 });
 }
 
 
@@ -100,6 +107,10 @@ void stepPhysics(bool interactive, double t)
 	// Particle P1:
 	part->integrate(t);
 	part2->integrate(t);
+
+
+	if (pro != nullptr) pro->integrate(t);
+	if (pro->getPos().y < 0) delete pro;
 
 	gScene->simulate(t);
 	gScene->fetchResults(true);
@@ -145,6 +156,9 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	{
 		break;
 	}
+	case 'P':
+
+		break;
 	default:
 		break;
 	}

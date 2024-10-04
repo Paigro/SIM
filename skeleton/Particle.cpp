@@ -1,16 +1,19 @@
 #include "Particle.h"
 
-Particle::Particle(Vector3 _pos, Vector3 _vel) : pose(_pos), vel(_vel), acc(0)
+Particle::Particle(Vector3 _pos, Vector3 _vel)
+	: pose(_pos), vel(_vel), acc(0)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, Vector4{ 1.0, 0.5, 0.0, 1.0 });
 }
 
-Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel) : pose(_pos), vel(_vel), acc(0)
+Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel)
+	: pose(_pos), vel(_vel), acc(0)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, _col);
 }
 
-Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam) : pose(_pos), vel(_vel), acc(_acc), damping(_dam)
+Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam)
+	: pose(_pos), vel(_vel), acc(_acc), damping(_dam)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, _col);
 }
@@ -18,6 +21,26 @@ Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float
 Particle::~Particle()
 {
 	DeregisterRenderItem(renderItem);
+}
+
+void Particle::setVel(Vector3 _pos)
+{
+	pose.p = _pos;
+}
+
+void Particle::setPos(Vector3 _vel)
+{
+	vel = _vel;
+}
+
+void Particle::setAcc(Vector3 _acc)
+{
+	acc = _acc;
+}
+
+void Particle::setDamping(float _dam)
+{
+	damping = _dam;
 }
 
 void Particle::setColor(float _r, float _g, float _b, float _w)
@@ -40,7 +63,6 @@ void Particle::integrate(float t)
 	{
 		pose.p += vel * t;
 	}
-
 }
 
 // integrate() con Euler: p += v * t; y v += a * t; cuando anyadamos las leyes de newton.
