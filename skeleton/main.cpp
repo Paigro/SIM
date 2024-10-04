@@ -11,6 +11,7 @@
 #include "Vector3D.h"
 #include "Particle.h"
 #include "Projectile.h"
+#include "Scene.h"
 
 #include <iostream>
 
@@ -110,7 +111,7 @@ void stepPhysics(bool interactive, double t)
 
 
 	if (pro != nullptr) pro->integrate(t);
-	if (pro->getPos().y < 0) delete pro;
+	if (pro->getPos().y < 0) delete pro; //Hacerlo dentro de integrate.
 
 	gScene->simulate(t);
 	gScene->fetchResults(true);

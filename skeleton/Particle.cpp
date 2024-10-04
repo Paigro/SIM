@@ -4,23 +4,26 @@ Particle::Particle(Vector3 _pos, Vector3 _vel)
 	: pose(_pos), vel(_vel), acc(0)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, Vector4{ 1.0, 0.5, 0.0, 1.0 });
+	RegisterRenderItem(renderItem);
 }
 
 Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel)
 	: pose(_pos), vel(_vel), acc(0)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, _col);
+	RegisterRenderItem(renderItem);
 }
 
 Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam)
 	: pose(_pos), vel(_vel), acc(_acc), damping(_dam)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, _col);
+	RegisterRenderItem(renderItem);
 }
 
 Particle::~Particle()
 {
-	DeregisterRenderItem(renderItem);
+	//DeregisterRenderItem(renderItem);
 }
 
 void Particle::setVel(Vector3 _pos)
