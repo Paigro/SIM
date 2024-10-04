@@ -56,6 +56,8 @@ Particle* part2;
 // Projectile P1:
 Projectile* pro;
 
+// Vector de escenas del juego.
+std::vector<Scene*> scenes;
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -109,6 +111,12 @@ void stepPhysics(bool interactive, double t)
 	part->integrate(t);
 	part2->integrate(t);
 
+	// Se llama al update de las escenas.
+	for (auto s : scenes)
+	{
+		s->update(t);
+	}
+
 
 	if (pro != nullptr) pro->integrate(t);
 	if (pro->getPos().y < 0) delete pro; //Hacerlo dentro de integrate.
@@ -157,7 +165,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	{
 		break;
 	}
-	case 'P':
+	case 'P': // Para disparar un proyectil.
 
 		break;
 	default:

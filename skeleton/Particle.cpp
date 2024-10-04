@@ -23,7 +23,7 @@ Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float
 
 Particle::~Particle()
 {
-	//DeregisterRenderItem(renderItem);
+	//DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error.
 }
 
 void Particle::setVel(Vector3 _pos)
@@ -56,9 +56,10 @@ void Particle::setColor(float _r, float _g, float _b, float _w)
 
 void Particle::integrate(float t)
 {
+	pose.p += vel * t;
+
 	if (acc.x != 0 || acc.y != 0 || acc.z != 0)
 	{
-		pose.p += vel * t;
 		vel += (acc * t);
 		vel *= pow(damping, t);
 	}

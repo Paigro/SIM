@@ -10,7 +10,7 @@ class Particle
 {
 private:
 
-	Vector3 vel; // velocidad de la particaula.
+	Vector3 vel; // velocidad de la particula.
 	physx::PxTransform pose; // Posicion de la particula. La pose tiene un Vector3 p y un cuaternion q.
 	RenderItem* renderItem; // RenderItem de la particula.
 	Vector3 acc; // Acceleracion de la particula.
