@@ -52,6 +52,12 @@ public:
 	void setColor(float _r, float _g, float _b, float _w);
 
 
+	//------
+
+	// Update de Particle
+	void update();
+
+
 	//------Metodos de movimiento:
 
 	// Integrate con Euler normal.

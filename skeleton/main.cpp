@@ -118,8 +118,15 @@ void stepPhysics(bool interactive, double t)
 	}
 
 
-	if (pro != nullptr) pro->integrate(t);
-	if (pro->getPos().y < 0) delete pro; //Hacerlo dentro de integrate.
+	if (pro != nullptr)
+	{
+		pro->integrate(t);
+		if (pro->getPos().y < 0) //Hacerlo dentro del integrate. 
+		{
+			delete pro; 
+			pro = nullptr;
+		}
+	}
 
 	gScene->simulate(t);
 	gScene->fetchResults(true);
