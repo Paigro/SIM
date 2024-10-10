@@ -8,17 +8,20 @@
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"
 
+#include <iostream>
+
+// Clases nuestras;
 #include "Vector3D.h"
 #include "Particle.h"
 #include "Projectile.h"
 #include "Scene.h"
 
-#include <iostream>
+
+using namespace physx;
+
 
 std::string display_text = "This is a test";
 
-
-using namespace physx;
 
 PxDefaultAllocator		gAllocator;
 PxDefaultErrorCallback	gErrorCallback;
@@ -49,15 +52,17 @@ Vector4 sphereXColor(1.0, 0.0, 0.0, 1.0);
 Vector4 sphereYColor(0.0, 1.0, 0.0, 1.0);
 Vector4 sphereZColor(0.0, 0.0, 1.0, 1.0);
 
-// Particle P1:
-Particle* part;
-Particle* part2;
+//------P1:
 
-// Projectile P1:
-Projectile* pro;
+Particle* part = nullptr;
+Particle* part2 = nullptr;
+Projectile* pro = nullptr;
 
-// Vector de escenas del juego.
-std::vector<Scene*> scenes;
+
+//------Scenes:
+
+std::vector<Scene*> scenes; // Vector de escenas del juego.
+Scene* scene = nullptr; // Primera escena de prueba.
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -92,11 +97,13 @@ void initPhysics(bool interactive)
 	xSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), xTransform, sphereXColor);
 	ySphere = new RenderItem(CreateShape(PxSphereGeometry(2)), yTransform, sphereYColor);
 	zSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), zTransform, sphereZColor);
-	// Particle P1:
-	part = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 });
-	part2 = new Particle(Vector4{ 0.5, 1.0, 0.5, 1.0 }, Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, Vector3{ 0.0, 2, 0.0 }, 0.98);
-	// Projectile P1:
-	pro = new Projectile(Vector4{ 0.5, 1.0, 0.5, 1.0 }, Vector3{ 0, 0, 0 }, Vector3{ 0, 25, 25 }, Vector3{ 0.0, 0.0, 2.0 }, 0.98, 2.0, Vector3{ 0.0,-9.8,0.0 });
+
+	scene = new Scene();
+	scenes.push_back(scene);
+
+	scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 }));
+	scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, Vector3{ 0.0, 4.0, 0.0 }, 0.98));
+	scene->addParticle(new Projectile(Vector3{ 0, 0, 0 }, Vector3{ 0, 25, 25 }, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0,-9.8,0.0 }));
 }
 
 
@@ -107,29 +114,14 @@ void stepPhysics(bool interactive, double t)
 {
 	PX_UNUSED(interactive);
 
-	// Particle P1:
-	part->integrate(t);
-	part2->integrate(t);
+	gScene->simulate(t);
+	gScene->fetchResults(true);
 
 	// Se llama al update de las escenas.
 	for (auto s : scenes)
 	{
 		s->update(t);
 	}
-
-
-	if (pro != nullptr)
-	{
-		pro->integrate(t);
-		if (pro->getPos().y < 0) //Hacerlo dentro del integrate. 
-		{
-			delete pro; 
-			pro = nullptr;
-		}
-	}
-
-	gScene->simulate(t);
-	gScene->fetchResults(true);
 }
 
 // Function to clean data
@@ -154,9 +146,6 @@ void cleanupPhysics(bool interactive)
 	DeregisterRenderItem(xSphere);
 	DeregisterRenderItem(ySphere);
 	DeregisterRenderItem(zSphere);
-	// Particle P1:
-	delete part;
-	delete part2;
 }
 
 // Function called when a key is pressed
@@ -173,7 +162,8 @@ void keyPress(unsigned char key, const PxTransform& camera)
 		break;
 	}
 	case 'P': // Para disparar un proyectil.
-
+		std::cout << "Disparo" << std::endl;
+		scene->addParticle(new Projectile(camera.p, camera.q.getBasisVector2()*-20, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0,-9.8,0.0 }));
 		break;
 	default:
 		break;

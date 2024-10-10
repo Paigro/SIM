@@ -3,13 +3,12 @@
 #include <vector>
 
 #include "Particle.h"
-#include "Projectile.h"
 
 class Scene
 {
 private:
 
-	std::vector<Particle*> particles; // Vector de particulas de la escena.
+	std::vector<Particle*> sParticles; // Vector de particulas de la escena.
 
 public:
 
@@ -21,10 +20,14 @@ public:
 	~Scene();
 
 
-	//------
+	//------Metodos de la escena.
 
 	// Update de Scene.
 	void update(float t);
 
-};
 
+	//------Metodos para meter cosas a la escena:
+
+	// Mete una particula.
+	void addParticle(Particle* par);
+};

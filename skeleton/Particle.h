@@ -16,17 +16,17 @@ private:
 	Vector3 acc; // Acceleracion de la particula.
 	float damping; // Damping para que la velocidad no crezca excesivamente.
 
+	bool isAlive = true; // Dice si la particula esta viva o muerta para eliminarse o no.
+
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora de Particle con posicion y velocidad.
 	Particle(Vector3 _pos, Vector3 _vel);
-	// Constructora de particle con color, posicion y velocidad.
-	Particle(Vector4 _col, Vector3 _pos, Vector3 _vel);
-	// Constructora de Particle con posicion, velocidad y acceleracion.
-	Particle(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam);
-	// Destructora.
+	// Constructora de Particle con posicion, velocidad, acceleracion y dumping.
+	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam);
+	// Destructora de Particle.
 	~Particle();
 
 
@@ -52,10 +52,12 @@ public:
 	void setColor(float _r, float _g, float _b, float _w);
 
 
-	//------
+	//------Metodos de la particula.
 
-	// Update de Particle
-	void update();
+	// Update de Particle.
+	virtual bool update(float t);
+	// Para saber si esta fuera de una region. Provisional
+	bool outOfBounds();
 
 
 	//------Metodos de movimiento:

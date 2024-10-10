@@ -7,23 +7,16 @@ Particle::Particle(Vector3 _pos, Vector3 _vel)
 	RegisterRenderItem(renderItem);
 }
 
-Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel)
-	: pose(_pos), vel(_vel), acc(0)
+Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam)
+	: Particle(_pos, _vel)
 {
-	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, _col);
-	RegisterRenderItem(renderItem);
-}
-
-Particle::Particle(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam)
-	: pose(_pos), vel(_vel), acc(_acc), damping(_dam)
-{
-	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, _col);
-	RegisterRenderItem(renderItem);
+	acc = _acc;
+	damping = _dam;
 }
 
 Particle::~Particle()
 {
-	//DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error.
+	//DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
 }
 
 void Particle::setVel(Vector3 _pos)
@@ -52,6 +45,27 @@ void Particle::setColor(float _r, float _g, float _b, float _w)
 	renderItem->color.y = _g;
 	renderItem->color.z = _b;
 	renderItem->color.w = _w;
+}
+
+bool Particle::update(float t)
+{
+	if (outOfBounds()) { isAlive = false; }
+	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
+
+	integrate(t); // Movimiento.
+
+	return true;
+}
+
+bool Particle::outOfBounds()
+{
+	// Para eliminar las particulas tras salir de una distancia.
+	if (pose.p.x > 100.0 || pose.p.y > 100.0 || pose.p.z > 100.0 ||
+		pose.p.x < -100.0 || pose.p.y < -100.0 || pose.p.z < -100.0)
+	{
+		return true;
+	}
+	return false;
 }
 
 void Particle::integrate(float t)

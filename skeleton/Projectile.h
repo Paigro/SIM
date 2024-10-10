@@ -15,12 +15,20 @@ public:
 
 	//------Constructoras y destructoras:
 
-	Projectile(Vector4 _col, Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, float _mas, Vector3 _gra);
+	Projectile(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, float _mas, Vector3 _gra);
 	~Projectile();
 
 
-	//------
-	void movement(float t);
+	//------Metodos del proyectil:
+
+	// 
+	//void 
+
+
+	//------Metodos heredados:
+
+	// Update de Projectile.
+	bool update(float t) override;
 
 };
 
