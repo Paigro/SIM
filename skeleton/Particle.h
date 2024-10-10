@@ -49,7 +49,7 @@ public:
 	// Settea el dumping.
 	void setDamping(float _dam);
 	// Settea el color de la particula.
-	void setColor(float _r, float _g, float _b, float _w);
+	void setColor(float _r, float _g, float _b, float _a);
 
 
 	//------Metodos de la particula.

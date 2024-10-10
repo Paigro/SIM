@@ -39,12 +39,12 @@ void Particle::setDamping(float _dam)
 	damping = _dam;
 }
 
-void Particle::setColor(float _r, float _g, float _b, float _w)
+void Particle::setColor(float _r, float _g, float _b, float _a)
 {
 	renderItem->color.x = _r;
 	renderItem->color.y = _g;
 	renderItem->color.z = _b;
-	renderItem->color.w = _w;
+	renderItem->color.w = _a;
 }
 
 bool Particle::update(float t)
