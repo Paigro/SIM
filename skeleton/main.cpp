@@ -163,7 +163,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	}
 	case 'P': // Para disparar un proyectil.
 		std::cout << "Disparo" << std::endl;
-		scene->addParticle(new Projectile(camera.p, camera.q.getBasisVector2() * -20, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0,-9.8,0.0 }));
+		scene->addParticle(new Projectile(GetCamera()->getTransform().p, GetCamera()->getTransform().q.getBasisVector2() * -20, Vector3{0.0, 0.0, 4.0}, 0.98, 2.0, Vector3{0.0,-9.8,0.0}));
 		break;
 	default:
 		break;

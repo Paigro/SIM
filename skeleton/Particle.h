@@ -17,6 +17,8 @@ private:
 	float damping; // Damping para que la velocidad no crezca excesivamente.
 
 	bool isAlive = true; // Dice si la particula esta viva o muerta para eliminarse o no.
+	float lifeTime; // Tiempo que va a vivir.
+	float timeAlive; // Tiempo que lleva vivo.
 
 public:
 
@@ -50,6 +52,8 @@ public:
 	void setDamping(float _dam);
 	// Settea el color de la particula.
 	void setColor(float _r, float _g, float _b, float _a);
+	// Settea el tiempo maxima de vida.
+	void seLifeTime(float t);
 
 
 	//------Metodos de la particula.
@@ -58,6 +62,8 @@ public:
 	virtual bool update(float t);
 	// Para saber si esta fuera de una region. Provisional
 	bool outOfBounds();
+	// Para saber si ya se ha pasado de tiempo de vida.
+	bool outOfTime(float t);
 
 
 	//------Metodos de movimiento:

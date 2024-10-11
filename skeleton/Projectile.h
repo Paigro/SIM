@@ -10,26 +10,20 @@ private:
 	float mass; // Masa del proyectil.
 	Vector3 gravity = { 0.0, -9.8, 0.0 }; // Gravedad que afecta al proyectil.
 
-
 public:
 
 	//------Constructoras y destructoras:
 
+	// Constructor de Projectile.
 	Projectile(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, float _mas, Vector3 _gra);
+	// Destructor de Projectile.
 	~Projectile();
-
-
-	//------Metodos del proyectil:
-
-	// 
-	//void 
 
 
 	//------Metodos heredados:
 
 	// Update de Projectile.
 	bool update(float t) override;
-
 };
 
 

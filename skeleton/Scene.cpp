@@ -12,20 +12,20 @@ Scene::~Scene()
 
 void Scene::update(float t)
 {
-    // Gestion de las particulas.
-    for (auto it = sParticles.begin(); it != sParticles.end(); )
-    {
-        Particle* p = *it;
-        if (!p->update(t))
-        {
-            delete p;
-            it = sParticles.erase(it);
-        }
-        else
-        {
-            ++it;
-        }
-    }
+	// Gestion de las particulas. PAIGRO AQUI.
+	for (auto it = sParticles.begin(); it != sParticles.end();)
+	{
+		Particle* p = *it;
+		if (!p->update(t))
+		{
+			delete p;
+			it = sParticles.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
 }
 
 void Scene::addParticle(Particle* par)

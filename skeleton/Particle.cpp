@@ -47,9 +47,14 @@ void Particle::setColor(float _r, float _g, float _b, float _a)
 	renderItem->color.w = _a;
 }
 
+void Particle::seLifeTime(float t)
+{
+	lifeTime = t;
+}
+
 bool Particle::update(float t)
 {
-	if (outOfBounds()) { isAlive = false; }
+	if (outOfBounds() || outOfTime(t)) { isAlive = false; }
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
 
 	integrate(t); // Movimiento.
@@ -62,6 +67,16 @@ bool Particle::outOfBounds()
 	// Para eliminar las particulas tras salir de una distancia.
 	if (pose.p.x > 100.0 || pose.p.y > 100.0 || pose.p.z > 100.0 ||
 		pose.p.x < -100.0 || pose.p.y < -100.0 || pose.p.z < -100.0)
+	{
+		return true;
+	}
+	return false;
+}
+
+bool Particle::outOfTime(float t)
+{
+	timeAlive += t;
+	if (timeAlive > lifeTime) 
 	{
 		return true;
 	}
