@@ -17,7 +17,8 @@ private:
 	Vector3 initPos; // Posicion inicial del sistema.
 	Vector3 initVel; // Velocidad inicial de las particulas.
 
-	
+	float timeToAppear; // Tiempo que tiene que pasar para que aparezca una particula.
+	float timerToAppear; // Contador para que aparezca una particula.
 
 public:
 
@@ -38,5 +39,5 @@ public:
 	//------Metodos del sistema de particulas:
 
 	// Genera particulas.
-	void generateParticles();
+	void generateParticles(Vector3 _pos);
 };

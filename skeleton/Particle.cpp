@@ -1,10 +1,15 @@
 #include "Particle.h"
 
+#include <iostream>
+
 Particle::Particle(Vector3 _pos, Vector3 _vel)
 	: pose(_pos), vel(_vel), acc(0)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, Vector4{ 1.0, 0.5, 0.0, 1.0 });
 	RegisterRenderItem(renderItem);
+	spaceToLive = { 100.0, 100.0, 100.0 };
+	lifeTime = 10.0;
+	timeAlive = 0.0;
 }
 
 Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam)
@@ -47,9 +52,14 @@ void Particle::setColor(float _r, float _g, float _b, float _a)
 	renderItem->color.w = _a;
 }
 
-void Particle::seLifeTime(float t)
+void Particle::seLifeTime(float _tim)
 {
-	lifeTime = t;
+	lifeTime = _tim;
+}
+
+void Particle::setSpaceToLive(Vector3 _spa)
+{
+	spaceToLive = _spa;
 }
 
 bool Particle::update(float t)
@@ -65,9 +75,10 @@ bool Particle::update(float t)
 bool Particle::outOfBounds()
 {
 	// Para eliminar las particulas tras salir de una distancia.
-	if (pose.p.x > 100.0 || pose.p.y > 100.0 || pose.p.z > 100.0 ||
-		pose.p.x < -100.0 || pose.p.y < -100.0 || pose.p.z < -100.0)
+	if (pose.p.x > spaceToLive.x || pose.p.y > spaceToLive.y || pose.p.z > spaceToLive.z ||
+		pose.p.x < -spaceToLive.x || pose.p.y < -spaceToLive.y || pose.p.z < -spaceToLive.z)
 	{
+		std::cout << "Particle out of bounds." << std::endl;
 		return true;
 	}
 	return false;
@@ -76,8 +87,10 @@ bool Particle::outOfBounds()
 bool Particle::outOfTime(float t)
 {
 	timeAlive += t;
-	if (timeAlive > lifeTime) 
+	if (timeAlive > lifeTime)
 	{
+		std::cout << "Particle out of time." << std::endl;
+		timeAlive = 0;
 		return true;
 	}
 	return false;

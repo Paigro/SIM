@@ -17,9 +17,10 @@ private:
 	float damping; // Damping para que la velocidad no crezca excesivamente.
 
 	bool isAlive = true; // Dice si la particula esta viva o muerta para eliminarse o no.
-	float lifeTime; // Tiempo que va a vivir.
-	float timeAlive; // Tiempo que lleva vivo.
+	float lifeTime=10.0; // Tiempo que va a vivir.
+	float timeAlive =0.0; // Tiempo que lleva vivo. Por defeto 10s.
 
+	Vector3 spaceToLive = { 100.0, 100.0, 100.0 }; // Cubo en el que puede estar las particulas. Por defecto (100.0, 100.0, 100.0).
 public:
 
 	//------Constructoras y destructoras:
@@ -54,6 +55,8 @@ public:
 	void setColor(float _r, float _g, float _b, float _a);
 	// Settea el tiempo maxima de vida.
 	void seLifeTime(float t);
+	// Settea el espacio vital de la particula.
+	void setSpaceToLive(Vector3 _spa);
 
 
 	//------Metodos de la particula.
