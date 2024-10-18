@@ -35,13 +35,7 @@ void ParticleSystem::update(float t)
 	if (timerToAppear >= timeToAppear)
 	{
 		timerToAppear = 0;
-		//for (auto p : vParticles)
-		//{
-			//if (p != nullptr)
-			//{
 		generateParticles(particleRef->getPos());
-		//}
-	//}
 	}
 	else
 	{
@@ -51,9 +45,9 @@ void ParticleSystem::update(float t)
 
 void ParticleSystem::generateParticles(Vector3 _pos)
 {
-	std::cout << "GENERA" << std::endl;
 	if (vParticles.size() < nParticles - 1)
 	{
-		vParticles.push_back(new Particle(_pos, initVel * 2, particleRef->getAcc(), particleRef->getDamping()));
+		//vParticles.push_back(new Particle(_pos, initVel * 2, particleRef->getAcc(), particleRef->getDamping()));
+		//std::cout << "GENERA" << std::endl;
 	}
 }

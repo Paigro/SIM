@@ -4,7 +4,7 @@
 
 #include "Particle.h"
 
-constexpr int MAX_PARTICLES = 200;
+//constexpr int MAX_PARTICLES = 200;
 
 class ParticleSystem
 {
@@ -32,7 +32,7 @@ public:
 
 	//------Metodos de ParticleSystem:
 
-	// Update de Particlesystem.
+	// Update de ParticleSystem.
 	void update(float t);
 
 

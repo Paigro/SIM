@@ -21,7 +21,7 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam)
 
 Particle::~Particle()
 {
-	//DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
+	DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
 }
 
 void Particle::setVel(Vector3 _pos)
@@ -64,7 +64,7 @@ void Particle::setSpaceToLive(Vector3 _spa)
 
 bool Particle::update(float t)
 {
-	if (outOfBounds() || outOfTime(t)) { isAlive = false; }
+	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; }
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
 
 	integrate(t); // Movimiento.
