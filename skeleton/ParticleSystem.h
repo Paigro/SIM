@@ -2,42 +2,41 @@
 
 #include <vector>
 
-#include "Particle.h"
+#include "Projectile.h"
+#include "ParticleGenerator.h"
+#include "FountainGenerator.h"
 
-//constexpr int MAX_PARTICLES = 200;
 
 class ParticleSystem
 {
 private:
 
-	Particle* particleRef = nullptr; // Particula referencia para que sean todas iguales.
-	std::vector<Particle*> vParticles; // Vector de particulas del sistema de particulos.
+	std::vector<Projectile*> vParticles; // Vector de particulas del sistema de particulas.
+	std::vector<Projectile*> particlesGenerated; // Vector de particulas del generador de particulas.
 
-	int nParticles; // Particulas que genera en cada iteracion.
-	Vector3 initPos; // Posicion inicial del sistema.
-	Vector3 initVel; // Velocidad inicial de las particulas.
+	int maxParticles; // MAximo de particulas
+	Vector3 initPos; // 
+	Vector3 initVel; // 
 
-	float timeToAppear; // Tiempo que tiene que pasar para que aparezca una particula.
-	float timerToAppear; // Contador para que aparezca una particula.
+	float timeToLive; // 
+	float timeAlive; // 
+
+	ParticleGenerator* generator = nullptr;
+
+	char type; // Tipo de sistema de particulas.
 
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora de ParticleSystem.
-	ParticleSystem(Particle* pRef, Vector3 iPos, Vector3 iVel, int nPar);
-	// Constructora de ParticleSystem.
+	ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, char typ);
+	// Destructora de ParticleSystem.
 	~ParticleSystem();
 
 
 	//------Metodos de ParticleSystem:
 
 	// Update de ParticleSystem.
-	void update(float t);
-
-
-	//------Metodos del sistema de particulas:
-
-	// Genera particulas.
-	void generateParticles(Vector3 _pos);
+	bool update(float t);
 };

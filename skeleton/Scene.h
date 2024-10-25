@@ -4,12 +4,15 @@
 #include <vector>
 
 #include "Particle.h"
+#include "ParticleSystem.h"
+
 
 class Scene
 {
 private:
 
 	std::vector<Particle*> sParticles; // Vector de particulas de la escena.
+	std::vector<ParticleSystem*> sParticleSystems; // Vector de sistemas de particulas de la escena.
 
 public:
 
@@ -31,4 +34,6 @@ public:
 
 	// Mete una particula.
 	void addParticle(Particle* par);
+	// Mete un sitema de particulas.
+	void addParticleSystem(ParticleSystem* parSys);
 };

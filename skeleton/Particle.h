@@ -6,6 +6,7 @@
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"
 
+
 class Particle
 {
 private:
@@ -17,8 +18,8 @@ private:
 	float damping; // Damping para que la velocidad no crezca excesivamente.
 
 	bool isAlive = true; // Dice si la particula esta viva o muerta para eliminarse o no.
-	float lifeTime=10.0; // Tiempo que va a vivir.
-	float timeAlive =0.0; // Tiempo que lleva vivo. Por defeto 10s.
+	float lifeTime = 10.0; // Tiempo que va a vivir.
+	float timeAlive = 0.0; // Tiempo que lleva vivo. Por defeto 10s.
 
 	Vector3 spaceToLive = { 100.0, 100.0, 100.0 }; // Cubo en el que puede estar las particulas. Por defecto (100.0, 100.0, 100.0).
 public:
@@ -26,9 +27,9 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de Particle con posicion y velocidad.
-	Particle(Vector3 _pos, Vector3 _vel);
+	Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz);
 	// Constructora de Particle con posicion, velocidad, acceleracion y dumping.
-	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam);
+	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col,float _siz);
 	// Destructora de Particle.
 	~Particle();
 

@@ -65,9 +65,6 @@ Projectile* pro = nullptr;
 std::vector<Scene*> scenes; // Vector de escenas del juego.
 Scene* scene = nullptr; // Primera escena de prueba.
 
-// Particle System P2:
-ParticleSystem* parSys = nullptr;
-
 // Initialize physics engine
 void initPhysics(bool interactive)
 {
@@ -105,12 +102,11 @@ void initPhysics(bool interactive)
 	scene = new Scene();
 	scenes.push_back(scene);
 
-	scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 }));
-	scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, Vector3{ 0.0, 4.0, 0.0 }, 0.98));
-	scene->addParticle(new Projectile(Vector3{ 0, 0, 0 }, Vector3{ 0, 25, 25 }, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0,-9.8,0.0 }));
+	scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 }, { 1.0,0.5,0.0,1.0 }, 2));
+	scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, Vector3{ 0.0, 4.0, 0.0 }, 0.98, { 1.0, 0.5, 0.0, 1.0 }, 2));
+	scene->addParticle(new Projectile(Vector3{ 0, 0, 0 }, Vector3{ 0, 25, 25 }, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 2));
 
-	// Particle System P2:
-	parSys = new ParticleSystem(new Particle(Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 4), 0.98), Vector3(0, 1, 0.5), Vector3(), 200);
+	scene->addParticleSystem(new ParticleSystem(Vector3{ 0, 0, 0 }, Vector3{ 0, 30, 0 }, 200, 10, 'F'));
 }
 
 
@@ -129,8 +125,6 @@ void stepPhysics(bool interactive, double t)
 	{
 		s->update(t);
 	}
-	// Particle System P2:
-	parSys->update(t);
 }
 
 // Function to clean data
@@ -155,9 +149,6 @@ void cleanupPhysics(bool interactive)
 	DeregisterRenderItem(xSphere);
 	DeregisterRenderItem(ySphere);
 	DeregisterRenderItem(zSphere);
-
-	// Particle System P2:
-
 }
 
 // Function called when a key is pressed
@@ -175,7 +166,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	}
 	case 'P': // Para disparar un proyectil.
 		std::cout << "Disparo" << std::endl;
-		scene->addParticle(new Projectile(GetCamera()->getTransform().p, GetCamera()->getTransform().q.getBasisVector2() * -20, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0,-9.8,0.0 }));
+		scene->addParticle(new Projectile(GetCamera()->getTransform().p, GetCamera()->getTransform().q.getBasisVector2() * -20, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0,-9.8,0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 1));
 		break;
 	default:
 		break;

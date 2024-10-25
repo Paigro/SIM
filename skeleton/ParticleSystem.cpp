@@ -2,22 +2,57 @@
 
 #include <iostream>
 
-ParticleSystem::ParticleSystem(Particle* pRef, Vector3 iPos, Vector3 iVel, int nPar)
-	: particleRef(pRef), initPos(iPos), initVel(iVel), nParticles(nPar)
+
+ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, char typ)
+	: initPos(pos), initVel(vel), maxParticles(maxPar), timeToLive(tim), type(typ)
 {
-	timeToAppear = 1.0;
-	timerToAppear = 0.0;
-	vParticles.push_back(particleRef);
+	switch (toupper(type))
+	{
+	case 'F': // Fuente.
+		generator = new FountainGenerator(initPos, initVel, maxParticles, 1.0, 5.0);
+		break;
+	case 'N': // Niebla.
+
+		break;
+	case 'C': // Confeti.
+
+		break;
+	case 'W': // OPCIONAL: fuego artificial. W de fireWork... :)
+
+		break;
+	default:
+		break;
+	}
+	std::cout << "//------NUEVO SISTEMA DE PARTICULAS DE TIPO: " << type << std::endl;
 }
 
 ParticleSystem::~ParticleSystem()
 {
-	delete particleRef;
-	particleRef = nullptr;
+	for (Projectile* p : vParticles)
+	{
+		delete p;
+	}
+	vParticles.clear();
 }
 
-void ParticleSystem::update(float t)
+bool ParticleSystem::update(float t)
 {
+	// Actualizacion del tiempo de vida del sistema.
+	timeAlive += t;
+	if (timeAlive >= timeToLive)
+	{
+		std::cout << "//------MUERTE SISTEMA DE PARTICULAS DE TIPO: " << type << std::endl;
+		return false;
+	}
+
+	// Generamos particulas.
+	particlesGenerated = generator->CreateParticles(vParticles.size(), maxParticles);
+
+	for (int i = 0; i < particlesGenerated.size(); i++)
+	{
+		vParticles.push_back(particlesGenerated[i]);
+	}
+
 	// Gestion de las particulas. PAIGRO AQUI.
 	for (auto it = vParticles.begin(); it != vParticles.end();)
 	{
@@ -32,22 +67,5 @@ void ParticleSystem::update(float t)
 			++it;
 		}
 	}
-	if (timerToAppear >= timeToAppear)
-	{
-		timerToAppear = 0;
-		generateParticles(particleRef->getPos());
-	}
-	else
-	{
-		timerToAppear += t;
-	}
-}
-
-void ParticleSystem::generateParticles(Vector3 _pos)
-{
-	if (vParticles.size() < nParticles - 1)
-	{
-		//vParticles.push_back(new Particle(_pos, initVel * 2, particleRef->getAcc(), particleRef->getDamping()));
-		//std::cout << "GENERA" << std::endl;
-	}
+	return true;
 }

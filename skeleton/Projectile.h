@@ -15,7 +15,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructor de Projectile.
-	Projectile(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, float _mas, Vector3 _gra);
+	Projectile(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, float _mas, Vector3 _gra, Vector4 _col, float _siz);
 	// Destructor de Projectile.
 	~Projectile();
 

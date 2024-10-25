@@ -2,18 +2,19 @@
 
 #include <iostream>
 
-Particle::Particle(Vector3 _pos, Vector3 _vel)
+
+Particle::Particle(Vector3 _pos, Vector3 _vel,  Vector4 _col, float _siz)
 	: pose(_pos), vel(_vel), acc(0)
 {
-	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(2)), &pose, Vector4{ 1.0, 0.5, 0.0, 1.0 });
+	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(_siz)), &pose, _col);
 	RegisterRenderItem(renderItem);
 	spaceToLive = { 100.0, 100.0, 100.0 };
 	lifeTime = 10.0;
 	timeAlive = 0.0;
 }
 
-Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam)
-	: Particle(_pos, _vel)
+Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam,  Vector4 _col, float _siz)
+	: Particle(_pos, _vel,_col,_siz)
 {
 	acc = _acc;
 	damping = _dam;
@@ -78,7 +79,7 @@ bool Particle::outOfBounds()
 	if (pose.p.x > spaceToLive.x || pose.p.y > spaceToLive.y || pose.p.z > spaceToLive.z ||
 		pose.p.x < -spaceToLive.x || pose.p.y < -spaceToLive.y || pose.p.z < -spaceToLive.z)
 	{
-		std::cout << "Particle out of bounds." << std::endl;
+		//std::cout << "//--Particle out of bounds." << std::endl;
 		return true;
 	}
 	return false;
@@ -89,7 +90,7 @@ bool Particle::outOfTime(float t)
 	timeAlive += t;
 	if (timeAlive > lifeTime)
 	{
-		std::cout << "Particle out of time." << std::endl;
+		//std::cout << "//--Particle out of time." << std::endl;
 		timeAlive = 0;
 		return true;
 	}
