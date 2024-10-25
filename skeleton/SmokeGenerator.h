@@ -3,7 +3,7 @@
 #include "ParticleGenerator.h"
 
 
-class FountainGenerator : public ParticleGenerator
+class SmokeGenerator : public ParticleGenerator
 {
 private:
 
@@ -14,10 +14,10 @@ public:
 
 	//------Constructoras y destructoras:
 
-	// Constructora de FountainGenerator.
-	FountainGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT);
-	// Destructora de FountainGenerator.
-	~FountainGenerator();
+	// Constructora de SmokeGenerator.
+	SmokeGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT);
+	// Destructora de SmokeGenerator.
+	~SmokeGenerator();
 
 
 	//------Metodos heredados:

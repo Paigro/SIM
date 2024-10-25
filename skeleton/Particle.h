@@ -22,13 +22,24 @@ private:
 	float timeAlive = 0.0; // Tiempo que lleva vivo. Por defeto 10s.
 
 	Vector3 spaceToLive = { 100.0, 100.0, 100.0 }; // Cubo en el que puede estar las particulas. Por defecto (100.0, 100.0, 100.0).
+
+
+	//--------------------------------------------------------------------------------------------------------------------------------------------------//
+	//--------------------------------------------------------------------------------------------------------------------------------------------------//
+	//--------------------------------------------------------------------------------------------------------------------------------------------------//
+	// PAIGRO AQUI: meter un metodo que sea dieFor(bool byTime, bool byPos), que por defecto se pueda morir por tiempo pero que se pueda elegir, etc... //
+	//--------------------------------------------------------------------------------------------------------------------------------------------------//
+	//--------------------------------------------------------------------------------------------------------------------------------------------------//
+	//--------------------------------------------------------------------------------------------------------------------------------------------------//
+
+
 public:
 
 	//------Constructoras y destructoras:
 
-	// Constructora de Particle con posicion y velocidad.
+	// Constructora de Particle con posicion, velocidad, color y tamanyo.
 	Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz);
-	// Constructora de Particle con posicion, velocidad, acceleracion y dumping.
+	// Constructora de Particle con posicion, velocidad, acceleracion, dumping, color y tamanyo.
 	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col,float _siz);
 	// Destructora de Particle.
 	~Particle();

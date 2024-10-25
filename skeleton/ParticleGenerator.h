@@ -37,6 +37,6 @@ public:
 
 	//------Metodos virtuales:
 
-	//
+	// Genera particulas con la diferencia entra las particulas activas y el maximo, las mete a un vector y lo devuelve.
 	virtual std::vector<Projectile*> CreateParticles(int actP, int maxP) = 0;
 };

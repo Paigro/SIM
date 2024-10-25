@@ -9,10 +9,10 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 	switch (toupper(type))
 	{
 	case 'F': // Fuente.
-		generator = new FountainGenerator(initPos, initVel, maxParticles, 1.0, 5.0);
+		generator = new FountainGenerator(initPos, initVel, maxParticles, 2.0, 6.0);
 		break;
-	case 'N': // Niebla.
-
+	case 'S': // Humo.
+		generator = new SmokeGenerator(initPos, initVel, maxParticles, 4.0, 8.0);
 		break;
 	case 'C': // Confeti.
 
