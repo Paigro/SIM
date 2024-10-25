@@ -122,7 +122,7 @@ void Particle::integrateEuler(float t)
 		vel += (acc * t);
 		vel *= pow(damping, t);
 	}
-	else
+	else // PAIGRO AQUI: corregir.
 	{
 		pose.p += vel * t;
 	}

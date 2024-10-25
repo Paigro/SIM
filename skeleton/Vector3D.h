@@ -96,7 +96,7 @@ public:
 	{
 		return x * _vec.x + y * _vec.y + z * _vec.z;
 	};
-	// productor vectorial de 2 vectores.
+	// Producto vectorial de 2 vectores.
 	Vector3D vectorialMultiply(const Vector3D& _vec) const
 	{
 		return Vector3D{
