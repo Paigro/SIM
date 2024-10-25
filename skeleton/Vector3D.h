@@ -13,15 +13,15 @@ public:
 
 	//------Constructoras y destructoras:
 
-	// Constructora por defecto: pone todas las coordenadas a 0.
+	// Constructora de Vector3D por defecto: pone todas las coordenadas a 0.
 	Vector3D()
 		: x(0), y(0), z(0)
 	{};
-	// Constructora con valores: asigna los valores dados a las coordenadas.
+	// Constructora de Vector3D con valores: asigna los valores dados a las coordenadas.
 	Vector3D(float _x, float _y, float _z)
 		: x(_x), y(_y), z(_z)
 	{};
-	// Destructora.
+	// Destructora de Vector3D .
 	//~Vector3D();
 
 

@@ -16,14 +16,16 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 		break;
 	case 'R': // LLuvia.
 		// PAIGRO AQUI: TODO
+	case 'N': // Niebla.
+		// PAIGRO AQUI: TODO
 		break;
 	case 'W': // OPCIONAL: fuego artificial. W de fireWork... :)
-		generator = new FireworkGenerator(initPos, initVel, maxParticles, 1.0, 2.0, 50);
+		generator = new FireworkGenerator(initPos, initVel, maxParticles, 4.0, 4.0, 50);
 		break;
 	default:
 		break;
 	}
-	std::cout << "//----MENSAJE: nuevo sistema de particulas de tipo: " << type << std::endl;
+	std::cout << "//--MENSAJE: nuevo sistema de particulas de tipo: " << type << std::endl;
 }
 
 ParticleSystem::~ParticleSystem()
@@ -49,7 +51,7 @@ bool ParticleSystem::update(float t)
 	timeAlive += t;
 	if (timeAlive >= timeToLive)
 	{
-		std::cout << "//----MENSAJE: muerte de sistema de particulas de tipo: " << type << std::endl;
+		std::cout << "//--MENSAJE: muerte de sistema de particulas de tipo: " << type << std::endl;
 		return false;
 	}
 

@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-Particle::Particle(Vector3 _pos, Vector3 _vel,  Vector4 _col, float _siz)
+Particle::Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz)
 	: pose(_pos), vel(_vel), acc(0)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(_siz)), &pose, _col);
@@ -13,8 +13,8 @@ Particle::Particle(Vector3 _pos, Vector3 _vel,  Vector4 _col, float _siz)
 	timeAlive = 0.0;
 }
 
-Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam,  Vector4 _col, float _siz)
-	: Particle(_pos, _vel,_col,_siz)
+Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col, float _siz)
+	: Particle(_pos, _vel, _col, _siz)
 {
 	acc = _acc;
 	damping = _dam;
@@ -66,6 +66,17 @@ void Particle::setSpaceToLive(Vector3 _spa)
 void Particle::setHowToDie(bool byTime, bool bySpace)
 {
 	std::cout << "//--AVISO: en proceso." << std::endl;
+	// Para que no pueda no morir.
+	if (byTime == false && bySpace == false)
+	{
+		canDieBySpace = true;
+		canDieBySpace = false;
+	}
+	else
+	{
+		canDieByTime = byTime;
+		canDieBySpace = bySpace;
+	}
 }
 
 bool Particle::update(float t)
@@ -73,7 +84,7 @@ bool Particle::update(float t)
 	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; }
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
 
-	integrate(t); // Movimiento.
+	integrateEuler(t); // Movimiento.
 
 	return true;
 }
@@ -81,10 +92,10 @@ bool Particle::update(float t)
 bool Particle::outOfBounds()
 {
 	// Para eliminar las particulas tras salir de una distancia.
-	if (pose.p.x > spaceToLive.x || pose.p.y > spaceToLive.y || pose.p.z > spaceToLive.z ||
-		pose.p.x < -spaceToLive.x || pose.p.y < -spaceToLive.y || pose.p.z < -spaceToLive.z)
+	if (pose.p.x > initPos.x + spaceToLive.x || pose.p.y > initPos.y + spaceToLive.y || pose.p.z > initPos.z + spaceToLive.z ||
+		pose.p.x < initPos.x - spaceToLive.x || pose.p.y < initPos.y - spaceToLive.y || pose.p.z < initPos.z - spaceToLive.z)
 	{
-		//std::cout << "//----MENSAJE: Particle out of bounds." << std::endl;
+		//std::cout << "//--MENSAJE: Particle out of bounds." << std::endl;
 		return true;
 	}
 	return false;
@@ -95,14 +106,14 @@ bool Particle::outOfTime(float t)
 	timeAlive += t;
 	if (timeAlive > lifeTime)
 	{
-		//std::cout << "//----MENSAJE: Particle out of time." << std::endl;
+		//std::cout << "//--MENSAJE: Particle out of time." << std::endl;
 		timeAlive = 0;
 		return true;
 	}
 	return false;
 }
 
-void Particle::integrate(float t)
+void Particle::integrateEuler(float t)
 {
 	pose.p += vel * t;
 
@@ -115,6 +126,11 @@ void Particle::integrate(float t)
 	{
 		pose.p += vel * t;
 	}
+}
+
+void Particle::integrateEulerSemiImplicit(float t)
+{
+	std::cout << "//----AVISO: en proceso." << std::endl;
 }
 
 // integrate() con Euler: p += v * t; y v += a * t; cuando anyadamos las leyes de newton.

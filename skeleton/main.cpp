@@ -113,8 +113,9 @@ void initPhysics(bool interactive)
 	// PAIGRO AQUI: pora alguna razon varios a la vez se empiezan a rallar y generar las particulas entre ellos y se mezclan y hacen cosas raras...     //
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
+
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -50 }, Vector3{ 0, 30, 0 }, 200, 10, 'F'));
-	scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
+	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, 0.0 }, Vector3{ 0, 30, 0 }, 200, 10, 'W'));
 }
 

@@ -101,5 +101,14 @@ public:
 	//------Metodos de movimiento:
 
 	// Integrate con Euler normal.
-	void integrate(float t);
+	void integrateEuler(float t);
+	void integrateEulerSemiImplicit(float t);
+
+
+	//------Metodos de fuerzas:
+
+	//
+	void addForce();
+	//
+	void clearForce();
 };
