@@ -63,6 +63,11 @@ void Particle::setSpaceToLive(Vector3 _spa)
 	spaceToLive = _spa;
 }
 
+void Particle::setHowToDie(bool byTime, bool bySpace)
+{
+	std::cout << "//--AVISO: en proceso." << std::endl;
+}
+
 bool Particle::update(float t)
 {
 	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; }

@@ -11,18 +11,30 @@ class Particle
 {
 private:
 
-	Vector3 vel; // velocidad de la particula.
+	//------Posicion y lo que le afecta:
+
 	physx::PxTransform pose; // Posicion de la particula. La pose tiene un Vector3 p y un cuaternion q.
-	RenderItem* renderItem; // RenderItem de la particula.
+	Vector3 initPos; // Posicion inicial de la particula para calcular su espacio vital si es necesario.
+	Vector3 vel; // Velocidad de la particula.
 	Vector3 acc; // Acceleracion de la particula.
 	float damping; // Damping para que la velocidad no crezca excesivamente.
+	float mass; // Masa de la particula.
+	Vector3 accF; // Fuerzas acumuladas en un momento. Se tiene que borrar en cada ciclo del motor.
 
+
+	//------Render Item:
+
+	RenderItem* renderItem; // RenderItem de la particula.
+
+
+	//------Vida de la particula:
+
+	bool canDieByTime; // Si la particula puede morir por tiempo.
+	bool canDieBySpace; // Si la particula puede morir por espacio donde se este.
 	bool isAlive = true; // Dice si la particula esta viva o muerta para eliminarse o no.
 	float lifeTime = 10.0; // Tiempo que va a vivir.
 	float timeAlive = 0.0; // Tiempo que lleva vivo. Por defeto 10s.
-
 	Vector3 spaceToLive = { 100.0, 100.0, 100.0 }; // Cubo en el que puede estar las particulas. Por defecto (100.0, 100.0, 100.0).
-
 
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
@@ -31,7 +43,8 @@ private:
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
-
+	// PAIGRO AQUI:La masa viene aqui. Tiene qye tener una acumulacion de fuerzas (accF) para que cuando haga el integrate() haga a = acc/masa.
+	// despues del integrate() se limpian las fuerzas. Force generator con update con la ecuacion.
 
 public:
 
@@ -40,7 +53,7 @@ public:
 	// Constructora de Particle con posicion, velocidad, color y tamanyo.
 	Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz);
 	// Constructora de Particle con posicion, velocidad, acceleracion, dumping, color y tamanyo.
-	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col,float _siz);
+	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col, float _siz);
 	// Destructora de Particle.
 	~Particle();
 
@@ -69,6 +82,10 @@ public:
 	void setLifeTime(float t);
 	// Settea el espacio vital de la particula.
 	void setSpaceToLive(Vector3 _spa);
+	// Settea como puede morir una particula. Por defecto es por tiempo.
+	// Si se pasan dos false se deja como por defecto a true el de tiempo.
+	// En proceso
+	void setHowToDie(bool byTime, bool bySpace);
 
 
 	//------Metodos de la particula.
