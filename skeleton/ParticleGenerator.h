@@ -21,7 +21,7 @@ protected:
 
 	int nParticles; // Numero de particulas.
 
-	std::default_random_engine randomGenerator; // Generador de randoms del generador de particulas..
+	std::default_random_engine randomGenerator; // Generador de randoms del generador de particulas.
 
 	Particle* orParticle = nullptr; // Particula de origen de donde saldran el resto.
 

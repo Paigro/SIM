@@ -66,7 +66,7 @@ public:
 	// Settea el color de la particula.
 	void setColor(float _r, float _g, float _b, float _a);
 	// Settea el tiempo maxima de vida.
-	void seLifeTime(float t);
+	void setLifeTime(float t);
 	// Settea el espacio vital de la particula.
 	void setSpaceToLive(Vector3 _spa);
 

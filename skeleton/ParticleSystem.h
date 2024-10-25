@@ -6,6 +6,7 @@
 #include "ParticleGenerator.h"
 #include "FountainGenerator.h"
 #include "SmokeGenerator.h"
+#include "FireworkGenerator.h"
 
 
 class ParticleSystem

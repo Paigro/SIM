@@ -4,7 +4,7 @@
 
 
 ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, char typ)
-	: initPos(pos), initVel(vel), maxParticles(maxPar), timeToLive(tim), type(typ)
+	: initPos(pos), initVel(vel), maxParticles(maxPar), timeToLive(tim), type(typ), timeAlive(0)
 {
 	switch (toupper(type))
 	{
@@ -14,16 +14,16 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 	case 'S': // Humo.
 		generator = new SmokeGenerator(initPos, initVel, maxParticles, 4.0, 8.0);
 		break;
-	case 'C': // Confeti.
-
+	case 'R': // LLuvia.
+		// PAIGRO AQUI: TODO
 		break;
 	case 'W': // OPCIONAL: fuego artificial. W de fireWork... :)
-
+		generator = new FireworkGenerator(initPos, initVel, maxParticles, 1.0, 2.0, 50);
 		break;
 	default:
 		break;
 	}
-	std::cout << "//------NUEVO SISTEMA DE PARTICULAS DE TIPO: " << type << std::endl;
+	std::cout << "//----MENSAJE: nuevo sistema de particulas de tipo: " << type << std::endl;
 }
 
 ParticleSystem::~ParticleSystem()
@@ -37,11 +37,19 @@ ParticleSystem::~ParticleSystem()
 
 bool ParticleSystem::update(float t)
 {
+	// Por si acaso.
+	if (generator == nullptr)
+	{
+		std::cout << "//------ERROR: Sitema de particulas de tipo " << type << " no tiene generador." << std::endl;
+		return false;
+	}
+
+
 	// Actualizacion del tiempo de vida del sistema.
 	timeAlive += t;
 	if (timeAlive >= timeToLive)
 	{
-		std::cout << "//------MUERTE SISTEMA DE PARTICULAS DE TIPO: " << type << std::endl;
+		std::cout << "//----MENSAJE: muerte de sistema de particulas de tipo: " << type << std::endl;
 		return false;
 	}
 

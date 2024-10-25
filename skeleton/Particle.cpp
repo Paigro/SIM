@@ -53,7 +53,7 @@ void Particle::setColor(float _r, float _g, float _b, float _a)
 	renderItem->color.w = _a;
 }
 
-void Particle::seLifeTime(float _tim)
+void Particle::setLifeTime(float _tim)
 {
 	lifeTime = _tim;
 }
@@ -79,7 +79,7 @@ bool Particle::outOfBounds()
 	if (pose.p.x > spaceToLive.x || pose.p.y > spaceToLive.y || pose.p.z > spaceToLive.z ||
 		pose.p.x < -spaceToLive.x || pose.p.y < -spaceToLive.y || pose.p.z < -spaceToLive.z)
 	{
-		//std::cout << "//--Particle out of bounds." << std::endl;
+		//std::cout << "//----MENSAJE: Particle out of bounds." << std::endl;
 		return true;
 	}
 	return false;
@@ -90,7 +90,7 @@ bool Particle::outOfTime(float t)
 	timeAlive += t;
 	if (timeAlive > lifeTime)
 	{
-		//std::cout << "//--Particle out of time." << std::endl;
+		//std::cout << "//----MENSAJE: Particle out of time." << std::endl;
 		timeAlive = 0;
 		return true;
 	}
