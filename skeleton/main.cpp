@@ -109,13 +109,14 @@ void initPhysics(bool interactive)
 	//scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 }, { 1.0, 0.5, 0.0, 1.0 }, 4));
 	//scene->addParticle(new Projectile(Vector3{ 0, 0, 0 }, Vector3{ 0, 25, 25 }, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 2));
 	part = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, Vector3{ 0.0, 2.0, 0.0 }, 1, Vector4{ 1.0, 0.5, 0.0, 1.0 }, 4, 5.0);
+	part->addForce(Vector3{ 0.0, 2.0, 3.0 });
 	part->addForce(Vector3{ 0.0, -9.8, 0.0 });
-	part->setMass(2.0);
+	part->setMass(2);
 
 	// P2:
 
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -50 }, Vector3{ 0, 30, 0 }, 200, 10, 'F'));
-	scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
+	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, 0.0 }, Vector3{ 0, 30, 0 }, 200, 10, 'W'));
 }
 

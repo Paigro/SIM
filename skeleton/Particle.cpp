@@ -8,7 +8,7 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(_siz)), &pose, _col);
 	spaceToLive = { 100.0, 100.0, 100.0 };
-	lifeTime = 2.0;
+	lifeTime = 10.0;
 	timeAlive = 0.0;
 	accF = { 0, 0, 0 };
 }
@@ -28,8 +28,11 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4
 
 Particle::~Particle()
 {
+
 	DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
 }
+
+#pragma region sets:
 
 void Particle::setVel(Vector3 _pos)
 {
@@ -85,11 +88,15 @@ void Particle::setHowToDie(bool byTime, bool bySpace)
 	}
 }
 
+#pragma endregion
+
+#pragma region update:
+
 bool Particle::update(float t)
 {
 	//std::cout << " Pos: x: " << pose.p.x << " y: " << pose.p.y << " z: " << pose.p.z << std::endl;
 	//std::cout << " Acc: x: " << acc.x << " y: " << acc.y << " z: " << acc.z << std::endl;
-	//std::cout << "Time Alive: " << timeAlive << std::endl;
+	std::cout << "Time Alive: " << timeAlive << std::endl;
 
 	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; }
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
@@ -98,8 +105,14 @@ bool Particle::update(float t)
 
 	integrateEuler(t); // Movimiento.
 
+	clearForce(); // Eliminamos las fuerzas.
+
 	return true;
 }
+
+#pragma endregion
+
+#pragma region comprobaciones de muerte:
 
 bool Particle::outOfBounds()
 {
@@ -125,20 +138,12 @@ bool Particle::outOfTime(float t)
 	return false;
 }
 
+#pragma endregion
+
+#pragma region integradores:
+
 void Particle::integrateEuler(float t)
 {
-	//pose.p += vel * t;
-
-	/*if (acc.x != 0 || acc.y != 0 || acc.z != 0)
-	{
-		vel += (acc * t);
-		vel *= pow(damping, t);
-	}
-	else // PAIGRO AQUI: corregir.
-	{
-		pose.p += vel * t;
-	}*/
-	//std::cout << acc.x << acc.y << acc.z << std::endl;
 	pose.p = pose.p + t * vel;
 	vel = vel + t * acc;
 	vel = vel * pow(damping, t);
@@ -146,11 +151,14 @@ void Particle::integrateEuler(float t)
 
 void Particle::integrateEulerSemiImplicit(float t)
 {
-	//std::cout << "//----AVISO: en proceso." << std::endl;
 	vel = vel + t * acc;
-	vel = vel * pow(damping, t);
 	pose.p = pose.p + t * vel;
+	vel = vel * pow(damping, t);
 }
+
+#pragma endregion
+
+#pragma region gestion de fuerzas:
 
 void Particle::addForce(Vector3 force)
 {
@@ -167,11 +175,4 @@ void Particle::clearForce()
 	accF = { 0, 0, 0 };
 }
 
-// integrate() con Euler: p += v * t; y v += a * t; cuando anyadamos las leyes de newton.
-// Damping para poner un limite a la velocidad. v *= d^t siendo 0 < d < 1 (0.98). Pero probar con varios por probar.
-// integrate() con Euler semiimplicito? o Verlet? 
-// 
-// 
-// 
-// Euler: x' = f(x, t)  xl+1 = xl + h * f(xi, tl).
-// Semi-implicito: priemro calculamos la velocidad y luego la posicon siguiente: v += t * a; p += v * t; v *= d^t.
+#pragma endregion
