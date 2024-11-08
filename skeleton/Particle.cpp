@@ -7,10 +7,10 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz)
 	: pose(_pos), vel(_vel), acc(0)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(_siz)), &pose, _col);
-	RegisterRenderItem(renderItem);
 	spaceToLive = { 100.0, 100.0, 100.0 };
-	lifeTime = 10.0;
+	lifeTime = 2.0;
 	timeAlive = 0.0;
+	accF = { 0, 0, 0 };
 }
 
 Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col, float _siz)
@@ -18,6 +18,12 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4
 {
 	acc = _acc;
 	damping = _dam;
+}
+
+Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col, float _siz, float mss)
+	: Particle(_pos, _vel, _acc, _dam, _col, _siz)
+{
+	mass = mss;
 }
 
 Particle::~Particle()
@@ -81,8 +87,14 @@ void Particle::setHowToDie(bool byTime, bool bySpace)
 
 bool Particle::update(float t)
 {
+	//std::cout << " Pos: x: " << pose.p.x << " y: " << pose.p.y << " z: " << pose.p.z << std::endl;
+	//std::cout << " Acc: x: " << acc.x << " y: " << acc.y << " z: " << acc.z << std::endl;
+	//std::cout << "Time Alive: " << timeAlive << std::endl;
+
 	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; }
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
+
+	applyForce(); // Aplicar fuerzas.
 
 	integrateEuler(t); // Movimiento.
 
@@ -106,7 +118,7 @@ bool Particle::outOfTime(float t)
 	timeAlive += t;
 	if (timeAlive > lifeTime)
 	{
-		//std::cout << "//--MENSAJE: Particle out of time." << std::endl;
+		std::cout << "//--MENSAJE: Particle out of time." << std::endl;
 		timeAlive = 0;
 		return true;
 	}
@@ -115,9 +127,9 @@ bool Particle::outOfTime(float t)
 
 void Particle::integrateEuler(float t)
 {
-	pose.p += vel * t;
+	//pose.p += vel * t;
 
-	if (acc.x != 0 || acc.y != 0 || acc.z != 0)
+	/*if (acc.x != 0 || acc.y != 0 || acc.z != 0)
 	{
 		vel += (acc * t);
 		vel *= pow(damping, t);
@@ -125,12 +137,34 @@ void Particle::integrateEuler(float t)
 	else // PAIGRO AQUI: corregir.
 	{
 		pose.p += vel * t;
-	}
+	}*/
+	//std::cout << acc.x << acc.y << acc.z << std::endl;
+	pose.p = pose.p + t * vel;
+	vel = vel + t * acc;
+	vel = vel * pow(damping, t);
 }
 
 void Particle::integrateEulerSemiImplicit(float t)
 {
-	std::cout << "//----AVISO: en proceso." << std::endl;
+	//std::cout << "//----AVISO: en proceso." << std::endl;
+	vel = vel + t * acc;
+	vel = vel * pow(damping, t);
+	pose.p = pose.p + t * vel;
+}
+
+void Particle::addForce(Vector3 force)
+{
+	accF += force;
+}
+
+void Particle::applyForce()
+{
+	acc = acc + accF * mass;
+}
+
+void Particle::clearForce()
+{
+	accF = { 0, 0, 0 };
 }
 
 // integrate() con Euler: p += v * t; y v += a * t; cuando anyadamos las leyes de newton.

@@ -54,6 +54,8 @@ public:
 	Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz);
 	// Constructora de Particle con posicion, velocidad, acceleracion, dumping, color y tamanyo.
 	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col, float _siz);
+	// Constructora de Particle con posicion, velocidad, acceleracion, dumping, color, tamanyo y masa.
+	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col, float _siz, float mss);
 	// Destructora de Particle.
 	~Particle();
 
@@ -68,6 +70,8 @@ public:
 	Vector3 getAcc() const { return acc; }
 	// Devuelve el dumping.
 	float getDamping() const { return damping; }
+	// Devuelve la masa.
+	float getMass()const { return mass; }
 	// Settea la velocidad.
 	void setVel(Vector3 _vel);
 	// Settea la posicion (Vector3).
@@ -78,6 +82,8 @@ public:
 	void setDamping(float _dam);
 	// Settea el color de la particula.
 	void setColor(float _r, float _g, float _b, float _a);
+	// Settea la masa.
+	void setMass(float mss) { mass = mss; }
 	// Settea el tiempo maxima de vida.
 	void setLifeTime(float t);
 	// Settea el espacio vital de la particula.
@@ -108,7 +114,9 @@ public:
 	//------Metodos de fuerzas:
 
 	//
-	void addForce();
+	void addForce(Vector3 force);
+	//
+	void applyForce();
 	//
 	void clearForce();
 };

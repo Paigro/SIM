@@ -18,6 +18,7 @@
     <ClCompile Include="FountainGenerator.cpp" />
     <ClCompile Include="SmokeGenerator.cpp" />
     <ClCompile Include="FireworkGenerator.cpp" />
+    <ClCompile Include="ForceSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.hpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="FountainGenerator.h" />
     <ClInclude Include="SmokeGenerator.h" />
     <ClInclude Include="FireworkGenerator.h" />
+    <ClInclude Include="ForceSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">
