@@ -59,6 +59,20 @@ void Scene::addParticle(Particle* par)
 	sParticles.emplace_back(par);
 }
 
+void Scene::activateScene()
+{
+
+
+
+}
+
+void Scene::deactivateScene()
+{
+
+
+
+}
+
 void Scene::addParticleSystem(ParticleSystem* parSys)
 {
 	sParticleSystems.emplace_back(parSys);

@@ -41,6 +41,9 @@
     <ClCompile Include="RenderUtils.cpp">
       <Filter>Otros</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -87,6 +90,9 @@
     </ClInclude>
     <ClInclude Include="Vector3D.h">
       <Filter>ParYPro</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

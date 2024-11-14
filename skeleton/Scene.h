@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream> 
-#include <vector>
 
 #include "Particle.h"
 #include "ParticleSystem.h"
@@ -26,8 +25,14 @@ public:
 
 	//------Metodos de la escena.
 
+	// Inicializacion de la escena.
+	virtual void initScene();
 	// Update de Scene.
 	void update(float t);
+	// Activa la escena.
+	void activateScene();
+	// Desactiva la escena.
+	void deactivateScene();
 
 
 	//------Metodos para meter cosas a la escena:

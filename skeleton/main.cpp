@@ -14,8 +14,9 @@
 #include "Vector3D.h"
 #include "Particle.h"
 #include "Projectile.h"
-#include "Scene.h"
+//#include "Scene.h"
 #include "ParticleSystem.h"
+#include "SceneManager.h"
 
 
 using namespace physx;
@@ -40,18 +41,18 @@ PxScene* gScene = NULL;
 ContactReportCallback gContactReportCallback;
 
 // Axis P0:
-RenderItem* sphere = NULL;
+RenderItem* sSphere = NULL;
 RenderItem* xSphere = NULL;
 RenderItem* ySphere = NULL;
 RenderItem* zSphere = NULL;
-PxTransform* sphereTransform = NULL;
+PxTransform* sTransform = NULL;
 PxTransform* xTransform = NULL;
 PxTransform* yTransform = NULL;
 PxTransform* zTransform = NULL;
-Vector4 sphereColor(1.0, 1.0, 1.0, 1.0);
-Vector4 sphereXColor(1.0, 0.0, 0.0, 1.0);
-Vector4 sphereYColor(0.0, 1.0, 0.0, 1.0);
-Vector4 sphereZColor(0.0, 0.0, 1.0, 1.0);
+Vector4 sColor(1.0, 1.0, 1.0, 1.0);
+Vector4 xColor(1.0, 0.0, 0.0, 1.0);
+Vector4 yColor(0.0, 1.0, 0.0, 1.0);
+Vector4 zColor(0.0, 0.0, 1.0, 1.0);
 
 //------P1:
 
@@ -90,14 +91,14 @@ void initPhysics(bool interactive)
 	gScene = gPhysics->createScene(sceneDesc);
 
 	// Axis P0:
-	sphereTransform = new PxTransform(Vector3{ 0.0, 0.0, 0.0 });
+	sTransform = new PxTransform(Vector3{ 0.0, 0.0, 0.0 });
 	xTransform = new PxTransform(Vector3{ 20.0, 0, 0.0 });
 	yTransform = new PxTransform(Vector3{ 0.0, 20.0, 0.0 });
 	zTransform = new PxTransform(Vector3{ 0.0, 0, 20.0 });
-	sphere = new RenderItem(CreateShape(PxSphereGeometry(2)), sphereTransform, sphereColor);
-	xSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), xTransform, sphereXColor);
-	ySphere = new RenderItem(CreateShape(PxSphereGeometry(2)), yTransform, sphereYColor);
-	zSphere = new RenderItem(CreateShape(PxSphereGeometry(2)), zTransform, sphereZColor);
+	sSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), sTransform, sColor);
+	xSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), xTransform, xColor);
+	ySphere = new RenderItem(CreateShape(PxSphereGeometry(1)), yTransform, yColor);
+	zSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), zTransform, zColor);
 
 	scene = new Scene();
 	scenes.push_back(scene);
@@ -161,7 +162,7 @@ void cleanupPhysics(bool interactive)
 	gFoundation->release();
 
 	// Axis P0:
-	DeregisterRenderItem(sphere);
+	DeregisterRenderItem(sSphere);
 	DeregisterRenderItem(xSphere);
 	DeregisterRenderItem(ySphere);
 	DeregisterRenderItem(zSphere);
@@ -180,6 +181,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	{
 		break;
 	}
+	case 1:
 	case 'P': // Para disparar un proyectil.
 		std::cout << "Disparo" << std::endl;
 		scene->addParticle(new Projectile(GetCamera()->getTransform().p, GetCamera()->getTransform().q.getBasisVector2() * -20, Vector3{ 0.0, -9.8, 0.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 1));
