@@ -96,7 +96,7 @@ bool Particle::update(float t)
 {
 	//std::cout << " Pos: x: " << pose.p.x << " y: " << pose.p.y << " z: " << pose.p.z << std::endl;
 	//std::cout << " Acc: x: " << acc.x << " y: " << acc.y << " z: " << acc.z << std::endl;
-	std::cout << "Time Alive: " << timeAlive << std::endl;
+	//std::cout << "Time Alive: " << timeAlive << std::endl;
 
 	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; }
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
