@@ -4,14 +4,16 @@
 
 #include "Particle.h"
 #include "ParticleSystem.h"
+#include "ForceSystem.h"
 
 
 class Scene
 {
 private:
 
-	std::vector<Particle*> sParticles; // Vector de particulas de la escena.
-	std::vector<ParticleSystem*> sParticleSystems; // Vector de sistemas de particulas de la escena.
+	std::vector<Particle*> vParticles; // Vector de particulas de la escena.
+	std::vector<ParticleSystem*> vParticleSystems; // Vector de sistemas de particulas de la escena.
+	std::vector<ForceSystem*> vForceSystems; // Vector de sistemas de fuerzas de la escena.
 
 public:
 
@@ -28,7 +30,7 @@ public:
 	// Inicializacion de la escena.
 	virtual void initScene();
 	// Update de Scene.
-	void update(float t);
+	void updateScene(float t);
 	// Activa la escena.
 	void activateScene();
 	// Desactiva la escena.
@@ -41,4 +43,6 @@ public:
 	void addParticle(Particle* par);
 	// Mete un sitema de particulas.
 	void addParticleSystem(ParticleSystem* parSys);
+	// Mete un sistema de fuerzas.
+	void addForceSistem(ForceSystem* forSys);
 };

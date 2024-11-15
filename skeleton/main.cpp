@@ -14,7 +14,7 @@
 #include "Vector3D.h"
 #include "Particle.h"
 #include "Projectile.h"
-//#include "Scene.h"
+#include "Scene.h"
 #include "ParticleSystem.h"
 #include "SceneManager.h"
 
@@ -135,10 +135,11 @@ void stepPhysics(bool interactive, double t)
 	// Se llama al update de las escenas.
 	for (auto s : scenes)
 	{
-		s->update(t);
+		s->updateScene(t);
 	}
 
-	if (part != nullptr && !part->update(t)) {
+	if (part != nullptr && !part->update(t)) 
+	{
 		delete part;
 		part = nullptr;
 	}

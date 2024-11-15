@@ -18,7 +18,7 @@ SceneManager::~SceneManager()
 
 void SceneManager::addScene(Scene* sc)
 {
-	if (sc != nullptr) 
+	if (sc != nullptr)
 	{
 		vScenes.push_back(sc);
 		sc->initScene();
@@ -41,7 +41,8 @@ void SceneManager::deleteScene(int delSc)
 
 void SceneManager::update(float t)
 {
-
-
-
+	for (auto s : vScenes)
+	{
+		s->updateScene(t);
+	}
 }

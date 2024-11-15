@@ -42,7 +42,7 @@ bool ParticleSystem::update(float t)
 	// Por si acaso.
 	if (generator == nullptr)
 	{
-		std::cout << "//------ERROR: Sitema de particulas de tipo " << type << " no tiene generador." << std::endl;
+		std::cout << "//------ERROR: Sistema de particulas de tipo " << type << " no tiene generador." << std::endl;
 		return false;
 	}
 
@@ -58,6 +58,7 @@ bool ParticleSystem::update(float t)
 	// Generamos particulas.
 	particlesGenerated = generator->CreateParticles(vParticles.size(), maxParticles);
 
+	// Las guardamos en el sistema.
 	for (int i = 0; i < particlesGenerated.size(); i++)
 	{
 		vParticles.push_back(particlesGenerated[i]);

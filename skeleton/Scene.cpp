@@ -3,34 +3,34 @@
 
 Scene::Scene()
 {
-	//sParticles.reserve(100);
+	initScene();
 }
 
 Scene::~Scene()
 {
-	for (auto* p : sParticles)
+	for (auto* p : vParticles)
 	{
 		delete p;
 	}
-	sParticles.clear();
+	vParticles.clear();
 
-	for (auto* ps : sParticleSystems)
+	for (auto* ps : vParticleSystems)
 	{
 		delete ps;
 	}
-	sParticleSystems.clear();
+	vParticleSystems.clear();
 }
 
-void Scene::update(float t)
+void Scene::updateScene(float t)
 {
 	// Gestion de las particulas. PAIGRO AQUI.
-	for (auto it = sParticles.begin(); it != sParticles.end();)
+	for (auto it = vParticles.begin(); it != vParticles.end();)
 	{
 		Particle* p = *it;
 		if (!p->update(t))
 		{
 			delete p;
-			it = sParticles.erase(it);
+			it = vParticles.erase(it);
 		}
 		else
 		{
@@ -39,13 +39,13 @@ void Scene::update(float t)
 	}
 
 	// Gestion de los sistemas de particulas. PAIGRO AQUI.
-	for (auto it = sParticleSystems.begin(); it != sParticleSystems.end();)
+	for (auto it = vParticleSystems.begin(); it != vParticleSystems.end();)
 	{
 		ParticleSystem* ps = *it;
 		if (!ps->update(t))
 		{
 			delete ps;
-			it = sParticleSystems.erase(it);
+			it = vParticleSystems.erase(it);
 		}
 		else
 		{
@@ -54,9 +54,16 @@ void Scene::update(float t)
 	}
 }
 
+void Scene::initScene()
+{
+
+
+
+}
+
 void Scene::addParticle(Particle* par)
 {
-	sParticles.emplace_back(par);
+	vParticles.emplace_back(par);
 }
 
 void Scene::activateScene()
@@ -75,5 +82,10 @@ void Scene::deactivateScene()
 
 void Scene::addParticleSystem(ParticleSystem* parSys)
 {
-	sParticleSystems.emplace_back(parSys);
+	vParticleSystems.emplace_back(parSys);
+}
+
+void Scene::addForceSistem(ForceSystem* forSys)
+{
+	vForceSystems.push_back(forSys);
 }
