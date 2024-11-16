@@ -14,8 +14,8 @@ void ExplosionForceGenerator::updateFGen(float t)
 	{
 		timePassed += t;
 		setRadius(expansionVel * timePassed);
+		std::cout << expansionVel * timePassed << std::endl;
 	}
-	std::cout << expansionVel * timePassed << std::endl;
 }
 
 Vector3 ExplosionForceGenerator::generateForce(Particle& par)
@@ -38,4 +38,9 @@ Vector3 ExplosionForceGenerator::generateForce(Particle& par)
 	force = ((k / dis * dis) * (parPos - position)) * exp(-timePassed / tau);
 
 	return Vector3();
+}
+
+void ExplosionForceGenerator::resetExplosion()
+{
+	timePassed = 0;
 }

@@ -29,4 +29,10 @@ public:
 	void updateFGen(float t);
 	// Genera la fuerza del viento.
 	Vector3 generateForce(Particle& par) override;
+
+
+	//------Metodos de la explosion:
+
+	// Resetea la explosion.
+	void resetExplosion();
 };

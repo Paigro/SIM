@@ -134,7 +134,7 @@ void initPhysics(bool interactive)
 	//TornadoForceGenerator* tornado = new TornadoForceGenerator(Vector3{ 0, 0, 0 }, 50);
 	//forSys->addForceGenerator(tornado);
 
-	ExplosionForceGenerator* explosion = new ExplosionForceGenerator(Vector3{ 0, 0, 0 }, 0, 100, 100);
+	ExplosionForceGenerator* explosion = new ExplosionForceGenerator(Vector3{ 0, 0, 0 }, 0, 10, 10);
 	forSys->addForceGenerator(explosion);
 
 	scene->addForceSistem(forSys);

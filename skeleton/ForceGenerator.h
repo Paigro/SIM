@@ -18,7 +18,7 @@ protected:
 	float radius; // Radio en el que afecta el generador.
 	Vector3 position; // Posicion del generador.
 
-	RenderItem* renderItem; // RenderItem de la esfera.
+	RenderItem* renderItem = nullptr; // RenderItem de la esfera.
 
 	// Genera la esfera que marca lo que afecta el sistema.
 	void generateSphere();
