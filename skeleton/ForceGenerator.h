@@ -2,6 +2,8 @@
 
 #include <PxPhysicsAPI.h>
 
+#include <iostream>
+
 #include "core.hpp"
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"

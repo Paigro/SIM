@@ -20,7 +20,8 @@ private:
 	float damping; // Damping para que la velocidad no crezca excesivamente.
 	float mass; // Masa de la particula.
 	Vector3 accF; // Fuerzas acumuladas en un momento. Se tiene que borrar en cada ciclo del motor.
-	bool gravitable = true;
+	Vector3 gravity = { 0.0, -9.8, 0.0 };
+	bool gravitable = false;
 
 	//------Render Item:
 
@@ -60,6 +61,8 @@ public:
 
 	//------Getters y setters:
 
+	// Devuelve el pose.
+	physx::PxTransform getPose() { return pose; }
 	// Devuelve la velocidad.
 	Vector3 getVel() const { return vel; }
 	// Devuelve la posicion (Vector3).
@@ -72,6 +75,8 @@ public:
 	float getMass()const { return mass; }
 	// Devuelve si le afecta la gravedad.
 	bool getGravitable() { return gravitable; }
+	// Settea el pose.
+	void setPose(physx::PxTransform newPose);
 	// Settea la velocidad.
 	void setVel(Vector3 _vel);
 	// Settea la posicion (Vector3).

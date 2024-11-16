@@ -3,7 +3,7 @@
 WindForceGenerator::WindForceGenerator(Vector3 pos, float rad, Vector3 vel)
 	: ForceGenerator(pos, rad), windVel(vel)
 {
-
+	std::cout << "//--MENSAJE: nuevo generador de viento." << std::endl;
 }
 
 Vector3 WindForceGenerator::generateForce(Particle& par)

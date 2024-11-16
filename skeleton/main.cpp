@@ -18,6 +18,8 @@
 #include "ParticleSystem.h"
 #include "SceneManager.h"
 #include "WindForceGenerator.h"
+#include "TornadoForceGenerator.h"
+//#include "WindForceGenerator.h"
 
 
 using namespace physx;
@@ -112,7 +114,8 @@ void initPhysics(bool interactive)
 	//scene->addParticle(new Projectile(Vector3{ 0, 0, 0 }, Vector3{ 0, 25, 25 }, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 2));
 	part = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, Vector3{ 0.0, 2.0, 0.0 }, 1, Vector4{ 1.0, 0.5, 0.0, 1.0 }, 4, 5.0);
 	part->addForce(Vector3{ 0.0, 2.0, 3.0 });
-	part->addForce(Vector3{ 0.0, -9.8, 0.0 });
+	//part->addForce(Vector3{ 0.0, -9.8, 0.0 });
+	part->setGravitable(true);
 	part->setMass(2);
 
 	// P2:
@@ -124,8 +127,14 @@ void initPhysics(bool interactive)
 	// P3:
 
 	ForceSystem* forSys = new ForceSystem();
-	WindForceGenerator* wind = new WindForceGenerator(Vector3{ 0, 0, 0 }, 50, Vector3{ 0.05, 0, 0 });
-	forSys->addForceGenerator(wind);
+
+	//WindForceGenerator* wind = new WindForceGenerator(Vector3{ 0, 0, 0 }, 50, Vector3{ 0.05, 0, 0 });
+	//forSys->addForceGenerator(wind);
+
+	TornadoForceGenerator* tornado = new TornadoForceGenerator(Vector3{ 0, 0, 0 }, 50);
+	forSys->addForceGenerator(tornado);
+
+
 	scene->addForceSistem(forSys);
 }
 

@@ -34,6 +34,11 @@ Particle::~Particle()
 
 #pragma region sets:
 
+void Particle::setPose(physx::PxTransform newPose)
+{
+	pose = newPose;
+}
+
 void Particle::setVel(Vector3 _pos)
 {
 	pose.p = _pos;
@@ -178,6 +183,10 @@ void Particle::addForce(Vector3 force)
 void Particle::applyForce()
 {
 	acc = acc + accF * mass;
+	if (gravitable)
+	{
+		acc += gravity;
+	}
 }
 
 void Particle::clearForce()
