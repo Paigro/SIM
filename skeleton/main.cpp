@@ -121,7 +121,7 @@ void initPhysics(bool interactive)
 	// P2:
 
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -50 }, Vector3{ 0, 30, 0 }, 200, 10, 'F'));
-	//5scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
+	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, 0.0 }, Vector3{ 0, 30, 0 }, 200, 10, 'W'));
 
 	// P3:
