@@ -182,7 +182,7 @@ void Particle::addForce(Vector3 force)
 
 void Particle::applyForce()
 {
-	acc = acc + accF * mass;
+	acc = accF / mass;
 	if (gravitable)
 	{
 		acc += gravity;
