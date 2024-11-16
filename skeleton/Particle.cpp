@@ -178,6 +178,7 @@ void Particle::integrateEulerSemiImplicit(float t)
 void Particle::addForce(Vector3 force)
 {
 	accF += force;
+	std::cout << "se la he metido" << std::endl;
 }
 
 void Particle::applyForce()

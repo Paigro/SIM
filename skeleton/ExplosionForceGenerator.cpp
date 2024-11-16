@@ -10,7 +10,7 @@ ExplosionForceGenerator::ExplosionForceGenerator(Vector3 pos, float rad, float v
 
 void ExplosionForceGenerator::updateFGen(float t)
 {
-	if (timePassed <= 4 * tau)
+	if (timePassed <= 10)
 	{
 		timePassed += t;
 		setRadius(expansionVel * timePassed);
@@ -23,7 +23,7 @@ Vector3 ExplosionForceGenerator::generateForce(Particle& par)
 	Vector3 force(0, 0, 0);
 	Vector3 parPos = par.getPos();
 
-	if (timePassed < 0 || timePassed >= 4 * tau)
+	if (timePassed < 0 || timePassed >= 10)
 	{
 		return force;
 	}
