@@ -19,7 +19,7 @@
 #include "SceneManager.h"
 #include "WindForceGenerator.h"
 #include "TornadoForceGenerator.h"
-//#include "WindForceGenerator.h"
+#include "ExplosionForceGenerator.h"
 
 
 using namespace physx;
@@ -131,9 +131,11 @@ void initPhysics(bool interactive)
 	//WindForceGenerator* wind = new WindForceGenerator(Vector3{ 0, 0, 0 }, 50, Vector3{ 0.05, 0, 0 });
 	//forSys->addForceGenerator(wind);
 
-	TornadoForceGenerator* tornado = new TornadoForceGenerator(Vector3{ 0, 0, 0 }, 50);
-	forSys->addForceGenerator(tornado);
+	//TornadoForceGenerator* tornado = new TornadoForceGenerator(Vector3{ 0, 0, 0 }, 50);
+	//forSys->addForceGenerator(tornado);
 
+	ExplosionForceGenerator* explosion = new ExplosionForceGenerator(Vector3{ 0, 0, 0 }, 0, 100, 100);
+	forSys->addForceGenerator(explosion);
 
 	scene->addForceSistem(forSys);
 }

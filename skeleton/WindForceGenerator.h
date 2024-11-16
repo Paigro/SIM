@@ -15,7 +15,7 @@ public:
 
 	//------Constructoras y destructoras:
 
-	// Constructora de WindForceGenerator base.
+	// Constructora de WindForceGenerator base con posicion inicial, radio y velocidad del viento.
 	WindForceGenerator(Vector3 pos, float rad, Vector3 vel);
 	// Desctructora de WindForceGenerator.
 	~WindForceGenerator() {};

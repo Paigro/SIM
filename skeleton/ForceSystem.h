@@ -30,6 +30,8 @@ public:
 
 	// Mete un generador de fuerzas al vector.
 	void addForceGenerator(ForceGenerator* fGen);
+	// Update de ForceSystem.
+	void update(float t);
 
 
 	//------Gestion de las particulas:

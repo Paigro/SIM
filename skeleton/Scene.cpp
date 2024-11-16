@@ -61,8 +61,9 @@ void Scene::updateScene(float t)
 
 		for (auto ps : vParticleSystems)
 		{
-			fs->addForceToParticles(ps->getVParticles(),t);
+			fs->addForceToParticles(ps->getVParticles(), t);
 		}
+		fs->update(t);
 	}
 }
 

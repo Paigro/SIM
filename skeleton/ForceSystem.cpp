@@ -20,6 +20,14 @@ void ForceSystem::addForceGenerator(ForceGenerator* fGen)
 	vFGenerators.push_back(fGen);
 }
 
+void ForceSystem::update(float t)
+{
+	for (auto fg : vFGenerators)
+	{
+		fg->updateFGen(t);
+	}
+}
+
 void ForceSystem::addForceToParticles(std::vector<Projectile*> vPar, float t)
 {
 	for (auto p : vPar)

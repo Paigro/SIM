@@ -17,7 +17,7 @@ protected:
 
 	float radius; // Radio en el que afecta el generador.
 	Vector3 position; // Posicion del generador.
-	
+
 	RenderItem* renderItem; // RenderItem de la esfera.
 
 	// Genera la esfera que marca lo que afecta el sistema.
@@ -27,7 +27,7 @@ public:
 
 	//------Constructoras y destructoras:
 
-	// Constructora de ForceGenerator base.
+	// Constructora de ForceGenerator base con posicion inicial y radio.
 	ForceGenerator(Vector3 pos, float rad = 0);
 	// Desctructora de ForceGenerator virtual.
 	virtual ~ForceGenerator() = 0;

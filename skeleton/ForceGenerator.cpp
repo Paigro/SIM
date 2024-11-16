@@ -20,15 +20,13 @@ void ForceGenerator::generateSphere()
 		return;
 	}
 
-	if (renderItem != nullptr)
-	{
-		renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(radius)), Vector4{ 1.0, 0.5, 0.0, 0.0 });
-	}
+	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(radius)), Vector4{ 1.0, 0.5, 0.0, 0.0 });
 }
 
 void ForceGenerator::setRadius(float newRad)
 {
 	radius = newRad;
+	generateSphere();
 }
 
 bool ForceGenerator::isOnRadius(Vector3 parPos)

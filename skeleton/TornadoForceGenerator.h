@@ -13,7 +13,7 @@ public:
 
 	//------Constructoras y destructoras:
 
-	// Constructora de TornadoForceGenerator base.
+	// Constructora de TornadoForceGenerator base con posicion inicial y radio.
 	TornadoForceGenerator(Vector3 pos, float rad);
 	// Desctructora de TornadoForceGenerator.
 	~TornadoForceGenerator() {};
