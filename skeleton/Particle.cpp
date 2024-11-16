@@ -62,6 +62,16 @@ void Particle::setColor(float _r, float _g, float _b, float _a)
 	renderItem->color.w = _a;
 }
 
+void Particle::setMass(float mss)
+{
+	mass = mss;
+}
+
+void Particle::setGravitable(bool grav)
+{
+	gravitable = grav;
+}
+
 void Particle::setLifeTime(float _tim)
 {
 	lifeTime = _tim;

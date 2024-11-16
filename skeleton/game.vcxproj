@@ -269,6 +269,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SmokeGenerator.cpp" />
+    <ClCompile Include="TornadoForceGenerator.cpp" />
     <ClCompile Include="WindForceGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -288,6 +289,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SmokeGenerator.h" />
+    <ClInclude Include="TornadoForceGenerator.h" />
     <ClInclude Include="Vector3D.h" />
     <ClInclude Include="WindForceGenerator.h" />
   </ItemGroup>

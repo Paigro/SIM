@@ -52,6 +52,18 @@ void Scene::updateScene(float t)
 			++it;
 		}
 	}
+
+	// Gestion de los sitemas de fuerzas.
+	for (auto fs : vForceSystems)
+	{
+
+		fs->addForceToParticles(vParticles, t);
+
+		for (auto ps : vParticleSystems)
+		{
+			fs->addForceToParticles(ps->getVParticles(),t);
+		}
+	}
 }
 
 void Scene::initScene()
@@ -61,7 +73,7 @@ void Scene::initScene()
 
 }
 
-void Scene::addParticle(Particle* par)
+void Scene::addParticle(Projectile* par)
 {
 	vParticles.emplace_back(par);
 }

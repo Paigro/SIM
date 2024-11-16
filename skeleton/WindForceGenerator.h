@@ -24,7 +24,7 @@ public:
 	//------Metodos heredados:
 
 	// Update de WindForceGenerator.
-	void update(float t) {};
+	void updateFGen(float t) {};
 	// Genera la fuerza del viento.
 	Vector3 generateForce(Particle& par) override;
 };

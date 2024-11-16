@@ -20,7 +20,7 @@ private:
 	float damping; // Damping para que la velocidad no crezca excesivamente.
 	float mass; // Masa de la particula.
 	Vector3 accF; // Fuerzas acumuladas en un momento. Se tiene que borrar en cada ciclo del motor.
-
+	bool gravitable = true;
 
 	//------Render Item:
 
@@ -43,8 +43,6 @@ private:
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
-	// PAIGRO AQUI:La masa viene aqui. Tiene qye tener una acumulacion de fuerzas (accF) para que cuando haga el integrate() haga a = acc/masa.
-	// despues del integrate() se limpian las fuerzas. Force generator con update con la ecuacion.
 
 public:
 
@@ -72,6 +70,8 @@ public:
 	float getDamping() const { return damping; }
 	// Devuelve la masa.
 	float getMass()const { return mass; }
+	// Devuelve si le afecta la gravedad.
+	bool getGravitable() { return gravitable; }
 	// Settea la velocidad.
 	void setVel(Vector3 _vel);
 	// Settea la posicion (Vector3).
@@ -83,7 +83,9 @@ public:
 	// Settea el color de la particula.
 	void setColor(float _r, float _g, float _b, float _a);
 	// Settea la masa.
-	void setMass(float mss) { mass = mss; }
+	void setMass(float mss);
+	// Settea si le afecta la gravedad.
+	void setGravitable(bool grav);
 	// Settea el tiempo maxima de vida.
 	void setLifeTime(float t);
 	// Settea el espacio vital de la particula.

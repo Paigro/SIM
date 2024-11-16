@@ -35,5 +35,5 @@ public:
 	//------Gestion de las particulas:
 
 	//
-	void addForceToParticles(std::vector<Particle*>& vPar, float t);
+	void addForceToParticles(std::vector<Projectile*> vPar, float t);
 };

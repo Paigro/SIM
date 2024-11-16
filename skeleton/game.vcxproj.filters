@@ -50,6 +50,9 @@
     <ClCompile Include="WindForceGenerator.cpp">
       <Filter>ForSys</Filter>
     </ClCompile>
+    <ClCompile Include="TornadoForceGenerator.cpp">
+      <Filter>ForSys</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -104,6 +107,9 @@
       <Filter>ForSys</Filter>
     </ClInclude>
     <ClInclude Include="WindForceGenerator.h">
+      <Filter>ForSys</Filter>
+    </ClInclude>
+    <ClInclude Include="TornadoForceGenerator.h">
       <Filter>ForSys</Filter>
     </ClInclude>
   </ItemGroup>
