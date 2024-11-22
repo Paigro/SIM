@@ -59,6 +59,18 @@
     <ClCompile Include="ExplosionForceGenerator.cpp">
       <Filter>ForSys</Filter>
     </ClCompile>
+    <ClCompile Include="WindScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="TornadoScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosionScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ParSysScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -123,6 +135,18 @@
     </ClInclude>
     <ClInclude Include="ExplosionForceGenerator.h">
       <Filter>ForSys</Filter>
+    </ClInclude>
+    <ClInclude Include="WindScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="TornadoScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosionScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ParSysScene.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -255,11 +255,13 @@
   <ItemGroup>
     <ClCompile Include="callbacks.cpp" />
     <ClCompile Include="ExplosionForceGenerator.cpp" />
+    <ClCompile Include="ExplosionScene.cpp" />
     <ClCompile Include="FireworkGenerator.cpp" />
     <ClCompile Include="ForceGenerator.cpp" />
     <ClCompile Include="ForceSystem.cpp" />
     <ClCompile Include="FountainGenerator.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ParSysScene.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleGenerator.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
@@ -272,16 +274,20 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SmokeGenerator.cpp" />
     <ClCompile Include="TornadoForceGenerator.cpp" />
+    <ClCompile Include="TornadoScene.cpp" />
     <ClCompile Include="WindForceGenerator.cpp" />
+    <ClCompile Include="WindScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="core.hpp" />
     <ClInclude Include="ExplosionForceGenerator.h" />
+    <ClInclude Include="ExplosionScene.h" />
     <ClInclude Include="FireworkGenerator.h" />
     <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="ForceSystem.h" />
     <ClInclude Include="FountainGenerator.h" />
+    <ClInclude Include="ParSysScene.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleGenerator.h" />
     <ClInclude Include="ParticleSystem.h" />
@@ -294,8 +300,10 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SmokeGenerator.h" />
     <ClInclude Include="TornadoForceGenerator.h" />
+    <ClInclude Include="TornadoScene.h" />
     <ClInclude Include="Vector3D.h" />
     <ClInclude Include="WindForceGenerator.h" />
+    <ClInclude Include="WindScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
