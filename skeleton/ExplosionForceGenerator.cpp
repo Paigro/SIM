@@ -38,7 +38,7 @@ Vector3 ExplosionForceGenerator::generateForce(Particle& par)
 
 	force = ((k / dis * dis) * (parPos - position)) * exp(-timePassed / tau);
 
-	return Vector3();
+	return force;
 }
 
 void ExplosionForceGenerator::resetExplosion()
