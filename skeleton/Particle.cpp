@@ -146,7 +146,7 @@ bool Particle::outOfTime(float t)
 	timeAlive += t;
 	if (timeAlive > lifeTime)
 	{
-		std::cout << "//--MENSAJE: Particle out of time." << std::endl;
+		//std::cout << "//--MENSAJE: Particle out of time." << std::endl;
 		timeAlive = 0;
 		return true;
 	}
@@ -178,7 +178,7 @@ void Particle::integrateEulerSemiImplicit(float t)
 void Particle::addForce(Vector3 force)
 {
 	accF += force;
-	std::cout << "se la he metido" << std::endl;
+	//std::cout << "se la he metido" << std::endl;
 }
 
 void Particle::applyForce()

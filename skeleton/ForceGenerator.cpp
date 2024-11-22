@@ -21,14 +21,14 @@ void ForceGenerator::generateSphere()
 	}
 
 	if (!renderItem) {
-		std::cout << "no hay renderitem" << std::endl;
+		//std::cout << "no hay renderitem" << std::endl;
 		renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(radius)), Vector4{ 1.0, 0.5, 0.0, 0.0 });
 	}
 	else
 	{
 		DeregisterRenderItem(renderItem);
 		renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(radius)), Vector4{ 1.0, 0.5, 0.0, 0.0 });
-		std::cout << "hay renderitem" << std::endl;
+		//std::cout << "hay renderitem" << std::endl;
 	}
 }
 

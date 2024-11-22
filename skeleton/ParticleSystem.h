@@ -7,6 +7,7 @@
 #include "FountainGenerator.h"
 #include "SmokeGenerator.h"
 #include "FireworkGenerator.h"
+#include "RandomGenerator.h"
 
 
 class ParticleSystem
@@ -26,6 +27,8 @@ private:
 	ParticleGenerator* generator = nullptr; // Referencia al generador de particulas.
 
 	char type; // Tipo de sistema de particulas.
+
+	bool dieByTime;
 
 public:
 

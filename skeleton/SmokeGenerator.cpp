@@ -44,6 +44,7 @@ std::vector<Projectile*> SmokeGenerator::CreateParticles(int actP, int maxP)
 		// Nueva particulas con la posicion inicial, la nueva velocidad, la acceleracion que es inservible, damping y la gravedad en y = -10 porque asi dice el enunciado.
 		Projectile* p = new Projectile(initPos, newVel + medVel, { 0, 0.5, 0 }, 0.98, 1.0, { 0, 0.5, 0 }, Vector4{ 1.0, 1.0, 1.0, 0.6 }, 4);
 		p->setLifeTime(newTime);
+		p->setGravitable(true);
 		auxProjectictiles.push_back(p);
 	}
 

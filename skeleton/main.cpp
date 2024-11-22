@@ -123,18 +123,19 @@ void initPhysics(bool interactive)
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -50 }, Vector3{ 0, 30, 0 }, 200, 10, 'F'));
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, 0.0 }, Vector3{ 0, 30, 0 }, 200, 10, 'W'));
+	scene->addParticleSystem(new ParticleSystem(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, 200, -1, 'G'));
 
 	// P3:
 
 	ForceSystem* forSys = new ForceSystem();
 
-	//WindForceGenerator* wind = new WindForceGenerator(Vector3{ 0, 0, 0 }, 50, Vector3{ 0.05, 0, 0 });
+	//WindForceGenerator* wind = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, Vector3{ 10, 0, 0 });
 	//forSys->addForceGenerator(wind);
 
-	//TornadoForceGenerator* tornado = new TornadoForceGenerator(Vector3{ 0, 0, 0 }, 50);
+	//TornadoForceGenerator* tornado = new TornadoForceGenerator(Vector3{ 0, 0, 0 }, 400);
 	//forSys->addForceGenerator(tornado);
 
-	ExplosionForceGenerator* explosion = new ExplosionForceGenerator(Vector3{ 0, 0, 0 }, 0, 10, 10);
+	ExplosionForceGenerator* explosion = new ExplosionForceGenerator(Vector3{ 0, 0, 0 }, 0, 10, 40);
 	forSys->addForceGenerator(explosion);
 
 	scene->addForceSistem(forSys);

@@ -61,6 +61,7 @@ std::vector<Projectile*> FireworkGenerator::CreateParticles(int actP, int maxP)
 			// Nueva particulas con la posicion inicial, la nueva velocidad, la acceleracion que es inservible, damping y la gravedad en y = -10 porque asi dice el enunciado.
 			Projectile* p = new Projectile(initPos + Vector3{ 0.0, yOffset, 0.0 }, newVel, { 0, -10, 0 }, 1.0, 1.0, { 0, -10, 0 }, Vector4{ newR, newG, newB, 1.0 }, 1);
 			p->setLifeTime(newTime);
+			p->setGravitable(true);
 			auxProjectictiles.push_back(p);
 		}
 	}
