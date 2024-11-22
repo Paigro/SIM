@@ -34,12 +34,12 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 	if (timeToLive < 0.0)
 	{
 		dieByTime = false;
-		std::cout << "--Tiene tiempo infinito." << std::endl;
+		std::cout << "----Tiene tiempo infinito." << std::endl;
 	}
 	else
 	{
 		dieByTime = true;
-		std::cout << "--Muere en t: " << timeToLive << std::endl;
+		std::cout << "----Muere en t: " << timeToLive << std::endl;
 	}
 }
 

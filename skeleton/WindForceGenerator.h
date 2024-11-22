@@ -9,14 +9,14 @@ private:
 
 	Vector3 windVel; // Velocidad del viento.
 	float k1 = 10; // Coeficiente de rozamiento del viendo.
-	Vector3 k2 = { 0, 0, 0 }; //
+	Vector3 k2 = { 0, 0, 0 };
 
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora de WindForceGenerator base con posicion inicial, radio y velocidad del viento.
-	WindForceGenerator(Vector3 pos, float rad, Vector3 vel);
+	WindForceGenerator(Vector3 pos, float rad, Vector3 vel, float _k1 = 10, Vector3 _k2 = { 0, 0, 0 });
 	// Desctructora de WindForceGenerator.
 	~WindForceGenerator() {};
 

@@ -1,7 +1,7 @@
 #include "TornadoForceGenerator.h"
 
-TornadoForceGenerator::TornadoForceGenerator(Vector3 pos, float rad)
-	:ForceGenerator(pos, rad)
+TornadoForceGenerator::TornadoForceGenerator(Vector3 pos, float rad, float _k)
+	:ForceGenerator(pos, rad), k(_k)
 {
 	std::cout << "//--MENSAJE: nuevo generador de tornado." << std::endl;
 }

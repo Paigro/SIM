@@ -1,10 +1,9 @@
 #include "ExplosionForceGenerator.h"
 
-ExplosionForceGenerator::ExplosionForceGenerator(Vector3 pos, float rad, float vel, float pow)
-	: ForceGenerator(pos, rad), expansionVel(vel), k(pow)
+ExplosionForceGenerator::ExplosionForceGenerator(Vector3 pos, float rad, float vel, float _k, float _tau)
+	: ForceGenerator(pos, rad), expansionVel(vel), k(_k), tau(_tau)
 {
 	timePassed = 0;
-	tau = 2;
 	std::cout << "//--MENSAJE: nuevo generador de explosion." << std::endl;
 }
 
@@ -14,8 +13,7 @@ void ExplosionForceGenerator::updateFGen(float t)
 	{
 		timePassed += t;
 		setRadius(expansionVel * timePassed);
-		//std::cout << expansionVel * timePassed << std::endl;
-		std::cout << "Radius: " << radius << std::endl;
+		//std::cout << "Radius: " << radius << std::endl;
 	}
 }
 

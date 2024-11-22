@@ -18,7 +18,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de ExplosionForceGenerator base con posicion inicial, radio, velocidad de expansion e intensidad de la explosion.
-	ExplosionForceGenerator(Vector3 pos, float rad, float vel, float pow);
+	ExplosionForceGenerator(Vector3 pos, float rad, float vel, float _k, float _tau = 2);
 	// Desctructora de ExplosionForceGenerator.
 	~ExplosionForceGenerator() {};
 
