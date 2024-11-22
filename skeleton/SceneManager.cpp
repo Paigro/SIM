@@ -1,6 +1,6 @@
 #include "SceneManager.h"
 
-SceneManager::SceneManager(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT)
+SceneManager::SceneManager()
 {
 
 
@@ -27,22 +27,28 @@ void SceneManager::addScene(Scene* sc)
 
 void SceneManager::changeScene(int newSc)
 {
+	if (newSc >= vScenes.size() || vScenes[newSc] == nullptr)
+	{
+		std::cout << "//------ERROR: No existe la escena: " << newSc << std::endl;
 
-
-
+	}
+	else
+	{
+		vScenes[actScene]->deactivateScene();
+		actScene = newSc;
+		vScenes[actScene]->activateScene();
+	}
 }
 
 void SceneManager::deleteScene(int delSc)
 {
 
-
-
 }
 
 void SceneManager::update(float t)
 {
-	for (auto s : vScenes)
+	if (vScenes[actScene] != nullptr)
 	{
-		s->updateScene(t);
+		vScenes[actScene]->updateScene(t);
 	}
 }

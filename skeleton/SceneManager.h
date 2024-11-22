@@ -14,14 +14,14 @@ private:
 
 	std::vector<Scene*> vScenes; // Vector de escenas.
 
-	int actScene = 0;
+	int actScene = 0; // Indice de la escena actual.
 
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora de SceneManager.
-	SceneManager(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT);
+	SceneManager();
 	// Destructora de SceneManager.
 	~SceneManager();
 

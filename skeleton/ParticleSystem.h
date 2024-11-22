@@ -28,7 +28,7 @@ private:
 
 	char type; // Tipo de sistema de particulas.
 
-	bool dieByTime;
+	bool dieByTime; // Si puede morir por tiempo o es infinito.
 
 public:
 

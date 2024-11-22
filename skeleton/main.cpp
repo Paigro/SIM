@@ -66,6 +66,8 @@ Projectile* pro = nullptr;
 
 //------Scenes:
 
+SceneManager* sceneMg = nullptr;
+
 std::vector<Scene*> scenes; // Vector de escenas del juego.
 Scene* scene = nullptr; // Primera escena de prueba.
 
@@ -103,6 +105,9 @@ void initPhysics(bool interactive)
 	ySphere = new RenderItem(CreateShape(PxSphereGeometry(1)), yTransform, yColor);
 	zSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), zTransform, zColor);
 
+
+	// Escenas:
+	sceneMg = new SceneManager();
 	scene = new Scene();
 	scenes.push_back(scene);
 
@@ -121,9 +126,9 @@ void initPhysics(bool interactive)
 	// P2:
 
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -50 }, Vector3{ 0, 30, 0 }, 200, 10, 'F'));
-	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
+	scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, 0.0 }, Vector3{ 0, 30, 0 }, 200, 10, 'W'));
-	scene->addParticleSystem(new ParticleSystem(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, 200, -1, 'G'));
+	//scene->addParticleSystem(new ParticleSystem(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, 200, -1, 'G'));
 
 	// P3:
 
@@ -199,10 +204,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 		//case 'B': break;
 		//case ' ':	break;
 	case ' ':
-	{
 		break;
-	}
-	case 1:
 	case 'P': // Para disparar un proyectil.
 		std::cout << "Disparo" << std::endl;
 		scene->addParticle(new Projectile(GetCamera()->getTransform().p, GetCamera()->getTransform().q.getBasisVector2() * -20, Vector3{ 0.0, -9.8, 0.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 1));
