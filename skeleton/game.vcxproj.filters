@@ -53,9 +53,11 @@
     <ClCompile Include="TornadoForceGenerator.cpp">
       <Filter>ForSys</Filter>
     </ClCompile>
-    <ClCompile Include="ExplosionForceGenerator.cpp" />
     <ClCompile Include="RandomGenerator.cpp">
       <Filter>ParSys</Filter>
+    </ClCompile>
+    <ClCompile Include="ExplosionForceGenerator.cpp">
+      <Filter>ForSys</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,9 +118,11 @@
     <ClInclude Include="TornadoForceGenerator.h">
       <Filter>ForSys</Filter>
     </ClInclude>
-    <ClInclude Include="ExplosionForceGenerator.h" />
     <ClInclude Include="RandomGenerator.h">
       <Filter>ParSys</Filter>
+    </ClInclude>
+    <ClInclude Include="ExplosionForceGenerator.h">
+      <Filter>ForSys</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
