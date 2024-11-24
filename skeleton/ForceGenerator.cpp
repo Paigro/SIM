@@ -1,7 +1,6 @@
 #include "ForceGenerator.h"
 
 
-
 ForceGenerator::ForceGenerator(Vector3 pos, float rad)
 	: position(pos), radius(rad)
 {
@@ -45,4 +44,12 @@ bool ForceGenerator::isOnRadius(Vector3 parPos)
 		return true;
 	}
 	return false;
+}
+
+void ForceGenerator::isActive(bool act)
+{
+	if (!act)
+	{
+		DeregisterRenderItem(renderItem);
+	}
 }

@@ -33,6 +33,11 @@ void ForceSystem::update(float t)
 void ForceSystem::setActive(bool act)
 {
 	isActive = act;
+
+	for (auto fs : vFGenerators)
+	{
+		fs->isActive(act);
+	}
 }
 
 void ForceSystem::addForceToParticles(std::vector<Projectile*> vPar, float t)

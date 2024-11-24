@@ -104,18 +104,8 @@ void ParticleSystem::setActive(bool act)
 {
 	isActive = act;
 
-	if (act)
+	for (auto p : vParticles)
 	{
-		for (auto p : vParticles)
-		{
-			p->setActive(true);
-		}
-	}
-	else 
-	{
-		for (auto p : vParticles)
-		{
-			p->setActive(false);
-		}
+		p->setActive(act);
 	}
 }

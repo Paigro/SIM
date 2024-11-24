@@ -47,4 +47,10 @@ public:
 	virtual Vector3 generateForce(Particle& par) = 0;
 	// Update de ForceGenerator virtual.
 	virtual void updateFGen(float t) = 0;
+
+
+	//------
+
+	//
+	void isActive(bool act);
 };

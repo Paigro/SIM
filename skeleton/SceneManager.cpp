@@ -22,6 +22,7 @@ void SceneManager::addScene(Scene* sc)
 	{
 		vScenes.push_back(sc);
 		sc->initScene();
+		std::cout << "//--MENSAJE: Nueva escena: " << vScenes.size() - 1 << std::endl;
 	}
 }
 
@@ -34,8 +35,11 @@ void SceneManager::changeScene(int newSc)
 	else
 	{
 		vScenes[actScene]->deactivateScene();
+		std::cout << "//--MENSAJE: Escena " << actScene << " desactivada." << std::endl;
 		actScene = newSc;
 		vScenes[actScene]->activateScene();
+		std::cout << "//--MENSAJE: Escena " << actScene << " activada." << std::endl;
+
 	}
 }
 
