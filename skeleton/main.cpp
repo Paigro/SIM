@@ -14,12 +14,16 @@
 #include "Vector3D.h"
 #include "Particle.h"
 #include "Projectile.h"
-#include "Scene.h"
 #include "ParticleSystem.h"
 #include "SceneManager.h"
 #include "WindForceGenerator.h"
 #include "TornadoForceGenerator.h"
 #include "ExplosionForceGenerator.h"
+// Escenas:
+#include "ExplosionScene.h"
+#include "ParSysScene.h"
+#include "TornadoScene.h"
+#include "WindScene.h"
 
 
 using namespace physx;
@@ -108,8 +112,9 @@ void initPhysics(bool interactive)
 
 	// Escenas:
 	sceneMg = new SceneManager();
-	scene = new Scene();
-	scenes.push_back(scene);
+	
+	/*scene = new Scene();
+	scenes.push_back(scene);*/
 
 
 	// P1:
@@ -126,13 +131,13 @@ void initPhysics(bool interactive)
 	// P2:
 
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -50 }, Vector3{ 0, 30, 0 }, 200, 10, 'F'));
-	scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
+	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, 0.0 }, Vector3{ 0, 30, 0 }, 200, 10, 'W'));
 	//scene->addParticleSystem(new ParticleSystem(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, 200, -1, 'G'));
 
 	// P3:
 
-	ForceSystem* forSys = new ForceSystem();
+	//ForceSystem* forSys = new ForceSystem();
 
 	//WindForceGenerator* wind = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, Vector3{ 10, 0, 0 });
 	//forSys->addForceGenerator(wind);
@@ -140,10 +145,14 @@ void initPhysics(bool interactive)
 	//TornadoForceGenerator* tornado = new TornadoForceGenerator(Vector3{ 0, 0, 0 }, 400);
 	//forSys->addForceGenerator(tornado);
 
-	ExplosionForceGenerator* explosion = new ExplosionForceGenerator(Vector3{ 0, 0, 0 }, 0, 20, 40);
-	forSys->addForceGenerator(explosion);
+	//ExplosionForceGenerator* explosion = new ExplosionForceGenerator(Vector3{ 0, 0, 0 }, 0, 20, 40);
+	//forSys->addForceGenerator(explosion);
 
-	scene->addForceSistem(forSys);
+	//scene->addForceSistem(forSys);
+
+	// Meter escenas al SceneMg:
+	sceneMg->addScene(new ExplosionScene());
+	sceneMg->addScene(new ExplosionScene());
 }
 
 
@@ -157,11 +166,13 @@ void stepPhysics(bool interactive, double t)
 	gScene->simulate(t);
 	gScene->fetchResults(true);
 
-	// Se llama al update de las escenas.
+	/*// Se llama al update de las escenas.
 	for (auto s : scenes)
 	{
 		s->updateScene(t);
-	}
+	}*/
+
+	sceneMg->update(t);
 
 	if (part != nullptr && !part->update(t))
 	{
@@ -211,6 +222,11 @@ void keyPress(unsigned char key, const PxTransform& camera)
 		break;
 	default:
 		break;
+	}
+
+	if (sceneMg != nullptr)
+	{
+		sceneMg->keyPressed(key, camera);
 	}
 }
 

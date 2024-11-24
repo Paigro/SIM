@@ -35,6 +35,8 @@ public:
 	void activateScene();
 	// Desactiva la escena.
 	void deactivateScene();
+	//
+	virtual void keyPressed(unsigned char key, const physx::PxTransform& camera) {};
 
 
 	//------Metodos para meter cosas a la escena:

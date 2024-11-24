@@ -1,7 +1,5 @@
 #pragma once
 
-#include <PxPhysicsAPI.h>
-
 #include "core.hpp"
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"
@@ -36,6 +34,10 @@ public:
 	void deleteScene(int delSc);
 
 
+	//------Metodos de SceneManager:
+
 	//------Update de las escenas:
 	void update(float t);
+	//
+	void keyPressed(unsigned char key, const physx::PxTransform& camera);
 };

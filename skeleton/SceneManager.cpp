@@ -30,7 +30,6 @@ void SceneManager::changeScene(int newSc)
 	if (newSc >= vScenes.size() || vScenes[newSc] == nullptr)
 	{
 		std::cout << "//------ERROR: No existe la escena: " << newSc << std::endl;
-
 	}
 	else
 	{
@@ -47,8 +46,45 @@ void SceneManager::deleteScene(int delSc)
 
 void SceneManager::update(float t)
 {
-	if (vScenes[actScene] != nullptr)
+	if (!vScenes.empty())
 	{
-		vScenes[actScene]->updateScene(t);
+		if (vScenes[actScene] != nullptr)
+		{
+			vScenes[actScene]->updateScene(t);
+		}
+	}
+}
+
+void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camera)
+{
+	switch (toupper(key))
+	{
+	case '0':
+		changeScene(0);
+		break;
+	case '1':
+		changeScene(1);
+		break;
+	case '2':
+		changeScene(2);
+		break;
+	case '3':
+		changeScene(3);
+		break;
+	case '4':
+		changeScene(4);
+		break;
+	case '5':
+		changeScene(5);
+		break;
+	case '6':
+		changeScene(6);
+		break;
+	}
+
+	// Llamar al keyPressed del resto de escenas.
+	for (auto s : vScenes)
+	{
+		s->keyPressed(key, camera);
 	}
 }
