@@ -70,8 +70,6 @@ void Scene::updateScene(float t)
 void Scene::initScene()
 {
 
-
-
 }
 
 void Scene::addParticle(Projectile* par)
@@ -81,16 +79,46 @@ void Scene::addParticle(Projectile* par)
 
 void Scene::activateScene()
 {
+	// Activa las particulas independientes.
+	for (auto p : vParticles)
+	{
+		p->setActive(true);
+	}
 
+	// Activa los sistemas de particulas.
+	for (auto ps : vParticleSystems)
+	{
+		ps->setActive(true);
+	}
+
+	// Activa los sistemas de fuerzas.
+	for (auto fs : vForceSystems)
+	{
+		fs->setActive(true);
+	}
 
 
 }
 
 void Scene::deactivateScene()
 {
+	// Desactiva las particulas independientes.
+	for (auto p : vParticles)
+	{
+		p->setActive(false);
+	}
 
+	// Desactiva los sistemas de particulas.
+	for (auto ps : vParticleSystems)
+	{
+		ps->setActive(false);
+	}
 
-
+	// Desactiva los sistemas de fuerzas.
+	for (auto fs : vForceSystems)
+	{
+		fs->setActive(false);
+	}
 }
 
 void Scene::addParticleSystem(ParticleSystem* parSys)

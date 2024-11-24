@@ -61,6 +61,7 @@ bool ParticleSystem::update(float t)
 		return false;
 	}
 
+	if (!isActive) { return true; }
 
 	// Actualizacion del tiempo de vida del sistema.
 	if (dieByTime)
@@ -97,4 +98,24 @@ bool ParticleSystem::update(float t)
 		}
 	}
 	return true;
+}
+
+void ParticleSystem::setActive(bool act)
+{
+	isActive = act;
+
+	if (act)
+	{
+		for (auto p : vParticles)
+		{
+			p->setActive(true);
+		}
+	}
+	else 
+	{
+		for (auto p : vParticles)
+		{
+			p->setActive(false);
+		}
+	}
 }

@@ -23,6 +23,7 @@ private:
 	Vector3 gravity = { 0.0, -9.8, 0.0 };
 	bool gravitable = false;
 
+
 	//------Render Item:
 
 	RenderItem* renderItem; // RenderItem de la particula.
@@ -30,6 +31,7 @@ private:
 
 	//------Vida de la particula:
 
+	bool isActive = true; // Si la particula esta en una escena activa entonces estara a true, sino a false;
 	bool canDieByTime; // Si la particula puede morir por tiempo.
 	bool canDieBySpace; // Si la particula puede morir por espacio donde se este.
 	bool isAlive = true; // Dice si la particula esta viva o muerta para eliminarse o no.
@@ -37,6 +39,7 @@ private:
 	float timeAlive = 0.0; // Tiempo que lleva vivo. Por defeto 10s.
 	Vector3 spaceToLive = { 100.0, 100.0, 100.0 }; // Cubo en el que puede estar las particulas. Por defecto (100.0, 100.0, 100.0).
 
+#pragma region mensaje
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
@@ -44,6 +47,7 @@ private:
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
 	//--------------------------------------------------------------------------------------------------------------------------------------------------//
+#pragma endregion
 
 public:
 
@@ -109,6 +113,8 @@ public:
 	bool outOfBounds();
 	// Para saber si ya se ha pasado de tiempo de vida.
 	bool outOfTime(float t);
+	// Settea si la particula esta activa o no.
+	void setActive(bool act);
 
 
 	//------Metodos de movimiento:
@@ -120,10 +126,10 @@ public:
 
 	//------Metodos de fuerzas:
 
-	//
+	// Mete una fuerza a la fuerza acumulada.
 	void addForce(Vector3 force);
-	//
+	// Aplica las fuerzas hasta el momento acumuladas.
 	void applyForce();
-	//
+	// Elimina las fuerzas acumuladas.
 	void clearForce();
 };

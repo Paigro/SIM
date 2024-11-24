@@ -109,11 +109,8 @@ void Particle::setHowToDie(bool byTime, bool bySpace)
 
 bool Particle::update(float t)
 {
-	//std::cout << " Pos: x: " << pose.p.x << " y: " << pose.p.y << " z: " << pose.p.z << std::endl;
-	//std::cout << " Acc: x: " << acc.x << " y: " << acc.y << " z: " << acc.z << std::endl;
-	//std::cout << "Time Alive: " << timeAlive << std::endl;
-
-	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; }
+	if (!isActive) { return true; } // Si no esta activa no se hace lo de abajo.
+	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; } // Calcula si esta fuera de tiempo o de espacio.
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
 
 	applyForce(); // Aplicar fuerzas.
@@ -151,6 +148,20 @@ bool Particle::outOfTime(float t)
 		return true;
 	}
 	return false;
+}
+
+void Particle::setActive(bool act)
+{
+	isActive = act;
+
+	if (act)
+	{
+		RegisterRenderItem(renderItem);
+	}
+	else
+	{
+		DeregisterRenderItem(renderItem);
+	}
 }
 
 #pragma endregion

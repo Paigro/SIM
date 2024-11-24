@@ -18,6 +18,7 @@ private:
 	std::vector<Projectile*> particlesGenerated; // Vector de particulas del generador de particulas.
 
 	int maxParticles; // Maximo de particulas.
+
 	Vector3 initPos; //  Posicion inicial.
 	Vector3 initVel; //  Velocidad inicial.
 
@@ -29,6 +30,7 @@ private:
 	char type; // Tipo de sistema de particulas.
 
 	bool dieByTime; // Si puede morir por tiempo o es infinito.
+	bool isActive = true;
 
 public:
 
@@ -44,6 +46,8 @@ public:
 
 	// Update de ParticleSystem.
 	bool update(float t);
+	//
+	void setActive(bool act);
 
 
 	//------Getters y setters:

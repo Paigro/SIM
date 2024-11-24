@@ -16,6 +16,8 @@ private:
 
 	std::vector <ForceGenerator*> vFGenerators; // Vector de generadores de fuerzas.
 
+	bool isActive = true;
+
 public:
 
 	//------Constructoras y destructoras:
@@ -32,6 +34,8 @@ public:
 	void addForceGenerator(ForceGenerator* fGen);
 	// Update de ForceSystem.
 	void update(float t);
+	//
+	void setActive(bool act);
 
 
 	//------Gestion de las particulas:

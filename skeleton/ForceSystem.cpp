@@ -22,10 +22,17 @@ void ForceSystem::addForceGenerator(ForceGenerator* fGen)
 
 void ForceSystem::update(float t)
 {
+	if (!isActive) { return; }
+
 	for (auto fg : vFGenerators)
 	{
 		fg->updateFGen(t);
 	}
+}
+
+void ForceSystem::setActive(bool act)
+{
+	isActive = act;
 }
 
 void ForceSystem::addForceToParticles(std::vector<Projectile*> vPar, float t)
