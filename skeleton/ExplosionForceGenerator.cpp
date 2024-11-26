@@ -13,7 +13,6 @@ void ExplosionForceGenerator::updateFGen(float t)
 	{
 		timePassed += t;
 		setRadius(expansionVel * timePassed);
-		//std::cout << "Radius: " << radius << std::endl;
 	}
 }
 
