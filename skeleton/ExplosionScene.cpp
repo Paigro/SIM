@@ -1,17 +1,14 @@
 #include "ExplosionScene.h"
 
+
 ExplosionScene::ExplosionScene()
 	: Scene()
 {
-
-
 
 }
 
 ExplosionScene::~ExplosionScene()
 {
-
-
 
 }
 

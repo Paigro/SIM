@@ -6,7 +6,7 @@
 FireworkGenerator::FireworkGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT, float yOff)
 	: ParticleGenerator(ori, vel, nPar), minTimeToLive(minT), maxTimeToLive(maxT), yOffset(yOff)
 {
-	shootParticle = new Projectile(initPos, medVel, { 0, 10, 0 }, 1.0, 1.0, { 0, 10, 0 }, { 1.0, 0.0, 0.0, 1.0 }, 1);
+	shootParticle = new Projectile(initPos, medVel, { 0, 10, 0 }, 1.0, 1.0, { 1.0, 0.0, 0.0, 1.0 }, 1);
 	shootParticle->setLifeTime(1.5);
 	shot = false;
 }
@@ -59,7 +59,7 @@ std::vector<Projectile*> FireworkGenerator::CreateParticles(int actP, int maxP)
 			Vector3 newVel{ newX, newY, newZ }; // Nueva velocidad de la particula.
 
 			// Nueva particulas con la posicion inicial, la nueva velocidad, la acceleracion que es inservible, damping y la gravedad en y = -10 porque asi dice el enunciado.
-			Projectile* p = new Projectile(initPos + Vector3{ 0.0, yOffset, 0.0 }, newVel, { 0, -10, 0 }, 1.0, 1.0, { 0, -10, 0 }, Vector4{ newR, newG, newB, 1.0 }, 1);
+			Projectile* p = new Projectile(initPos + Vector3{ 0.0, yOffset, 0.0 }, newVel, { 0, -10, 0 }, 1.0, 1.0, Vector4{ newR, newG, newB, 1.0 }, 1);
 			p->setLifeTime(newTime);
 			auxProjectictiles.push_back(p);
 		}

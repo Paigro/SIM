@@ -96,8 +96,6 @@ void Scene::activateScene()
 	{
 		fs->setActive(true);
 	}
-
-
 }
 
 void Scene::deactivateScene()

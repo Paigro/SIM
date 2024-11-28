@@ -8,8 +8,11 @@ class WindForceGenerator : public ForceGenerator
 private:
 
 	Vector3 windVel; // Velocidad del viento.
-	float k1 = 10; // Coeficiente de rozamiento del viendo.
 	Vector3 k2 = { 0, 0, 0 };
+
+	float k1 = 10; // Coeficiente de rozamiento del viendo.
+
+	bool isActive = true;
 
 public:
 
@@ -27,4 +30,10 @@ public:
 	void updateFGen(float t) {};
 	// Genera la fuerza del viento.
 	Vector3 generateForce(Particle& par) override;
+
+
+	// Metodos para el viento:
+
+	//
+	void setActive(bool act);
 };

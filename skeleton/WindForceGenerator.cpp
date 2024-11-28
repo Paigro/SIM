@@ -9,9 +9,18 @@ WindForceGenerator::WindForceGenerator(Vector3 pos, float rad, Vector3 vel, floa
 Vector3 WindForceGenerator::generateForce(Particle& par)
 {
 	Vector3 force(0, 0, 0);
-	Vector3 parVel = par.getVel();
 
-	force = k1 * (windVel - parVel) + k2;
+	if (isActive)
+	{
+		Vector3 parVel = par.getVel();
+
+		force = k1 * (windVel - parVel) + k2;
+	}
 
 	return force;
+}
+
+void WindForceGenerator::setActive(bool act)
+{
+	isActive = act;
 }

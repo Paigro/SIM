@@ -3,8 +3,6 @@
 SceneManager::SceneManager()
 {
 
-
-
 }
 
 SceneManager::~SceneManager()
@@ -28,6 +26,8 @@ void SceneManager::addScene(Scene* sc)
 
 void SceneManager::changeScene(int newSc)
 {
+	if (actScene == newSc) { return; }
+
 	if (newSc >= vScenes.size() || vScenes[newSc] == nullptr)
 	{
 		std::cout << "//------ERROR: No existe la escena: " << newSc << std::endl;
@@ -39,7 +39,6 @@ void SceneManager::changeScene(int newSc)
 		actScene = newSc;
 		vScenes[actScene]->activateScene();
 		std::cout << "//--MENSAJE: Escena " << actScene << " activada." << std::endl;
-
 	}
 }
 
@@ -83,6 +82,9 @@ void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camer
 		break;
 	case '6':
 		changeScene(6);
+		break;
+	case '7':case '8':case '9':
+		std::cout << "//----AVISO: no existe la escena: " << key << std::endl;
 		break;
 	}
 

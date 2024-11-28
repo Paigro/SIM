@@ -5,14 +5,10 @@ WindScene::WindScene()
 	: Scene()
 {
 
-
-
 }
 
 WindScene::~WindScene()
 {
-
-
 
 }
 

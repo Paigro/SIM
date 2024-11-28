@@ -39,4 +39,6 @@ public:
 
 	// Genera particulas con la diferencia entra las particulas activas y el maximo, las mete a un vector y lo devuelve.
 	virtual std::vector<Projectile*> CreateParticles(int actP, int maxP) = 0;
+	// Genera partculas y las devuelve en un vector.
+	virtual std::vector<Particle*> CreateParticles() = 0;
 };

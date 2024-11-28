@@ -5,14 +5,10 @@ TornadoScene::TornadoScene()
 	: Scene()
 {
 
-
-
 }
 
 TornadoScene::~TornadoScene()
 {
-
-
 
 }
 

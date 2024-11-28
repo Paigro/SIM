@@ -1,9 +1,10 @@
 #pragma once
 
 #include "ParticleGenerator.h"
+#include "AnchorForceGenerator.h"
 
 
-class SmokeGenerator : public ParticleGenerator
+class DockGenerator : public ParticleGenerator
 {
 private:
 
@@ -14,15 +15,16 @@ public:
 
 	//------Constructoras y destructoras:
 
-	// Constructora de SmokeGenerator.
-	SmokeGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT);
-	// Destructora de SmokeGenerator.
-	~SmokeGenerator();
+	// Constructora de DockGenerator.
+	DockGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT);
+	// Destructora de DockGenerator.
+	~DockGenerator();
 
 
 	//------Metodos heredados:
 
 	// Genera particulas con la diferencia entra las particulas activas y el maximo, las mete a un vector y lo devuelve.
 	std::vector<Projectile*> CreateParticles(int actP, int maxP) override;
-	std::vector<Particle*> CreateParticles() override { return std::vector<Particle*>(); };
+	// Genera particulas con la diferencia entra las particulas activas y el maximo, las mete a un vector y lo devuelve.
+	std::vector<Particle*> CreateParticles() override;
 };

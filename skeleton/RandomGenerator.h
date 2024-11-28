@@ -18,7 +18,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de RandomGenerator.
-	RandomGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT,float minP, float maxP);
+	RandomGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT, float minP, float maxP);
 	// Destructora de RandomGenerator.
 	~RandomGenerator();
 
@@ -27,4 +27,5 @@ public:
 
 	// Genera particulas con la diferencia entra las particulas activas y el maximo, las mete a un vector y lo devuelve.
 	std::vector<Projectile*> CreateParticles(int actP, int maxP) override;
+	std::vector<Particle*> CreateParticles() override { return std::vector<Particle*>(); };
 };

@@ -71,6 +71,18 @@
     <ClCompile Include="ParSysScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="DosckScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SpringForceGenerator.cpp">
+      <Filter>ForSys</Filter>
+    </ClCompile>
+    <ClCompile Include="AnchorForceGenerator.cpp">
+      <Filter>ForSys</Filter>
+    </ClCompile>
+    <ClCompile Include="DockGenerator.cpp">
+      <Filter>ParSys</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -147,6 +159,18 @@
     </ClInclude>
     <ClInclude Include="ParSysScene.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="DosckScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SpringForceGenerator.h">
+      <Filter>ForSys</Filter>
+    </ClInclude>
+    <ClInclude Include="AnchorForceGenerator.h">
+      <Filter>ForSys</Filter>
+    </ClInclude>
+    <ClInclude Include="DockGenerator.h">
+      <Filter>ParSys</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

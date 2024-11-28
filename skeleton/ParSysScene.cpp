@@ -5,14 +5,10 @@ ParSysScene::ParSysScene()
 	: Scene()
 {
 
-
-
 }
 
 ParSysScene::~ParSysScene()
 {
-
-
 
 }
 

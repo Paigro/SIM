@@ -253,7 +253,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnchorForceGenerator.cpp" />
     <ClCompile Include="callbacks.cpp" />
+    <ClCompile Include="DockGenerator.cpp" />
+    <ClCompile Include="DosckScene.cpp" />
     <ClCompile Include="ExplosionForceGenerator.cpp" />
     <ClCompile Include="ExplosionScene.cpp" />
     <ClCompile Include="FireworkGenerator.cpp" />
@@ -273,14 +276,18 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SmokeGenerator.cpp" />
+    <ClCompile Include="SpringForceGenerator.cpp" />
     <ClCompile Include="TornadoForceGenerator.cpp" />
     <ClCompile Include="TornadoScene.cpp" />
     <ClCompile Include="WindForceGenerator.cpp" />
     <ClCompile Include="WindScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnchorForceGenerator.h" />
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="core.hpp" />
+    <ClInclude Include="DockGenerator.h" />
+    <ClInclude Include="DosckScene.h" />
     <ClInclude Include="ExplosionForceGenerator.h" />
     <ClInclude Include="ExplosionScene.h" />
     <ClInclude Include="FireworkGenerator.h" />
@@ -299,6 +306,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SmokeGenerator.h" />
+    <ClInclude Include="SpringForceGenerator.h" />
     <ClInclude Include="TornadoForceGenerator.h" />
     <ClInclude Include="TornadoScene.h" />
     <ClInclude Include="Vector3D.h" />

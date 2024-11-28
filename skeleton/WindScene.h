@@ -4,6 +4,7 @@
 #include "RandomGenerator.h"
 #include "WindForceGenerator.h"
 
+
 class WindScene : public Scene
 {
 private:

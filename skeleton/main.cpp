@@ -20,6 +20,7 @@
 #include "ParSysScene.h"
 #include "TornadoScene.h"
 #include "WindScene.h"
+#include "DosckScene.h"
 
 
 using namespace physx;
@@ -101,10 +102,14 @@ void initPhysics(bool interactive)
 
 
 	// Escenas P3:
-	sceneMg->addScene(new ExplosionScene());
-	sceneMg->addScene(new WindScene());
-	sceneMg->addScene(new TornadoScene());
-	sceneMg->addScene(new ParSysScene());
+	
+	sceneMg = new SceneManager();
+
+	//sceneMg->addScene(new ExplosionScene());
+	//sceneMg->addScene(new WindScene());
+	//sceneMg->addScene(new TornadoScene());
+	//sceneMg->addScene(new ParSysScene());
+	sceneMg->addScene(new DosckScene());
 }
 
 
@@ -145,6 +150,8 @@ void cleanupPhysics(bool interactive)
 	DeregisterRenderItem(xSphere);
 	DeregisterRenderItem(ySphere);
 	DeregisterRenderItem(zSphere);
+
+	delete sceneMg;
 }
 
 // Function called when a key is pressed

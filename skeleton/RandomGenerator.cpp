@@ -44,7 +44,7 @@ std::vector<Projectile*> RandomGenerator::CreateParticles(int actP, int maxP)
 		Vector3 newPos{ newX, newY, newZ }; // Nueva posicion de la particula.
 
 		// Nueva particulas con la posicion inicial, la nueva velocidad, la acceleracion que es inservible, damping y la gravedad en y = -10 porque asi dice el enunciado.
-		Projectile* p = new Projectile(newPos, medVel, { 0, 0.5, 0 }, 0.98, 1.0, { 0, 0.5, 0 }, Vector4{ 1.0, 1.0, 1.0, 1.0 }, 2);
+		Projectile* p = new Projectile(newPos, medVel, { 0, 0.5, 0 }, 0.98, 1.0, Vector4{ 1.0, 1.0, 1.0, 1.0 }, 2);
 		p->setLifeTime(newTime);
 		auxProjectictiles.push_back(p);
 	}

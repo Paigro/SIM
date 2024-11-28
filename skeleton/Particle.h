@@ -17,8 +17,8 @@ private:
 	Vector3 initPos; // Posicion inicial de la particula para calcular su espacio vital si es necesario.
 	Vector3 vel; // Velocidad de la particula.
 	Vector3 acc; // Acceleracion de la particula.
-	float damping; // Damping para que la velocidad no crezca excesivamente.
-	float mass; // Masa de la particula.
+	float damping = 0.5; // Damping para que la velocidad no crezca excesivamente.
+	float mass = 1; // Masa de la particula.
 	Vector3 accF; // Fuerzas acumuladas en un momento. Se tiene que borrar en cada ciclo del motor.
 	Vector3 gravity = { 0.0, -9.8, 0.0 };
 	bool gravitable = true;
@@ -54,7 +54,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de Particle con posicion, velocidad, color y tamanyo.
-	Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz);
+	Particle(Vector3 _pos, Vector3 _vel, Vector4 _col = Vector4(1, 0.5, 0, 1), float _siz = 1);
 	// Constructora de Particle con posicion, velocidad, acceleracion, dumping, color y tamanyo.
 	Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4 _col, float _siz);
 	// Constructora de Particle con posicion, velocidad, acceleracion, dumping, color, tamanyo y masa.
