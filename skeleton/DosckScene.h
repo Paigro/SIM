@@ -4,6 +4,7 @@
 #include "SpringForceGenerator.h"
 #include "WindForceGenerator.h"	
 #include "AnchorForceGenerator.h"
+#include "BandForceGenerator.h"
 
 
 class DosckScene : public Scene

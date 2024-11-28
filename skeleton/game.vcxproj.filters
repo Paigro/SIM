@@ -83,6 +83,7 @@
     <ClCompile Include="DockGenerator.cpp">
       <Filter>ParSys</Filter>
     </ClCompile>
+    <ClCompile Include="BandForceGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -172,6 +173,7 @@
     <ClInclude Include="DockGenerator.h">
       <Filter>ParSys</Filter>
     </ClInclude>
+    <ClInclude Include="BandForceGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

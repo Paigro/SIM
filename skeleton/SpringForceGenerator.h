@@ -33,6 +33,7 @@ public:
 	//
 	void updateFGen(float t)override {}
 
+
 	//------Getters y setters:
 
 	// Settea la k.

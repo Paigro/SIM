@@ -19,7 +19,7 @@ std::vector<Projectile*> FountainGenerator::CreateParticles(int actP, int maxP)
 	int avaliblePar = maxP - actP; // Aprticulas que por rango se pueden generar pero que luego no tienen que generarse este numero exacto.
 
 	//----Distribuciones:
-	
+
 	//std::uniform_int_distribution<int> uDistribution(0, avaliblePar); // Distribucion uniforme entre 0 y las que se puede generar para calcular las que se generan en este momento.
 	std::uniform_int_distribution<int> uDistribution(0, 5); // PAIGRO AQUI: ganyanada para que salga pumm...pum... y salga mas continuo.
 	std::uniform_int_distribution<int> uDistributionToTime(minTimeToLive, maxTimeToLive); // Distribucion normal entre minT y maxT para el tiempo que va a vivir cada particula. Por alguna razon no puedce ser float.
@@ -42,7 +42,7 @@ std::vector<Projectile*> FountainGenerator::CreateParticles(int actP, int maxP)
 		Vector3 newVel{ newX, newY, newZ }; // Nueva velocidad de la particula.
 
 		// Nueva particulas con la posicion inicial, la nueva velocidad, la acceleracion que es inservible, damping y la gravedad en y = -10 porque asi dice el enunciado.
-		Projectile* p = new Projectile(initPos, newVel + medVel, { 0, -10, 0 }, 1.0, 1.0, { 0,-10.0,0 }, Vector4{ 0.0, 0.0, 1.0, 1.0 }, 2);
+		Projectile* p = new Projectile(initPos, newVel + medVel, { 0, -10, 0 }, 1.0, 1.0, Vector4{ 0.0, 0.0, 1.0, 1.0 }, 2);
 		p->setLifeTime(newTime);
 		p->setGravitable(true);
 		auxProjectictiles.push_back(p);

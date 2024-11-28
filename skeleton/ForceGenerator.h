@@ -42,7 +42,7 @@ public:
 	//------Gestion de particulas:
 
 	// Comprueba si la particula esta dentro de la zona que afecta.
-	bool isOnRadius(Vector3 parPos);
+	virtual bool isOnRadius(Particle* part);
 	// Genera una fuerza dada una particula.
 	virtual Vector3 generateForce(Particle& par) = 0;
 	// Update de ForceGenerator virtual.

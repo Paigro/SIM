@@ -20,14 +20,12 @@ void ForceGenerator::generateSphere()
 	}
 
 	if (!renderItem) {
-		//std::cout << "no hay renderitem" << std::endl;
 		renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(radius)), Vector4{ 1.0, 0.5, 0.0, 0.0 });
 	}
 	else
 	{
 		DeregisterRenderItem(renderItem);
 		renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(radius)), Vector4{ 1.0, 0.5, 0.0, 0.0 });
-		//std::cout << "hay renderitem" << std::endl;
 	}
 }
 
@@ -37,9 +35,10 @@ void ForceGenerator::setRadius(float newRad)
 	generateSphere();
 }
 
-bool ForceGenerator::isOnRadius(Vector3 parPos)
+bool ForceGenerator::isOnRadius(Particle* part)
 {
-	if ((parPos - position).magnitude() <= radius)
+	Vector3 partPos = part->getPos();
+	if ((partPos - position).magnitude() <= radius)
 	{
 		return true;
 	}

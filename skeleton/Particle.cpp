@@ -28,7 +28,6 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4
 
 Particle::~Particle()
 {
-
 	DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
 }
 
@@ -77,6 +76,11 @@ void Particle::setGravitable(bool grav)
 	gravitable = grav;
 }
 
+void Particle::setMovible(bool mov)
+{
+	movible = mov;
+}
+
 void Particle::setLifeTime(float _tim)
 {
 	lifeTime = _tim;
@@ -112,6 +116,7 @@ bool Particle::update(float t)
 	if (!isActive) { return true; } // Si no esta activa no se hace lo de abajo.
 	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; } // Calcula si esta fuera de tiempo o de espacio.
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
+	if (!movible) { return true; } // Si no es movible no tiene que hacer nada mas.
 
 	applyForce(); // Aplicar fuerzas.
 

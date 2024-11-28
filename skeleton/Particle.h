@@ -22,6 +22,7 @@ private:
 	Vector3 accF; // Fuerzas acumuladas en un momento. Se tiene que borrar en cada ciclo del motor.
 	Vector3 gravity = { 0.0, -9.8, 0.0 };
 	bool gravitable = true;
+	bool movible = true;
 
 
 	//------Render Item:
@@ -79,6 +80,8 @@ public:
 	float getMass()const { return mass; }
 	// Devuelve si le afecta la gravedad.
 	bool getGravitable() { return gravitable; }
+	// Devuelve si es movible.
+	bool getMovivle() { return movible; }
 	// Settea el pose.
 	void setPose(physx::PxTransform newPose);
 	// Settea la velocidad.
@@ -95,6 +98,8 @@ public:
 	void setMass(float mss);
 	// Settea si le afecta la gravedad.
 	void setGravitable(bool grav);
+	//Settea si se puede mover o no.
+	void setMovible(bool mov);
 	// Settea el tiempo maxima de vida.
 	void setLifeTime(float t);
 	// Settea el espacio vital de la particula.

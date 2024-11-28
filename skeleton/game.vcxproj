@@ -254,6 +254,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnchorForceGenerator.cpp" />
+    <ClCompile Include="BandForceGenerator.cpp" />
     <ClCompile Include="callbacks.cpp" />
     <ClCompile Include="DockGenerator.cpp" />
     <ClCompile Include="DosckScene.cpp" />
@@ -284,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnchorForceGenerator.h" />
+    <ClInclude Include="BandForceGenerator.h" />
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="core.hpp" />
     <ClInclude Include="DockGenerator.h" />
