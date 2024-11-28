@@ -14,11 +14,7 @@
 #include "Vector3D.h"
 #include "Particle.h"
 #include "Projectile.h"
-#include "ParticleSystem.h"
 #include "SceneManager.h"
-#include "WindForceGenerator.h"
-#include "TornadoForceGenerator.h"
-#include "ExplosionForceGenerator.h"
 // Escenas:
 #include "ExplosionScene.h"
 #include "ParSysScene.h"
@@ -61,19 +57,10 @@ Vector4 xColor(1.0, 0.0, 0.0, 1.0);
 Vector4 yColor(0.0, 1.0, 0.0, 1.0);
 Vector4 zColor(0.0, 0.0, 1.0, 1.0);
 
-//------P1:
 
-Particle* part = nullptr;
-Particle* part2 = nullptr;
-Projectile* pro = nullptr;
-
-
-//------Scenes:
-
+// Scene Manager.
 SceneManager* sceneMg = nullptr;
 
-std::vector<Scene*> scenes; // Vector de escenas del juego.
-Scene* scene = nullptr; // Primera escena de prueba.
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -99,7 +86,10 @@ void initPhysics(bool interactive)
 	sceneDesc.simulationEventCallback = &gContactReportCallback;
 	gScene = gPhysics->createScene(sceneDesc);
 
-	// Axis P0:
+
+	//------------Aqui empiezan las practicas:
+
+	// Ejes P0:
 	sTransform = new PxTransform(Vector3{ 0.0, 0.0, 0.0 });
 	xTransform = new PxTransform(Vector3{ 20.0, 0, 0.0 });
 	yTransform = new PxTransform(Vector3{ 0.0, 20.0, 0.0 });
@@ -110,49 +100,11 @@ void initPhysics(bool interactive)
 	zSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), zTransform, zColor);
 
 
-	// Escenas:
-	sceneMg = new SceneManager();
-	
-	/*scene = new Scene();
-	scenes.push_back(scene);*/
-
-
-	// P1:
-
-	//scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 1, 0 }, Vector3{ 0.0, 4.0, 0.0 }, 0.98, { 1.0, 0.5, 0.0, 1.0 }, 2));
-	//scene->addParticle(new Particle(Vector3{ 0, 0, 0 }, Vector3{ 1, 0, 0 }, { 1.0, 0.5, 0.0, 1.0 }, 4));
-	//scene->addParticle(new Projectile(Vector3{ 0, 0, 0 }, Vector3{ 0, 25, 25 }, Vector3{ 0.0, 0.0, 4.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 2));
-	part = new Particle(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, Vector3{ 0.0, 2.0, 0.0 }, 1, Vector4{ 1.0, 0.5, 0.0, 1.0 }, 4, 5.0);
-	part->addForce(Vector3{ 0.0, 2.0, 3.0 });
-	//part->addForce(Vector3{ 0.0, -9.8, 0.0 });
-	part->setGravitable(true);
-	part->setMass(2);
-
-	// P2:
-
-	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -50 }, Vector3{ 0, 30, 0 }, 200, 10, 'F'));
-	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, -100 }, Vector3{ 0, 30, 0 }, 200, 10, 'S'));
-	//scene->addParticleSystem(new ParticleSystem(Vector3{ -50, 0, 0.0 }, Vector3{ 0, 30, 0 }, 200, 10, 'W'));
-	//scene->addParticleSystem(new ParticleSystem(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, 200, -1, 'G'));
-
-	// P3:
-
-	//ForceSystem* forSys = new ForceSystem();
-
-	//WindForceGenerator* wind = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, Vector3{ 10, 0, 0 });
-	//forSys->addForceGenerator(wind);
-
-	//TornadoForceGenerator* tornado = new TornadoForceGenerator(Vector3{ 0, 0, 0 }, 400);
-	//forSys->addForceGenerator(tornado);
-
-	//ExplosionForceGenerator* explosion = new ExplosionForceGenerator(Vector3{ 0, 0, 0 }, 0, 20, 40);
-	//forSys->addForceGenerator(explosion);
-
-	//scene->addForceSistem(forSys);
-
-	// Meter escenas al SceneMg:
+	// Escenas P3:
 	sceneMg->addScene(new ExplosionScene());
-	sceneMg->addScene(new ExplosionScene());
+	sceneMg->addScene(new WindScene());
+	sceneMg->addScene(new TornadoScene());
+	sceneMg->addScene(new ParSysScene());
 }
 
 
@@ -166,19 +118,8 @@ void stepPhysics(bool interactive, double t)
 	gScene->simulate(t);
 	gScene->fetchResults(true);
 
-	/*// Se llama al update de las escenas.
-	for (auto s : scenes)
-	{
-		s->updateScene(t);
-	}*/
 
 	sceneMg->update(t);
-
-	if (part != nullptr && !part->update(t))
-	{
-		delete part;
-		part = nullptr;
-	}
 }
 
 // Function to clean data
@@ -198,7 +139,8 @@ void cleanupPhysics(bool interactive)
 
 	gFoundation->release();
 
-	// Axis P0:
+
+	// Ejes P0:
 	DeregisterRenderItem(sSphere);
 	DeregisterRenderItem(xSphere);
 	DeregisterRenderItem(ySphere);
@@ -212,13 +154,11 @@ void keyPress(unsigned char key, const PxTransform& camera)
 
 	switch (toupper(key)) // [!] Poner en mayusculas 
 	{
-		//case 'B': break;
-		//case ' ':	break;
 	case ' ':
 		break;
 	case 'P': // Para disparar un proyectil.
-		std::cout << "Disparo" << std::endl;
-		scene->addParticle(new Projectile(GetCamera()->getTransform().p, GetCamera()->getTransform().q.getBasisVector2() * -20, Vector3{ 0.0, -9.8, 0.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 1));
+		//std::cout << "Disparo" << std::endl;
+		//scene->addParticle(new Projectile(GetCamera()->getTransform().p, GetCamera()->getTransform().q.getBasisVector2() * -20, Vector3{ 0.0, -9.8, 0.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 1));
 		break;
 	default:
 		break;

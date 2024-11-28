@@ -21,7 +21,7 @@ private:
 	float mass; // Masa de la particula.
 	Vector3 accF; // Fuerzas acumuladas en un momento. Se tiene que borrar en cada ciclo del motor.
 	Vector3 gravity = { 0.0, -9.8, 0.0 };
-	bool gravitable = false;
+	bool gravitable = true;
 
 
 	//------Render Item:
