@@ -23,6 +23,8 @@ private:
 	Vector3 gravity = { 0.0, -9.8, 0.0 };
 	bool gravitable = true;
 	bool movible = true;
+	float size;
+	Vector4 color;
 
 
 	//------Render Item:
@@ -81,7 +83,7 @@ public:
 	// Devuelve si le afecta la gravedad.
 	bool getGravitable() { return gravitable; }
 	// Devuelve si es movible.
-	bool getMovivle() { return movible; }
+	bool getMovible() { return movible; }
 	// Settea el pose.
 	void setPose(physx::PxTransform newPose);
 	// Settea la velocidad.
@@ -120,6 +122,8 @@ public:
 	bool outOfTime(float t);
 	// Settea si la particula esta activa o no.
 	void setActive(bool act);
+	// Cambia la forma de la particula.
+	void changeShape(physx::PxShape* newShape);
 
 
 	//------Metodos de movimiento:

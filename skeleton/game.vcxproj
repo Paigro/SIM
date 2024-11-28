@@ -256,7 +256,6 @@
     <ClCompile Include="AnchorForceGenerator.cpp" />
     <ClCompile Include="BandForceGenerator.cpp" />
     <ClCompile Include="callbacks.cpp" />
-    <ClCompile Include="DockGenerator.cpp" />
     <ClCompile Include="DosckScene.cpp" />
     <ClCompile Include="ExplosionForceGenerator.cpp" />
     <ClCompile Include="ExplosionScene.cpp" />
@@ -288,7 +287,6 @@
     <ClInclude Include="BandForceGenerator.h" />
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="core.hpp" />
-    <ClInclude Include="DockGenerator.h" />
     <ClInclude Include="DosckScene.h" />
     <ClInclude Include="ExplosionForceGenerator.h" />
     <ClInclude Include="ExplosionScene.h" />

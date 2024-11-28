@@ -4,7 +4,7 @@
 
 
 Particle::Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz)
-	: pose(_pos), vel(_vel), acc(0)
+	: pose(_pos), vel(_vel), acc(0), size(_siz), color(_col)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(_siz)), &pose, _col);
 	spaceToLive = { 100.0, 100.0, 100.0 };
@@ -166,6 +166,18 @@ void Particle::setActive(bool act)
 	else
 	{
 		DeregisterRenderItem(renderItem);
+	}
+}
+
+void Particle::changeShape(physx::PxShape* newShape)
+{
+	if (renderItem == nullptr)
+	{
+		renderItem = new RenderItem(newShape, &pose, color);
+	}
+	else
+	{
+		renderItem->shape = newShape;
 	}
 }
 
