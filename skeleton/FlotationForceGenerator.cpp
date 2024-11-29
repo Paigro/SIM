@@ -3,7 +3,7 @@
 FlotationForceGenerator::FlotationForceGenerator(float den, float hei)
 	: ForceGenerator(Vector3(0, hei, 0)), density(den), height(hei)
 {
-	std::cout << "//--MENSAJE: nuevo generador de flotacion." << std::endl;
+	std::cout << "//--MENSAJE: Nuevo generador de FLOTACION." << std::endl;
 }
 
 FlotationForceGenerator::~FlotationForceGenerator()

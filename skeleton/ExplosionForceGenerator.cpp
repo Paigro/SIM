@@ -4,7 +4,7 @@ ExplosionForceGenerator::ExplosionForceGenerator(Vector3 pos, float rad, float v
 	: ForceGenerator(pos, rad), expansionVel(vel), k(_k), tau(_tau)
 {
 	timePassed = 0;
-	std::cout << "//--MENSAJE: nuevo generador de explosion." << std::endl;
+	std::cout << "//--MENSAJE: Nuevo generador de EXPLOSION." << std::endl;
 }
 
 void ExplosionForceGenerator::updateFGen(float t)

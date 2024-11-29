@@ -24,7 +24,7 @@ private:
 
 	float damping = 0.5; // Damping para que la velocidad no crezca excesivamente.
 	float mass = 1; // Masa de la particula.
-	float size; // tamanyo de la particula.
+	float size; // Tamanyo de la particula.
 
 	bool gravitable = true; // Si al gravedad le afecta o no.
 	bool movible = true; // Si se puede mover o no.
@@ -61,10 +61,10 @@ public:
 
 	// Devuelve el pose.
 	physx::PxTransform getPose() const { return pose; }
-	// Devuelve la velocidad.
-	Vector3 getVel() const { return vel; }
 	// Devuelve la posicion (Vector3).
 	Vector3 getPos() const { return pose.p; }
+	// Devuelve la velocidad.
+	Vector3 getVel() const { return vel; }
 	// Devuelve la aceleracion.
 	Vector3 getAcc() const { return acc; }
 	// Devuelve el dumping.

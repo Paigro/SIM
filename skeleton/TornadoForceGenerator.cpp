@@ -3,7 +3,7 @@
 TornadoForceGenerator::TornadoForceGenerator(Vector3 pos, float rad, float _k)
 	:ForceGenerator(pos, rad), k(_k)
 {
-	std::cout << "//--MENSAJE: nuevo generador de tornado." << std::endl;
+	std::cout << "//--MENSAJE: Nuevo generador de TORNADO." << std::endl;
 }
 
 Vector3 TornadoForceGenerator::generateForce(Particle& par)

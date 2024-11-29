@@ -4,7 +4,7 @@
 BandForceGenerator::BandForceGenerator(Vector3 pos, float rad, float _k, float rest, Particle* p1, Particle* p2)
 	: ForceGenerator(p1->getPos(), rad), k(_k), restingLength(rest), part1(p1), part2(p2)
 {
-	std::cout << "//--MENSAJE: nuevo generador de goma." << std::endl;
+	std::cout << "//--MENSAJE: Nuevo generador de GOMA." << std::endl;
 }
 
 BandForceGenerator::~BandForceGenerator()

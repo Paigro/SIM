@@ -3,7 +3,7 @@
 
 ForceSystem::ForceSystem()
 {
-	std::cout << "//--MENSAJE: nuevo sitema de fuezas." << std::endl;
+	std::cout << "//--MENSAJE: Nuevo SISTEMA DE FUERZAS." << std::endl;
 }
 
 ForceSystem::~ForceSystem()

@@ -29,17 +29,17 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 		break;
 	}
 
-	std::cout << "//--MENSAJE: nuevo sistema de particulas de tipo: " << type << std::endl;
+	std::cout << "//--MENSAJE: Nuevo SISTEMA DE PARTICULAS de tipo: " << type << std::endl;
 
 	if (timeToLive < 0.0)
 	{
 		dieByTime = false;
-		std::cout << "----Tiene tiempo infinito." << std::endl;
+		std::cout << "//----AVISO: ParticleSystem " << type << " tiene tiempo infinito." << std::endl;
 	}
 	else
 	{
 		dieByTime = true;
-		std::cout << "----Muere en t: " << timeToLive << std::endl;
+		std::cout << "//----AVISO: Muere en t: " << timeToLive << std::endl;
 	}
 }
 
@@ -69,7 +69,7 @@ bool ParticleSystem::update(float t)
 		timeAlive += t;
 		if (timeAlive >= timeToLive)
 		{
-			std::cout << "//--MENSAJE: muerte de sistema de particulas de tipo: " << type << std::endl;
+			std::cout << "//--MENSAJE: Muerte de sistema de particulas de tipo: " << type << std::endl;
 			return false;
 		}
 	}

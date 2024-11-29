@@ -45,7 +45,7 @@ void DosckScene::initScene()
 
 	//------Goma de varias particulas:
 
-	/*// Particulas involucradas.
+	// Particulas involucradas.
 	Projectile* p1 = new Projectile(Vector3(50, 0, 50), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 1, 1), 2);
 	p1->setLifeTime(200);
 	p1->setMovible(false);
@@ -55,18 +55,18 @@ void DosckScene::initScene()
 	p3->setLifeTime(200);
 	Projectile* p4 = new Projectile(Vector3(0, 50, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(0.5, 1, 1, 1), 2);
 	p4->setLifeTime(200);
-	Projectile* p5 = new Projectile(Vector3(50, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 20, Vector4(1, 1, 0, 1), 2);
+	Projectile* p5 = new Projectile(Vector3(50, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 0, 1), 2);
 	p5->setLifeTime(200);
 	//p5->setMovible(false);
 
 	// Gomas involucradas.
-	BandForceGenerator* band1FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 10, p1, p2);
+	BandForceGenerator* band1FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 1, p1, p2);
 	forSys->addForceGenerator(band1FS);
 	BandForceGenerator* band2FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 10, p2, p3);
 	forSys->addForceGenerator(band2FS);
-	BandForceGenerator* band3FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 10, p3, p4);
+	BandForceGenerator* band3FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 20, p3, p4);
 	forSys->addForceGenerator(band3FS);
-	BandForceGenerator* band4FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 10, p4, p5);
+	BandForceGenerator* band4FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 5, p4, p5);
 	forSys->addForceGenerator(band4FS);
 
 	// Meter las cosas a la escena.
@@ -74,10 +74,10 @@ void DosckScene::initScene()
 	addParticle(p2);
 	addParticle(p3);
 	addParticle(p4);
-	addParticle(p5);*/
+	addParticle(p5);
 
 
-	//------Flotacion:
+	/*//------Flotacion:
 
 	// Particulas involucradas.
 	Projectile* p6 = new Projectile(Vector3(-20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, 10000, Vector4(1, 0.5, 0, 1), 2);
@@ -97,7 +97,7 @@ void DosckScene::initScene()
 	// Metemos las cosas a la escena.
 	addParticle(p6);
 	addParticle(p7);
-	addParticle(sea);
+	addParticle(sea);*/
 
 
 	//------Metemos el sistema de fuerzas a la escena:

@@ -92,7 +92,7 @@ void Particle::setLifeTime(float _tim)
 	if (lifeTime == -1)
 	{
 		canDieByTime = false;
-		std::cout << "//----AVISO: particula no puede morir." << std::endl;
+		std::cout << "//----AVISO: particula tiene tiempo infinito y no puede morir." << std::endl;
 	}
 }
 

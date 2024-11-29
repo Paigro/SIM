@@ -63,9 +63,33 @@ Vector4 zColor(0.0, 0.0, 1.0, 1.0);
 SceneManager* sceneMg = nullptr;
 
 
+void initEjes()
+{
+	sTransform = new PxTransform(Vector3{ 0.0, 0.0, 0.0 });
+	xTransform = new PxTransform(Vector3{ 20.0, 0, 0.0 });
+	yTransform = new PxTransform(Vector3{ 0.0, 20.0, 0.0 });
+	zTransform = new PxTransform(Vector3{ 0.0, 0, 20.0 });
+	sSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), sTransform, sColor);
+	xSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), xTransform, xColor);
+	ySphere = new RenderItem(CreateShape(PxSphereGeometry(1)), yTransform, yColor);
+	zSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), zTransform, zColor);
+}
+
+void initScenes()
+{
+	sceneMg = new SceneManager();
+
+	sceneMg->addScene(new ParSysScene());
+	sceneMg->addScene(new WindScene());
+	sceneMg->addScene(new TornadoScene());
+	sceneMg->addScene(new ExplosionScene());
+	sceneMg->addScene(nullptr);
+}
+
 // Initialize physics engine
 void initPhysics(bool interactive)
 {
+	std::cout << "------------------INIT------------------" << std::endl;
 	PX_UNUSED(interactive);
 
 	gFoundation = PxCreateFoundation(PX_FOUNDATION_VERSION, gAllocator, gErrorCallback);
@@ -91,25 +115,11 @@ void initPhysics(bool interactive)
 	//------------Aqui empiezan las practicas:
 
 	// Ejes P0:
-	sTransform = new PxTransform(Vector3{ 0.0, 0.0, 0.0 });
-	xTransform = new PxTransform(Vector3{ 20.0, 0, 0.0 });
-	yTransform = new PxTransform(Vector3{ 0.0, 20.0, 0.0 });
-	zTransform = new PxTransform(Vector3{ 0.0, 0, 20.0 });
-	sSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), sTransform, sColor);
-	xSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), xTransform, xColor);
-	ySphere = new RenderItem(CreateShape(PxSphereGeometry(1)), yTransform, yColor);
-	zSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), zTransform, zColor);
-
+	initEjes();
 
 	// Escenas P3:
-	
-	sceneMg = new SceneManager();
-
-	sceneMg->addScene(new ParSysScene());
-	sceneMg->addScene(new WindScene());
-	sceneMg->addScene(new TornadoScene());
-	sceneMg->addScene(new ExplosionScene());
-	sceneMg->addScene(new DosckScene());
+	initScenes();
+	std::cout << "-----------------------------------------" << std::endl << std::endl;
 }
 
 
@@ -199,3 +209,5 @@ int main(int, const char* const*)
 
 	return 0;
 }
+
+
