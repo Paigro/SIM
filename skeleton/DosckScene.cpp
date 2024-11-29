@@ -80,13 +80,15 @@ void DosckScene::initScene()
 	//------Flotacion:
 
 	// Particulas involucradas.
-	Projectile* p6 = new Projectile(Vector3(0, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 10000, Vector4(1, 0.5, 0, 1), 2);
+	Projectile* p6 = new Projectile(Vector3(-20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, 10000, Vector4(1, 0.5, 0, 1), 2);
 	p6->setLifeTime(200);
+	Projectile* p7 = new Projectile(Vector3(20, 200, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, 5000000, Vector4(1, 0.5, 0, 1), 10);
+	p7->setLifeTime(200);
 	Projectile* sea = new Projectile(Vector3(0, 40, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 1, 1, Vector4(0, 0, 1, 1), 1);
 	sea->setGravitable(false);
 	sea->setMovible(false);
 	sea->setLifeTime(-1);
-	sea->changeShape(CreateShape(physx::PxBoxGeometry(50, 0.2, 50)));
+	sea->changeShape(CreateShape(physx::PxBoxGeometry(20, 0.1, 20)));
 
 	// Flotacion involucrada.
 	FlotationForceGenerator* flotationFS = new FlotationForceGenerator(997, 40);
@@ -94,6 +96,7 @@ void DosckScene::initScene()
 
 	// Metemos las cosas a la escena.
 	addParticle(p6);
+	addParticle(p7);
 	addParticle(sea);
 
 
@@ -107,7 +110,8 @@ void DosckScene::keyPressed(unsigned char key, const physx::PxTransform& camera)
 	{
 	case 'V':
 		windActive = !windActive;
-		windGen->setActive(windActive);
+		if (windGen != nullptr) { windGen->setActive(windActive); }
+		else { std::cout << "//------ERROR: viento no existe." << std::endl; }
 	default:
 		break;
 	}

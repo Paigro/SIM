@@ -105,10 +105,10 @@ void initPhysics(bool interactive)
 	
 	sceneMg = new SceneManager();
 
-	//sceneMg->addScene(new ExplosionScene());
-	//sceneMg->addScene(new WindScene());
-	//sceneMg->addScene(new TornadoScene());
-	//sceneMg->addScene(new ParSysScene());
+	sceneMg->addScene(new ParSysScene());
+	sceneMg->addScene(new WindScene());
+	sceneMg->addScene(new TornadoScene());
+	sceneMg->addScene(new ExplosionScene());
 	sceneMg->addScene(new DosckScene());
 }
 

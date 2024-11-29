@@ -108,4 +108,6 @@ void ParticleSystem::setActive(bool act)
 	{
 		p->setActive(act);
 	}
+
+	generator->setActive(act);
 }

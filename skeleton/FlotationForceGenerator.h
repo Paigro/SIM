@@ -8,14 +8,14 @@ class FlotationForceGenerator : public ForceGenerator
 private:
 
 	float density; // Densidad del liquido.
-	float surface; // Superficie del liquido.
+	float height; // Donde esta el nivel del liquido.
 
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora de FlotationForceGenerator.
-	FlotationForceGenerator(float den, float sur);
+	FlotationForceGenerator(float den, float hei);
 	// Destructora de FlotationForceGenerator.
 	~FlotationForceGenerator();
 

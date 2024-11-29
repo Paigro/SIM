@@ -26,7 +26,7 @@ Vector3 BandForceGenerator::generateForce(Particle& par)
 
 	// Muelle:
 	float diff = lenght - restingLength; // Diferencia entre la logitud de reposo y la actual
-	if (diff <= 0) // Si la diferencia es menor a la de reposo (la diff es menor que 0) entonces no tiene que haber deformacion de la goma.
+	if (diff <= 0) // Si la diferencia es menor a la de reposo (la diff es menor que 0) entonces la goma no tiene deformacion.
 	{
 		diff = 0;
 	}

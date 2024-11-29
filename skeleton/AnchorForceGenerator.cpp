@@ -5,6 +5,7 @@ AnchorForceGenerator::AnchorForceGenerator(Vector3 pos, double _k, double rest, 
 	: SpringForceGenerator(pos, _k, rest, nullptr)
 {
 	otherPart = new Particle(anchor_pos, Vector3(0, 0, 0), Vector4(1, 0, 0, 1), 2);
+	otherPart->setMovible(false);
 	std::cout << "//--MENSAJE: nuevo generador de anchor." << std::endl;
 }
 

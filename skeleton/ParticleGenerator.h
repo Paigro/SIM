@@ -39,4 +39,10 @@ public:
 	virtual std::vector<Projectile*> CreateParticles(int actP, int maxP) = 0;
 	// Genera partculas y las devuelve en un vector.
 	virtual std::vector<Particle*> CreateParticles() = 0;
+
+
+	//------Metodos de ParticleGenerator.
+
+	// Para activar o desactivar el punto de origen (para que no se vea o si).
+	void setActive(bool act);
 };

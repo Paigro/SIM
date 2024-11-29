@@ -11,6 +11,8 @@ private:
 
 	WindForceGenerator* windGen = nullptr; // Generador de viendo.
 
+	bool windActive = false; // Para controlar el viento.
+
 public:
 
 	//------Constructoras y destructoras:

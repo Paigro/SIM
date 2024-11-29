@@ -7,8 +7,6 @@ class SpringForceGenerator : public ForceGenerator
 {
 private:
 
-
-
 protected:
 
 	double k; // Coeficiente de elasticidad.

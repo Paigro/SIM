@@ -18,3 +18,18 @@ ParticleGenerator::~ParticleGenerator()
 	}
 	vProjectiles.clear();
 }
+
+void ParticleGenerator::setActive(bool act)
+{
+	if (act)
+	{
+		orParticle->setActive(true);
+	}
+	else
+	{
+		orParticle->setActive(false);
+	}
+
+
+
+}

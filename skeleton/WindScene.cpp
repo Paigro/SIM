@@ -34,6 +34,10 @@ void WindScene::keyPressed(unsigned char key, const physx::PxTransform& camera)
 {
 	switch (toupper(key))
 	{
+	case 'V':
+		windActive = !windActive;
+		if (windGen != nullptr) { windGen->setActive(windActive); }
+		else { std::cout << "//------ERROR: viento no existe." << std::endl; }
 	default:
 		break;
 	}
