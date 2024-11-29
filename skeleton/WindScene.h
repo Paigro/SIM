@@ -9,7 +9,7 @@ class WindScene : public Scene
 {
 private:
 
-	WindForceGenerator* windGen = nullptr;
+	WindForceGenerator* windGen = nullptr; // Generador de viendo.
 
 public:
 
@@ -23,8 +23,8 @@ public:
 
 	//------Metodos heredados:
 
-	//
+	// KeyPressed de WindScene.
 	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
-	//
+	// InitScene de WindScene.
 	void initScene() override;
 };

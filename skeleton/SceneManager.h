@@ -6,6 +6,7 @@
 
 #include "Scene.h"
 
+
 class SceneManager
 {
 private:
@@ -26,9 +27,9 @@ public:
 
 	//------Gestion de escenas:
 	
-	// Meter una escena nueva.
+	// Mete una escena nueva.
 	void addScene(Scene* sc);
-	// Cambiar a otra escena.
+	// Cambia a otra escena.
 	void changeScene(int newSc);
 	// Eliminar escena.
 	void deleteScene(int delSc);
@@ -36,8 +37,8 @@ public:
 
 	//------Metodos de SceneManager:
 
-	//------Update de las escenas:
+	// Update de las escenas.
 	void update(float t);
-	//
+	// KeyPressed del SceneManager.
 	void keyPressed(unsigned char key, const physx::PxTransform& camera);
 };

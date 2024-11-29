@@ -14,8 +14,7 @@ private:
 	//------Posicion y lo que le afecta:
 
 	physx::PxTransform pose; // Posicion de la particula. La pose tiene un Vector3 p y un cuaternion q.
-	
-	Vector3 initPos; // Posicion inicial de la particula para calcular su espacio vital si es necesario.
+
 	Vector3 vel; // Velocidad de la particula.
 	Vector3 acc; // Acceleracion de la particula.
 	Vector3 accF; // Fuerzas acumuladas en un momento. Se tiene que borrar en cada ciclo del motor.
@@ -61,7 +60,7 @@ public:
 	//------Getters y setters:
 
 	// Devuelve el pose.
-	physx::PxTransform getPose() { return pose; }
+	physx::PxTransform getPose() const { return pose; }
 	// Devuelve la velocidad.
 	Vector3 getVel() const { return vel; }
 	// Devuelve la posicion (Vector3).
@@ -69,13 +68,17 @@ public:
 	// Devuelve la aceleracion.
 	Vector3 getAcc() const { return acc; }
 	// Devuelve el dumping.
-	float getDamping() const { return damping; }
+	float getDamping() const noexcept { return damping; }
 	// Devuelve la masa.
-	float getMass()const { return mass; }
+	float getMass() const noexcept { return mass; }
 	// Devuelve si le afecta la gravedad.
-	bool getGravitable() { return gravitable; }
+	bool getGravitable() const noexcept { return gravitable; }
 	// Devuelve si es movible.
-	bool getMovible() { return movible; }
+	bool getMovible() const noexcept { return movible; }
+	// Devuelve el tamanyo de la particula.
+	float getSize() const noexcept { return size; }
+	// Devuelve el tamanyo de la particula.
+	Vector4 getColor() const { return color; }
 	//------------------------------------------//
 	// Settea el pose.
 	void setPose(physx::PxTransform newPose);
@@ -113,12 +116,10 @@ public:
 
 	// Update de Particle.
 	virtual bool update(float t);
-	// Para saber si esta fuera de una region. Provisional
-	bool outOfBounds();
 	// Para saber si ya se ha pasado de tiempo de vida.
 	bool outOfTime(float t);
 	// Settea si la particula esta activa o no.
-	void setActive(bool act);	
+	void setActive(bool act);
 
 
 	//------Metodos de movimiento:

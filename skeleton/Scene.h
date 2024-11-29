@@ -35,16 +35,16 @@ public:
 	void activateScene();
 	// Desactiva la escena.
 	void deactivateScene();
-	//
+	// KeyPressed virtual de Scene.
 	virtual void keyPressed(unsigned char key, const physx::PxTransform& camera) {};
 
 
 	//------Metodos para meter cosas a la escena:
 
-	// Mete una particula.
+	// Mete una particula al vector de particulas de la escena.
 	void addParticle(Projectile* par);
-	// Mete un sitema de particulas.
+	// Mete un sitema de particulas al vector de sistemas de particulas de la escena.
 	void addParticleSystem(ParticleSystem* parSys);
-	// Mete un sistema de fuerzas.
+	// Mete un sistema de fuerzas al vector de sistemas de fuerzas de la escena.
 	void addForceSistem(ForceSystem* forSys);
 };

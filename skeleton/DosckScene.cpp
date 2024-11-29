@@ -14,14 +14,17 @@ DosckScene::~DosckScene()
 
 void DosckScene::initScene()
 {
-	//------Viento:
+	//------Sistema de fuerzas principal.
 	ForceSystem* forSys = new ForceSystem();
+
+
+	/*//------Viento:
 	windGen = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, Vector3{ 10, 0, 0 });
 	windGen->setActive(false);
-	forSys->addForceGenerator(windGen);
+	forSys->addForceGenerator(windGen);*/
 
 
-	//-------Muelle normal:
+	/*//-------Muelle normal:
 
 	// Particula con menos masa.
 	Projectile* projL = new Projectile(Vector3(-50, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 4, Vector4(0, 1, 0, 1), 2);
@@ -29,13 +32,18 @@ void DosckScene::initScene()
 	// Particula con mas masa.
 	Projectile* projH = new Projectile(Vector3(50, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 10, Vector4(0, 0, 1, 1), 2);
 	projH->setLifeTime(200);
+
 	// Creamos el anchor del muelle.
 	AnchorForceGenerator* anchorFS = new AnchorForceGenerator(Vector3(0, 0, 0), 1, 10, Vector3(0, 0, 0));
 	anchorFS->setRadius(400);
 	forSys->addForceGenerator(anchorFS);
 
+	// Meter las cosas a la escena.
+	addParticle(projL);
+	addParticle(projH);*/
 
-	//------Goma de varias particulas:
+
+	/*//------Goma de varias particulas:
 
 	// Particulas involucradas.
 	Projectile* p1 = new Projectile(Vector3(50, 0, 50), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 1, 1), 2);
@@ -49,7 +57,7 @@ void DosckScene::initScene()
 	p4->setLifeTime(200);
 	Projectile* p5 = new Projectile(Vector3(50, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 0, 1), 2);
 	p5->setLifeTime(200);
-	
+
 	// Gomas involucradas.
 	BandForceGenerator* band1FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 10, p1, p2);
 	forSys->addForceGenerator(band1FS);
@@ -60,16 +68,35 @@ void DosckScene::initScene()
 	BandForceGenerator* band4FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 10, p4, p5);
 	forSys->addForceGenerator(band4FS);
 
-
-	//------Meter las cosas a la escena.
-
-	//addParticle(projL);
-	//addParticle(projH);
+	// Meter las cosas a la escena.
 	addParticle(p1);
 	addParticle(p2);
 	addParticle(p3);
 	addParticle(p4);
-	addParticle(p5);
+	addParticle(p5);*/
+
+
+	//------Flotacion:
+
+	// Particulas involucradas.
+	Projectile* p6 = new Projectile(Vector3(0, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 10, Vector4(1, 0.5, 0, 1), 4);
+	p6->setLifeTime(200);
+	Projectile* sea = new Projectile(Vector3(0, 40, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 1, 1, Vector4(0, 0, 1, 1), 1);
+	sea->setGravitable(false);
+	sea->setMovible(false);
+	sea->setLifeTime(-1);
+	sea->changeShape(CreateShape(physx::PxBoxGeometry(50, 0.2, 50)));
+
+	// Flotacion involucrada.
+	FlotationForceGenerator* flotationFS = new FlotationForceGenerator(1, 3540;
+	forSys->addForceGenerator(flotationFS);
+
+	// Metemos las cosas a la escena.
+	addParticle(p6);
+	addParticle(sea);
+
+
+	//------Metemos el sistema de fuerzas a la escena.
 	addForceSistem(forSys);
 }
 

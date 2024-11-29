@@ -30,16 +30,16 @@ public:
 
 	//------Gestion de los generadores:
 
-	// Mete un generador de fuerzas al vector.
+	// Mete un generador de fuerzas al vector de generadores de fuerzas.
 	void addForceGenerator(ForceGenerator* fGen);
 	// Update de ForceSystem.
 	void update(float t);
-	//
+	// Para activarlo o desactivarlo.
 	void setActive(bool act);
 
 
 	//------Gestion de las particulas:
 
-	//
+	// Mete a la particulas las fuerzas correspondientes.
 	void addForceToParticles(std::vector<Projectile*> vPar, float t);
 };

@@ -4,7 +4,7 @@
 BandForceGenerator::BandForceGenerator(Vector3 pos, float rad, float _k, float rest, Particle* p1, Particle* p2)
 	: ForceGenerator(p1->getPos(), rad), k(_k), restingLength(rest), part1(p1), part2(p2)
 {
-
+	std::cout << "//--MENSAJE: nuevo generador de goma." << std::endl;
 }
 
 BandForceGenerator::~BandForceGenerator()
@@ -34,6 +34,7 @@ Vector3 BandForceGenerator::generateForce(Particle& par)
 	force = dir * k * diff; // Calculamos la fuerza.
 	part1->addForce(-force); // La otra particula tambien tiene que cambiar su fuerza.
 
+	// PAIGRO AQUI: por alguna razon se genera fuerza en y que contrarresta a la de ala gravedad entonces se quedan en diagonal.
 	return force;
 }
 

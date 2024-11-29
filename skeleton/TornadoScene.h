@@ -8,7 +8,7 @@ class TornadoScene : public Scene
 {
 private:
 
-	TornadoForceGenerator* tornadoGen = nullptr;
+	TornadoForceGenerator* tornadoGen = nullptr; // Generador de tornado.
 
 public:
 
@@ -22,8 +22,8 @@ public:
 
 	//------Metodos heredados:
 
-	//
+	// KeyPressed de TornadoScene.
 	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
-	//
+	// InitScene de TornadoScene.
 	void initScene() override;
 };

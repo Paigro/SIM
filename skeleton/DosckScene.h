@@ -1,20 +1,23 @@
 #pragma once
 
 #include "Scene.h"
-#include "SpringForceGenerator.h"
+
 #include "WindForceGenerator.h"	
+
+#include "SpringForceGenerator.h"
 #include "AnchorForceGenerator.h"
 #include "BandForceGenerator.h"
+#include "FlotationForceGenerator.h"
 
 
 class DosckScene : public Scene
 {
 private:
 
-	SpringForceGenerator* springForceGen = nullptr;
-	WindForceGenerator* windGen = nullptr;
+	WindForceGenerator* windGen = nullptr; // Generador de viento.
+	SpringForceGenerator* springForceGen = nullptr; // Generador de fuerzas muelle.
 
-	bool windActive = false;
+	bool windActive = false; // Para controlar el viento.
 
 public:
 
@@ -28,8 +31,8 @@ public:
 
 	//------Metodos heredados:
 
-	//
+	// KeyPressed de DosckScene.
 	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
-	//
+	// InitScene de DosckScene.
 	void initScene() override;
 };

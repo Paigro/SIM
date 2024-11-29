@@ -19,11 +19,17 @@ Scene::~Scene()
 		delete ps;
 	}
 	vParticleSystems.clear();
+	
+	for (auto* fs : vForceSystems)
+	{
+		delete fs;
+	}
+	vForceSystems.clear();
 }
 
 void Scene::updateScene(float t)
 {
-	// Gestion de las particulas. PAIGRO AQUI.
+	// Gestion de las particulas.
 	for (auto it = vParticles.begin(); it != vParticles.end();)
 	{
 		Particle* p = *it;
@@ -38,7 +44,7 @@ void Scene::updateScene(float t)
 		}
 	}
 
-	// Gestion de los sistemas de particulas. PAIGRO AQUI.
+	// Gestion de los sistemas de particulas.
 	for (auto it = vParticleSystems.begin(); it != vParticleSystems.end();)
 	{
 		ParticleSystem* ps = *it;
@@ -56,7 +62,6 @@ void Scene::updateScene(float t)
 	// Gestion de los sitemas de fuerzas.
 	for (auto fs : vForceSystems)
 	{
-
 		fs->addForceToParticles(vParticles, t);
 
 		for (auto ps : vParticleSystems)

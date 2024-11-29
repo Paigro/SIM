@@ -3,6 +3,8 @@
 #include <iostream>
 
 
+#pragma region constuctoras y destructoras:
+
 Particle::Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz)
 	: pose(_pos), vel(_vel), acc(0), size(_siz), color(_col)
 {
@@ -29,6 +31,8 @@ Particle::~Particle()
 {
 	DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
 }
+
+#pragma endregion
 
 #pragma region sets:
 
@@ -140,6 +144,7 @@ bool Particle::update(float t)
 
 bool Particle::outOfTime(float t)
 {
+	if (!canDieByTime) { return false; }
 	timeAlive += t;
 	if (timeAlive > lifeTime)
 	{

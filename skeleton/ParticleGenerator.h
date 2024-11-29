@@ -10,8 +10,6 @@ class ParticleGenerator
 {
 private:
 
-
-
 protected:
 
 	Vector3 initPos; // Posicion inicial de las particulas.

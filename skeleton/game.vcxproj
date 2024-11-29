@@ -260,6 +260,7 @@
     <ClCompile Include="ExplosionForceGenerator.cpp" />
     <ClCompile Include="ExplosionScene.cpp" />
     <ClCompile Include="FireworkGenerator.cpp" />
+    <ClCompile Include="FlotationForceGenerator.cpp" />
     <ClCompile Include="ForceGenerator.cpp" />
     <ClCompile Include="ForceSystem.cpp" />
     <ClCompile Include="FountainGenerator.cpp" />
@@ -291,6 +292,7 @@
     <ClInclude Include="ExplosionForceGenerator.h" />
     <ClInclude Include="ExplosionScene.h" />
     <ClInclude Include="FireworkGenerator.h" />
+    <ClInclude Include="FlotationForceGenerator.h" />
     <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="ForceSystem.h" />
     <ClInclude Include="FountainGenerator.h" />

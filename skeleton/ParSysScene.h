@@ -4,14 +4,15 @@
 #include "RandomGenerator.h"
 #include "ParticleSystem.h"
 
+
 class ParSysScene : public Scene
 {
 private:
 
-	ParticleSystem* fountainParSys = nullptr;
-	ParticleSystem* smokeParSys = nullptr;
-	ParticleSystem* fireworkParSys = nullptr;
-	ParticleSystem* randomParSys = nullptr;
+	ParticleSystem* fountainParSys = nullptr; // Generador de una fuente.
+	ParticleSystem* smokeParSys = nullptr; // Generador de humo.
+	ParticleSystem* fireworkParSys = nullptr; // generador de un fuego artificial.
+	ParticleSystem* randomParSys = nullptr; // Generador de particulas randoms.
 
 public:
 
@@ -25,8 +26,8 @@ public:
 
 	//------Metodos heredados:
 
-	//
+	// KeyPressed de ParSysScene.
 	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
-	//
+	// InitScene de ParSysScene.
 	void initScene() override;
 };

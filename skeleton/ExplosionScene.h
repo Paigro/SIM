@@ -22,8 +22,8 @@ public:
 
 	//------Metodos heredados:
 
-	//
+	// KeyPressed de ExplosionScene.
 	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
-	//
+	// InitScene de ExplosionScene.
 	void initScene() override;
 };
