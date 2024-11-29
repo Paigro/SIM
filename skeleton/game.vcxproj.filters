@@ -80,7 +80,12 @@
     <ClCompile Include="AnchorForceGenerator.cpp">
       <Filter>ForSys</Filter>
     </ClCompile>
-    <ClCompile Include="BandForceGenerator.cpp" />
+    <ClCompile Include="BandForceGenerator.cpp">
+      <Filter>ForSys</Filter>
+    </ClCompile>
+    <ClCompile Include="FlotationForceGenerator.cpp">
+      <Filter>ForSys</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -167,7 +172,12 @@
     <ClInclude Include="AnchorForceGenerator.h">
       <Filter>ForSys</Filter>
     </ClInclude>
-    <ClInclude Include="BandForceGenerator.h" />
+    <ClInclude Include="FlotationForceGenerator.h">
+      <Filter>ForSys</Filter>
+    </ClInclude>
+    <ClInclude Include="BandForceGenerator.h">
+      <Filter>ForSys</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

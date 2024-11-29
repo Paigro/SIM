@@ -14,14 +14,14 @@ DosckScene::~DosckScene()
 
 void DosckScene::initScene()
 {
-	//------Sistema de fuerzas principal.
+	//------Sistema de fuerzas principal:
 	ForceSystem* forSys = new ForceSystem();
 
 
-	/*//------Viento:
+	//------Viento:
 	windGen = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, Vector3{ 10, 0, 0 });
 	windGen->setActive(false);
-	forSys->addForceGenerator(windGen);*/
+	forSys->addForceGenerator(windGen);
 
 
 	/*//-------Muelle normal:
@@ -43,9 +43,9 @@ void DosckScene::initScene()
 	addParticle(projH);*/
 
 
-	/*//------Goma de varias particulas:
+	//------Goma de varias particulas:
 
-	// Particulas involucradas.
+	/*// Particulas involucradas.
 	Projectile* p1 = new Projectile(Vector3(50, 0, 50), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 1, 1), 2);
 	p1->setLifeTime(200);
 	p1->setMovible(false);
@@ -55,8 +55,9 @@ void DosckScene::initScene()
 	p3->setLifeTime(200);
 	Projectile* p4 = new Projectile(Vector3(0, 50, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(0.5, 1, 1, 1), 2);
 	p4->setLifeTime(200);
-	Projectile* p5 = new Projectile(Vector3(50, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 0, 1), 2);
+	Projectile* p5 = new Projectile(Vector3(50, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 20, Vector4(1, 1, 0, 1), 2);
 	p5->setLifeTime(200);
+	//p5->setMovible(false);
 
 	// Gomas involucradas.
 	BandForceGenerator* band1FS = new BandForceGenerator(Vector3(50, 0, 50), 500, 5, 10, p1, p2);
@@ -79,7 +80,7 @@ void DosckScene::initScene()
 	//------Flotacion:
 
 	// Particulas involucradas.
-	Projectile* p6 = new Projectile(Vector3(0, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 10, Vector4(1, 0.5, 0, 1), 4);
+	Projectile* p6 = new Projectile(Vector3(0, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 10000, Vector4(1, 0.5, 0, 1), 2);
 	p6->setLifeTime(200);
 	Projectile* sea = new Projectile(Vector3(0, 40, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 1, 1, Vector4(0, 0, 1, 1), 1);
 	sea->setGravitable(false);
@@ -88,7 +89,7 @@ void DosckScene::initScene()
 	sea->changeShape(CreateShape(physx::PxBoxGeometry(50, 0.2, 50)));
 
 	// Flotacion involucrada.
-	FlotationForceGenerator* flotationFS = new FlotationForceGenerator(1, 40);
+	FlotationForceGenerator* flotationFS = new FlotationForceGenerator(997, 40);
 	forSys->addForceGenerator(flotationFS);
 
 	// Metemos las cosas a la escena.
@@ -96,7 +97,7 @@ void DosckScene::initScene()
 	addParticle(sea);
 
 
-	//------Metemos el sistema de fuerzas a la escena.
+	//------Metemos el sistema de fuerzas a la escena:
 	addForceSistem(forSys);
 }
 

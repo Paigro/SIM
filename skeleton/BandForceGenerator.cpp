@@ -9,8 +9,8 @@ BandForceGenerator::BandForceGenerator(Vector3 pos, float rad, float _k, float r
 
 BandForceGenerator::~BandForceGenerator()
 {
-	delete part1;
-	delete part2;
+	//delete part1;
+	//delete part2;
 }
 
 Vector3 BandForceGenerator::generateForce(Particle& par)
