@@ -7,7 +7,6 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz)
 	: pose(_pos), vel(_vel), acc(0), size(_siz), color(_col)
 {
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(_siz)), &pose, _col);
-	spaceToLive = { 100.0, 100.0, 100.0 };
 	lifeTime = 10.0;
 	timeAlive = 0.0;
 	accF = { 0, 0, 0 };
@@ -38,37 +37,39 @@ void Particle::setPose(physx::PxTransform newPose)
 	pose = newPose;
 }
 
-void Particle::setVel(Vector3 _pos)
+void Particle::setVel(Vector3 newPos)
 {
-	pose.p = _pos;
+	pose.p = newPos;
 }
 
-void Particle::setPos(Vector3 _vel)
+void Particle::setPos(Vector3 newVel)
 {
-	vel = _vel;
+	vel = newVel;
 }
 
-void Particle::setAcc(Vector3 _acc)
+void Particle::setAcc(Vector3 newAcc)
 {
-	acc = _acc;
+	acc = newAcc;
 }
 
-void Particle::setDamping(float _dam)
+void Particle::setDamping(float newDamp)
 {
-	damping = _dam;
+	damping = newDamp;
 }
 
-void Particle::setColor(float _r, float _g, float _b, float _a)
+void Particle::setColor(float newR, float newG, float newB, float newA)
 {
-	renderItem->color.x = _r;
-	renderItem->color.y = _g;
-	renderItem->color.z = _b;
-	renderItem->color.w = _a;
+	renderItem->color.x = newR;
+	renderItem->color.y = newG;
+	renderItem->color.z = newB;
+	renderItem->color.w = newA;
+
+	color = { newR,newG,newB,newA }; // Actualizamos el color guardado.
 }
 
-void Particle::setMass(float mss)
+void Particle::setMass(float newMss)
 {
-	mass = mss;
+	mass = newMss;
 }
 
 void Particle::setGravitable(bool grav)
@@ -84,26 +85,32 @@ void Particle::setMovible(bool mov)
 void Particle::setLifeTime(float _tim)
 {
 	lifeTime = _tim;
-}
-
-void Particle::setSpaceToLive(Vector3 _spa)
-{
-	spaceToLive = _spa;
-}
-
-void Particle::setHowToDie(bool byTime, bool bySpace)
-{
-	std::cout << "//--AVISO: en proceso." << std::endl;
-	// Para que no pueda no morir.
-	if (byTime == false && bySpace == false)
+	if (lifeTime == -1)
 	{
-		canDieBySpace = true;
-		canDieBySpace = false;
+		canDieByTime = false;
+		std::cout << "//----AVISO: particula no puede morir." << std::endl;
+	}
+}
+
+void Particle::addLiveToParticle(float addedTime)
+{
+	lifeTime = timeAlive + addedTime;
+}
+
+void Particle::changeGravity(Vector3 newGrav)
+{
+	gravity = newGrav;
+}
+
+void Particle::changeShape(physx::PxShape* newShape)
+{
+	if (renderItem == nullptr)
+	{
+		renderItem = new RenderItem(newShape, &pose, color);
 	}
 	else
 	{
-		canDieByTime = byTime;
-		canDieBySpace = bySpace;
+		renderItem->shape = newShape;
 	}
 }
 
@@ -114,13 +121,13 @@ void Particle::setHowToDie(bool byTime, bool bySpace)
 bool Particle::update(float t)
 {
 	if (!isActive) { return true; } // Si no esta activa no se hace lo de abajo.
-	if (/*outOfBounds() ||*/ outOfTime(t)) { isAlive = false; } // Calcula si esta fuera de tiempo o de espacio.
+	if (outOfTime(t)) { isAlive = false; } // Calcula si esta fuera de tiempo o de espacio.
 	if (!isAlive) { return false; } // Comunicarle a la escena que la tiene que eliminar.
 	if (!movible) { return true; } // Si no es movible no tiene que hacer nada mas.
 
 	applyForce(); // Aplicar fuerzas.
 
-	integrateEuler(t); // Movimiento.
+	integrateEulerSemiImplicit(t); // Movimiento.
 
 	clearForce(); // Eliminamos las fuerzas.
 
@@ -129,19 +136,7 @@ bool Particle::update(float t)
 
 #pragma endregion
 
-#pragma region comprobaciones de muerte:
-
-bool Particle::outOfBounds()
-{
-	// Para eliminar las particulas tras salir de una distancia.
-	if (pose.p.x > initPos.x + spaceToLive.x || pose.p.y > initPos.y + spaceToLive.y || pose.p.z > initPos.z + spaceToLive.z ||
-		pose.p.x < initPos.x - spaceToLive.x || pose.p.y < initPos.y - spaceToLive.y || pose.p.z < initPos.z - spaceToLive.z)
-	{
-		//std::cout << "//--MENSAJE: Particle out of bounds." << std::endl;
-		return true;
-	}
-	return false;
-}
+#pragma region cosas importantes (gestion tiempo y setActive):
 
 bool Particle::outOfTime(float t)
 {
@@ -169,17 +164,7 @@ void Particle::setActive(bool act)
 	}
 }
 
-void Particle::changeShape(physx::PxShape* newShape)
-{
-	if (renderItem == nullptr)
-	{
-		renderItem = new RenderItem(newShape, &pose, color);
-	}
-	else
-	{
-		renderItem->shape = newShape;
-	}
-}
+
 
 #pragma endregion
 
@@ -206,7 +191,6 @@ void Particle::integrateEulerSemiImplicit(float t)
 void Particle::addForce(Vector3 force)
 {
 	accF += force;
-	//std::cout << "se la he metido" << std::endl;
 }
 
 void Particle::applyForce()
