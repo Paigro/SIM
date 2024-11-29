@@ -88,7 +88,7 @@ void DosckScene::initScene()
 	sea->changeShape(CreateShape(physx::PxBoxGeometry(50, 0.2, 50)));
 
 	// Flotacion involucrada.
-	FlotationForceGenerator* flotationFS = new FlotationForceGenerator(1, 3540;
+	FlotationForceGenerator* flotationFS = new FlotationForceGenerator(1, 40);
 	forSys->addForceGenerator(flotationFS);
 
 	// Metemos las cosas a la escena.
