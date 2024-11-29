@@ -39,7 +39,7 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 	else
 	{
 		dieByTime = true;
-		std::cout << "//----AVISO: Muere en t: " << timeToLive << std::endl;
+		std::cout << "//----AVISO: ParticleSystem " << type << " muere en t: " << timeToLive << std::endl;
 	}
 }
 

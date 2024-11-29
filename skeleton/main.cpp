@@ -83,7 +83,7 @@ void initScenes()
 	sceneMg->addScene(new WindScene());
 	sceneMg->addScene(new TornadoScene());
 	sceneMg->addScene(new ExplosionScene());
-	sceneMg->addScene(nullptr);
+	sceneMg->addScene(new DosckScene());
 }
 
 // Initialize physics engine
