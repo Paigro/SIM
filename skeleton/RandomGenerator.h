@@ -13,12 +13,14 @@ private:
 	float minPos; // Posicion minimo.
 	float maxPos; // Posicion maxima.
 
+	Vector4 color; // Color de las particulas que van a salir.
+
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora de RandomGenerator.
-	RandomGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT, float minP, float maxP);
+	RandomGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT, float minP, float maxP, Vector4 parColor = Vector4{ 1.0, 1.0, 1.0, 1.0 });
 	// Destructora de RandomGenerator.
 	~RandomGenerator();
 

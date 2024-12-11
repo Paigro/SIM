@@ -1,7 +1,7 @@
 #include "RandomGenerator.h"
 
-RandomGenerator::RandomGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT, float minP, float maxP)
-	: ParticleGenerator(ori, vel, nPar), minTimeToLive(minT), maxTimeToLive(maxT), minPos(minP), maxPos(maxP)
+RandomGenerator::RandomGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT, float minP, float maxP, Vector4 parColor)
+	: ParticleGenerator(ori, vel, nPar), minTimeToLive(minT), maxTimeToLive(maxT), minPos(minP), maxPos(maxP), color(parColor)
 {
 
 
@@ -44,7 +44,7 @@ std::vector<Particle*> RandomGenerator::CreateParticles(int actP, int maxP)
 		Vector3 newPos{ newX, newY, newZ }; // Nueva posicion de la particula.
 
 		// Nueva particulas con la posicion inicial, la nueva velocidad, la acceleracion que es inservible, damping y la gravedad en y = -10 porque asi dice el enunciado.
-		Particle* p = new Particle(newPos, medVel, { 0, 0.5, 0 }, 0.98, Vector4{ 1.0, 1.0, 1.0, 1.0 }, 2);
+		Particle* p = new Particle(newPos, medVel, { 0, 0.5, 0 }, 0.98, color, 2);
 		p->setMass(1.0);
 		p->setLifeTime(newTime);
 		auxParticles.push_back(p);

@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, char typ)
+ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, char typ, Vector4 parColor)
 	: initPos(pos), initVel(vel), maxParticles(maxPar), timeToLive(tim), type(typ), timeAlive(0)
 {
 	switch (toupper(type))
@@ -23,7 +23,7 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 		generator = new FireworkGenerator(initPos, initVel, maxParticles, 4.0, 4.0, 50);
 		break;
 	case 'G': // Generador aleatorio.
-		generator = new RandomGenerator(initPos, initVel, maxPar, 4.0, 10.0, 0.0, 50.0);
+		generator = new RandomGenerator(initPos, initVel, maxPar, 4.0, 10.0, 0.0, 50.0, parColor);
 		break;
 	default:
 		break;

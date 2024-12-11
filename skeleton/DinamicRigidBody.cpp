@@ -28,6 +28,16 @@ bool DinamicRigidBody::update(float t)
 
 void DinamicRigidBody::setActive(bool act)
 {
+	BaseRigidBody::setActive(act);
+
+	if (act)
+	{
+		gScene->addActor(*actor);
+	}
+	else
+	{
+		gScene->removeActor(*actor);
+	}
 }
 
 void DinamicRigidBody::addForce(Vector3 force)
@@ -35,7 +45,16 @@ void DinamicRigidBody::addForce(Vector3 force)
 	actor->addForce(force);
 }
 
+void DinamicRigidBody::setPose(PxTransform newPose)
+{
+	actor->setGlobalPose(pose);
+}
+
 void DinamicRigidBody::setShape(PxShape* newShape, float newSize)
 {
+	shape->release();
+	shape = newShape;
+	size = newSize;
 
+	actor->attachShape(*shape);
 }

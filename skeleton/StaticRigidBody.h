@@ -34,6 +34,8 @@ public:
 	// Devuelve el actor.
 	PxRigidActor* getActor() const { return actor; }
 	//------------------------------------------------------------// 
+	// Settea la pose.
+	void setPose(PxTransform newPose) override;
 	// Settea una nueva forma.
 	virtual void setShape(PxShape* newShape, float newSize);
 };

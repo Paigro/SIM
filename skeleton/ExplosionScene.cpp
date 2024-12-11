@@ -15,7 +15,7 @@ ExplosionScene::~ExplosionScene()
 void ExplosionScene::initScene()
 {
 	// Sistema de particulas aleatorias.
-	addParticleSystem(new ParticleSystem(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, 200, -1, 'G'));
+	addParticleSystem(new ParticleSystem(Vector3{ 0, 0, 0 }, Vector3{ 0, 0, 0 }, 200, -1, 'G', Vector4(0.64, 0.12, 0.09, 1.0)));
 
 	// Sistema de fuerzas.
 	ForceSystem* forSys = new ForceSystem();

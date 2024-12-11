@@ -40,8 +40,14 @@ void StaticRigidBody::setActive(bool act)
 	}
 }
 
+void StaticRigidBody::setPose(PxTransform newPose)
+{
+	actor->setGlobalPose(pose);
+}
+
 void StaticRigidBody::setShape(PxShape* newShape, float newSize)
 {
+	shape->release();
 	shape = newShape;
 	size = newSize;
 
