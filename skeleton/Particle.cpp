@@ -29,7 +29,6 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4
 
 Particle::~Particle()
 {
-	std::cout << "adios" << std::endl;
 	DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
 }
 

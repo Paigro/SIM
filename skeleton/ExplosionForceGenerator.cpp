@@ -40,5 +40,6 @@ Vector3 ExplosionForceGenerator::generateForce(Particle& par)
 
 void ExplosionForceGenerator::resetExplosion()
 {
+	radius = 0;
 	timePassed = 0;
 }

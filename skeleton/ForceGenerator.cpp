@@ -51,4 +51,8 @@ void ForceGenerator::isActive(bool act)
 	{
 		DeregisterRenderItem(renderItem);
 	}
+	else if (renderItem != nullptr)
+	{
+		RegisterRenderItem(renderItem);
+	}
 }
