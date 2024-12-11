@@ -1,6 +1,8 @@
 #include "Scene.h"
 
 
+#pragma region Constructora y destructora:
+
 Scene::Scene()
 {
 	initScene();
@@ -19,13 +21,17 @@ Scene::~Scene()
 		delete ps;
 	}
 	vParticleSystems.clear();
-	
+
 	for (auto* fs : vForceSystems)
 	{
 		delete fs;
 	}
 	vForceSystems.clear();
 }
+
+#pragma endregion
+
+#pragma region Update de la escena:
 
 void Scene::updateScene(float t)
 {
@@ -62,24 +68,26 @@ void Scene::updateScene(float t)
 	// Gestion de los sitemas de fuerzas.
 	for (auto fs : vForceSystems)
 	{
+		// Mete fuerza a las particulas sueltas.
 		fs->addForceToParticles(vParticles, t);
 
+		// Mete fuerzas a las particulas de los sistemas de particulas.
 		for (auto ps : vParticleSystems)
 		{
 			fs->addForceToParticles(ps->getVParticles(), t);
 		}
+		// Actualiza el sistema de fuerza.
 		fs->update(t);
 	}
 }
 
+#pragma endregion
+
+#pragma region Inicializacion, activacion y desactivacion de la escena:
+
 void Scene::initScene()
 {
 
-}
-
-void Scene::addParticle(Particle* par)
-{
-	vParticles.emplace_back(par);
 }
 
 void Scene::activateScene()
@@ -124,6 +132,15 @@ void Scene::deactivateScene()
 	}
 }
 
+#pragma endregion
+
+#pragma region Meter cosas a la escena:
+
+void Scene::addParticle(Particle* par)
+{
+	vParticles.emplace_back(par);
+}
+
 void Scene::addParticleSystem(ParticleSystem* parSys)
 {
 	vParticleSystems.emplace_back(parSys);
@@ -133,3 +150,5 @@ void Scene::addForceSistem(ForceSystem* forSys)
 {
 	vForceSystems.push_back(forSys);
 }
+
+#pragma endregion

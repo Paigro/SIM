@@ -169,8 +169,6 @@ void Particle::setActive(bool act)
 	}
 }
 
-
-
 #pragma endregion
 
 #pragma region integradores:

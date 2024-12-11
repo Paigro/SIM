@@ -88,11 +88,14 @@ void DosckScene::initScene()
 
 	// Particulas involucradas.
 	Particle* p6 = new Particle(Vector3(-20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, Vector4(1, 0.5, 0, 1), 2);
-	p6->setMass(10000);
+	p6->setMass(10000.0);
 	p6->setLifeTime(200);
 	Particle* p7 = new Particle(Vector3(20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, Vector4(1, 0.5, 0, 1), 10);
-	p7->setMass(5000000.0);
+	p7->setMass(8000000.0);
 	p7->setLifeTime(200);
+	Particle* p8 = new Particle(Vector3(60, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, Vector4(1, 0.5, 0, 1), 10);
+	p8->setMass(10000000.0);
+	p8->setLifeTime(200);
 	Particle* sea = new Particle(Vector3(0, 40, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 1, Vector4(0, 0, 1, 1), 1);
 	sea->setGravitable(false);
 	sea->setMovible(false);
@@ -106,6 +109,7 @@ void DosckScene::initScene()
 	// Metemos las cosas a la escena.
 	addParticle(p6);
 	addParticle(p7);
+	addParticle(p8);
 	addParticle(sea);*/
 
 

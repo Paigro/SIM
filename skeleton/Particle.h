@@ -37,7 +37,7 @@ private:
 
 	//------Vida de la particula:
 
-	bool isActive = true; // Si la particula esta en una escena activa entonces estara a true, sino a false;
+	bool isActive = true; // Si la particula esta en una escena activa entonces estara a true, sino a false.
 	bool canDieByTime; // Si la particula puede morir por tiempo.
 	bool isAlive = true; // Dice si la particula esta viva o muerta para eliminarse o no.
 	float lifeTime = 10.0; // Tiempo que va a vivir. Por defeto 10s.

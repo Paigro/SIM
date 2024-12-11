@@ -255,7 +255,10 @@
   <ItemGroup>
     <ClCompile Include="AnchorForceGenerator.cpp" />
     <ClCompile Include="BandForceGenerator.cpp" />
+    <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="BaseRigidBody.cpp" />
     <ClCompile Include="callbacks.cpp" />
+    <ClCompile Include="DinamicRigidBody.cpp" />
     <ClCompile Include="DosckScene.cpp" />
     <ClCompile Include="ExplosionForceGenerator.cpp" />
     <ClCompile Include="ExplosionScene.cpp" />
@@ -277,6 +280,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SmokeGenerator.cpp" />
     <ClCompile Include="SpringForceGenerator.cpp" />
+    <ClCompile Include="StaticRigidBody.cpp" />
     <ClCompile Include="TornadoForceGenerator.cpp" />
     <ClCompile Include="TornadoScene.cpp" />
     <ClCompile Include="WindForceGenerator.cpp" />
@@ -285,8 +289,11 @@
   <ItemGroup>
     <ClInclude Include="AnchorForceGenerator.h" />
     <ClInclude Include="BandForceGenerator.h" />
+    <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="BaseRigidBody.h" />
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="core.hpp" />
+    <ClInclude Include="DinamicRigidBody.h" />
     <ClInclude Include="DosckScene.h" />
     <ClInclude Include="ExplosionForceGenerator.h" />
     <ClInclude Include="ExplosionScene.h" />
@@ -307,6 +314,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SmokeGenerator.h" />
     <ClInclude Include="SpringForceGenerator.h" />
+    <ClInclude Include="StaticRigidBody.h" />
     <ClInclude Include="TornadoForceGenerator.h" />
     <ClInclude Include="TornadoScene.h" />
     <ClInclude Include="Vector3D.h" />
