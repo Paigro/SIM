@@ -6,8 +6,13 @@
 #pragma region constuctoras y destructoras:
 
 Particle::Particle(Vector3 _pos, Vector3 _vel, Vector4 _col, float _siz)
-	: pose(_pos), vel(_vel), acc(0), size(_siz), color(_col)
+	: BasicObject()
 {
+	pose.p = _pos;
+	vel = _vel;
+	acc = { 0, 0, 0 };
+	color = _col;
+	size = _siz;
 	renderItem = new RenderItem(CreateShape(physx::PxSphereGeometry(_siz)), &pose, _col);
 	lifeTime = 10.0;
 	timeAlive = 0.0;

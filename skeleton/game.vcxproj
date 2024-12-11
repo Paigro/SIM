@@ -255,6 +255,8 @@
   <ItemGroup>
     <ClCompile Include="AnchorForceGenerator.cpp" />
     <ClCompile Include="BandForceGenerator.cpp" />
+    <ClCompile Include="BasicObject.cpp" />
+    <ClCompile Include="BasicRigidBody.cpp" />
     <ClCompile Include="callbacks.cpp" />
     <ClCompile Include="DosckScene.cpp" />
     <ClCompile Include="ExplosionForceGenerator.cpp" />
@@ -286,6 +288,8 @@
   <ItemGroup>
     <ClInclude Include="AnchorForceGenerator.h" />
     <ClInclude Include="BandForceGenerator.h" />
+    <ClInclude Include="BasicObject.h" />
+    <ClInclude Include="BasicRigidBody.h" />
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="core.hpp" />
     <ClInclude Include="DosckScene.h" />
