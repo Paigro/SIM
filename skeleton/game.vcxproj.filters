@@ -24,10 +24,10 @@
       <Filter>ParSys</Filter>
     </ClCompile>
     <ClCompile Include="Particle.cpp">
-      <Filter>ParYPro</Filter>
+      <Filter>Base</Filter>
     </ClCompile>
     <ClCompile Include="Projectile.cpp">
-      <Filter>ParYPro</Filter>
+      <Filter>Base</Filter>
     </ClCompile>
     <ClCompile Include="SmokeGenerator.cpp">
       <Filter>ParSys</Filter>
@@ -110,10 +110,10 @@
       <Filter>ParSys</Filter>
     </ClInclude>
     <ClInclude Include="Particle.h">
-      <Filter>ParYPro</Filter>
+      <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="Projectile.h">
-      <Filter>ParYPro</Filter>
+      <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="SmokeGenerator.h">
       <Filter>ParSys</Filter>
@@ -131,7 +131,7 @@
       <Filter>Otros</Filter>
     </ClInclude>
     <ClInclude Include="Vector3D.h">
-      <Filter>ParYPro</Filter>
+      <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>Scenes</Filter>
@@ -192,11 +192,11 @@
     <Filter Include="ForSys">
       <UniqueIdentifier>{969f208a-84b6-47fa-8524-8950ee87e71c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ParYPro">
-      <UniqueIdentifier>{7f447262-d8dd-40f2-bd29-5bc858b91836}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Otros">
       <UniqueIdentifier>{a6a09638-79ea-4a63-813c-58465d84b170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{7f447262-d8dd-40f2-bd29-5bc858b91836}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
