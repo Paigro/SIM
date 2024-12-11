@@ -1,6 +1,6 @@
 #include "StaticRigidBody.h"
 
-StaticRigidBody::StaticRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, float initSize)
+StaticRigidBody::StaticRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize)
 	: BaseRigidBody(gPhysics)
 {
 	pose = initPose;
@@ -46,7 +46,7 @@ void StaticRigidBody::setPose(PxTransform newPose)
 	actor->setGlobalPose(pose);
 }
 
-void StaticRigidBody::setShape(PxShape* newShape, float newSize)
+void StaticRigidBody::setShape(PxShape* newShape, Vector3 newSize)
 {
 	shape->release();
 	shape = newShape;

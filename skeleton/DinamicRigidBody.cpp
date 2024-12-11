@@ -1,6 +1,6 @@
 #include "DinamicRigidBody.h"
 
-DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, float initSize, float initDensity)
+DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize, float initDensity)
 	: BaseRigidBody(gPhysics)
 {
 	pose = initPose;
@@ -55,7 +55,7 @@ void DinamicRigidBody::setPose(PxTransform newPose)
 	actor->setGlobalPose(pose);
 }
 
-void DinamicRigidBody::setShape(PxShape* newShape, float newSize)
+void DinamicRigidBody::setShape(PxShape* newShape, Vector3 newSize)
 {
 	shape->release();
 	shape = newShape;

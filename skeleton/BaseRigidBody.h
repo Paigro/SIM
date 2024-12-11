@@ -11,6 +11,9 @@ class BaseRigidBody
 {
 protected:
 
+	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
+	PxScene* gScene = nullptr; // Referencia a la escena fisica.
+
 	PxTransform pose; // Pose del rigid body.
 
 	PxShape* shape = nullptr; // Forma del rigid body.
@@ -19,9 +22,7 @@ protected:
 
 	RenderItem* renderItem = nullptr; // Referencia al renderItem del rigid body.
 
-	PxScene* gScene = nullptr; // Referencia a la escena fisica.
-
-	float size; // Tamanyo del rigidBody.
+	Vector3 size; // Tamanyo del rigidBody.
 
 	bool isActive = true; // Si el rigid body esta en una escena activa entonces estara a true, sino a false.
 
@@ -30,7 +31,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora base de BaseRigidBody.
-	BaseRigidBody(PxPhysics* gPhysics);
+	BaseRigidBody(PxPhysics* physics);
 	// Destructora base de BaseRigidBody.
 	~BaseRigidBody();
 
@@ -53,5 +54,5 @@ public:
 	// Settea la pose del rigid body.
 	virtual void setPose(PxTransform pose);
 	// Settea una nueva forma.
-	virtual void setShape(PxShape* newShape, float newSize) = 0;
+	virtual void setShape(PxShape* newShape, Vector3 newSize) = 0;
 };

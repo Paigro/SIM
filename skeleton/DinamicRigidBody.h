@@ -16,7 +16,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora base de DinamicRigidBody.
-	DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, float initSize, float initDensity = 1.0);
+	DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize, float initDensity = 1.0);
 	// Destructora de DinamicRigidBody.
 	~DinamicRigidBody();
 
@@ -46,7 +46,7 @@ public:
 	// Settea la pose.
 	void setPose(PxTransform newPose) override;
 	// Settea una nueva forma.
-	virtual void setShape(PxShape* newShape, float newSize);
+	virtual void setShape(PxShape* newShape, Vector3 newSize);
 	// Settea una nueva densidad.
 	void setDensity(float newDensity);
 };

@@ -12,7 +12,6 @@
 
 // Clases nuestras;
 #include "Vector3D.h"
-#include "Particle.h"
 #include "SceneManager.h"
 // Escenas:
 #include "ExplosionScene.h"
@@ -20,6 +19,7 @@
 #include "TornadoScene.h"
 #include "WindScene.h"
 #include "DosckScene.h"
+#include "RigidBodyScene.h"
 
 
 using namespace physx;
@@ -83,6 +83,7 @@ void initScenes()
 	sceneMg->addScene(new TornadoScene());
 	sceneMg->addScene(new ExplosionScene());
 	sceneMg->addScene(new DosckScene());
+	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));
 }
 
 // Initialize physics engine

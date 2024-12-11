@@ -14,7 +14,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora base de StaticRigidBody.
-	StaticRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, float initSize);
+	StaticRigidBody(PxPhysics* physics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize);
 	// Destructora de StaticRigidBody.
 	~StaticRigidBody();
 
@@ -37,5 +37,5 @@ public:
 	// Settea la pose.
 	void setPose(PxTransform newPose) override;
 	// Settea una nueva forma.
-	virtual void setShape(PxShape* newShape, float newSize);
+	virtual void setShape(PxShape* newShape, Vector3 newSize);
 };

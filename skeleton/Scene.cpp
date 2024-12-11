@@ -109,6 +109,11 @@ void Scene::activateScene()
 	{
 		fs->setActive(true);
 	}
+
+	for (auto rb : vRigidBodies)
+	{
+		rb->setActive(true);
+	}
 }
 
 void Scene::deactivateScene()
@@ -129,6 +134,11 @@ void Scene::deactivateScene()
 	for (auto fs : vForceSystems)
 	{
 		fs->setActive(false);
+	}
+
+	for (auto rb : vRigidBodies)
+	{
+		rb->setActive(false);
 	}
 }
 

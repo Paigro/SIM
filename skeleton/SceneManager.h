@@ -26,7 +26,7 @@ public:
 
 
 	//------Gestion de escenas:
-	
+
 	// Mete una escena nueva.
 	void addScene(Scene* sc);
 	// Cambia a otra escena.
@@ -41,4 +41,10 @@ public:
 	void update(float t);
 	// KeyPressed del SceneManager.
 	void keyPressed(unsigned char key, const physx::PxTransform& camera);
+
+
+	//------Getters y stetters:
+
+	// Devuelve el vector de escenas.
+	std::vector<Scene*> getVScenes() { return vScenes; }
 };

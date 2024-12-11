@@ -1,9 +1,10 @@
 #include "BaseRigidBody.h"
 
 
-BaseRigidBody::BaseRigidBody(PxPhysics* gPhysics)
+BaseRigidBody::BaseRigidBody(PxPhysics* physics)
+	:gPhysics(physics)
 {
-	//renderItem = new RenderItem(shape, &pose, color);
+
 }
 
 BaseRigidBody::~BaseRigidBody()

@@ -86,19 +86,19 @@ void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camer
 		changeScene(4);
 		break;
 	case '5':
-		//changeScene(4);
-		//break;
+		changeScene(5);
+		break;
 	case '6':
-		//changeScene(4);
+		//changeScene(6);
 		//break;
 	case '7':
-		//changeScene(4);
+		//changeScene(7);
 		//break;
 	case '8':
-		//changeScene(4);
+		//changeScene(8);
 		//break;
 	case '9':
-		//changeScene(4);
+		//changeScene(9);
 		//break;
 		std::cout << "//----AVISO: no existe la escena: " << key << std::endl;
 		break;
