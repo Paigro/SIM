@@ -151,4 +151,9 @@ void Scene::addForceSistem(ForceSystem* forSys)
 	vForceSystems.push_back(forSys);
 }
 
+void Scene::addRigidBody(BaseRigidBody* rigBod)
+{
+	vRigidBodies.push_back(rigBod);
+}
+
 #pragma endregion

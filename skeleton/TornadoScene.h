@@ -22,8 +22,8 @@ public:
 
 	//------Metodos heredados:
 
-	// KeyPressed de TornadoScene.
-	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 	// InitScene de TornadoScene.
 	void initScene() override;
+	// KeyPressed de TornadoScene.
+	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 };

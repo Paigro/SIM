@@ -1,6 +1,6 @@
 #include "DinamicRigidBody.h"
 
-DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, float initSize)
+DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, float initSize, float initDensity)
 	: BaseRigidBody(gPhysics)
 {
 	pose = initPose;
@@ -8,9 +8,14 @@ DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransf
 	color = initColor;
 	size = initSize;
 	gScene = scene;
+	density = initDensity;
 
 	actor = gPhysics->createRigidDynamic(pose);
+	actor->setLinearVelocity({ 0,0,0 });
+	actor->setAngularVelocity({ 0,0,0 });
+	PxRigidBodyExt::updateMassAndInertia(*actor, density);
 	actor->attachShape(*shape);
+
 	gScene->addActor(*actor);
 
 	renderItem = new RenderItem(shape, actor, color);
@@ -57,4 +62,9 @@ void DinamicRigidBody::setShape(PxShape* newShape, float newSize)
 	size = newSize;
 
 	actor->attachShape(*shape);
+}
+
+void DinamicRigidBody::setDensity(float newDensity)
+{
+	density = newDensity;
 }

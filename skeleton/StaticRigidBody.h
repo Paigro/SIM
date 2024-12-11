@@ -7,7 +7,7 @@ class StaticRigidBody : public BaseRigidBody
 {
 private:
 
-	PxRigidStatic* actor; // Referencia al actor.
+	PxRigidStatic* actor; // Referencia al actor estatico.
 
 public:
 

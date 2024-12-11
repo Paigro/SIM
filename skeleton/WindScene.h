@@ -25,8 +25,8 @@ public:
 
 	//------Metodos heredados:
 
-	// KeyPressed de WindScene.
-	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 	// InitScene de WindScene.
 	void initScene() override;
+	// KeyPressed de WindScene.
+	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 };

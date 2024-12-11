@@ -20,8 +20,8 @@ public:
 
 	//------Metodos heredados:
 
-	// KeyPressed de RigidBodyScene.
-	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 	// InitScene de RigidBodyScene.
 	void initScene() override;
+	// KeyPressed de RigidBodyScene.
+	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 };

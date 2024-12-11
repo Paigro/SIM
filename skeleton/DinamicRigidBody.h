@@ -7,14 +7,16 @@ class DinamicRigidBody : public BaseRigidBody
 {
 private:
 
-	PxRigidDynamic* actor;
+	PxRigidDynamic* actor; // Referencia al actor dinamico.
+
+	float density; // Desnidad del rigid body.
 
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora base de DinamicRigidBody.
-	DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, float initSize);
+	DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, float initSize, float initDensity = 1.0);
 	// Destructora de DinamicRigidBody.
 	~DinamicRigidBody();
 
@@ -38,9 +40,13 @@ public:
 	PxTransform getPose() const override { return actor->getGlobalPose(); }
 	// Devuelve el actor.
 	PxRigidActor* getActor() const { return actor; }
+	// Devuelve la densidad.
+	float getDensity() { return density; }
 	//------------------------------------------------------------//
 	// Settea la pose.
 	void setPose(PxTransform newPose) override;
 	// Settea una nueva forma.
 	virtual void setShape(PxShape* newShape, float newSize);
+	// Settea una nueva densidad.
+	void setDensity(float newDensity);
 };

@@ -11,12 +11,12 @@ RigidBodyScene::~RigidBodyScene()
 
 }
 
-void RigidBodyScene::keyPressed(unsigned char key, const physx::PxTransform& camera)
+void RigidBodyScene::initScene()
 {
 
 }
 
-void RigidBodyScene::initScene()
+void RigidBodyScene::keyPressed(unsigned char key, const physx::PxTransform& camera)
 {
 
 }

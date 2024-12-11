@@ -31,8 +31,8 @@ public:
 
 	//------Metodos heredados:
 
-	// KeyPressed de DosckScene.
-	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 	// InitScene de DosckScene.
 	void initScene() override;
+	// KeyPressed de DosckScene.
+	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 };

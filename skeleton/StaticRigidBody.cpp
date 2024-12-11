@@ -11,6 +11,7 @@ StaticRigidBody::StaticRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransfor
 
 	actor = gPhysics->createRigidStatic(pose);
 	actor->attachShape(*shape);
+
 	gScene->addActor(*actor);
 
 	renderItem = new RenderItem(shape, actor, color);

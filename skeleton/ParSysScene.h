@@ -26,8 +26,8 @@ public:
 
 	//------Metodos heredados:
 
-	// KeyPressed de ParSysScene.
-	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 	// InitScene de ParSysScene.
 	void initScene() override;
+	// KeyPressed de ParSysScene.
+	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 };
