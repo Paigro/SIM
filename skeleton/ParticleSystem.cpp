@@ -45,7 +45,7 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 
 ParticleSystem::~ParticleSystem()
 {
-	for (Projectile* p : vParticles)
+	for (Particle* p : vParticles)
 	{
 		delete p;
 	}

@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "Projectile.h"
+#include "Particle.h"
 #include "ParticleGenerator.h"
 #include "FountainGenerator.h"
 #include "SmokeGenerator.h"
@@ -14,8 +14,8 @@ class ParticleSystem
 {
 private:
 
-	std::vector<Projectile*> vParticles; // Vector de particulas del sistema de particulas.
-	std::vector<Projectile*> particlesGenerated; // Vector de particulas del generador de particulas.
+	std::vector<Particle*> vParticles; // Vector de particulas del sistema de particulas.
+	std::vector<Particle*> particlesGenerated; // Vector de particulas del generador de particulas.
 
 	int maxParticles; // Maximo de particulas.
 
@@ -53,5 +53,5 @@ public:
 	//------Getters y setters:
 
 	// Gettea el vector de particulas.
-	std::vector<Projectile*> getVParticles() { return vParticles; }
+	std::vector<Particle*> getVParticles() { return vParticles; }
 };

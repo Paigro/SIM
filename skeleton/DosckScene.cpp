@@ -27,11 +27,13 @@ void DosckScene::initScene()
 	/*//-------Muelle normal:
 
 	// Particula con menos masa.
-	Projectile* projL = new Projectile(Vector3(-50, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 4, Vector4(0, 1, 0, 1), 2);
-	projL->setLifeTime(200);
+	Particle* parL = new Particle(Vector3(-50, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(0, 1, 0, 1), 2);
+	parL->setMass(4.0);
+	parL->setLifeTime(200);
 	// Particula con mas masa.
-	Projectile* projH = new Projectile(Vector3(50, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 10, Vector4(0, 0, 1, 1), 2);
-	projH->setLifeTime(200);
+	Particle* parP = new Particle(Vector3(50, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(0, 0, 1, 1), 2);
+	parP->setMass(10.0);
+	parP->setLifeTime(200);
 
 	// Creamos el anchor del muelle.
 	AnchorForceGenerator* anchorFS = new AnchorForceGenerator(Vector3(0, 0, 0), 1, 10, Vector3(0, 0, 0));
@@ -39,23 +41,28 @@ void DosckScene::initScene()
 	forSys->addForceGenerator(anchorFS);
 
 	// Meter las cosas a la escena.
-	addParticle(projL);
-	addParticle(projH);*/
+	addParticle(parL);
+	addParticle(parP);*/
 
 
 	//------Goma de varias particulas:
 
 	// Particulas involucradas.
-	Projectile* p1 = new Projectile(Vector3(50, 0, 50), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 1, 1), 2);
+	Particle* p1 = new Particle(Vector3(50, 0, 50), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(1, 1, 1, 1), 2);
 	p1->setLifeTime(200);
+	p1->setMass(2.0);
 	p1->setMovible(false);
-	Projectile* p2 = new Projectile(Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 0.5, 1), 2);
+	Particle* p2 = new Particle(Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(1, 1, 0.5, 1), 2);
+	p2->setMass(2.0);
 	p2->setLifeTime(200);
-	Projectile* p3 = new Projectile(Vector3(0, 0, 50), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 0.5, 1, 1), 2);
+	Particle* p3 = new Particle(Vector3(0, 0, 50), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(1, 0.5, 1, 1), 2);
+	p3->setMass(2.0);
 	p3->setLifeTime(200);
-	Projectile* p4 = new Projectile(Vector3(0, 50, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(0.5, 1, 1, 1), 2);
+	Particle* p4 = new Particle(Vector3(0, 50, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(0.5, 1, 1, 1), 2);
+	p4->setMass(2.0);
 	p4->setLifeTime(200);
-	Projectile* p5 = new Projectile(Vector3(50, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, 2, Vector4(1, 1, 0, 1), 2);
+	Particle* p5 = new Particle(Vector3(50, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(1, 1, 0, 1), 2);
+	p5->setMass(2.0);
 	p5->setLifeTime(200);
 	//p5->setMovible(false);
 
@@ -80,11 +87,13 @@ void DosckScene::initScene()
 	/*//------Flotacion:
 
 	// Particulas involucradas.
-	Projectile* p6 = new Projectile(Vector3(-20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, 10000, Vector4(1, 0.5, 0, 1), 2);
+	Particle* p6 = new Particle(Vector3(-20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, Vector4(1, 0.5, 0, 1), 2);
+	p6->setMass(10000);
 	p6->setLifeTime(200);
-	Projectile* p7 = new Projectile(Vector3(20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, 5000000, Vector4(1, 0.5, 0, 1), 10);
+	Particle* p7 = new Particle(Vector3(20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, Vector4(1, 0.5, 0, 1), 10);
+	p7->setMass(5000000.0);
 	p7->setLifeTime(200);
-	Projectile* sea = new Projectile(Vector3(0, 40, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 1, 1, Vector4(0, 0, 1, 1), 1);
+	Particle* sea = new Particle(Vector3(0, 40, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 1, Vector4(0, 0, 1, 1), 1);
 	sea->setGravitable(false);
 	sea->setMovible(false);
 	sea->setLifeTime(-1);

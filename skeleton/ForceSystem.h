@@ -7,7 +7,7 @@
 #include "callbacks.hpp"
 
 #include "ForceGenerator.h"
-#include "Projectile.h"
+#include "Particle.h"
 
 
 class ForceSystem
@@ -41,5 +41,5 @@ public:
 	//------Gestion de las particulas:
 
 	// Mete a la particulas las fuerzas correspondientes.
-	void addForceToParticles(std::vector<Projectile*> vPar, float t);
+	void addForceToParticles(std::vector<Particle*> vPar, float t);
 };

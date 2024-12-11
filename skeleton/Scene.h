@@ -11,7 +11,7 @@ class Scene
 {
 private:
 
-	std::vector<Projectile*> vParticles; // Vector de particulas de la escena.
+	std::vector<Particle*> vParticles; // Vector de particulas de la escena.
 	std::vector<ParticleSystem*> vParticleSystems; // Vector de sistemas de particulas de la escena.
 	std::vector<ForceSystem*> vForceSystems; // Vector de sistemas de fuerzas de la escena.
 
@@ -42,7 +42,7 @@ public:
 	//------Metodos para meter cosas a la escena:
 
 	// Mete una particula al vector de particulas de la escena.
-	void addParticle(Projectile* par);
+	void addParticle(Particle* par);
 	// Mete un sitema de particulas al vector de sistemas de particulas de la escena.
 	void addParticleSystem(ParticleSystem* parSys);
 	// Mete un sistema de fuerzas al vector de sistemas de fuerzas de la escena.

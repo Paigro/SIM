@@ -13,7 +13,6 @@
 // Clases nuestras;
 #include "Vector3D.h"
 #include "Particle.h"
-#include "Projectile.h"
 #include "SceneManager.h"
 // Escenas:
 #include "ExplosionScene.h"

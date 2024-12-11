@@ -3,7 +3,7 @@
 #include <vector>
 #include <random>
 
-#include "Projectile.h"
+#include "Particle.h"
 
 
 class ParticleGenerator
@@ -15,7 +15,7 @@ protected:
 	Vector3 initPos; // Posicion inicial de las particulas.
 	Vector3 medVel; // Velocidad media de las particulas.
 
-	std::vector<Projectile*> vProjectiles; // Vector de proyectiles del generador de particulas..
+	std::vector<Particle*> vParticles; // Vector de proyectiles del generador de particulas..
 
 	int nParticles; // Numero de particulas.
 
@@ -36,7 +36,7 @@ public:
 	//------Metodos virtuales:
 
 	// Genera particulas con la diferencia entra las particulas activas y el maximo, las mete a un vector y lo devuelve.
-	virtual std::vector<Projectile*> CreateParticles(int actP, int maxP) = 0;
+	virtual std::vector<Particle*> CreateParticles(int actP, int maxP) = 0;
 	// Genera partculas y las devuelve en un vector.
 	virtual std::vector<Particle*> CreateParticles() = 0;
 

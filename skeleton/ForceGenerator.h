@@ -8,7 +8,7 @@
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"
 
-#include "Projectile.h"
+#include "Particle.h"
 
 
 class ForceGenerator

@@ -15,9 +15,9 @@ RandomGenerator::~RandomGenerator()
 
 }
 
-std::vector<Projectile*> RandomGenerator::CreateParticles(int actP, int maxP)
+std::vector<Particle*> RandomGenerator::CreateParticles(int actP, int maxP)
 {
-	std::vector<Projectile*> auxProjectictiles; // Vector para guardar las particulas generadas y despues devolverlas.
+	std::vector<Particle*> auxParticles; // Vector para guardar las particulas generadas y despues devolverlas.
 
 	int avaliblePar = maxP - actP; // Aprticulas que por rango se pueden generar pero que luego no tienen que generarse este numero exacto.
 
@@ -44,10 +44,11 @@ std::vector<Projectile*> RandomGenerator::CreateParticles(int actP, int maxP)
 		Vector3 newPos{ newX, newY, newZ }; // Nueva posicion de la particula.
 
 		// Nueva particulas con la posicion inicial, la nueva velocidad, la acceleracion que es inservible, damping y la gravedad en y = -10 porque asi dice el enunciado.
-		Projectile* p = new Projectile(newPos, medVel, { 0, 0.5, 0 }, 0.98, 1.0, Vector4{ 1.0, 1.0, 1.0, 1.0 }, 2);
+		Particle* p = new Particle(newPos, medVel, { 0, 0.5, 0 }, 0.98, Vector4{ 1.0, 1.0, 1.0, 1.0 }, 2);
+		p->setMass(1.0);
 		p->setLifeTime(newTime);
-		auxProjectictiles.push_back(p);
+		auxParticles.push_back(p);
 	}
 
-	return auxProjectictiles;
+	return auxParticles;
 }

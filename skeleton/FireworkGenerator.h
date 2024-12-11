@@ -12,7 +12,7 @@ private:
 	float yOffset;
 	bool shot = false;
 
-	Projectile* shootParticle = nullptr;
+	Particle* shootParticle = nullptr;
 
 public:
 
@@ -27,6 +27,6 @@ public:
 	//------Metodos heredados:
 
 	// Genera particulas con la diferencia entra las particulas activas y el maximo, las mete a un vector y lo devuelve.
-	std::vector<Projectile*> CreateParticles(int actP, int maxP) override;
+	std::vector<Particle*> CreateParticles(int actP, int maxP) override;
 	std::vector<Particle*> CreateParticles() override { return std::vector<Particle*>(); };
 };

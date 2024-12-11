@@ -40,7 +40,7 @@ void ForceSystem::setActive(bool act)
 	}
 }
 
-void ForceSystem::addForceToParticles(std::vector<Projectile*> vPar, float t)
+void ForceSystem::addForceToParticles(std::vector<Particle*> vPar, float t)
 {
 	for (auto p : vPar)
 	{

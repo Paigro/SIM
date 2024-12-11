@@ -12,11 +12,11 @@ ParticleGenerator::~ParticleGenerator()
 	delete orParticle;
 	orParticle = nullptr;
 
-	for (Projectile* p : vProjectiles)
+	for (Particle* p : vParticles)
 	{
 		delete p;
 	}
-	vProjectiles.clear();
+	vParticles.clear();
 }
 
 void ParticleGenerator::setActive(bool act)

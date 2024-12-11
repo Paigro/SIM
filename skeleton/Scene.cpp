@@ -77,7 +77,7 @@ void Scene::initScene()
 
 }
 
-void Scene::addParticle(Projectile* par)
+void Scene::addParticle(Particle* par)
 {
 	vParticles.emplace_back(par);
 }
