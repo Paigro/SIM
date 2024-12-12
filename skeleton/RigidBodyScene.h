@@ -8,9 +8,6 @@ class RigidBodyScene : public Scene
 {
 private:
 
-	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
-	PxScene* gScene = nullptr; // Referencia a la escena fisica.
-
 	BaseRigidBody* floor = nullptr; // Suelo de la escena.
 	DinamicRigidBody* cube = nullptr; // Un cubo.
 	DinamicRigidBody* otherCube = nullptr; // Otro cubo.
