@@ -108,6 +108,7 @@ void Particle::changeShape(physx::PxShape* newShape)
 {
 	if (renderItem == nullptr)
 	{
+		renderItem->release();
 		renderItem = new RenderItem(newShape, &pose, color);
 	}
 	else

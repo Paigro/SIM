@@ -46,5 +46,5 @@ public:
 	//------Getters y stetters:
 
 	// Devuelve el vector de escenas.
-	std::vector<Scene*> getVScenes() { return vScenes; }
+	const std::vector<Scene*> getVScenes() { return vScenes; }
 };

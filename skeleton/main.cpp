@@ -20,6 +20,7 @@
 #include "WindScene.h"
 #include "DosckScene.h"
 #include "RigidBodyScene.h"
+#include "BaseLevelScene.h"
 
 
 using namespace physx;
@@ -80,12 +81,13 @@ void initScenes()
 {
 	sceneMg = new SceneManager();
 
-	sceneMg->addScene(new ParSysScene(gPhysics, gScene));
+	sceneMg->addScene(new ParSysScene(nullptr, gScene));
 	sceneMg->addScene(new WindScene(gPhysics, gScene));
 	sceneMg->addScene(new TornadoScene(gPhysics, gScene));
 	sceneMg->addScene(new ExplosionScene(gPhysics, gScene));
 	sceneMg->addScene(new DosckScene(gPhysics, gScene));
 	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));
+	sceneMg->addScene(new BaseLevelScene(gPhysics, gScene));
 
 	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
 }

@@ -6,11 +6,12 @@
 
 class BaseLevelScene:public Scene
 {
-private:
+protected:
 
-	BaseRigidBody* floor = nullptr; // Suelo de la escena.
-	DinamicRigidBody* cube = nullptr; // Un cubo.
-	DinamicRigidBody* otherCube = nullptr; // Otro cubo.
+	Vector3 force; // Fuerza que se le aplica al disparo.
+	float forceMultiplier; // Multiplcador de fuerza que se le aplica al disparo.
+
+	Canon* canon = nullptr; // Referencia al canon.
 
 public:
 
@@ -28,4 +29,8 @@ public:
 	void initScene() override;
 	// KeyPressed de BaseLevelScene.
 	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
+	// Activa la escena.
+	 void activateScene() override;
+	// Desactiva la escena.
+	 void deactivateScene() override;
 };

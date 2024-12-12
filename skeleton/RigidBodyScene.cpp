@@ -3,14 +3,7 @@
 RigidBodyScene::RigidBodyScene(PxPhysics* physics, PxScene* scene)
 	: Scene(physics, scene)
 {
-	if (physics == nullptr)
-	{
-		std::cout << "Fisica es null." << std::endl;
-	}
-	if (gScene == nullptr)
-	{
-		std::cout << "Escena fisica es null." << std::endl;
-	}
+
 }
 
 RigidBodyScene::~RigidBodyScene()

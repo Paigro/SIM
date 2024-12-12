@@ -89,8 +89,8 @@ void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camer
 		changeScene(5);
 		break;
 	case '6':
-		//changeScene(6);
-		//break;
+		changeScene(6);
+		break;
 	case '7':
 		//changeScene(7);
 		//break;
@@ -104,9 +104,7 @@ void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camer
 		break;
 	}
 
-	// Llamar al keyPressed del resto de escenas.
-	for (auto s : vScenes)
-	{
-		s->keyPressed(key, camera);
-	}
+	// Llamar al keyPressed de la escena activa.
+	vScenes.at(actScene)->keyPressed(key, camera);
+	vScenes[actScene]->keyPressed(key, camera);
 }

@@ -6,6 +6,14 @@
 Scene::Scene(PxPhysics* physics, PxScene* scene)
 	: gPhysics(physics), gScene(scene)
 {
+	if (physics == nullptr)
+	{
+		std::cout << "//------ERROR: Fisica es null." << std::endl;
+	}
+	if (gScene == nullptr)
+	{
+		std::cout << "//------ERROR: Escena fisica es null." << std::endl;
+	}
 	initScene();
 }
 
