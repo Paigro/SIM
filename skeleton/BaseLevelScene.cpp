@@ -36,9 +36,10 @@ void BaseLevelScene::updateScene(float t)
 
 void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& camera)
 {
+	char r = toupper(key);
 	switch (toupper(key))
 	{
-	case 'O':
+	case ' ':
 		if (canon != nullptr && canShoot)
 		{
 			DinamicRigidBody* bullet = canon->shoot();
