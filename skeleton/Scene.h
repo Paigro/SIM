@@ -39,9 +39,9 @@ public:
 	virtual void initScene();
 	// Update de Scene.
 	virtual void updateScene(float t);
-	// Activa la escena.
+	// Activa la escena de Scene.
 	virtual void activateScene();
-	// Desactiva la escena.
+	// Desactiva la escena de Scene.
 	virtual void deactivateScene();
 	// KeyPressed virtual de Scene.
 	virtual void keyPressed(unsigned char key, const physx::PxTransform& camera) = 0;

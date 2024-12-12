@@ -4,33 +4,40 @@
 #include "Canon.h"
 
 
-class BaseLevelScene:public Scene
+class BaseLevelScene :public Scene
 {
 protected:
 
-	Vector3 force; // Fuerza que se le aplica al disparo.
-	float forceMultiplier; // Multiplcador de fuerza que se le aplica al disparo.
-
 	Canon* canon = nullptr; // Referencia al canon.
+
+	Vector3 force; // Fuerza que se le aplica al disparo.
+	float forceMultiplier; // Multiplicador de fuerza que se le aplica al disparo.
+
+	int objetive; // Numero de satelites que hay que poner en orbita.
+
+	bool canShoot = true; // Cooldown del disparo.
+	float shootRecharge = 0; // Cooldown del disparo.
 
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora de BaseLevelScene.
-	BaseLevelScene(PxPhysics* physics, PxScene* scene);
+	BaseLevelScene(PxPhysics* physics, PxScene* scene, int objetive);
 	// Destructora de BaseLevelScene.
 	~BaseLevelScene();
 
 
 	//------Metodos heredados:
 
-	// InitScene de BaseLevelScene.
-	void initScene() override;
-	// KeyPressed de BaseLevelScene.
-	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
-	// Activa la escena.
-	 void activateScene() override;
-	// Desactiva la escena.
-	 void deactivateScene() override;
+	// Inicializacion de la escena.
+	virtual void initScene();
+	// Update de BaseLevelScene.
+	virtual void updateScene(float t);
+	// Activa la escena de BaseLevelScene.
+	virtual void activateScene();
+	// Desactiva la escena de BaseLevelScene.
+	virtual void deactivateScene();
+	// KeyPressed virtual de BaseLevelScene.
+	virtual void keyPressed(unsigned char key, const physx::PxTransform& camera);
 };

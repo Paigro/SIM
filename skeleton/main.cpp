@@ -87,7 +87,7 @@ void initScenes()
 	sceneMg->addScene(new ExplosionScene(gPhysics, gScene));
 	sceneMg->addScene(new DosckScene(gPhysics, gScene));
 	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));
-	sceneMg->addScene(new BaseLevelScene(gPhysics, gScene));
+	sceneMg->addScene(new BaseLevelScene(gPhysics, gScene, 4));
 
 	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
 }
@@ -110,7 +110,8 @@ void initPhysics(bool interactive)
 
 	// For Solid Rigids +++++++++++++++++++++++++++++++++++++
 	PxSceneDesc sceneDesc(gPhysics->getTolerancesScale());
-	sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
+	//sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
+	sceneDesc.gravity = PxVec3(0.0f, 0.0f, 0.0f); //PAIGRO AQUI: ADIOS GRAVEDAD JIJIJI.
 	gDispatcher = PxDefaultCpuDispatcherCreate(2);
 	sceneDesc.cpuDispatcher = gDispatcher;
 	sceneDesc.filterShader = contactReportFilterShader;

@@ -53,7 +53,7 @@ void DinamicRigidBody::addForce(Vector3 force)
 
 void DinamicRigidBody::setPose(PxTransform newPose)
 {
-	actor->setGlobalPose(pose);
+	actor->setGlobalPose(newPose);
 }
 
 void DinamicRigidBody::setShape(PxShape* newShape, Vector3 newSize)

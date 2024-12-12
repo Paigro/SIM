@@ -26,7 +26,8 @@ private:
 
 	Particle* canonBody; // Para que el canon se vea, es estatico porque no se va modificar.
 
-	Vector3 position;
+	Vector3 position; // Posicion del canon en la escena.
+	Vector3 bulletPosition; // Posicion de la bala que se va a disparar.
 
 public:
 
@@ -48,6 +49,8 @@ public:
 
 	// El disparo devuelve el riggibBody que a lanzado, lo elimina de su cola para que lo gestione la escena.
 	DinamicRigidBody* shoot();
+	// Para preparar el siguiente disparo.
+	void prepareSoot();
 
 
 	//------Getters y setters:
