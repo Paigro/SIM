@@ -26,9 +26,6 @@
     <ClCompile Include="Particle.cpp">
       <Filter>Base</Filter>
     </ClCompile>
-    <ClCompile Include="Projectile.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
     <ClCompile Include="SmokeGenerator.cpp">
       <Filter>ParSys</Filter>
     </ClCompile>
@@ -86,6 +83,24 @@
     <ClCompile Include="FlotationForceGenerator.cpp">
       <Filter>ForSys</Filter>
     </ClCompile>
+    <ClCompile Include="RigidBodyScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseRigidBody.cpp">
+      <Filter>RigidBodies</Filter>
+    </ClCompile>
+    <ClCompile Include="DinamicRigidBody.cpp">
+      <Filter>RigidBodies</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticRigidBody.cpp">
+      <Filter>RigidBodies</Filter>
+    </ClCompile>
+    <ClCompile Include="InitScene.cpp">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -110,9 +125,6 @@
       <Filter>ParSys</Filter>
     </ClInclude>
     <ClInclude Include="Particle.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Projectile.h">
       <Filter>Base</Filter>
     </ClInclude>
     <ClInclude Include="SmokeGenerator.h">
@@ -178,6 +190,24 @@
     <ClInclude Include="BandForceGenerator.h">
       <Filter>ForSys</Filter>
     </ClInclude>
+    <ClInclude Include="RigidBodyScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseRigidBody.h">
+      <Filter>RigidBodies</Filter>
+    </ClInclude>
+    <ClInclude Include="DinamicRigidBody.h">
+      <Filter>RigidBodies</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticRigidBody.h">
+      <Filter>RigidBodies</Filter>
+    </ClInclude>
+    <ClInclude Include="InitScene.h">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">
@@ -197,6 +227,15 @@
     </Filter>
     <Filter Include="Base">
       <UniqueIdentifier>{7f447262-d8dd-40f2-bd29-5bc858b91836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RigidBodies">
+      <UniqueIdentifier>{2218104c-cb15-4695-9af9-16777bcfb319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProyectoFinal">
+      <UniqueIdentifier>{5be2f396-a8f0-48c9-a5cb-82e10d3b1ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProyectoFinal\Scenes">
+      <UniqueIdentifier>{91de2d53-9cd3-4589-aaa9-87b07d92ff7d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

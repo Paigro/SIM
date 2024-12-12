@@ -62,7 +62,7 @@ void DosckScene::initScene()
 	p4->setMass(2.0);
 	p4->setLifeTime(200);
 	Particle* p5 = new Particle(Vector3(50, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(1, 1, 0, 1), 2);
-	p5->setMass(2.0);
+	p5->setMass(200.0);
 	p5->setLifeTime(200);
 	//p5->setMovible(false);
 
