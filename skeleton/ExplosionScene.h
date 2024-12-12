@@ -15,7 +15,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de ExplosionScene.
-	ExplosionScene();
+	ExplosionScene(PxPhysics* physics, PxScene* scene);
 	// Destructora de ExplosionScene.
 	~ExplosionScene();
 

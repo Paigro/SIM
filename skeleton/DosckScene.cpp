@@ -1,8 +1,8 @@
 #include "DosckScene.h"
 
 
-DosckScene::DosckScene()
-	: Scene()
+DosckScene::DosckScene(PxPhysics* physics, PxScene* scene)
+	: Scene(physics, scene)
 {
 
 }

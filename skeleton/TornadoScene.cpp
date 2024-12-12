@@ -1,8 +1,8 @@
 #include "TornadoScene.h"
 
 
-TornadoScene::TornadoScene()
-	: Scene()
+TornadoScene::TornadoScene(PxPhysics* physics, PxScene* scene)
+	: Scene(physics, scene)
 {
 
 }

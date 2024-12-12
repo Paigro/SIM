@@ -19,7 +19,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de ParSysScene.
-	ParSysScene();
+	ParSysScene(PxPhysics* physics, PxScene* scene);
 	// Destructora de ParSysScene.
 	~ParSysScene();
 

@@ -15,7 +15,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de TornadoScene.
-	TornadoScene();
+	TornadoScene(PxPhysics* physics, PxScene* scene);
 	// Destructora de TornadoScene.
 	~TornadoScene();
 

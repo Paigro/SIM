@@ -80,11 +80,11 @@ void initScenes()
 {
 	sceneMg = new SceneManager();
 
-	sceneMg->addScene(new ParSysScene());
-	sceneMg->addScene(new WindScene());
-	sceneMg->addScene(new TornadoScene());
-	sceneMg->addScene(new ExplosionScene());
-	sceneMg->addScene(new DosckScene());
+	sceneMg->addScene(new ParSysScene(gPhysics, gScene));
+	sceneMg->addScene(new WindScene(gPhysics, gScene));
+	sceneMg->addScene(new TornadoScene(gPhysics, gScene));
+	sceneMg->addScene(new ExplosionScene(gPhysics, gScene));
+	sceneMg->addScene(new DosckScene(gPhysics, gScene));
 	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));
 
 	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;

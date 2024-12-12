@@ -3,7 +3,8 @@
 
 #pragma region Constructora y destructora:
 
-Scene::Scene()
+Scene::Scene(PxPhysics* physics, PxScene* scene)
+	: gPhysics(physics), gScene(scene)
 {
 	initScene();
 }
@@ -27,6 +28,12 @@ Scene::~Scene()
 		delete fs;
 	}
 	vForceSystems.clear();
+
+	for (auto* rb : vRigidBodies)
+	{
+		delete rb;
+	}
+	vRigidBodies.clear();
 }
 
 #pragma endregion

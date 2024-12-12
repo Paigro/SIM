@@ -24,7 +24,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de DosckScene.
-	DosckScene();
+	DosckScene(PxPhysics* physics, PxScene* scene);
 	// Destructora de DosckScene.
 	~DosckScene();
 

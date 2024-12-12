@@ -1,8 +1,8 @@
 #include "ParSysScene.h"
 
 
-ParSysScene::ParSysScene()
-	: Scene()
+ParSysScene::ParSysScene(PxPhysics* physics, PxScene* scene)
+	: Scene(physics, scene)
 {
 
 }

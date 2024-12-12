@@ -101,6 +101,12 @@
     <ClCompile Include="InitScene.cpp">
       <Filter>ProyectoFinal\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Canon.cpp">
+      <Filter>ProyectoFinal</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseLevelScene.cpp">
+      <Filter>ProyectoFinal</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -207,6 +213,12 @@
     </ClInclude>
     <ClInclude Include="InitScene.h">
       <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Canon.h">
+      <Filter>ProyectoFinal</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseLevelScene.h">
+      <Filter>ProyectoFinal</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

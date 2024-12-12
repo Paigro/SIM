@@ -1,8 +1,8 @@
 #include "ExplosionScene.h"
 
 
-ExplosionScene::ExplosionScene()
-	: Scene()
+ExplosionScene::ExplosionScene(PxPhysics* physics, PxScene* scene)
+	: Scene(physics, scene)
 {
 
 }

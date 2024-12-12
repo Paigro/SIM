@@ -1,8 +1,8 @@
 #include "WindScene.h"
 
 
-WindScene::WindScene()
-	: Scene()
+WindScene::WindScene(PxPhysics* physics, PxScene* scene)
+	: Scene(physics, scene)
 {
 
 }

@@ -1,7 +1,7 @@
 #include "RigidBodyScene.h"
 
 RigidBodyScene::RigidBodyScene(PxPhysics* physics, PxScene* scene)
-	: Scene(), gPhysics(physics), gScene(scene)
+	: Scene(physics, scene)
 {
 	if (physics == nullptr)
 	{

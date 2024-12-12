@@ -18,7 +18,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de WindScene.
-	WindScene();
+	WindScene(PxPhysics* physics, PxScene* scene);
 	// Destructora de WindScene.
 	~WindScene();
 

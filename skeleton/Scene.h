@@ -13,6 +13,9 @@ class Scene
 {
 private:
 
+	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
+	PxScene* gScene = nullptr; // Referencia a la escena fisica.
+
 	std::vector<Particle*> vParticles; // Vector de particulas de la escena.
 	std::vector<ParticleSystem*> vParticleSystems; // Vector de sistemas de particulas de la escena.
 	std::vector<ForceSystem*> vForceSystems; // Vector de sistemas de fuerzas de la escena.
@@ -23,7 +26,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de Scene.
-	Scene();
+	Scene(PxPhysics* physics, PxScene* scene);
 	// Destructora de scene.
 	~Scene();
 
