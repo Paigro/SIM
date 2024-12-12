@@ -105,6 +105,5 @@ void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camer
 	}
 
 	// Llamar al keyPressed de la escena activa.
-	vScenes.at(actScene)->keyPressed(key, camera);
 	vScenes[actScene]->keyPressed(key, camera);
 }

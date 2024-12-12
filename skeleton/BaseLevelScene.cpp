@@ -44,7 +44,6 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 			DinamicRigidBody* bullet = canon->shoot();
 			if (bullet != nullptr)
 			{
-				//bullet->setPose(PxTransform(bullet->getPose().p + Vector3(-4, 0, 0)));
 				bullet->addForce(calculateForce());
 				addRigidBody(bullet);
 				canShoot = false;
@@ -60,7 +59,7 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 	case 'A':
 		if (forceMultiplier > 1)
 		{
-			forceMultiplier -= 0.5;
+			forceMultiplier -= 1;
 		}
 		break;
 	case 'S':
@@ -72,7 +71,7 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 	case 'D':
 		if (forceMultiplier < 10)
 		{
-			forceMultiplier += 0.5;
+			forceMultiplier += 1;
 		}
 		break;
 	default:
