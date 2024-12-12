@@ -6,7 +6,7 @@ BaseLevelScene::BaseLevelScene(PxPhysics* physics, PxScene* scene, int obj)
 	direction = { 0, 0, 0 };
 	angle = 0;
 	baseForce = { 1000, 0, 0 };
-	forceMultiplier = 10;
+	forceMultiplier = 1;
 }
 
 BaseLevelScene::~BaseLevelScene()
@@ -54,30 +54,31 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 	case 'W':
 		if (angle < 60)
 		{
-			angle += 10;
+			angle += 5;
 		}
 		break;
 	case 'A':
 		if (forceMultiplier > 1)
 		{
-			forceMultiplier -= 1;
+			forceMultiplier -= 0.5;
 		}
 		break;
 	case 'S':
 		if (angle > -60)
 		{
-			angle -= 10;
+			angle -= 5;
 		}
 		break;
 	case 'D':
 		if (forceMultiplier < 10)
 		{
-			forceMultiplier += 1;
+			forceMultiplier += 0.5;
 		}
 		break;
 	default:
 		break;
 	}
+	std::cout << "Canon dispara a " << angle << "º y con multiplayer " << forceMultiplier << "*4000." << std::endl;
 }
 
 Vector3 BaseLevelScene::calculateForce()
@@ -88,7 +89,7 @@ Vector3 BaseLevelScene::calculateForce()
 	direction.y = sin(angle * (3.1416 / 180.0));
 	direction.z = 0;
 
-	force = direction * (forceMultiplier * 1000);
+	force = direction * (forceMultiplier * 4000);
 
 	return force;
 }
