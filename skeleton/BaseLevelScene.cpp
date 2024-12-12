@@ -53,7 +53,7 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 	case 'W':
 		if (angle < 60)
 		{
-			angle += 5;
+			angle += 10;
 		}
 		break;
 	case 'A':
@@ -65,7 +65,7 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 	case 'S':
 		if (angle > -60)
 		{
-			angle -= 5;
+			angle -= 10;
 		}
 		break;
 	case 'D':

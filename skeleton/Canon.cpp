@@ -19,10 +19,10 @@ Canon::Canon(PxPhysics* physics, PxScene* scene, Vector3 initPos, int projectile
 		qRigidBodies.push(bullet);
 	}
 
+	// Preparamos el primer disparo.
 	if (qRigidBodies.size() >= 1)
 	{
-		qRigidBodies.front()->setActive(true);
-		qRigidBodies.front()->setPose(PxTransform(bulletPosition));
+		prepareSoot();
 	}
 
 	std::cout << "//--MENSAJE: Canon creado con " << qRigidBodies.size() << " disparos" << std::endl;
@@ -30,9 +30,9 @@ Canon::Canon(PxPhysics* physics, PxScene* scene, Vector3 initPos, int projectile
 
 Canon::~Canon()
 {
-	delete canonBody;
+	delete canonBody; // Elimina la particula que hace de cuerpo.
 
-	while (!qRigidBodies.empty())
+	while (!qRigidBodies.empty()) // Vacia la cola.
 	{
 		delete qRigidBodies.front();
 		qRigidBodies.pop();
@@ -41,19 +41,9 @@ Canon::~Canon()
 
 void Canon::setActive(bool act)
 {
-	canonBody->setActive(act);
+	canonBody->setActive(act); // Activa/desactiva el cuerpo del canon.
 
-	qRigidBodies.front()->setActive(act);
-
-	/*int size = qRigidBodies.size();
-
-	for (int i = 0; i < size; i++)
-	{
-		DinamicRigidBody* bullet = qRigidBodies.front();
-		bullet->setActive(act);
-		qRigidBodies.push(bullet);
-		qRigidBodies.pop();
-	}*/
+	qRigidBodies.front()->setActive(act); // Solo activa/desactiva la primera de la cola, el resto estan desactivados siempre.
 }
 
 DinamicRigidBody* Canon::shoot()
