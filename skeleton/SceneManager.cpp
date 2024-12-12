@@ -70,22 +70,22 @@ void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camer
 {
 	switch (toupper(key))
 	{
-	case '0':
+	case '0': // Escena con los sistemas de particulas.
 		changeScene(0);
 		break;
-	case '1':
+	case '1': // Escena con el viento.
 		changeScene(1);
 		break;
-	case '2':
+	case '2': // EScena con el torbellino.
 		changeScene(2);
 		break;
-	case '3':
+	case '3': // Escena con la explosion.
 		changeScene(3);
 		break;
-	case '4':
+	case '4': // EScena con todos los muelles.
 		changeScene(4);
 		break;
-	case '5':
+	case '5': // Escena con los solidos rigidos.
 		changeScene(5);
 		break;
 	case '6':

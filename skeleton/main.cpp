@@ -72,6 +72,8 @@ void initEjes()
 	xSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), xTransform, xColor);
 	ySphere = new RenderItem(CreateShape(PxSphereGeometry(1)), yTransform, yColor);
 	zSphere = new RenderItem(CreateShape(PxSphereGeometry(1)), zTransform, zColor);
+
+	std::cout << "//--MENSAJE: Ejes creados." << std::endl;
 }
 
 void initScenes()
@@ -84,6 +86,8 @@ void initScenes()
 	sceneMg->addScene(new ExplosionScene());
 	sceneMg->addScene(new DosckScene());
 	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));
+
+	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
 }
 
 // Initialize physics engine
@@ -117,8 +121,9 @@ void initPhysics(bool interactive)
 	// Ejes P0:
 	initEjes();
 
-	// Escenas P3:
+	// Escenas:
 	initScenes();
+
 	std::cout << "-----------------------------------------" << std::endl << std::endl;
 }
 
@@ -141,6 +146,7 @@ void stepPhysics(bool interactive, double t)
 // Add custom code to the begining of the function
 void cleanupPhysics(bool interactive)
 {
+	std::cout << "\n------------------END------------------" << std::endl;
 	PX_UNUSED(interactive);
 
 	// Rigid Body ++++++++++++++++++++++++++++++++++++++++++
@@ -162,6 +168,7 @@ void cleanupPhysics(bool interactive)
 	DeregisterRenderItem(zSphere);
 
 	delete sceneMg;
+	std::cout << "-----------------------------------------" << std::endl;
 }
 
 // Function called when a key is pressed

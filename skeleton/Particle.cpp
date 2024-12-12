@@ -1,7 +1,5 @@
 #include "Particle.h"
 
-#include <iostream>
-
 
 #pragma region constuctoras y destructoras:
 
@@ -89,10 +87,10 @@ void Particle::setMovible(bool mov)
 void Particle::setLifeTime(float _tim)
 {
 	lifeTime = _tim;
-	if (lifeTime == -1)
+	if (lifeTime < 0)
 	{
 		canDieByTime = false;
-		std::cout << "//----AVISO: particula tiene tiempo infinito y no puede morir." << std::endl;
+		std::cout << "//----AVISO: Particula tiene tiempo infinito y no puede morir." << std::endl;
 	}
 }
 

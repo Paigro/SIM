@@ -19,12 +19,13 @@ StaticRigidBody::StaticRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransfor
 
 StaticRigidBody::~StaticRigidBody()
 {
-
+	actor->release();
+	BaseRigidBody::~BaseRigidBody();
 }
 
 bool StaticRigidBody::update(float t)
 {
-	return true; // No hace nada el estatico.
+	return BaseRigidBody::update(t);
 }
 
 void StaticRigidBody::setActive(bool act)

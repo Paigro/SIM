@@ -4,6 +4,8 @@
 #include "core.hpp"
 #include "RenderUtils.hpp"
 
+#include <iostream>
+
 using namespace physx;
 
 
@@ -41,7 +43,7 @@ private:
 	bool canDieByTime; // Si la particula puede morir por tiempo.
 	bool isAlive = true; // Dice si la particula esta viva o muerta para eliminarse o no.
 	float lifeTime = 10.0; // Tiempo que va a vivir. Por defeto 10s.
-	float timeAlive = 0.0; // Tiempo que lleva vivo.
+	float timeAlive = 0.0; // Tiempo que lleva viva.
 
 public:
 

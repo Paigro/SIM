@@ -79,6 +79,21 @@ void Scene::updateScene(float t)
 		// Actualiza el sistema de fuerza.
 		fs->update(t);
 	}
+
+	// Gestion de los solidos rigidos.
+	for (auto it = vRigidBodies.begin(); it != vRigidBodies.end();)
+	{
+		BaseRigidBody* rb = *it;
+		if (!rb->update(t))
+		{
+			delete rb;
+			it = vRigidBodies.erase(it);
+		}
+		else
+		{
+			++it;
+		}
+	}
 }
 
 #pragma endregion

@@ -23,12 +23,13 @@ DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransf
 
 DinamicRigidBody::~DinamicRigidBody()
 {
-
+	actor->release();
+	BaseRigidBody::~BaseRigidBody();
 }
 
 bool DinamicRigidBody::update(float t)
 {
-	return true;
+	return BaseRigidBody::update(t);
 }
 
 void DinamicRigidBody::setActive(bool act)

@@ -4,6 +4,8 @@
 #include "core.hpp"
 #include "RenderUtils.hpp"
 
+#include <iostream>
+
 using namespace physx;
 
 
@@ -25,6 +27,10 @@ protected:
 	Vector3 size; // Tamanyo del rigidBody.
 
 	bool isActive = true; // Si el rigid body esta en una escena activa entonces estara a true, sino a false.
+	bool canDieByTime; // Si el rigid bod puede morir por tiempo.
+	bool isAlive = true; // Dice si el rigid bod esta vivo o muerto para eliminarse o no.
+	float lifeTime = 10.0; // Tiempo que va a vivir. Por defeto 10s.
+	float timeAlive = 0.0; // Tiempo que lleva vivo.
 
 public:
 
@@ -39,9 +45,11 @@ public:
 	//------Metodos importantes:
 
 	// Update general.
-	virtual bool update(float t) = 0;
+	virtual bool update(float t);
 	// Settea si el rigid body esta activo o no.
 	virtual void setActive(bool act);
+	// Para saber si ya se ha pasado de tiempo de vida.
+	bool outOfTime(float t);
 
 
 	//------Setters y getters:
@@ -55,4 +63,8 @@ public:
 	virtual void setPose(PxTransform pose);
 	// Settea una nueva forma.
 	virtual void setShape(PxShape* newShape, Vector3 newSize) = 0;
+	// Settea el tiempo maxima de vida.
+	void setLifeTime(float t);
+	// le mete mas tiempo a la particula (Tque ha pasado + AddedTime).
+	void addLiveToParticle(float addedTime);
 };
