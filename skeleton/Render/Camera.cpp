@@ -59,13 +59,13 @@ namespace Snippets
 		PX_UNUSED(x);
 		PX_UNUSED(y);
 
-		PxVec3 viewY = mDir.cross(PxVec3(0, 1, 0)).getNormalized();
+		PxVec3 viewY = mDir.cross(PxVec3(0, 1, 0)).getNormalized(); // PAIGRO AQUI: teclas de movimiento.
 		switch (toupper(key))
 		{
-		case 'W':	mEye += mDir * 2.0f * speed;		break;
+		/*case 'W':	mEye += mDir * 2.0f * speed;		break;
 		case 'S':	mEye -= mDir * 2.0f * speed;		break;
 		case 'A':	mEye -= viewY * 2.0f * speed;		break;
-		case 'D':	mEye += viewY * 2.0f * speed;		break;
+		case 'D':	mEye += viewY * 2.0f * speed;		break;*/
 		default:							return false;
 		}
 		return true;

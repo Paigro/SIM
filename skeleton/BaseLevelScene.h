@@ -10,7 +10,9 @@ protected:
 
 	Canon* canon = nullptr; // Referencia al canon.
 
-	Vector3 force; // Fuerza que se le aplica al disparo.
+	float angle;
+	Vector3 direction;
+	Vector3 baseForce; // Fuerza que se le aplica al disparo.
 	float forceMultiplier; // Multiplicador de fuerza que se le aplica al disparo.
 
 	int objetive; // Numero de satelites que hay que poner en orbita.
@@ -40,4 +42,11 @@ public:
 	virtual void deactivateScene();
 	// KeyPressed virtual de BaseLevelScene.
 	virtual void keyPressed(unsigned char key, const physx::PxTransform& camera);
+
+
+	//------Metodos de la escena:
+
+	// Calcular la fuerza de disparo de la bala.
+	Vector3 calculateForce();
+
 };
