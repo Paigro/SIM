@@ -6,18 +6,23 @@ BaseLevelScene::BaseLevelScene(PxPhysics* physics, PxScene* scene, int obj)
 {
 	direction = { 0, 0, 0 };
 	angle = 0;
-	baseForce = { 1000, 0, 0 };
+	baseForce = 4000;
 	forceMultiplier = 1;
+	display_text = "INIT SCENE";
+	display_text_color = Vector4(0, 1, 1, 1);
+	display_text_position = Vector2(20, 100);
 }
 
 BaseLevelScene::~BaseLevelScene()
 {
-
+	delete canon;
+	delete planet;
 }
 
 void BaseLevelScene::initScene()
 {
 	canon = new Canon(gPhysics, gScene, Vector3(0, 0, 0), objetive);
+	planet = new Planet(Vector3(-200, 0, 0), 20);
 }
 
 void BaseLevelScene::updateScene(float t)
@@ -80,7 +85,7 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 	default:
 		break;
 	}
-	std::cout << "Canon dispara a " << angle << "º y con multiplayer " << forceMultiplier << "*4000." << std::endl;
+	std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 }
 
 Vector3 BaseLevelScene::calculateForce()
@@ -91,7 +96,7 @@ Vector3 BaseLevelScene::calculateForce()
 	direction.y = sin(angle * (3.1416 / 180.0));
 	direction.z = 0;
 
-	force = direction * (forceMultiplier * 4000);
+	force = direction * (forceMultiplier * baseForce);
 
 	return force;
 }
@@ -102,6 +107,10 @@ void BaseLevelScene::activateScene()
 	{
 		canon->setActive(true);
 	}
+	if (planet != nullptr)
+	{
+		planet->setActive(true);
+	}
 	Scene::activateScene();
 }
 
@@ -110,6 +119,10 @@ void BaseLevelScene::deactivateScene()
 	if (canon != nullptr)
 	{
 		canon->setActive(false);
+	}
+	if (planet != nullptr)
+	{
+		planet->setActive(false);
 	}
 	Scene::deactivateScene();
 }

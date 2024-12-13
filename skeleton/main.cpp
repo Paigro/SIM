@@ -97,7 +97,15 @@ void initScenes()
 	sceneMg->addScene(new DosckScene(gPhysics, gScene));
 	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));*/
 	sceneMg->addScene(new InitScene(gPhysics, gScene));
-	sceneMg->addScene(new BaseLevelScene(gPhysics, gScene, 4));
+	sceneMg->addScene(new BaseLevelScene(gPhysics, gScene, 4)); // este sobra.
+	//level 1
+	//level 2
+	//level 3
+	//level 4
+	//winlevel
+	//loose level
+	//tuto
+	//end
 
 	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
 }
