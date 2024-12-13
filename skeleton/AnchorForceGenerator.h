@@ -15,9 +15,4 @@ public:
 	AnchorForceGenerator(Vector3 pos, double _k, double rest, Vector3 anchor_pos);
 	// Destructora de AnchorForceGenerator.
 	~AnchorForceGenerator();
-
-
-	//------Metodos de AnchorForceGenerator:
-
-	//
 };

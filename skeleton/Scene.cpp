@@ -91,6 +91,8 @@ void Scene::updateScene(float t)
 		{
 			fs->addForceToParticles(ps->getVParticles(), t);
 		}
+
+		fs->addForceToRigidBodies(vRigidBodies, t);
 		// Actualiza el sistema de fuerza.
 		fs->update(t);
 	}
@@ -191,7 +193,7 @@ void Scene::addForceSistem(ForceSystem* forSys)
 	vForceSystems.push_back(forSys);
 }
 
-void Scene::addRigidBody(BaseRigidBody* rigBod)
+void Scene::addRigidBody(DinamicRigidBody* rigBod)
 {
 	vRigidBodies.push_back(rigBod);
 }

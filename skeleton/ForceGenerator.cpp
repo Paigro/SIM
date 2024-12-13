@@ -35,10 +35,9 @@ void ForceGenerator::setRadius(float newRad)
 	generateSphere();
 }
 
-bool ForceGenerator::isOnRadius(Particle* part)
+bool ForceGenerator::isOnRadius(Vector3 pos)
 {
-	Vector3 partPos = part->getPos();
-	if ((partPos - position).magnitude() <= radius)
+	if ((pos - position).magnitude() <= radius)
 	{
 		return true;
 	}

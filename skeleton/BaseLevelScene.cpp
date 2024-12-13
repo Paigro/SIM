@@ -48,7 +48,7 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 	char r = toupper(key);
 	switch (toupper(key))
 	{
-	case ' ':
+	case ' ': // Disparo.
 		if (canon != nullptr && canShoot)
 		{
 			DinamicRigidBody* bullet = canon->shoot();
@@ -60,9 +60,10 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 			}
 		}
 		break;
-	case '\r':
+	case '\r': // Meter mas disparos.
 		canon->addShoots(1);
 		break;
+
 	case 'W':
 		if (angle < 60)
 		{

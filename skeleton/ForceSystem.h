@@ -8,6 +8,7 @@
 
 #include "ForceGenerator.h"
 #include "Particle.h"
+#include "DinamicRigidBody.h"
 
 
 class ForceSystem
@@ -40,6 +41,8 @@ public:
 
 	//------Gestion de las particulas:
 
-	// Mete a la particulas las fuerzas correspondientes.
+	// Mete a las particulas las fuerzas correspondientes.
 	void addForceToParticles(std::vector<Particle*> vPar, float t);
+	// Mete a los rigigBodies las fuerzas correspondientes.
+	void addForceToRigidBodies(std::vector<DinamicRigidBody*> vRB, float t);
 };

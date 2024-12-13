@@ -46,9 +46,23 @@ void ForceSystem::addForceToParticles(std::vector<Particle*> vPar, float t)
 	{
 		for (auto fg : vFGenerators)
 		{
-			if (fg->isOnRadius(p)) // Comprobar que la particula este dentro del radio.
+			if (fg->isOnRadius(p->getPos())) // Comprobar que la particula este dentro del radio.
 			{
 				p->addForce(fg->generateForce(*p)); // Aplicar fuerza.
+			}
+		}
+	}
+}
+
+void ForceSystem::addForceToRigidBodies(std::vector<DinamicRigidBody*> vRB, float t)
+{
+	for (auto rb : vRB)
+	{
+		for (auto fg : vFGenerators)
+		{
+			if (fg->isOnRadius(rb->getPose().p)) // Comprobar que la particula este dentro del radio.
+			{
+				rb->addForce(fg->generateForce(*p)); // Aplicar fuerza.
 			}
 		}
 	}

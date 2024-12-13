@@ -16,7 +16,7 @@ private:
 	std::vector<Particle*> vParticles; // Vector de particulas de la escena.
 	std::vector<ParticleSystem*> vParticleSystems; // Vector de sistemas de particulas de la escena.
 	std::vector<ForceSystem*> vForceSystems; // Vector de sistemas de fuerzas de la escena.
-	std::vector<BaseRigidBody*> vRigidBodies; // Vector de rigid bodies de la escena.
+	std::vector<DinamicRigidBody*> vRigidBodies; // Vector de rigid bodies de la escena que van a ser afectados por los sistemas de fuerzas..
 
 protected:
 
@@ -56,5 +56,5 @@ public:
 	// Mete un sistema de fuerzas al vector de sistemas de fuerzas de la escena.
 	void addForceSistem(ForceSystem* forSys);
 	// Mete un rigid body al vector de rigid bodies de la escena.
-	void addRigidBody(BaseRigidBody* rigBod);
+	void addRigidBody(DinamicRigidBody* rigBod);
 };
