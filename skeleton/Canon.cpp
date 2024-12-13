@@ -66,6 +66,10 @@ void Canon::prepareSoot()
 	if (!qRigidBodies.empty())
 	{
 		DinamicRigidBody* nextBullet = qRigidBodies.front();
+		if (nextBullet->getIsActive())
+		{
+			return;
+		}
 		nextBullet->setActive(true);
 		nextBullet->setPose(PxTransform(bulletPosition));
 	}
@@ -77,6 +81,9 @@ void Canon::addShoots(int addedShoots)
 	{
 		DinamicRigidBody* bullet = new DinamicRigidBody(gPhysics, gScene, PxTransform(position), CreateShape(physx::PxSphereGeometry(2.0)), Vector4(0.5, 0.5, 0.5, 1.0), Vector3(2, 2, 2));
 		bullet->setActive(false);
+		bullet->setLifeTime(-1);
 		qRigidBodies.push(bullet);
 	}
+	prepareSoot();
+	std::cout << "//--MENSAJE: Canon tiene " << addedShoots << " shoots mas." << std::endl;
 }
