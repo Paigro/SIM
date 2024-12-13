@@ -48,6 +48,8 @@ public:
 	virtual bool update(float t);
 	// Settea si el rigid body esta activo o no.
 	virtual void setActive(bool act);
+	// Devuelve si esta activo o no.
+	bool getIsActive() { return isActive; }
 	// Para saber si ya se ha pasado de tiempo de vida.
 	bool outOfTime(float t);
 
