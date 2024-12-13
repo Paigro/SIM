@@ -31,7 +31,6 @@ void InitScene::updateScene(float t)
 
 	display_text_2 = "SALIR (exit)";
 	display_text_position_2 = Vector2(210, 180);
-	display_text_color = Vector4(0, 0, 0, 1);
 }
 
 void InitScene::activateScene()
