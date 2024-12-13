@@ -17,6 +17,8 @@ BaseLevelScene::~BaseLevelScene()
 {
 	delete canon;
 	delete planet;
+
+	Scene::~Scene();
 }
 
 void BaseLevelScene::initScene()
@@ -58,34 +60,40 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 			}
 		}
 		break;
+	case '\r':
+		canon->addShoots(1);
+		break;
 	case 'W':
 		if (angle < 60)
 		{
 			angle += 10;
+			std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 		}
 		break;
 	case 'A':
 		if (forceMultiplier > 1)
 		{
 			forceMultiplier -= 1;
+			std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 		}
 		break;
 	case 'S':
 		if (angle > -60)
 		{
 			angle -= 10;
+			std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 		}
 		break;
 	case 'D':
 		if (forceMultiplier < 10)
 		{
 			forceMultiplier += 1;
+			std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 		}
 		break;
 	default:
 		break;
 	}
-	std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 }
 
 Vector3 BaseLevelScene::calculateForce()

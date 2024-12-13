@@ -29,7 +29,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de BaseLevelScene.
-	BaseLevelScene(PxPhysics* physics, PxScene* scene, int objetive);
+	BaseLevelScene(PxPhysics* physics, PxScene* scene, int obj);
 	// Destructora de BaseLevelScene.
 	~BaseLevelScene();
 
