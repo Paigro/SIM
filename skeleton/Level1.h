@@ -11,8 +11,11 @@ private:
 
 public:
 
-	Level1();
+	//------Constructoras y destructoras:
 
+	// Constructora del Level1.
+	Level1(PxPhysics* physics, PxScene* scene, int obj);
+	// Destructora del Level1.
 	~Level1();
 
 
