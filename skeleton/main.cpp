@@ -13,7 +13,7 @@
 // Clases nuestras;
 #include "Vector3D.h"
 #include "SceneManager.h"
-#include"GameManager.h"
+#include "GameManager.h"
 // Escenas:
 #include "ExplosionScene.h"
 #include "ParSysScene.h"

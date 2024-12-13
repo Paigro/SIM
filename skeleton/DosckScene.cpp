@@ -24,7 +24,7 @@ void DosckScene::initScene()
 	forSys->addForceGenerator(windGen);
 
 
-	/*//-------Muelle normal:
+	//-------Muelle normal:
 
 	// Particula con menos masa.
 	Particle* parL = new Particle(Vector3(-50, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.75, Vector4(0, 1, 0, 1), 2);
@@ -42,7 +42,7 @@ void DosckScene::initScene()
 
 	// Meter las cosas a la escena.
 	addParticle(parL);
-	addParticle(parP);*/
+	addParticle(parP);
 
 
 	/*//------Goma de varias particulas:
@@ -84,7 +84,7 @@ void DosckScene::initScene()
 	addParticle(p5);*/
 
 
-	//------Flotacion:
+	/*//------Flotacion:
 
 	// Particulas involucradas.
 	Particle* p6 = new Particle(Vector3(-20, 100, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), 0.5, Vector4(1, 0.5, 0, 1), 1);
@@ -110,7 +110,7 @@ void DosckScene::initScene()
 	addParticle(p6);
 	addParticle(p7);
 	addParticle(p8);
-	addParticle(sea);
+	addParticle(sea);*/
 
 
 	//------Metemos el sistema de fuerzas a la escena:

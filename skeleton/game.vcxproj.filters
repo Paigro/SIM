@@ -122,6 +122,12 @@
     <ClCompile Include="Level4.cpp">
       <Filter>ProyectoFinal\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>ProyectoFinal</Filter>
+    </ClCompile>
+    <ClCompile Include="PlanetaryGravityForceSystem.cpp">
+      <Filter>ForSys</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -249,6 +255,12 @@
     </ClInclude>
     <ClInclude Include="Level3.h">
       <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Planet.h">
+      <Filter>ProyectoFinal</Filter>
+    </ClInclude>
+    <ClInclude Include="PlanetaryGravityForceSystem.h">
+      <Filter>ForSys</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
