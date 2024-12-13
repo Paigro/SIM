@@ -1,5 +1,6 @@
 #include "Canon.h"
 
+
 Canon::Canon(PxPhysics* physics, PxScene* scene, Vector3 initPos, int projectiles)
 	: gPhysics(physics), gScene(scene), position(initPos)
 {
