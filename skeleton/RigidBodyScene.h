@@ -8,7 +8,7 @@ class RigidBodyScene : public Scene
 {
 private:
 
-	BaseRigidBody* floor = nullptr; // Suelo de la escena.
+	StaticRigidBody* floor = nullptr; // Suelo de la escena.
 	DinamicRigidBody* cube = nullptr; // Un cubo.
 	DinamicRigidBody* otherCube = nullptr; // Otro cubo.
 

@@ -33,9 +33,11 @@ using namespace physx;
 
 // esto va en el main.cpp donde esta el display_text
 std::string display_text = "This is a test";
+physx::PxVec2 display_text_position = Vector2(512 / 2, 512 / 2);
+std::string display_text_2 = "This is a test";
+physx::PxVec2 display_text_position_2 = Vector2(512 / 2, 512 / 2);
 physx::PxVec4 display_text_color = { 1.0f, 0.2f, 0.2f, 1.0f };
-physx::PxVec2 display_text_position = { 0.0f, 0.0f };
-int display_text_lineSpacing = 0;
+int display_text_lineSpacing = 20;
 
 
 PxDefaultAllocator		gAllocator;

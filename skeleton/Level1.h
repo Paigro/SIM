@@ -19,7 +19,10 @@ public:
 	~Level1();
 
 
+	//------Metodos heredadso:
 
+	// Update de Level1.
+	void updateScene(float t) override;
 
 
 };

@@ -11,3 +11,10 @@ Level1::~Level1()
 {
 	BaseLevelScene::~BaseLevelScene();
 }
+
+void Level1::updateScene(float t)
+{
+	display_text = "LEVEL 1";
+	display_text_position = Vector2(512 / 2, 512 / 2);
+	display_text_color = Vector4(0, 1, 0, 1);
+}

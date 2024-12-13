@@ -28,7 +28,7 @@ public:
 	// Update de ExplosionForceGenerator.
 	void updateFGen(float t);
 	// Genera la fuerza del viento.
-	Vector3 generateForce(Vector3 pos2) override;
+	Vector3 generateForce(Particle& par) override;
 
 
 	//------Metodos de la explosion:

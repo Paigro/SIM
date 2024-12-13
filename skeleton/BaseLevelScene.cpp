@@ -55,7 +55,7 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 			if (bullet != nullptr)
 			{
 				bullet->addForce(calculateForce());
-				addRigidBody(bullet);
+				addDinamicRigidBody(bullet);
 				canShoot = false;
 			}
 		}

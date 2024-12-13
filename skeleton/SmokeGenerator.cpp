@@ -16,7 +16,7 @@ std::vector<Particle*> SmokeGenerator::CreateParticles(int actP, int maxP)
 {
 	std::vector<Particle*> auxParticles; // Vector para guardar las particulas generadas y despues devolverlas.
 
-	int avaliblePar = maxP - actP; // Aprticulas que por rango se pueden generar pero que luego no tienen que generarse este numero exacto.
+	int avaliblePar = maxP - actP; // Particulas que por rango se pueden generar pero que luego no tienen que generarse este numero exacto.
 
 	//----Distribuciones:
 

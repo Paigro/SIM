@@ -288,8 +288,9 @@ namespace Snippets
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// Display text
-		glColor4f(1.0f, 0.2f, 0.2f, 1.0f);
-		drawText(display_text, 0, 0);
+		glColor4f(display_text_color.x, display_text_color.y, display_text_color.z, display_text_color.w);
+		drawText(display_text, display_text_position.x, display_text_position.y); // PAIGRO2 AQUI: la posicion de los textos...
+		drawText(display_text_2, display_text_position_2.x, display_text_position_2.y); // PAIGRO2 AQUI: la posicion de los textos...
 
 		// Setup camera
 		glMatrixMode(GL_PROJECTION);
@@ -402,12 +403,17 @@ namespace Snippets
 
 		int yOffset = y;
 		for (int i = 0; i < length; i++) {
-			if (text[i] == '#') { // las lineas se separan por # (es lo que en consola seria un \n)
+			// Las lineas se separan por # (es lo que en consola seria un \n).
+			if (text[i] == '#')
+			{
 				yOffset -= display_text_lineSpacing;
 				glRasterPos2i(x, yOffset);
 			}
 			else
-				glutBitmapCharacter(GLUT_BITMAP_9_BY_15, (int)text[i]);
+			{
+				//glutBitmapCharacter(GLUT_BITMAP_9_BY_15, (int)text[i]);
+				glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, (int)text[i]);
+			}
 		}
 		glPopMatrix();
 		glMatrixMode(GL_PROJECTION);

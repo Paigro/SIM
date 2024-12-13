@@ -56,7 +56,7 @@ void ForceSystem::addForceToParticles(std::vector<Particle*> vPar, float t)
 
 void ForceSystem::addForceToRigidBodies(std::vector<DinamicRigidBody*> vRB, float t)
 {
-	for (auto rb : vRB)
+	/*for (auto rb : vRB)
 	{
 		for (auto fg : vFGenerators)
 		{
@@ -65,5 +65,6 @@ void ForceSystem::addForceToRigidBodies(std::vector<DinamicRigidBody*> vRB, floa
 				rb->addForce(fg->generateForce(*p)); // Aplicar fuerza.
 			}
 		}
-	}
+	}*/
+	std::cout << "//----------NO ESTA TODAVIA PAIGRO NO FUNCIONAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
 }
