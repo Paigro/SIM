@@ -47,7 +47,11 @@
 #endif
 #include <string>
 
+// esto va en el render.h junto esta por defecto el display_text
 extern std::string display_text;
+extern physx::PxVec4 display_text_color;
+extern physx::PxVec2 display_text_position;
+extern int display_text_lineSpacing;
 
 namespace Snippets
 {

@@ -13,6 +13,7 @@
 // Clases nuestras;
 #include "Vector3D.h"
 #include "SceneManager.h"
+#include"GameManager.h"
 // Escenas:
 #include "ExplosionScene.h"
 #include "ParSysScene.h"
@@ -20,13 +21,21 @@
 #include "WindScene.h"
 #include "DosckScene.h"
 #include "RigidBodyScene.h"
-#include "BaseLevelScene.h"
+// Escenas del proyecto final:
+#include "InitScene.h"
+#include "Level1.h"
+#include "Level2.h"
+#include "Level3.h"
+#include "Level4.h"
 
 
 using namespace physx;
 
-
+// esto va en el main.cpp donde esta el display_text
 std::string display_text = "This is a test";
+physx::PxVec4 display_text_color = { 1.0f, 0.2f, 0.2f, 1.0f };
+physx::PxVec2 display_text_position = { 0.0f, 0.0f };
+int display_text_lineSpacing = 0;
 
 
 PxDefaultAllocator		gAllocator;
@@ -81,12 +90,13 @@ void initScenes()
 {
 	sceneMg = new SceneManager();
 
-	sceneMg->addScene(new ParSysScene(gPhysics, gScene));
+	/*sceneMg->addScene(new ParSysScene(gPhysics, gScene));
 	sceneMg->addScene(new WindScene(gPhysics, gScene));
 	sceneMg->addScene(new TornadoScene(gPhysics, gScene));
 	sceneMg->addScene(new ExplosionScene(gPhysics, gScene));
 	sceneMg->addScene(new DosckScene(gPhysics, gScene));
-	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));
+	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));*/
+	sceneMg->addScene(new InitScene(gPhysics, gScene));
 	sceneMg->addScene(new BaseLevelScene(gPhysics, gScene, 4));
 
 	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
@@ -181,11 +191,17 @@ void keyPress(unsigned char key, const PxTransform& camera)
 
 	switch (toupper(key)) // [!] Poner en mayusculas 
 	{
-	case ' ':
+	case'C':
+		if (sceneMg != nullptr)
+		{
+			sceneMg->nextScene();
+		}
 		break;
-	case 'P': // Para disparar un proyectil.
-		//std::cout << "Disparo" << std::endl;
-		//scene->addParticle(new Projectile(GetCamera()->getTransform().p, GetCamera()->getTransform().q.getBasisVector2() * -20, Vector3{ 0.0, -9.8, 0.0 }, 0.98, 2.0, Vector3{ 0.0, -9.8, 0.0 }, { 1.0, 0.5, 0.0, 1.0 }, 1));
+	case 'X':
+		if (sceneMg != nullptr)
+		{
+			sceneMg->prevScene();
+		}
 		break;
 	default:
 		break;

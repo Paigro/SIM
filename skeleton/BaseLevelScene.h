@@ -33,7 +33,7 @@ public:
 	//------Metodos heredados:
 
 	// Inicializacion de la escena.
-	virtual void initScene();
+	virtual void initScene() override;
 	// Update de BaseLevelScene.
 	virtual void updateScene(float t);
 	// Activa la escena de BaseLevelScene.

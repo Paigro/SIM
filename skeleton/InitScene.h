@@ -14,7 +14,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de InitScene.
-	InitScene(PxPhysics* physics, PxScene* scene, int objetive);
+	InitScene(PxPhysics* physics, PxScene* scene);
 	// Destructora de InitScene.
 	~InitScene();
 
@@ -22,13 +22,13 @@ public:
 	//------Metodos heredados:
 
 	// Inicializacion de la escena.
-	virtual void initScene();
+	void initScene() override;
 	// Update de InitScene.
-	virtual void updateScene(float t);
-	// Activa la escena de InitScene.
-	virtual void activateScene();
-	// Desactiva la escena de InitScene.
-	virtual void deactivateScene();
+	void updateScene(float t) override;
+	// Activa la escena de BaseLevelScene.
+	void activateScene() override;
+	// Desactiva la escena de BaseLevelScene.
+	void deactivateScene() override;
 	// KeyPressed virtual de InitScene.
-	virtual void keyPressed(unsigned char key, const physx::PxTransform& camera);
+	void keyPressed(unsigned char key, const physx::PxTransform& camera) override;
 };

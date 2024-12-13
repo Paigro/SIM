@@ -382,6 +382,7 @@ namespace Snippets
 		glutSwapBuffers();
 	}
 
+	// esto va en el render.cpp
 	void drawText(const std::string& text, int x, int y)
 	{
 		glMatrixMode(GL_PROJECTION);
@@ -397,16 +398,20 @@ namespace Snippets
 
 		int length = text.length();
 
+
+		int yOffset = y;
 		for (int i = 0; i < length; i++) {
-			glutBitmapCharacter(GLUT_BITMAP_9_BY_15, (int)text[i]);
+			if (text[i] == '#') { // las lineas se separan por # (es lo que en consola seria un \n)
+				yOffset -= display_text_lineSpacing;
+				glRasterPos2i(x, yOffset);
+			}
+			else
+				glutBitmapCharacter(GLUT_BITMAP_9_BY_15, (int)text[i]);
 		}
 		glPopMatrix();
 		glMatrixMode(GL_PROJECTION);
 		glLoadMatrixd(matrix);
 		glMatrixMode(GL_MODELVIEW);
 	}
-
-
-
 } //namespace Snippets
 

@@ -50,6 +50,30 @@ void SceneManager::changeScene(int newSc)
 	}
 }
 
+void SceneManager::nextScene()
+{
+	if (actScene == vScenes.size() - 1)
+	{
+		changeScene(0);
+	}
+	else
+	{
+		changeScene(actScene + 1);
+	}
+}
+
+void SceneManager::prevScene()
+{
+	if (actScene == 0)
+	{
+		changeScene(vScenes.size() - 1);
+	}
+	else
+	{
+		changeScene(actScene - 1);
+	}
+}
+
 void SceneManager::deleteScene(int delSc)
 {
 
@@ -82,7 +106,7 @@ void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camer
 	case '3': // Escena con la explosion.
 		changeScene(3);
 		break;
-	case '4': // EScena con todos los muelles.
+	case '4': // Escena con todos los muelles.
 		changeScene(4);
 		break;
 	case '5': // Escena con los solidos rigidos.

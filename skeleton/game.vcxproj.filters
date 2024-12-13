@@ -110,6 +110,18 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>ProyectoFinal</Filter>
     </ClCompile>
+    <ClCompile Include="Level1.cpp">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Level2.cpp">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Level3.cpp">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Level4.cpp">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -225,6 +237,18 @@
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>ProyectoFinal</Filter>
+    </ClInclude>
+    <ClInclude Include="Level4.h">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Level1.h">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Level2.h">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Level3.h">
+      <Filter>ProyectoFinal\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

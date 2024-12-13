@@ -31,6 +31,10 @@ public:
 	void addScene(Scene* sc);
 	// Cambia a otra escena.
 	void changeScene(int newSc);
+	// Progresa a la siguiente escena.
+	void nextScene();
+	// Retrocede a la anterior escena.
+	void prevScene();
 	// Eliminar escena.
 	void deleteScene(int delSc);
 

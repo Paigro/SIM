@@ -271,6 +271,10 @@
     <ClCompile Include="FountainGenerator.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InitScene.cpp" />
+    <ClCompile Include="Level1.cpp" />
+    <ClCompile Include="Level2.cpp" />
+    <ClCompile Include="Level3.cpp" />
+    <ClCompile Include="Level4.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ParSysScene.cpp" />
     <ClCompile Include="Particle.cpp" />
@@ -311,6 +315,10 @@
     <ClInclude Include="FountainGenerator.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="InitScene.h" />
+    <ClInclude Include="Level1.h" />
+    <ClInclude Include="Level2.h" />
+    <ClInclude Include="Level3.h" />
+    <ClInclude Include="Level4.h" />
     <ClInclude Include="ParSysScene.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="ParticleGenerator.h" />
