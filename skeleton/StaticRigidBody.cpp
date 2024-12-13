@@ -1,5 +1,6 @@
 #include "StaticRigidBody.h"
 
+
 StaticRigidBody::StaticRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize)
 	: BaseRigidBody(gPhysics)
 {

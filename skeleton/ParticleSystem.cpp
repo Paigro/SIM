@@ -15,9 +15,9 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 		generator = new SmokeGenerator(initPos, initVel, maxParticles, 4.0, 8.0);
 		break;
 	case 'R': // LLuvia.
-		// PAIGRO AQUI: TODO
+		// PAIGRO2 AQUI: TODO
 	case 'N': // Niebla.
-		// PAIGRO AQUI: TODO
+		// PAIGRO2 AQUI: TODO
 		break;
 	case 'W': // OPCIONAL: fuego artificial. W de fireWork... :)
 		generator = new FireworkGenerator(initPos, initVel, maxParticles, 4.0, 4.0, 50);
@@ -83,7 +83,7 @@ bool ParticleSystem::update(float t)
 		vParticles.push_back(particlesGenerated[i]);
 	}
 
-	// Gestion de las particulas. PAIGRO AQUI.
+	// Gestion de las particulas.
 	for (auto it = vParticles.begin(); it != vParticles.end();)
 	{
 		Particle* p = *it;

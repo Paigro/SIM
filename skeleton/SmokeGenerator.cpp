@@ -20,7 +20,7 @@ std::vector<Particle*> SmokeGenerator::CreateParticles(int actP, int maxP)
 
 	//----Distribuciones:
 
-	std::uniform_int_distribution<int> uDistribution(0, 5); // PAIGRO AQUI: ganyanada para que salga pumm...pum... y salga mas continuo.
+	std::uniform_int_distribution<int> uDistribution(0, 5); // PAIGRO3 AQUI: ganyanada para que salga pumm...pum... y salga mas continuo.
 	std::uniform_int_distribution<int> uDistributionToTime(minTimeToLive, maxTimeToLive); // Distribucion normal entre minT y maxT para el tiempo que va a vivir cada particula. Por alguna razon no puedce ser float.
 	std::binomial_distribution<int> bDistribution(1, 0.1); // Distribucion binomial para la velocidad en Y.
 	std::normal_distribution<float> nDistribution(1.5, 1.0); // Distribucion normal para la generacion de nuevas velocidades de las nuevas particulas. Siendo el primer parametro lo lejos que van y el segundo la dispersion.

@@ -81,7 +81,7 @@ void initScenes()
 {
 	sceneMg = new SceneManager();
 
-	sceneMg->addScene(new ParSysScene(nullptr, gScene));
+	sceneMg->addScene(new ParSysScene(gPhysics, gScene));
 	sceneMg->addScene(new WindScene(gPhysics, gScene));
 	sceneMg->addScene(new TornadoScene(gPhysics, gScene));
 	sceneMg->addScene(new ExplosionScene(gPhysics, gScene));
@@ -111,7 +111,7 @@ void initPhysics(bool interactive)
 	// For Solid Rigids +++++++++++++++++++++++++++++++++++++
 	PxSceneDesc sceneDesc(gPhysics->getTolerancesScale());
 	//sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
-	sceneDesc.gravity = PxVec3(0.0f, 0.0f, 0.0f); //PAIGRO AQUI: ADIOS GRAVEDAD JIJIJI.
+	sceneDesc.gravity = PxVec3(0.0f, 0.0f, 0.0f); // PAIGRO1 AQUI: ADIOS GRAVEDAD JIJIJI.
 	gDispatcher = PxDefaultCpuDispatcherCreate(2);
 	sceneDesc.cpuDispatcher = gDispatcher;
 	sceneDesc.filterShader = contactReportFilterShader;

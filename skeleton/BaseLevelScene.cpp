@@ -1,5 +1,6 @@
 #include "BaseLevelScene.h"
 
+
 BaseLevelScene::BaseLevelScene(PxPhysics* physics, PxScene* scene, int obj)
 	: Scene(physics, scene), objetive(obj)
 {
@@ -11,6 +12,7 @@ BaseLevelScene::BaseLevelScene(PxPhysics* physics, PxScene* scene, int obj)
 
 BaseLevelScene::~BaseLevelScene()
 {
+
 }
 
 void BaseLevelScene::initScene()

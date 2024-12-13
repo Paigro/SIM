@@ -23,7 +23,7 @@ std::vector<Particle*> RandomGenerator::CreateParticles(int actP, int maxP)
 
 	//----Distribuciones:
 
-	std::uniform_int_distribution<int> uDistribution(0, 5); // PAIGRO AQUI: ganyanada para que salga pumm...pum... y salga mas continuo.
+	std::uniform_int_distribution<int> uDistribution(0, 5); // PAIGRO2 AQUI: ganyanada para que salga pumm...pum... y salga mas continuo.
 	std::uniform_int_distribution<int> uDistributionToTime(minTimeToLive, maxTimeToLive); // Distribucion normal entre minT y maxT para el tiempo que va a vivir cada particula. Por alguna razon no puedce ser float.
 	std::normal_distribution<float> uPosDistribution(minPos, maxPos); // Distribucion uniforme para la nueva posicion de la particula.
 

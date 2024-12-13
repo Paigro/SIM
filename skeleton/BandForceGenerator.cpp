@@ -34,7 +34,7 @@ Vector3 BandForceGenerator::generateForce(Particle& par)
 	force = dir * k * diff; // Calculamos la fuerza.
 	part1->addForce(-force); // La otra particula tambien tiene que cambiar su fuerza.
 
-	// PAIGRO AQUI: por alguna razon se genera fuerza en y que contrarresta a la de ala gravedad entonces se quedan en diagonal.
+	// PAIGRO3 AQUI: por alguna razon se genera fuerza en y que contrarresta a la de ala gravedad entonces se quedan en diagonal. ES mentira soy tonto y tenia activo el muelle anchor...
 	return force;
 }
 

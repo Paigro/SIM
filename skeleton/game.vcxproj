@@ -269,6 +269,7 @@
     <ClCompile Include="ForceGenerator.cpp" />
     <ClCompile Include="ForceSystem.cpp" />
     <ClCompile Include="FountainGenerator.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="InitScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ParSysScene.cpp" />
@@ -308,6 +309,7 @@
     <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="ForceSystem.h" />
     <ClInclude Include="FountainGenerator.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="InitScene.h" />
     <ClInclude Include="ParSysScene.h" />
     <ClInclude Include="Particle.h" />

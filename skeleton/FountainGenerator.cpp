@@ -21,7 +21,7 @@ std::vector<Particle*> FountainGenerator::CreateParticles(int actP, int maxP)
 	//----Distribuciones:
 
 	//std::uniform_int_distribution<int> uDistribution(0, avaliblePar); // Distribucion uniforme entre 0 y las que se puede generar para calcular las que se generan en este momento.
-	std::uniform_int_distribution<int> uDistribution(0, 5); // PAIGRO AQUI: ganyanada para que salga pumm...pum... y salga mas continuo.
+	std::uniform_int_distribution<int> uDistribution(0, 5); // PAIGRO3 AQUI: ganyanada para que salga pumm...pum... y salga mas continuo.
 	std::uniform_int_distribution<int> uDistributionToTime(minTimeToLive, maxTimeToLive); // Distribucion normal entre minT y maxT para el tiempo que va a vivir cada particula. Por alguna razon no puedce ser float.
 	std::normal_distribution<float> nDistribution(5.0, 1.0); // Distribucion normal para la generacion de nuevas velocidades de las nuevas particulas. Siendo el primer parametro lo lejos que van y el segundo la dispersion.
 

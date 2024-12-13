@@ -27,7 +27,7 @@ Particle::Particle(Vector3 _pos, Vector3 _vel, Vector3 _acc, float _dam, Vector4
 
 Particle::~Particle()
 {
-	DeregisterRenderItem(renderItem); // PAIGRO AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
+	DeregisterRenderItem(renderItem); // PAIGRO2 AQUI: no hace falta hacer un deregister pq delete ya lo hace pero sigue dando error. Ya no da error pero dejo la nota.
 }
 
 #pragma endregion

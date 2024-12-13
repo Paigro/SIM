@@ -137,8 +137,8 @@ namespace
 void renderLoop()
 {
 	StartCounter();
-	// PAIGRO AQUI: para modificar la posicion de la camara:
-	sCamera = new Camera(PxVec3(0.0f, 0.0f, 100.0f), PxVec3(0.0f, 0.0f, -1.0f));
+	// PAIGRO1 AQUI: para modificar la posicion de la camara:
+	sCamera = new Camera(PxVec3(0.0f, 20.0f, 100.0f), PxVec3(0.0f, 0.0f, -1.0f));
 
 	setupDefaultWindow("Simulacion Fisica Videojuegos");
 	setupDefaultRenderState();
