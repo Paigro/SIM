@@ -8,9 +8,6 @@
       <Filter>Render</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Scene.cpp">
-      <Filter>Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="FireworkGenerator.cpp">
       <Filter>ParSys</Filter>
     </ClCompile>
@@ -89,9 +86,6 @@
     <ClCompile Include="BaseObject.cpp">
       <Filter>Base</Filter>
     </ClCompile>
-    <ClCompile Include="BaseRigidBody.cpp">
-      <Filter>RigidBodies</Filter>
-    </ClCompile>
     <ClCompile Include="DinamicRigidBody.cpp">
       <Filter>RigidBodies</Filter>
     </ClCompile>
@@ -100,12 +94,6 @@
     </ClCompile>
     <ClCompile Include="InitScene.cpp">
       <Filter>ProyectoFinal\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="Canon.cpp">
-      <Filter>ProyectoFinal</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseLevelScene.cpp">
-      <Filter>ProyectoFinal</Filter>
     </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>ProyectoFinal</Filter>
@@ -122,14 +110,29 @@
     <ClCompile Include="Level4.cpp">
       <Filter>ProyectoFinal\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Planet.cpp">
-      <Filter>ProyectoFinal</Filter>
-    </ClCompile>
     <ClCompile Include="PlanetaryGravityForceSystem.cpp">
       <Filter>ForSys</Filter>
     </ClCompile>
     <ClCompile Include="TutoScene.cpp">
       <Filter>ProyectoFinal\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseRigidBody.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelsScene.cpp">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseLevelScene.cpp">
+      <Filter>ProyectoFinal\ClasesBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Canon.cpp">
+      <Filter>ProyectoFinal\Obejtos</Filter>
+    </ClCompile>
+    <ClCompile Include="Planet.cpp">
+      <Filter>ProyectoFinal\Obejtos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -138,9 +141,6 @@
     </ClInclude>
     <ClInclude Include="Render\Render.h">
       <Filter>Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="FireworkGenerator.h">
       <Filter>ParSys</Filter>
@@ -226,9 +226,6 @@
     <ClInclude Include="BaseObject.h">
       <Filter>Base</Filter>
     </ClInclude>
-    <ClInclude Include="BaseRigidBody.h">
-      <Filter>RigidBodies</Filter>
-    </ClInclude>
     <ClInclude Include="DinamicRigidBody.h">
       <Filter>RigidBodies</Filter>
     </ClInclude>
@@ -237,12 +234,6 @@
     </ClInclude>
     <ClInclude Include="InitScene.h">
       <Filter>ProyectoFinal\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="Canon.h">
-      <Filter>ProyectoFinal</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseLevelScene.h">
-      <Filter>ProyectoFinal</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>ProyectoFinal</Filter>
@@ -259,14 +250,29 @@
     <ClInclude Include="Level3.h">
       <Filter>ProyectoFinal\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Planet.h">
-      <Filter>ProyectoFinal</Filter>
-    </ClInclude>
     <ClInclude Include="PlanetaryGravityForceSystem.h">
       <Filter>ForSys</Filter>
     </ClInclude>
     <ClInclude Include="TutoScene.h">
       <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseRigidBody.h">
+      <Filter>Base</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelsScene.h">
+      <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseLevelScene.h">
+      <Filter>ProyectoFinal\ClasesBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Canon.h">
+      <Filter>ProyectoFinal\Obejtos</Filter>
+    </ClInclude>
+    <ClInclude Include="Planet.h">
+      <Filter>ProyectoFinal\Obejtos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +302,12 @@
     </Filter>
     <Filter Include="ProyectoFinal\Scenes">
       <UniqueIdentifier>{91de2d53-9cd3-4589-aaa9-87b07d92ff7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProyectoFinal\ClasesBase">
+      <UniqueIdentifier>{80b7a2a0-8dd0-40f6-8921-b65289eca616}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ProyectoFinal\Obejtos">
+      <UniqueIdentifier>{f8e45f3b-00f8-4d23-9b51-745475e16893}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
