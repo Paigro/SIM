@@ -23,6 +23,8 @@
 #include "RigidBodyScene.h"
 // Escenas del proyecto final:
 #include "InitScene.h"
+#include "LevelsScene.h"
+#include "TutoScene.h"
 #include "Level1.h"
 #include "Level2.h"
 #include "Level3.h"
@@ -104,9 +106,14 @@ void initScenes()
 
 	// Escenas del proyecto final:
 	sceneMg->addScene(new InitScene(gPhysics, gScene, gameMg));
+	sceneMg->addScene(new LevelsScene(gPhysics, gScene, gameMg));
+	sceneMg->addScene(new TutoScene(gPhysics, gScene, gameMg));
 	sceneMg->addScene(new Level1(gPhysics, gScene, gameMg, 4));
+	sceneMg->addScene(new Level2(gPhysics, gScene, gameMg, 2));
+	sceneMg->addScene(new Level3(gPhysics, gScene, gameMg, 2));
+	sceneMg->addScene(new Level4(gPhysics, gScene, gameMg, 2));
 
-	//level 2
+
 	//level 3
 	//level 4
 	//winlevel
@@ -150,7 +157,7 @@ void initPhysics(bool interactive)
 
 	// Proyecto final:
 	sceneMg = new SceneManager(gPhysics, gScene);
-	gameMg = new GameManager(gPhysics, gScene,sceneMg);
+	gameMg = new GameManager(gPhysics, gScene, sceneMg);
 
 	// Inicializacion de las escenas.
 	initScenes();

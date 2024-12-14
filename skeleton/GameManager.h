@@ -33,7 +33,7 @@ private:
 
 	bool ejes;
 
-	GAMESTATES actState;
+	int actState;
 
 
 
