@@ -4,7 +4,11 @@
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"
 
-#include "Scene.h"
+#include "InitScene.h"
+#include "Level1.h"
+#include "Level2.h"
+#include "Level3.h"
+#include "Level4.h"
 
 
 class SceneManager
@@ -20,7 +24,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de SceneManager.
-	SceneManager();
+	SceneManager(PxPhysics* physics, PxScene* scene);
 	// Destructora de SceneManager.
 	~SceneManager();
 

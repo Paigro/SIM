@@ -6,13 +6,9 @@
 
 #include <iostream>
 
-#include "SceneManager.h"
+//#include "SceneManager.h"
 
-#include "InitScene.h"
-#include "Level1.h"
-#include "Level2.h"
-#include "Level3.h"
-#include "Level4.h"
+class SceneManager;
 
 
 using namespace physx;
@@ -24,7 +20,7 @@ private:
 
 	enum GAMESTATES
 	{
-		INIT, TUTO, LVL1, LVL2, LVL3, LVL4, WIN, LOST
+		INIT, TUTO, MENU, LVL1, LVL2, LVL3, LVL4
 	};
 
 	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
@@ -37,14 +33,17 @@ private:
 
 	bool ejes;
 
+	GAMESTATES actState;
+
 
 
 	//------Metodos del GameManager:
 
 	// Init del GameManager.
 	void initGameManager();
-	// Init de las escenas.
-	void initScenes();
+
+	//
+	void changeState();
 
 
 
@@ -55,16 +54,23 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora base de GameManager.
-	GameManager(PxPhysics* physics, PxScene* scene);
+	GameManager(PxPhysics* physics, PxScene* scene, SceneManager* sm);
 	// Destructora de GameManager.
 	~GameManager();
 
 
 	//------Metodos importantes.
 
-	
 	// Update del GameManager.
 	bool update(float t);
 	// KeyPressed virtual de GameManager.
 	virtual void keyPressed(unsigned char key, const physx::PxTransform& camera);
+
+
+	//------Metodos para el cambio de estado:
+
+	//
+	void levelHasBeenLost();
+	//
+	void levelHasBeenWon();
 };

@@ -14,7 +14,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora de InitScene.
-	InitScene(PxPhysics* physics, PxScene* scene);
+	InitScene(PxPhysics* physics, PxScene* scene, GameManager* gm);
 	// Destructora de InitScene.
 	~InitScene();
 

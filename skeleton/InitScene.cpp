@@ -1,8 +1,8 @@
 #include "InitScene.h"
 
 
-InitScene::InitScene(PxPhysics* physics, PxScene* scene)
-	: Scene(physics, scene)
+InitScene::InitScene(PxPhysics* physics, PxScene* scene, GameManager* gm)
+	: Scene(physics, scene, gm)
 {
 
 }

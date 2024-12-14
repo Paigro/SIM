@@ -75,6 +75,7 @@ Vector4 zColor(0.0, 0.0, 1.0, 1.0);
 
 // GameManager.
 GameManager* gameMg = nullptr;
+SceneManager* sceneMg = nullptr;
 
 
 void initEjes()
@@ -91,20 +92,29 @@ void initEjes()
 	std::cout << "//--MENSAJE: Ejes creados." << std::endl;
 }
 
-/*void initScenes()
+void initScenes()
 {
-	sceneMg = new SceneManager();
-
-	// Escenas de las practicas.
-	/*sceneMg->addScene(new ParSysScene(gPhysics, gScene));
+	/*// Escenas de las practicas.
+	sceneMg->addScene(new ParSysScene(gPhysics, gScene));
 	sceneMg->addScene(new WindScene(gPhysics, gScene));
 	sceneMg->addScene(new TornadoScene(gPhysics, gScene));
 	sceneMg->addScene(new ExplosionScene(gPhysics, gScene));
 	sceneMg->addScene(new DosckScene(gPhysics, gScene));
-	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));
+	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));*/
 
+	// Escenas del proyecto final:
+	sceneMg->addScene(new InitScene(gPhysics, gScene, gameMg));
+	sceneMg->addScene(new Level1(gPhysics, gScene, gameMg, 4));
 
-}*/
+	//level 2
+	//level 3
+	//level 4
+	//winlevel
+	//loose level
+	//tuto
+	//end
+	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
+}
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -139,7 +149,11 @@ void initPhysics(bool interactive)
 	initEjes();
 
 	// Proyecto final:
-	gameMg = new GameManager(gPhysics, gScene);
+	sceneMg = new SceneManager(gPhysics, gScene);
+	gameMg = new GameManager(gPhysics, gScene,sceneMg);
+
+	// Inicializacion de las escenas.
+	initScenes();
 
 	std::cout << "-----------------------------------------" << std::endl << std::endl;
 }
@@ -193,7 +207,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 {
 	PX_UNUSED(camera);
 
-	switch (toupper(key)) // [!] Poner en mayusculas 
+	switch (toupper(key)) // [!] Poner en mayusculas
 	{
 
 	default:
@@ -216,7 +230,7 @@ void onCollision(physx::PxActor* actor1, physx::PxActor* actor2)
 
 int main(int, const char* const*)
 {
-#ifndef OFFLINE_EXECUTION 
+#ifndef OFFLINE_EXECUTION
 	extern void renderLoop();
 	renderLoop();
 #else

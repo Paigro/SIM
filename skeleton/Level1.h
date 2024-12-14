@@ -14,7 +14,7 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora del Level1.
-	Level1(PxPhysics* physics, PxScene* scene, int obj);
+	Level1(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj);
 	// Destructora del Level1.
 	~Level1();
 

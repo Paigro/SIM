@@ -1,8 +1,8 @@
 #include "BaseLevelScene.h"
 
 
-BaseLevelScene::BaseLevelScene(PxPhysics* physics, PxScene* scene, int obj)
-	: Scene(physics, scene), objetive(obj)
+BaseLevelScene::BaseLevelScene(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj)
+	: Scene(physics, scene, gm), objetive(obj)
 {
 	direction = { 0, 0, 0 };
 	angle = 0;

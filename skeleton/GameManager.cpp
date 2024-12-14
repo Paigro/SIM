@@ -1,7 +1,10 @@
 #include "GameManager.h"
 
-GameManager::GameManager(PxPhysics* physics, PxScene* scene)
-	: gPhysics(physics), gScene(scene)
+#include "SceneManager.h"
+
+
+GameManager::GameManager(PxPhysics* physics, PxScene* scene, SceneManager* sm)
+	: gPhysics(physics), gScene(scene), sceneMg(sm)
 
 {
 	std::cout << "//--MENSAJE: GameManager creado." << std::endl;
@@ -15,28 +18,38 @@ GameManager::~GameManager()
 
 void GameManager::initGameManager()
 {
-	sceneMg = new SceneManager();
-
-	initScenes();
+	actState = INIT;
 
 	std::cout << "//--MENSAJE: GameManager inicializado." << std::endl;
 }
 
-void GameManager::initScenes()
+
+
+void GameManager::changeState()
 {
-	// Escenas del proyecto final:
-	sceneMg->addScene(new InitScene(gPhysics, gScene));
-	sceneMg->addScene(new Level1(gPhysics, gScene, 4));
-
-	//level 2
-	//level 3
-	//level 4
-	//winlevel
-	//loose level
-	//tuto
-	//end
-
-	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
+	switch (actState)
+	{
+	case GameManager::INIT:
+		sceneMg->changeScene(1);
+		break;
+	case GameManager::TUTO:
+		sceneMg->changeScene(2);
+		break;
+	case GameManager::LVL1:
+		sceneMg->changeScene(2);
+		break;
+	case GameManager::LVL2:
+		sceneMg->changeScene(2);
+		break;
+	case GameManager::LVL3:
+		sceneMg->changeScene(2);
+		break;
+	case GameManager::LVL4:
+		sceneMg->changeScene(2);
+		break;
+	default:
+		break;
+	}
 }
 
 bool GameManager::update(float t)
@@ -62,6 +75,8 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 			sceneMg->prevScene();
 		}
 		break;
+	case 'Z':
+
 	default:
 		break;
 	}
@@ -71,4 +86,14 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 	{
 		sceneMg->keyPressed(key, camera);
 	}
+}
+
+void GameManager::levelHasBeenLost()
+{
+
+}
+
+void GameManager::levelHasBeenWon()
+{
+
 }

@@ -1,5 +1,7 @@
 #include "Scene.h"
 
+//#include "GameManager.h"
+
 
 #pragma region Constructora y destructora:
 
@@ -15,6 +17,12 @@ Scene::Scene(PxPhysics* physics, PxScene* scene)
 		std::cout << "//------ERROR: Escena fisica es null." << std::endl;
 	}
 	initScene();
+}
+
+Scene::Scene(PxPhysics* physics, PxScene* scene, GameManager* gm)
+	: Scene(physics, scene)
+{
+	gameMg = gm;
 }
 
 Scene::~Scene()
@@ -37,7 +45,7 @@ Scene::~Scene()
 	}
 	vForceSystems.clear();
 
-	for (auto* rb  : vRigidBodies)
+	for (auto* rb : vRigidBodies)
 	{
 		delete rb;
 	}
@@ -193,7 +201,7 @@ void Scene::addForceSistem(ForceSystem* forSys)
 	vForceSystems.push_back(forSys);
 }
 
-void Scene::addRigidBody(BaseRigidBody* rb) 
+void Scene::addRigidBody(BaseRigidBody* rb)
 {
 	vRigidBodies.push_back(rb);
 }

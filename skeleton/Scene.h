@@ -8,6 +8,8 @@
 #include "StaticRigidBody.h"
 #include "DinamicRigidBody.h"
 
+//class GameManager;
+#include "GameManager.h"
 
 class Scene
 {
@@ -23,12 +25,16 @@ protected:
 	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
 	PxScene* gScene = nullptr; // Referencia a la escena fisica.
 
+
 public:
 
+	GameManager* gameMg;
 	//------Constructoras y destructoras:
 
 	// Constructora de Scene.
 	Scene(PxPhysics* physics, PxScene* scene);
+	//Constructora de Scene para el proyecto final.
+	Scene(PxPhysics* physics, PxScene* scene, GameManager* gm);
 	// Destructora de scene.
 	~Scene();
 

@@ -1,8 +1,8 @@
 #include "Level1.h"
 
 
-Level1::Level1(PxPhysics* physics, PxScene* scene, int obj)
-	: BaseLevelScene(physics, scene, obj)
+Level1::Level1(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj)
+	: BaseLevelScene(physics, scene, gm, obj)
 {
 
 }
@@ -20,4 +20,5 @@ void Level1::updateScene(float t)
 
 	display_text_2 = " ";
 	display_text_position_2 = Vector2(210, 180);
+	BaseLevelScene::updateScene(t);
 }
