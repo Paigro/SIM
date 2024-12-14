@@ -54,7 +54,7 @@ void ForceSystem::addForceToParticles(std::vector<Particle*> vPar, float t)
 	}
 }
 
-void ForceSystem::addForceToRigidBodies(std::vector<DinamicRigidBody*> vRB, float t)
+void ForceSystem::addForceToRigidBodies(std::vector<BaseRigidBody*> vRB, float t)
 {
 	/*for (auto rb : vRB)
 	{

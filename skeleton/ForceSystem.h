@@ -44,5 +44,5 @@ public:
 	// Mete a las particulas las fuerzas correspondientes.
 	void addForceToParticles(std::vector<Particle*> vPar, float t);
 	// Mete a los rigigBodies las fuerzas correspondientes.
-	void addForceToRigidBodies(std::vector<DinamicRigidBody*> vRB, float t);
+	void addForceToRigidBodies(std::vector<BaseRigidBody*> vRB, float t);
 };

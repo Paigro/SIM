@@ -37,11 +37,11 @@ Scene::~Scene()
 	}
 	vForceSystems.clear();
 
-	for (auto* drb : vDinamicRigidBodies)
+	for (auto* rb  : vRigidBodies)
 	{
-		delete drb;
+		delete rb;
 	}
-	vDinamicRigidBodies.clear();
+	vRigidBodies.clear();
 }
 
 #pragma endregion
@@ -92,34 +92,19 @@ void Scene::updateScene(float t)
 			fs->addForceToParticles(ps->getVParticles(), t);
 		}
 
-		fs->addForceToRigidBodies(vDinamicRigidBodies, t);
+		fs->addForceToRigidBodies(vRigidBodies, t);
 		// Actualiza el sistema de fuerza.
 		fs->update(t);
 	}
 
 	// Gestion de los solidos rigidos dinamicos.
-	for (auto it = vDinamicRigidBodies.begin(); it != vDinamicRigidBodies.end();)
+	for (auto it = vRigidBodies.begin(); it != vRigidBodies.end();)
 	{
 		BaseRigidBody* rb = *it;
 		if (!rb->update(t))
 		{
 			delete rb;
-			it = vDinamicRigidBodies.erase(it);
-		}
-		else
-		{
-			++it;
-		}
-	}
-	
-	// Gestion de los solidos rigidos estaticos.
-	for (auto it = vStaticRigidBodies.begin(); it != vStaticRigidBodies.end();)
-	{
-		BaseRigidBody* rb = *it;
-		if (!rb->update(t))
-		{
-			delete rb;
-			it = vStaticRigidBodies.erase(it);
+			it = vRigidBodies.erase(it);
 		}
 		else
 		{
@@ -157,14 +142,9 @@ void Scene::activateScene()
 		fs->setActive(true);
 	}
 
-	for (auto drb : vDinamicRigidBodies)
+	for (auto drb : vRigidBodies)
 	{
 		drb->setActive(true);
-	}
-	
-	for (auto srb : vStaticRigidBodies)
-	{
-		srb->setActive(true);
 	}
 }
 
@@ -188,14 +168,9 @@ void Scene::deactivateScene()
 		fs->setActive(false);
 	}
 
-	for (auto drb : vDinamicRigidBodies)
+	for (auto drb : vRigidBodies)
 	{
 		drb->setActive(false);
-	}
-	
-	for (auto srb : vStaticRigidBodies)
-	{
-		srb->setActive(false);
 	}
 }
 
@@ -218,14 +193,9 @@ void Scene::addForceSistem(ForceSystem* forSys)
 	vForceSystems.push_back(forSys);
 }
 
-void Scene::addDinamicRigidBody(DinamicRigidBody* rigBod)
+void Scene::addRigidBody(BaseRigidBody* rb) 
 {
-	vDinamicRigidBodies.push_back(rigBod);
-}
-
-void Scene::addStaticRigidBody(StaticRigidBody* rigBod)
-{
-	vStaticRigidBodies.push_back(rigBod);
+	vRigidBodies.push_back(rb);
 }
 
 #pragma endregion

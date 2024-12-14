@@ -41,6 +41,8 @@ void GameManager::initScenes()
 
 bool GameManager::update(float t)
 {
+	sceneMg->update(t);
+
 	return true;
 }
 

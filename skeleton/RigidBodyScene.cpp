@@ -26,9 +26,9 @@ void RigidBodyScene::initScene()
 	PxTransform otherCubePose(Vector3(-50, 100, 0));
 	otherCube = new DinamicRigidBody(gPhysics, gScene, otherCubePose, CreateShape(physx::PxBoxGeometry(Vector3(4, 4, 4))), Vector4(0, 0.26, 0.41, 1.0), Vector3(4, 4, 4), 20);
 
-	addStaticRigidBody(floor);
-	addDinamicRigidBody(cube);
-	addDinamicRigidBody(otherCube);
+	addRigidBody(floor);
+	addRigidBody(cube);
+	addRigidBody(otherCube);
 }
 
 void RigidBodyScene::keyPressed(unsigned char key, const physx::PxTransform& camera)
