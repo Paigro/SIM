@@ -13,12 +13,14 @@ class SceneManager;
 
 using namespace physx;
 
+constexpr float LEVEL_TIME = 60.0; // Tiempo para completar el nivel.
+
 
 class GameManager
 {
 private:
 
-	enum GAMESTATES
+	enum GAMESTATES 
 	{
 		INIT, TUTO, MENU, LVL1, LVL2, LVL3, LVL4
 	};
@@ -28,12 +30,13 @@ private:
 
 	SceneManager* sceneMg = nullptr; // Referencia al SceneManager.
 
-	float levelTimer;
-	float levelMaxTime;
+	float levelTimer; // Tiempo que dura un nivel.
 
-	bool ejes;
+	int actState; // Estado actual de juego.
 
-	int actState;
+	int totalLevels;
+	int levelsWon;
+
 
 
 
@@ -41,10 +44,10 @@ private:
 
 	// Init del GameManager.
 	void initGameManager();
-
-	//
+	// Cambia el estado segun en que estado este.
 	void changeState();
-
+	// Para setterar los textos.
+	void setTexts();
 
 
 

@@ -20,8 +20,9 @@ void GameManager::initGameManager()
 {
 	actState = INIT;
 
-	levelMaxTime = 60;
-	levelTimer = 60;
+	levelTimer = LEVEL_TIME;
+	levelsWon = 0;
+	totalLevels = 4;
 
 	std::cout << "//--MENSAJE: GameManager inicializado." << std::endl;
 }
@@ -61,38 +62,47 @@ void GameManager::changeState()
 	default:
 		break;
 	}
+}
 
-	std::cout << actState << std::endl;
+void GameManager::setTexts()
+{
+	switch (actState)
+	{
+	case INIT: case TUTO:
+		gameManagerText = " ";
+		break;
+	case MENU:
+		gameManagerText = "You win: " + std::to_string(levelsWon) + " / " + std::to_string(totalLevels);
+		break;
+	case LVL1: case LVL2: case LVL3: case LVL4:
+		gameManagerText = "Time left: " + std::to_string(levelTimer);
+	default:
+		break;
+	}
+	gameManagerTextPos = Vector2(0, 490);
 }
 
 bool GameManager::update(float t)
 {
-	sceneMg->update(t);
-
-
+	sceneMg->update(t);// Se actualizan las escenas.
 
 	switch (actState)
 	{
-	case INIT: case TUTO: case MENU:
-		gameManagerText = " ";
-		gameManagerTextPos = Vector2(0, 490);
-
-		break;
 	case LVL1: case LVL2: case LVL3: case LVL4:
-
 		if (levelTimer <= 0)
 		{
 			changeState();
+			levelTimer = LEVEL_TIME;
 		}
 		else
 		{
 			levelTimer -= t;
 		}
-		gameManagerText = "Time left: " + std::to_string(levelTimer);
-		gameManagerTextPos = Vector2(0, 490);
 	default:
 		break;
 	}
+	
+	setTexts();
 
 	return true;
 }
@@ -101,28 +111,31 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 {
 	switch (toupper(key))
 	{
-	case'C':
-		if (sceneMg != nullptr)
-		{
-			//sceneMg->nextScene();
-			//actState++;
-			changeState();
-		}
-		break;
-	case 'X':
+	case 'C': // Para avanzar al siguiente nivel.
 		if (sceneMg != nullptr)
 		{
 			changeState();
-			//sceneMg->prevScene();
-			//actState--;
 		}
 		break;
-	case 'Z':
-
+	case 'M': // Para debugear e ir a la siguiente escena.
+		if (sceneMg != nullptr)
+		{
+			sceneMg->nextScene();
+			actState++;
+		}
+		break;
+	case 'N': // Para debugear e ir a la anterior escena.
+		if (sceneMg != nullptr)
+		{
+			sceneMg->prevScene();
+			actState--;
+		}
+		break;
 	default:
 		break;
 	}
 
+	// Para debug.
 	if (actState > 7)
 	{
 		actState = 0;
@@ -131,9 +144,6 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 	{
 		actState = 7;
 	}
-
-
-
 
 	// Esto no pero de momento si.
 	if (sceneMg != nullptr)
@@ -144,10 +154,11 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 
 void GameManager::levelHasBeenLost()
 {
-
+	changeState();
 }
 
 void GameManager::levelHasBeenWon()
 {
-
+	levelsWon++;
+	changeState();
 }
