@@ -3,6 +3,8 @@
 #include "SceneManager.h"
 
 
+#pragma region constructoras y destructoras:
+
 GameManager::GameManager(PxPhysics* physics, PxScene* scene, SceneManager* sm)
 	: gPhysics(physics), gScene(scene), sceneMg(sm)
 
@@ -16,6 +18,10 @@ GameManager::~GameManager()
 	delete sceneMg;
 }
 
+#pragma endregion
+
+#pragma region inicializacion:
+
 void GameManager::initGameManager()
 {
 	actState = INIT;
@@ -26,6 +32,10 @@ void GameManager::initGameManager()
 
 	std::cout << "//--MENSAJE: GameManager inicializado." << std::endl;
 }
+
+#pragma endregion
+
+#pragma region actualizacion de estados y textos:
 
 void GameManager::changeState()
 {
@@ -82,6 +92,21 @@ void GameManager::setTexts()
 	gameManagerTextPos = Vector2(0, 490);
 }
 
+void GameManager::levelHasBeenLost()
+{
+	changeState();
+}
+
+void GameManager::levelHasBeenWon()
+{
+	levelsWon++;
+	changeState();
+}
+
+#pragma endregion
+
+#pragma region update y keyPressed:
+
 bool GameManager::update(float t)
 {
 	sceneMg->update(t);// Se actualizan las escenas.
@@ -101,7 +126,7 @@ bool GameManager::update(float t)
 	default:
 		break;
 	}
-	
+
 	setTexts();
 
 	return true;
@@ -145,20 +170,11 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 		actState = 7;
 	}
 
-	// Esto no pero de momento si.
+	// Esto no pero de momento si. Si va aqui donde si no.
 	if (sceneMg != nullptr)
 	{
 		sceneMg->keyPressed(key, camera);
 	}
 }
 
-void GameManager::levelHasBeenLost()
-{
-	changeState();
-}
-
-void GameManager::levelHasBeenWon()
-{
-	levelsWon++;
-	changeState();
-}
+#pragma endregion

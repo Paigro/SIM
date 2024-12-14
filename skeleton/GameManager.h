@@ -40,7 +40,7 @@ private:
 
 
 
-	//------Metodos del GameManager:
+	//------Metodos internos del GameManager:
 
 	// Init del GameManager.
 	void initGameManager();

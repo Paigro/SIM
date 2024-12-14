@@ -25,10 +25,10 @@ protected:
 	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
 	PxScene* gScene = nullptr; // Referencia a la escena fisica.
 
+	GameManager* gameMg = nullptr; // Referencia al gameManager.
 
 public:
 
-	GameManager* gameMg;
 	//------Constructoras y destructoras:
 
 	// Constructora de Scene.
