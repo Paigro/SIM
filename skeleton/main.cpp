@@ -39,6 +39,9 @@ physx::PxVec2 display_text_position_2 = Vector2(512 / 2, 512 / 2);
 physx::PxVec4 display_text_color = { 1.0f, 0.2f, 0.2f, 1.0f };
 int display_text_lineSpacing = 20;
 
+std::string gameManagerText = "This is a test";
+physx::PxVec2 gameManagerTextPos = Vector2(512 / 2, 512 / 2);
+
 
 PxDefaultAllocator		gAllocator;
 PxDefaultErrorCallback	gErrorCallback;
@@ -70,8 +73,8 @@ Vector4 yColor(0.0, 1.0, 0.0, 1.0);
 Vector4 zColor(0.0, 0.0, 1.0, 1.0);
 
 
-// Scene Manager.
-SceneManager* sceneMg = nullptr;
+// GameManager.
+GameManager* gameMg = nullptr;
 
 
 void initEjes()
@@ -88,7 +91,7 @@ void initEjes()
 	std::cout << "//--MENSAJE: Ejes creados." << std::endl;
 }
 
-void initScenes()
+/*void initScenes()
 {
 	sceneMg = new SceneManager();
 
@@ -98,22 +101,10 @@ void initScenes()
 	sceneMg->addScene(new TornadoScene(gPhysics, gScene));
 	sceneMg->addScene(new ExplosionScene(gPhysics, gScene));
 	sceneMg->addScene(new DosckScene(gPhysics, gScene));
-	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));*/
+	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));
 
-	// Escenas del proyecto final:
-	sceneMg->addScene(new InitScene(gPhysics, gScene));
-	sceneMg->addScene(new Level1(gPhysics, gScene, 4)); // level 1
 
-	//level 2
-	//level 3
-	//level 4
-	//winlevel
-	//loose level
-	//tuto
-	//end
-
-	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
-}
+}*/
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -147,8 +138,8 @@ void initPhysics(bool interactive)
 	// Ejes P0:
 	initEjes();
 
-	// Escenas:
-	initScenes();
+	// Proyecto final:
+	gameMg = new GameManager(gPhysics, gScene);
 
 	std::cout << "-----------------------------------------" << std::endl << std::endl;
 }
@@ -165,7 +156,7 @@ void stepPhysics(bool interactive, double t)
 	gScene->fetchResults(true);
 
 
-	sceneMg->update(t);
+	gameMg->update(t);
 }
 
 // Function to clean data
@@ -193,7 +184,7 @@ void cleanupPhysics(bool interactive)
 	DeregisterRenderItem(ySphere);
 	DeregisterRenderItem(zSphere);
 
-	delete sceneMg;
+	delete gameMg;
 	std::cout << "-----------------------------------------" << std::endl;
 }
 
@@ -204,26 +195,16 @@ void keyPress(unsigned char key, const PxTransform& camera)
 
 	switch (toupper(key)) // [!] Poner en mayusculas 
 	{
-	case'C':
-		if (sceneMg != nullptr)
-		{
-			sceneMg->nextScene();
-		}
-		break;
-	case 'X':
-		if (sceneMg != nullptr)
-		{
-			sceneMg->prevScene();
-		}
-		break;
+
 	default:
 		break;
 	}
 
-	if (sceneMg != nullptr)
+	if (gameMg != nullptr)
 	{
-		sceneMg->keyPressed(key, camera);
+		gameMg->keyPressed(key, camera);
 	}
+
 }
 
 void onCollision(physx::PxActor* actor1, physx::PxActor* actor2)

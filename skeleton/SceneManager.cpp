@@ -34,7 +34,11 @@ void SceneManager::addScene(Scene* sc)
 
 void SceneManager::changeScene(int newSc)
 {
-	if (actScene == newSc) { return; }
+	if (actScene == newSc) 
+	{ 
+		std::cout << "//----AVISO: Ya estas en la escena: " << newSc << std::endl;
+		return; 
+	}
 
 	if (newSc >= vScenes.size() || vScenes[newSc] == nullptr)
 	{

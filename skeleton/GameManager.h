@@ -8,12 +8,45 @@
 
 #include "SceneManager.h"
 
+#include "InitScene.h"
+#include "Level1.h"
+#include "Level2.h"
+#include "Level3.h"
+#include "Level4.h"
+
+
 using namespace physx;
 
 
 class GameManager
 {
 private:
+
+	enum GAMESTATES
+	{
+		INIT, TUTO, LVL1, LVL2, LVL3, LVL4, WIN, LOST
+	};
+
+	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
+	PxScene* gScene = nullptr; // Referencia a la escena fisica.
+
+	SceneManager* sceneMg = nullptr; // Referencia al SceneManager.
+
+	float levelTimer;
+	float levelMaxTime;
+
+	bool ejes;
+
+
+
+	//------Metodos del GameManager:
+
+	// Init del GameManager.
+	void initGameManager();
+	// Init de las escenas.
+	void initScenes();
+
+
 
 
 
@@ -27,6 +60,9 @@ public:
 	~GameManager();
 
 
+	//------Metodos importantes.
+
+	
 	// Update del GameManager.
 	bool update(float t);
 	// KeyPressed virtual de GameManager.

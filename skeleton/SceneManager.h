@@ -51,4 +51,6 @@ public:
 
 	// Devuelve el vector de escenas.
 	const std::vector<Scene*> getVScenes() { return vScenes; }
+	// Devuelve el nivel actual.
+	const int getActLevel() { return actScene; }
 };
