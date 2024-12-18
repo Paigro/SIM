@@ -23,7 +23,7 @@ public:
 	//------Metodos heredados:
 
 	// Genera la fuerza.
-	Vector3 generateForce(Particle& par) override;
+	Vector3 generateForce(Vector3 objPos, Vector3 objVel, float objSize) override;
 	//
 	void updateFGen(float t) override {}
 	//

@@ -13,14 +13,13 @@ BandForceGenerator::~BandForceGenerator()
 	//delete part2;
 }
 
-Vector3 BandForceGenerator::generateForce(Particle& par)
+Vector3 BandForceGenerator::generateForce(Vector3 objPos, Vector3 objVel, float objSize)
 {
 	Vector3 force(0, 0, 0);
 	Vector3 part1Pos = part1->getPos();
-	Vector3 part2Pos = par.getPos();
 
 	// Longitud actual, deformaremos dependiendo de esto.
-	Vector3 dir = part1Pos - part2Pos; // Obtenemos la direccion entre las particulas.
+	Vector3 dir = part1Pos - objPos; // Obtenemos la direccion entre las particulas.
 	float lenght = dir.magnitude(); // Hacemos su modulo y sacamos la distancia.
 	dir.normalize(); // Normalizamos la direccion.
 

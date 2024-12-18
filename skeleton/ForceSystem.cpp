@@ -48,7 +48,7 @@ void ForceSystem::addForceToParticles(std::vector<Particle*> vPar, float t)
 		{
 			if (fg->isOnRadius(p->getPos())) // Comprobar que la particula este dentro del radio.
 			{
-				p->addForce(fg->generateForce(*p)); // Aplicar fuerza.
+				p->addForce(fg->generateForce(p->getPos(), p->getVel(), p->getSize())); // Aplicar fuerza.
 			}
 		}
 	}

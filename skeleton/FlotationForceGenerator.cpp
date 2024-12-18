@@ -11,12 +11,11 @@ FlotationForceGenerator::~FlotationForceGenerator()
 
 }
 
-Vector3 FlotationForceGenerator::generateForce(Particle& par)
+Vector3 FlotationForceGenerator::generateForce(Vector3 objPos, Vector3 objVel, float objSize)
 {
 	Vector3 force(0, 0, 0);
-	Vector3 parPos = par.getPos(); // Posicion de la particula.
-	float parHeight = par.getSize() * 2; // Altura de la particula. Radio * 2.
-	float parH = parPos.y; // La altura de la particula
+	float parHeight = objSize * 2; // Altura de la particula. Radio * 2.
+	float parH = objPos.y; // La altura de la particula
 	float inmersed = 0; // Porcentaje de la particula sumergida.
 	float volume = pow(parHeight, 3); // Volumne de la particula.
 

@@ -6,13 +6,13 @@ WindForceGenerator::WindForceGenerator(Vector3 pos, float rad, Vector3 vel, floa
 	std::cout << "//--MENSAJE: Nuevo generador de VIENTO." << std::endl;
 }
 
-Vector3 WindForceGenerator::generateForce(Particle& par)
+Vector3 WindForceGenerator::generateForce(Vector3 objPos, Vector3 objVel, float objSize)
 {
 	Vector3 force(0, 0, 0);
 
 	if (isActive)
 	{
-		Vector3 parVel = par.getVel();
+		Vector3 parVel = objVel;
 
 		force = k1 * (windVel - parVel) + k2;
 	}

@@ -7,13 +7,12 @@ SpringForceGenerator::SpringForceGenerator(Vector3 pos, double _k, double _restL
 	std::cout << "//--MENSAJE: Nuevo generador de MUELLE." << std::endl;
 }
 
-Vector3 SpringForceGenerator::generateForce(Particle& par)
+Vector3 SpringForceGenerator::generateForce(Vector3 objPos, Vector3 objVel, float objSize)
 {
 	Vector3 force(0, 0, 0);
-	Vector3 partPos = par.getPos(); // Posicion de origen.
 	Vector3 otherPartPos = otherPart->getPos();
 
-	Vector3 relativePos = otherPartPos - partPos;
+	Vector3 relativePos = otherPartPos - objPos;
 
 	// Normalizar.
 	const float lenght = relativePos.normalize();

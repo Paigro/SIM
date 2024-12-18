@@ -44,7 +44,7 @@ public:
 	// Comprueba si la particula esta dentro de la zona que afecta.
 	virtual bool isOnRadius(Vector3 pos);
 	// Genera una fuerza dada una particula.
-	virtual Vector3 generateForce(Particle& par) = 0;
+	virtual Vector3 generateForce(Vector3 objPos, Vector3 objVel, float objSize) = 0;
 	// Update de ForceGenerator virtual.
 	virtual void updateFGen(float t) = 0;
 

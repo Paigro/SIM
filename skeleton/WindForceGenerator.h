@@ -29,7 +29,7 @@ public:
 	// Update de WindForceGenerator.
 	void updateFGen(float t) {};
 	// Genera la fuerza del viento.
-	Vector3 generateForce(Particle& par) override;
+	Vector3 generateForce(Vector3 objPos, Vector3 objVel, float objSize) override;
 
 
 	// Metodos para el viento:
