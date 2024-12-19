@@ -53,7 +53,7 @@ void LevelsScene::initScene()
 void LevelsScene::updateScene(float t)
 {
 	display_text = "Pulsa 1, 2 o 3 para ir al planeta.";
-	display_text_position = Vector2(200, 220);
+	display_text_position = Vector2(160, 220);
 	display_text_color = Vector4(0, 0, 0, 1);
 
 	display_text_2 = " ";
@@ -107,7 +107,7 @@ void LevelsScene::checkResults()
 		case 4:
 			if (lvl.second == true)
 			{
-				lvl3->setColor(0.0, 1.0, 0.0, 1.0);
+				lvl2->setColor(0.0, 1.0, 0.0, 1.0);
 			}
 			else if (lvl.second == false)
 			{

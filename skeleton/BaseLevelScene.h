@@ -10,6 +10,7 @@ const float SHOOT_FORCE = 800;
 
 const Vector3 PLANET_POS = Vector3(-150, 0, 0);
 const Vector3 BLACKHOLE_POS = Vector3(-60, 30, 0);
+const Vector3 WIND_POS = Vector3(0, 50, 0);
 
 class BaseLevelScene : public Scene
 {

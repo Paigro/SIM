@@ -12,32 +12,32 @@ Vector3 TornadoForceGenerator::generateForce(Vector3 objPos, Vector3 objVel, flo
 
 	if (!isActive) { return force; }
 
-	Vector3 relativePos = objPos - position;
+	Vector3 dir = objPos - position;
 	float distance;
 
 	if (tornadoAxis == Vector3(1, 0, 0)) // Tornado en el eje YZ.
 	{
-		distance = sqrt(relativePos.y * relativePos.y + relativePos.z * relativePos.z);
+		distance = sqrt(dir.y * dir.y + dir.z * dir.z);
 
-		force = k * Vector3(0, relativePos.z, -relativePos.y);
+		force = k * Vector3(0, dir.z, -dir.y);
 	}
 	else if (tornadoAxis == Vector3(0, 1, 0)) // Tornado en el eje XZ.
 	{
-		distance = sqrt(relativePos.x * relativePos.x + relativePos.z * relativePos.z);
+		distance = sqrt(dir.x * dir.x + dir.z * dir.z);
 
-		force = k * Vector3(-relativePos.z, 0, relativePos.x);
+		force = k * Vector3(-dir.z, 0, dir.x);
 	}
 	else if (tornadoAxis == Vector3(0, 0, 1)) // Tornado en el eje XY.
 	{
-		distance = sqrt(relativePos.x * relativePos.x + relativePos.y * relativePos.y);
+		distance = sqrt(dir.x * dir.x + dir.y * dir.y);
 
-		force = k * Vector3(relativePos.y, -relativePos.x, 0);
+		force = k * Vector3(dir.y, -dir.x, 0);
 	}
 	else
 	{
 		std::cout << "//------ERROR: axis del tornado mal configurado." << std::endl;
 	}
-		force -= (relativePos / distance) * attraction;
+	force -= (dir / distance) * attraction;
 
 	if (distance < innerRadius)
 	{

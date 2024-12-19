@@ -16,6 +16,8 @@ void EndScene::initScene()
 	Particle* button1 = new Particle(Vector3(-115.0, -30.0f, 0.0), Vector3(0, 0, 0), Vector4(1, 1, 1, 1));
 	button1->changeShape(CreateShape(PxCapsuleGeometry(20, 10)));
 	button1->setLifeTime(-1);
+	button1->setGravitable(false);
+	button1->setMovible(false);
 
 	addParticle(button1);
 

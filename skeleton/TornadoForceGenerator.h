@@ -7,8 +7,9 @@ class TornadoForceGenerator : public ForceGenerator
 {
 private:
 
-	float k; // Coeficiente de rozamiento del torbellino.
-	float attraction;
+	float k; // Fuerza del tornado.
+
+	float attraction; // Fuerza de atraccion hacia el centro.
 
 	Vector3 tornadoAxis; // Eje en el que esta el tornado: XY, YZ o XZ.
 

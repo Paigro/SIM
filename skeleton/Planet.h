@@ -43,8 +43,8 @@ public:
 
 	//------Getters y setters:
 
-	//
+	// Devuelve el radio interno del planeta. (Un pelin menos que lo que es realmente).
 	float getInnerRadius() { return size * 2.7; }
-	// 
+	// Devuevle el radio maximo del planeta.
 	float getMaxRadius() { return size * 5; }
 };

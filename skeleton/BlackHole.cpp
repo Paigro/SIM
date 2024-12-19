@@ -32,5 +32,5 @@ BlackHole::~BlackHole()
 
 void BlackHole::setActive(bool act)
 {
-	//blackHoleBody->setActive(act);
+
 }

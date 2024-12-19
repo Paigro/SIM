@@ -131,9 +131,11 @@
     <ClCompile Include="BlackHole.cpp">
       <Filter>ProyectoFinal\Obejtos</Filter>
     </ClCompile>
-    <ClCompile Include="SolarWind.cpp" />
     <ClCompile Include="EndScene.cpp">
       <Filter>ProyectoFinal\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SolarWind.cpp">
+      <Filter>ProyectoFinal\Obejtos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -272,9 +274,11 @@
     <ClInclude Include="BlackHole.h">
       <Filter>ProyectoFinal\Obejtos</Filter>
     </ClInclude>
-    <ClInclude Include="SolarWind.h" />
     <ClInclude Include="EndScene.h">
       <Filter>ProyectoFinal\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SolarWind.h">
+      <Filter>ProyectoFinal\Obejtos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

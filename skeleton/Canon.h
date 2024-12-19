@@ -59,6 +59,4 @@ public:
 	//-------------------------------------------------------------------//
 	// Le mete mas disparos al canon.
 	void addShoots(int addedShoots);
-
-
 };

@@ -13,7 +13,7 @@ class BlackHole
 {
 private:
 
-	float size;
+	float size; // Tamanyo del agujero negro (radio).
 
 	TornadoForceGenerator* blackHoleGen = nullptr; // La fuerza del agujero negro.
 
@@ -37,6 +37,6 @@ public:
 
 	//------Getters y setters:
 
-	//
+	// Devuelve el radio de accion del agujero negro.
 	float getRadius() { return size; }
 };
