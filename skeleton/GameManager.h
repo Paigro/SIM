@@ -44,8 +44,6 @@ private:
 
 	// Init del GameManager.
 	void initGameManager();
-	// Cambia el estado segun en que estado este.
-	void changeState(unsigned char key);
 	// Para setterar los textos.
 	void setTexts();
 

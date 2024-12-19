@@ -38,12 +38,6 @@ void GameManager::initGameManager()
 
 #pragma region actualizacion de estados y textos:
 
-void GameManager::changeState(unsigned char key)
-{
-
-
-}
-
 void GameManager::setTexts()
 {
 	switch (actState)
@@ -68,7 +62,8 @@ void GameManager::levelHasBeenLost()
 	{
 		levelsResult[actState] = false;
 	}
-	else {
+	else 
+	{
 		levelsResult.insert({ actState, false });
 	}
 	sceneMg->changeScene(2);
@@ -81,7 +76,8 @@ void GameManager::levelHasBeenWon()
 	{
 		levelsResult[actState] = true;
 	}
-	else {
+	else 
+	{
 		levelsResult.insert({ actState, true });
 	}
 	levelsWon++;
