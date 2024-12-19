@@ -10,12 +10,11 @@ Vector3 WindForceGenerator::generateForce(Vector3 objPos, Vector3 objVel, float 
 {
 	Vector3 force(0, 0, 0);
 
-	if (isActive)
-	{
-		Vector3 parVel = objVel;
+	if (!isActive) { return force; }
 
-		force = k1 * (windVel - parVel) + k2;
-	}
+
+	force = k1 * (windVel - objVel) + k2;
+
 
 	return force;
 }

@@ -31,7 +31,7 @@ public:
 	// Constructora de BaseLevelScene.
 	BaseLevelScene(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj);
 	// Destructora de BaseLevelScene.
-	~BaseLevelScene();
+	 ~BaseLevelScene();
 
 
 	//------Metodos heredados:

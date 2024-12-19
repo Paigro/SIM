@@ -1,22 +1,29 @@
 #pragma once
 
 #include "Particle.h"
+#include "StaticRigidBody.h"
+#include "TornadoForceGenerator.h"
+#include "ForceSystem.h"
+#include "Scene.h"
 
 
 class Planet
 {
 private:
 
-	Particle* planetBody;
+	StaticRigidBody* planetBody = nullptr; // El planeta rocoso como tal.
 
-	int athmosphere; 
+	Particle* innerAthmosphere = nullptr; // La atmosfera minima para hacer orbita.
+	Particle* outerAthmosphere = nullptr; // La atmosfera maxima para hacer orbita.
+
+	TornadoForceGenerator* planetGravity = nullptr; // La gravedad del planeta.
 
 public:
 
 	//------Constructoras y destructoras:
 
 	// Contructora base de Planet.
-	Planet(Vector3 initPos,float planetSize);
+	Planet(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float planetSize, Vector4 initColor, Scene* myScene);
 	// Destructora de Planet.
 	~Planet();
 

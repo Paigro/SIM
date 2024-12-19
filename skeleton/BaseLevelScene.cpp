@@ -17,14 +17,11 @@ BaseLevelScene::~BaseLevelScene()
 {
 	delete canon;
 	delete planet;
-
-	Scene::~Scene();
 }
 
 void BaseLevelScene::initScene()
 {
 	canon = new Canon(gPhysics, gScene, Vector3(0, 0, 0), objetive);
-	planet = new Planet(Vector3(-200, 0, 0), 20);
 }
 
 void BaseLevelScene::updateScene(float t)

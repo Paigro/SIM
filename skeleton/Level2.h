@@ -8,7 +8,6 @@ class Level2 : public BaseLevelScene
 private:
 
 
-
 public:
 
 	//------Constructoras y destructoras:

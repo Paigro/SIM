@@ -15,6 +15,7 @@ GameManager::GameManager(PxPhysics* physics, PxScene* scene, SceneManager* sm)
 
 GameManager::~GameManager()
 {
+	std::cout << "adios gamemanager" << std::endl;
 	delete sceneMg;
 }
 

@@ -9,7 +9,13 @@ Level1::Level1(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj)
 
 Level1::~Level1()
 {
-	BaseLevelScene::~BaseLevelScene();
+
+}
+
+void Level1::initScene()
+{
+	planet = new Planet(gPhysics, gScene, Vector3(-200, 0, 0), 20, Vector4(0.2, 0.2, 0.9, 1.0), this);
+	BaseLevelScene::initScene();
 }
 
 void Level1::updateScene(float t)

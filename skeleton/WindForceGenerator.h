@@ -32,8 +32,8 @@ public:
 	Vector3 generateForce(Vector3 objPos, Vector3 objVel, float objSize) override;
 
 
-	// Metodos para el viento:
+	//------Activacion/desactivacion:
 
-	//
+	// Settea si genera la fuerza o no.
 	void setActive(bool act);
 };

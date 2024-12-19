@@ -8,6 +8,7 @@ class StaticRigidBody : public BaseRigidBody
 private:
 
 	PxRigidStatic* actor; // Referencia al actor estatico.
+	int animos; // Animos.
 
 public:
 
@@ -27,12 +28,20 @@ public:
 	virtual void setActive(bool act);
 
 
+	//------Fuerzas: shhh...es falso...no hace nada...solo da animos...
+
+	// Le da fuerza (animos) al actor (staticRigidBody).
+	void addForce(Vector3 force) override;
+
+
 	//------Getters y setters:
 
 	// Devuelve la pose del rigid body.
 	PxTransform getPose() const override { return actor->getGlobalPose(); }
 	// Devuelve el actor.
 	PxRigidActor* getActor() const { return actor; }
+	// Devuelve la velocidad.
+	Vector3 getVel() override;
 	//------------------------------------------------------------// 
 	// Settea la pose.
 	void setPose(PxTransform newPose) override;

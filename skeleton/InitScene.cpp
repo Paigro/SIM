@@ -7,6 +7,11 @@ InitScene::InitScene(PxPhysics* physics, PxScene* scene, GameManager* gm)
 
 }
 
+InitScene::~InitScene()
+{
+	
+}
+
 void InitScene::initScene()
 {
 	Particle* button1 = new Particle(Vector3(-115.0, -30.0f, 0.0), Vector3(0, 0, 0), Vector4(1, 1, 1, 1));

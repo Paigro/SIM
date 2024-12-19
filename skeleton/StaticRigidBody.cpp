@@ -2,12 +2,11 @@
 
 
 StaticRigidBody::StaticRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize)
-	: BaseRigidBody(gPhysics)
+	: BaseRigidBody(gPhysics, initSize), animos(0)
 {
 	pose = initPose;
 	shape = initShape;
 	color = initColor;
-	size = initSize;
 	gScene = scene;
 
 	actor = gPhysics->createRigidStatic(pose);
@@ -20,6 +19,8 @@ StaticRigidBody::StaticRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransfor
 
 StaticRigidBody::~StaticRigidBody()
 {
+	std::cout << "Animos conseguidos: " << animos << std::endl;
+
 	actor->release();
 	BaseRigidBody::~BaseRigidBody();
 }
@@ -43,6 +44,11 @@ void StaticRigidBody::setActive(bool act)
 	}
 }
 
+Vector3 StaticRigidBody::getVel()
+{
+	return Vector3(0, 0, 0);
+}
+
 void StaticRigidBody::setPose(PxTransform newPose)
 {
 	actor->setGlobalPose(pose);
@@ -55,4 +61,9 @@ void StaticRigidBody::setShape(PxShape* newShape, Vector3 newSize)
 	size = newSize;
 
 	actor->attachShape(*shape);
+}
+
+void StaticRigidBody::addForce(Vector3 force)
+{
+	animos++;
 }

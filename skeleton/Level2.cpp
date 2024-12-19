@@ -9,7 +9,7 @@ Level2::Level2(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj)
 
 Level2::~Level2()
 {
-	BaseLevelScene::~BaseLevelScene();
+	
 }
 
 void Level2::updateScene(float t)

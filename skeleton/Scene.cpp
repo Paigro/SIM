@@ -50,6 +50,7 @@ Scene::~Scene()
 		delete rb;
 	}
 	vRigidBodies.clear();
+	std::cout << "adios escena" << std::endl;
 }
 
 #pragma endregion
@@ -101,6 +102,7 @@ void Scene::updateScene(float t)
 		}
 
 		fs->addForceToRigidBodies(vRigidBodies, t);
+
 		// Actualiza el sistema de fuerza.
 		fs->update(t);
 	}
@@ -150,9 +152,9 @@ void Scene::activateScene()
 		fs->setActive(true);
 	}
 
-	for (auto drb : vRigidBodies)
+	for (auto rb : vRigidBodies)
 	{
-		drb->setActive(true);
+		rb->setActive(true);
 	}
 }
 
@@ -176,9 +178,9 @@ void Scene::deactivateScene()
 		fs->setActive(false);
 	}
 
-	for (auto drb : vRigidBodies)
+	for (auto rb : vRigidBodies)
 	{
-		drb->setActive(false);
+		rb->setActive(false);
 	}
 }
 

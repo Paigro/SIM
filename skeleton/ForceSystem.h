@@ -6,6 +6,8 @@
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"
 
+#include <algorithm>
+
 #include "ForceGenerator.h"
 #include "Particle.h"
 #include "DinamicRigidBody.h"

@@ -36,7 +36,7 @@ public:
 	//Constructora de Scene para el proyecto final.
 	Scene(PxPhysics* physics, PxScene* scene, GameManager* gm);
 	// Destructora de scene.
-	~Scene();
+	virtual ~Scene();
 
 
 	//------Metodos de la escena.

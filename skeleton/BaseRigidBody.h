@@ -37,9 +37,9 @@ public:
 	//------Constructoras y destructoras:
 
 	// Constructora base de BaseRigidBody.
-	BaseRigidBody(PxPhysics* physics);
+	BaseRigidBody(PxPhysics* physics, Vector3 initSize);
 	// Destructora base de BaseRigidBody.
-	~BaseRigidBody();
+	virtual ~BaseRigidBody();
 
 
 	//------Metodos importantes:
@@ -54,12 +54,21 @@ public:
 	bool outOfTime(float t);
 
 
+	//------Furezas: (verdad o mentira?: sorpresa) NOTA: Necesitaba un addForce global a las dos subclases porque mis vectores son de esta clase base.
+
+	virtual void addForce(Vector3 force) = 0;
+
+
 	//------Setters y getters:
 
 	// Devuelve la pose del rigid body.
 	virtual PxTransform getPose() const { return pose; }
 	// Devuelve el actor del rigid body.
-	virtual PxRigidActor* getActor() const { return nullptr; }
+	virtual PxRigidActor* getActor() const = 0;
+	// Devuelve la velocidad.
+	virtual Vector3 getVel() = 0;
+	// Devuelve el size.
+	Vector3 getSize() { return size; }
 	//----------------------------------------------------------//
 	// Settea la pose del rigid body.
 	virtual void setPose(PxTransform pose);

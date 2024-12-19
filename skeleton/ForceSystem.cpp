@@ -56,15 +56,17 @@ void ForceSystem::addForceToParticles(std::vector<Particle*> vPar, float t)
 
 void ForceSystem::addForceToRigidBodies(std::vector<BaseRigidBody*> vRB, float t)
 {
-	/*for (auto rb : vRB)
+	for (auto rb : vRB)
 	{
 		for (auto fg : vFGenerators)
 		{
 			if (fg->isOnRadius(rb->getPose().p)) // Comprobar que la particula este dentro del radio.
 			{
-				rb->addForce(fg->generateForce(*p)); // Aplicar fuerza.
+				Vector3 size = rb->getSize();
+				float maxSize = std::fmax(size.x, (std::fmax(size.y, size.z)));
+				rb->addForce(fg->generateForce(rb->getPose().p, rb->getVel(), maxSize)); // Aplicar fuerza.
+				std::cout << "//----------FUNCIONA???: " << std::endl;
 			}
 		}
-	}*/
-	std::cout << "//----------NO ESTA TODAVIA PAIGRO NO FUNCIONAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+	}
 }

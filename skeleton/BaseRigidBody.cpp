@@ -1,7 +1,7 @@
 #include "BaseRigidBody.h"
 
 
-BaseRigidBody::BaseRigidBody(PxPhysics* physics)
+BaseRigidBody::BaseRigidBody(PxPhysics* physics,Vector3 initSize)
 	:gPhysics(physics)
 {
 

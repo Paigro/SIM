@@ -2,12 +2,11 @@
 
 
 DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize, float initDensity)
-	: BaseRigidBody(gPhysics)
+	: BaseRigidBody(gPhysics,initSize)
 {
 	pose = initPose;
 	shape = initShape;
 	color = initColor;
-	size = initSize;
 	gScene = scene;
 	density = initDensity;
 
@@ -25,7 +24,7 @@ DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransf
 DinamicRigidBody::~DinamicRigidBody()
 {
 	actor->release();
-	BaseRigidBody::~BaseRigidBody();
+	//BaseRigidBody::~BaseRigidBody();
 }
 
 bool DinamicRigidBody::update(float t)
@@ -50,6 +49,11 @@ void DinamicRigidBody::setActive(bool act)
 void DinamicRigidBody::addForce(Vector3 force)
 {
 	actor->addForce(force);
+}
+
+Vector3 DinamicRigidBody::getVel()
+{
+	return actor->getLinearVelocity();
 }
 
 void DinamicRigidBody::setPose(PxTransform newPose)

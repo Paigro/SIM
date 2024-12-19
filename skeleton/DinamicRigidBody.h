@@ -31,7 +31,8 @@ public:
 
 	//------Fuerzas:
 
-	void addForce(Vector3 force);
+	// Le da fuerza al actor.
+	void addForce(Vector3 force) override;
 
 
 	//------Getters y setters:
@@ -42,6 +43,8 @@ public:
 	PxRigidActor* getActor() const { return actor; }
 	// Devuelve la densidad.
 	float getDensity() { return density; }
+	// Devuelve la velocidad.
+	Vector3 getVel() override;
 	//------------------------------------------------------------//
 	// Settea la pose.
 	void setPose(PxTransform newPose) override;

@@ -187,6 +187,8 @@ void cleanupPhysics(bool interactive)
 	std::cout << "\n------------------END------------------" << std::endl;
 	PX_UNUSED(interactive);
 
+	delete gameMg;
+
 	// Rigid Body ++++++++++++++++++++++++++++++++++++++++++
 	gScene->release();
 	gDispatcher->release();
@@ -205,7 +207,6 @@ void cleanupPhysics(bool interactive)
 	DeregisterRenderItem(ySphere);
 	DeregisterRenderItem(zSphere);
 
-	delete gameMg;
 	std::cout << "-----------------------------------------" << std::endl;
 }
 
@@ -230,6 +231,8 @@ void keyPress(unsigned char key, const PxTransform& camera)
 
 void onCollision(physx::PxActor* actor1, physx::PxActor* actor2)
 {
+	std::cout << "COLISIOONNNNNNNNNNN entr: " << actor1->getType() << " " << actor2->getType() << std::endl;
+
 	PX_UNUSED(actor1);
 	PX_UNUSED(actor2);
 }

@@ -21,6 +21,8 @@ public:
 
 	//------Metodos heredadso:
 
+	// Inicializacion de la escena.
+	void initScene() override;
 	// Update de Level1.
 	void updateScene(float t) override;
 
