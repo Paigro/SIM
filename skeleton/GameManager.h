@@ -13,7 +13,7 @@ class SceneManager;
 
 using namespace physx;
 
-constexpr float LEVEL_TIME = 1.0; // Tiempo para completar el nivel.
+constexpr float LEVEL_TIME = 60.0; // Tiempo para completar el nivel.
 
 
 class GameManager
@@ -36,6 +36,7 @@ private:
 
 	int totalLevels;
 	int levelsWon;
+	int levelsEnded = 0;
 
 	std::map<int, bool> levelsResult;
 

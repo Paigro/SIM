@@ -275,7 +275,6 @@
     <ClCompile Include="Level1.cpp" />
     <ClCompile Include="Level2.cpp" />
     <ClCompile Include="Level3.cpp" />
-    <ClCompile Include="Level4.cpp" />
     <ClCompile Include="LevelsScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ParSysScene.cpp" />
@@ -324,7 +323,6 @@
     <ClInclude Include="Level1.h" />
     <ClInclude Include="Level2.h" />
     <ClInclude Include="Level3.h" />
-    <ClInclude Include="Level4.h" />
     <ClInclude Include="LevelsScene.h" />
     <ClInclude Include="ParSysScene.h" />
     <ClInclude Include="Particle.h" />

@@ -7,8 +7,6 @@ class Level3 : public BaseLevelScene
 {
 private:
 
-	BlackHole* blackHole = nullptr; // Agujero negro
-	SolarWind* solarWind = nullptr; // Viento solar.
 
 public:
 

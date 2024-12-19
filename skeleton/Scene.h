@@ -16,12 +16,12 @@ class Scene
 {
 private:
 
+protected:
+
 	std::vector<Particle*> vParticles; // Vector de particulas de la escena.
 	std::vector<ParticleSystem*> vParticleSystems; // Vector de sistemas de particulas de la escena.
 	std::vector<ForceSystem*> vForceSystems; // Vector de sistemas de fuerzas de la escena.
 	std::vector<BaseRigidBody*> vRigidBodies; // Vector de rigid bodies de la escena.
-
-protected:
 
 	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
 	PxScene* gScene = nullptr; // Referencia a la escena fisica.

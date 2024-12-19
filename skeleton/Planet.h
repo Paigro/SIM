@@ -4,12 +4,16 @@
 #include "StaticRigidBody.h"
 #include "TornadoForceGenerator.h"
 #include "ForceSystem.h"
-#include "Scene.h"
 
+class Scene;
 
 class Planet
 {
 private:
+
+	Vector3 position;
+
+	float size;
 
 	StaticRigidBody* planetBody = nullptr; // El planeta rocoso como tal.
 
@@ -34,4 +38,12 @@ public:
 
 	// Settea si esta activo o no.
 	void setActive(bool act);
+
+
+	//------Getters y setters:
+
+	//
+	float getInnerRadius() { return size * 2.7; }
+	// 
+	Vector3 getPos() { return position; }
 };

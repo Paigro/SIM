@@ -1,14 +1,15 @@
 #include "Planet.h"
 
+#include "Scene.h"
 
 Planet::Planet(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float planetSize, Vector4 initColor, Scene* mScene)
-	: myScene(mScene)
+	: myScene(mScene), position(initPos), size(planetSize)
 {
-	planetBody = new StaticRigidBody(gPhysics, gScene, PxTransform(initPos), CreateShape(physx::PxSphereGeometry(planetSize)), initColor, Vector3(planetSize, planetSize, planetSize));
-	//innerAthmosphere = new Particle(initPos, { 0, 0, 0 }, { 0, 0, 1, 0.5 }, planetSize * 3);
-	outerAthmosphere = new Particle(initPos, { 0, 0, 0 }, { 0, 0, 1, 0.2 }, planetSize * 5);
+	planetBody = new StaticRigidBody(gPhysics, gScene, PxTransform(position), CreateShape(physx::PxSphereGeometry(size)), initColor, Vector3(size, size, size));
+	//innerAthmosphere = new Particle(position, { 0, 0, 0 }, { 0, 0, 1, 0.5 }, size * 3);
+	outerAthmosphere = new Particle(position, { 0, 0, 0 }, { 0, 0, 1, 0.2 }, size * 5);
 
-	planetGravity = new TornadoForceGenerator(initPos, planetSize * 5, 0.5, { 0, 0, 1 }, planetSize * 3, 9.8);
+	planetGravity = new TornadoForceGenerator(position, size * 5, 0.5, { 0, 0, 1 }, size * 3, 9.8);
 	ForceSystem* forSys = new ForceSystem();
 	forSys->addForceGenerator(planetGravity);
 	mScene->addForceSistem(forSys);

@@ -66,8 +66,9 @@ void GameManager::levelHasBeenLost()
 	{
 		levelsResult.insert({ actState, false });
 	}
-	sceneMg->changeScene(2);
+	levelsEnded++;
 	actState = MENU;
+	sceneMg->changeScene(2);
 }
 
 void GameManager::levelHasBeenWon()
@@ -81,8 +82,9 @@ void GameManager::levelHasBeenWon()
 		levelsResult.insert({ actState, true });
 	}
 	levelsWon++;
-	sceneMg->changeScene(2);
+	levelsEnded++;
 	actState = MENU;
+	sceneMg->changeScene(2);
 }
 
 std::map<int, bool> GameManager::getLevelResult()
@@ -146,7 +148,7 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 	case 49: case 50: case 51:
 		if (actState == GameManager::MENU)
 		{
-			if (!levelsResult.count(key - 46))  // Si no esta en el mapa, cambia.
+			if (!levelsResult.count(key - 46))  // Si no esta en el mapa, cambia. No se resetean las escenas entonces si fallas fallas.
 			{
 				actState = key - 46;
 				sceneMg->changeScene(actState);

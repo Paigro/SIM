@@ -8,6 +8,8 @@
 
 const float SHOOT_FORCE = 800;
 
+const Vector3 PLANET_POS = Vector3(-150, 0, 0);
+
 class BaseLevelScene : public Scene
 {
 protected:
@@ -16,11 +18,13 @@ protected:
 
 	Canon* canon = nullptr; // Referencia al canon.
 	Planet* planet = nullptr; // Referencia al planet.
+	BlackHole* blackHole = nullptr; // Agujero negro
+	SolarWind* solarWind = nullptr; // Viento solar.
 
-	float angle; // Angulo que tiene el canon.
+	int angle; // Angulo que tiene el canon.
 	Vector3 direction; // Direccion para el lanzamiento del canon dependiendo del angulo.
 	float baseForce; // Fuerza que se le aplica al disparo.
-	float forceMultiplier; // Multiplicador de fuerza que se le aplica al disparo.
+	int forceMultiplier; // Multiplicador de fuerza que se le aplica al disparo.
 
 	int objetive; // Numero de satelites que hay que poner en orbita.
 
@@ -34,7 +38,7 @@ public:
 	// Constructora de BaseLevelScene.
 	BaseLevelScene(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj);
 	// Destructora de BaseLevelScene.
-	 ~BaseLevelScene();
+	~BaseLevelScene();
 
 
 	//------Metodos heredados:
@@ -55,4 +59,6 @@ public:
 
 	// Calcular la fuerza de disparo de la bala.
 	Vector3 calculateForce();
+	//
+	bool outOfLevel(Vector3 objPos);
 };

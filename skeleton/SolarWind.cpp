@@ -1,5 +1,8 @@
 #include "SolarWind.h"
 
+#include "Scene.h"
+
+
 SolarWind::SolarWind(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float radius, float windSpeed, Vector3 windDir, Scene* mScene)
 	: myScene(mScene)
 {

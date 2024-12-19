@@ -107,9 +107,6 @@
     <ClCompile Include="Level3.cpp">
       <Filter>ProyectoFinal\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Level4.cpp">
-      <Filter>ProyectoFinal\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="TutoScene.cpp">
       <Filter>ProyectoFinal\Scenes</Filter>
     </ClCompile>
@@ -238,9 +235,6 @@
     </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>ProyectoFinal</Filter>
-    </ClInclude>
-    <ClInclude Include="Level4.h">
-      <Filter>ProyectoFinal\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Level1.h">
       <Filter>ProyectoFinal\Scenes</Filter>

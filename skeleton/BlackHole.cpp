@@ -1,5 +1,8 @@
 #include "BlackHole.h"
 
+#include "Scene.h"
+
+
 BlackHole::BlackHole(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float holeSize, Vector3 axis, Scene* mScene)
 	: myScene(mScene)
 {

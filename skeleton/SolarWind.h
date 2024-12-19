@@ -4,9 +4,9 @@
 #include "StaticRigidBody.h"
 #include "WindForceGenerator.h"
 #include "ForceSystem.h"
-#include "BaseLevelScene.h"
 #include "ParticleSystem.h"
 
+class Scene;
 
 class SolarWind
 {

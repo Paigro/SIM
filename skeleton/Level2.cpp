@@ -14,7 +14,7 @@ Level2::~Level2()
 
 void Level2::initScene()
 {
-	planet = new Planet(gPhysics, gScene, Vector3(-150, 0, 0), 15, Vector4(0.9, 0.4, 0.4, 1.0), this);
+	planet = new Planet(gPhysics, gScene, PLANET_POS, 15, Vector4(0.9, 0.4, 0.4, 1.0), this);
 	solarWind = new SolarWind(gPhysics, gScene, Vector3(0, 50, 0), 175, 50, Vector3(0, -1, 0), this);
 
 	BaseLevelScene::initScene();

@@ -4,9 +4,9 @@
 #include "StaticRigidBody.h"
 #include "TornadoForceGenerator.h"
 #include "ForceSystem.h"
-#include "BaseLevelScene.h"
 #include "ParticleSystem.h"
 
+class Scene;
 
 class BlackHole
 {

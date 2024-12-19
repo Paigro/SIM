@@ -37,6 +37,31 @@ void BaseLevelScene::updateScene(float t)
 		shootRecharge = 0;
 	}
 
+	display_text_2 = "Angulo del canon: " + std::to_string(angle) + ", con potencia:" + std::to_string(forceMultiplier);
+	display_text_position_2 = Vector2(0, 20);
+
+
+	// Para perder el nivel:
+	for (auto rb : vRigidBodies)
+	{
+		// Si se sale del espacio de juego.
+		if (outOfLevel(rb->getPose().p))
+		{
+			gameMg->levelHasBeenLost();
+		}
+		// Si esta dentro del planeta.
+		float distanceToPlanet = (rb->getPose().p - PLANET_POS).magnitude();
+		if (distanceToPlanet < planet->getInnerRadius())
+		{
+			gameMg->levelHasBeenLost();
+		}
+		// Si esta dentro del agujero negro.
+		if (blackHole != nullptr)
+		{
+
+		}
+	}
+
 	Scene::updateScene(t);
 }
 
@@ -65,28 +90,24 @@ void BaseLevelScene::keyPressed(unsigned char key, const physx::PxTransform& cam
 		if (angle < 60)
 		{
 			angle += 10;
-			std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 		}
 		break;
 	case 'A':
 		if (forceMultiplier > 1)
 		{
 			forceMultiplier -= 1;
-			std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 		}
 		break;
 	case 'S':
 		if (angle > -60)
 		{
 			angle -= 10;
-			std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 		}
 		break;
 	case 'D':
 		if (forceMultiplier < 10)
 		{
 			forceMultiplier += 1;
-			std::cout << "Canon dispara a " << angle << "grados y con multiplayer " << forceMultiplier << " * " << baseForce << std::endl;
 		}
 		break;
 	default:
@@ -105,6 +126,18 @@ Vector3 BaseLevelScene::calculateForce()
 	force = direction * (forceMultiplier * baseForce);
 
 	return force;
+}
+
+bool BaseLevelScene::outOfLevel(Vector3 objPos)
+{
+	if (objPos.y < -100 || objPos.y>100) {
+		return true;
+	}
+	if (objPos.x < -250 || objPos.x>0) {
+		return true;
+	}
+
+	return false;
 }
 
 void BaseLevelScene::activateScene()
