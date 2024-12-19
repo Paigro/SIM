@@ -14,7 +14,26 @@ Canon::Canon(PxPhysics* physics, PxScene* scene, Vector3 initPos, int projectile
 
 	for (int i = 0; i < projectiles; i++)
 	{
-		DinamicRigidBody* bullet = new DinamicRigidBody(gPhysics, gScene, PxTransform(initPos), CreateShape(physx::PxSphereGeometry(2.0)), Vector4(0.5, 0.5, 0.5, 1.0), Vector3(2, 2, 2));
+		DinamicRigidBody* bullet = nullptr;
+		if (projectiles < 6)
+		{
+			bullet = new DinamicRigidBody(gPhysics, gScene, PxTransform(initPos), CreateShape(physx::PxSphereGeometry(2.0)), Vector4(0.5, 0.5, 0.5, 1.0), Vector3(2, 2, 2));
+		}
+		else
+		{
+			bullet = new DinamicRigidBody(gPhysics, gScene, PxTransform(initPos), CreateShape(physx::PxSphereGeometry(2.0)), Vector4(1, 0.5, 0, 1.0), Vector3(2, 2, 2));
+
+				float bulletMass = bullet->getMass();
+				float bulletRadius = bullet->getSize().x;
+				float bulletHeight = bullet->getSize().y * 2; // Para que parezca un cilindro aunque sea una esfera.
+
+				Vector3 cylinderInercia(
+					(0.25f * bulletMass * bulletRadius * bulletRadius) + (1.0f / 12.0f * bulletMass * bulletHeight * bulletHeight), // Ixx.
+					(0.25f * bulletMass * bulletRadius * bulletRadius) + (1.0f / 12.0f * bulletMass * bulletHeight * bulletHeight), // Iyy.
+					0.5f * bulletMass * bulletRadius * bulletRadius); // Izz.
+			bullet->setTensorManually(cylinderInercia);
+
+		}
 		bullet->setActive(false);
 		bullet->setLifeTime(-1);
 		qRigidBodies.push(bullet);

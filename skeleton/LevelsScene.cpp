@@ -52,7 +52,7 @@ void LevelsScene::initScene()
 
 void LevelsScene::updateScene(float t)
 {
-	display_text = "Pulsar 1/2/3";
+	display_text = "Pulsa 1, 2 o 3 para ir al planeta.";
 	display_text_position = Vector2(200, 220);
 	display_text_color = Vector4(0, 0, 0, 1);
 

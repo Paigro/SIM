@@ -11,12 +11,16 @@ private:
 
 	float density; // Desnidad del rigid body.
 
+	float mass;
+
+	Vector3 size;
+
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora base de DinamicRigidBody.
-	DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize, float initDensity = 1.0);
+	DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize, float initDensity = 1.0, float initMass = 1.0);
 	// Destructora de DinamicRigidBody.
 	~DinamicRigidBody();
 
@@ -27,6 +31,12 @@ public:
 	bool update(float t) override;
 	// Settea si el rigid body esta activo o no.
 	virtual void setActive(bool act);
+
+
+	//------Momentos de inercia:
+
+	//
+	void setTensorManually(Vector3 newTensor);
 
 
 	//------Fuerzas:
@@ -43,6 +53,10 @@ public:
 	PxRigidActor* getActor() const { return actor; }
 	// Devuelve la densidad.
 	float getDensity() { return density; }
+	// Devuelve la masa.
+	float getMass() { return density; }
+	// Devuelve la masa.
+	Vector3 getSize() { return size; }
 	// Devuelve la velocidad.
 	Vector3 getVel() override;
 	//------------------------------------------------------------//

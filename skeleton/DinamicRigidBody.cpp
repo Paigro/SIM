@@ -1,14 +1,16 @@
 #include "DinamicRigidBody.h"
 
 
-DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize, float initDensity)
-	: BaseRigidBody(gPhysics,initSize)
+DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransform initPose, PxShape* initShape, Vector4 initColor, Vector3 initSize, float initDensity, float initMass)
+	: BaseRigidBody(gPhysics, initSize)
 {
 	pose = initPose;
 	shape = initShape;
 	color = initColor;
 	gScene = scene;
 	density = initDensity;
+	mass = initMass;
+	size = initSize;
 
 	actor = gPhysics->createRigidDynamic(pose);
 	actor->setLinearVelocity({ 0,0,0 });
@@ -24,7 +26,6 @@ DinamicRigidBody::DinamicRigidBody(PxPhysics* gPhysics, PxScene* scene, PxTransf
 DinamicRigidBody::~DinamicRigidBody()
 {
 	actor->release();
-	//BaseRigidBody::~BaseRigidBody();
 }
 
 bool DinamicRigidBody::update(float t)
@@ -44,6 +45,11 @@ void DinamicRigidBody::setActive(bool act)
 	{
 		gScene->removeActor(*actor);
 	}
+}
+
+void DinamicRigidBody::setTensorManually(Vector3 newTensor)
+{
+	actor->setMassSpaceInertiaTensor(newTensor);
 }
 
 void DinamicRigidBody::addForce(Vector3 force)
