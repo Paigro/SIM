@@ -96,30 +96,14 @@ void initEjes()
 
 void initScenes()
 {
-	/*// Escenas de las practicas.
-	sceneMg->addScene(new ParSysScene(gPhysics, gScene));
-	sceneMg->addScene(new WindScene(gPhysics, gScene));
-	sceneMg->addScene(new TornadoScene(gPhysics, gScene));
-	sceneMg->addScene(new ExplosionScene(gPhysics, gScene));
-	sceneMg->addScene(new DosckScene(gPhysics, gScene));
-	sceneMg->addScene(new RigidBodyScene(gPhysics, gScene));*/
-
 	// Escenas del proyecto final:
 	sceneMg->addScene(new InitScene(gPhysics, gScene, gameMg));
-	sceneMg->addScene(new LevelsScene(gPhysics, gScene, gameMg));
 	sceneMg->addScene(new TutoScene(gPhysics, gScene, gameMg));
+	sceneMg->addScene(new LevelsScene(gPhysics, gScene, gameMg));
 	sceneMg->addScene(new Level1(gPhysics, gScene, gameMg, 4));
 	sceneMg->addScene(new Level2(gPhysics, gScene, gameMg, 2));
 	sceneMg->addScene(new Level3(gPhysics, gScene, gameMg, 2));
-	sceneMg->addScene(new Level4(gPhysics, gScene, gameMg, 2));
 
-
-	//level 3
-	//level 4
-	//winlevel
-	//loose level
-	//tuto
-	//end
 	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
 }
 

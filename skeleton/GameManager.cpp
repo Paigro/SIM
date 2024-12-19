@@ -29,7 +29,7 @@ void GameManager::initGameManager()
 
 	levelTimer = LEVEL_TIME;
 	levelsWon = 0;
-	totalLevels = 4;
+	totalLevels = 3;
 
 	std::cout << "//--MENSAJE: GameManager inicializado." << std::endl;
 }
@@ -38,41 +38,10 @@ void GameManager::initGameManager()
 
 #pragma region actualizacion de estados y textos:
 
-void GameManager::changeState()
+void GameManager::changeState(unsigned char key)
 {
-	switch (actState)
-	{
-	case GameManager::INIT:
-		sceneMg->changeScene(1);
-		actState = TUTO;
-		break;
-	case GameManager::TUTO:
-		sceneMg->changeScene(2);
-		actState = MENU;
-		break;
-	case MENU:
-		sceneMg->changeScene(3);
-		actState = LVL1;
-		break;
-	case GameManager::LVL1:
-		sceneMg->changeScene(4);
-		actState = LVL2;
-		break;
-	case GameManager::LVL2:
-		sceneMg->changeScene(5);
-		actState = LVL3;
-		break;
-	case GameManager::LVL3:
-		sceneMg->changeScene(6);
-		actState = LVL4;
-		break;
-	case GameManager::LVL4:
-		sceneMg->changeScene(0);
-		actState = INIT;
-		break;
-	default:
-		break;
-	}
+
+
 }
 
 void GameManager::setTexts()
@@ -95,7 +64,15 @@ void GameManager::setTexts()
 
 void GameManager::levelHasBeenLost()
 {
-	changeState();
+	if (levelsResult.count(actState))
+	{
+		levelsResult[actState] = false;
+	}
+	else {
+		levelsResult.insert({ actState, false });
+	}
+	sceneMg->changeScene(2);
+	actState = MENU;
 }
 
 void GameManager::levelHasBeenWon()
@@ -108,7 +85,8 @@ void GameManager::levelHasBeenWon()
 		levelsResult.insert({ actState, true });
 	}
 	levelsWon++;
-	changeState();
+	sceneMg->changeScene(2);
+	actState = MENU;
 }
 
 std::map<int, bool> GameManager::getLevelResult()
@@ -130,7 +108,7 @@ bool GameManager::update(float t)
 		if (levelTimer <= 0)
 		{
 			levelTimer = LEVEL_TIME;
-			changeState();
+			levelHasBeenLost();
 		}
 		else
 		{
@@ -150,40 +128,41 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 	switch (toupper(key))
 	{
 	case 'C': // Para avanzar al siguiente nivel.
-		if (sceneMg != nullptr)
+		switch (actState)
 		{
-			changeState();
+		case GameManager::INIT:
+			sceneMg->changeScene(1);
+			actState = TUTO;
+			break;
+		case GameManager::TUTO:
+			sceneMg->changeScene(2);
+			actState = MENU;
+			break;
+		case GameManager::LVL1: case GameManager::LVL2: case GameManager::LVL3:
+			sceneMg->changeScene(2);
+			actState = MENU;
+			break;
+		default:
+			break;
 		}
+
 		break;
-	case 'M': // Para debugear e ir a la siguiente escena.
-		if (sceneMg != nullptr)
+	case 49: case 50: case 51:
+		if (actState == GameManager::MENU)
 		{
-			sceneMg->nextScene();
-			actState++;
-		}
-		break;
-	case 'N': // Para debugear e ir a la anterior escena.
-		if (sceneMg != nullptr)
-		{
-			sceneMg->prevScene();
-			actState--;
+			if (!levelsResult.count(key - 46))  // Si no esta en el mapa, cambia.
+			{
+				actState = key - 46;
+				sceneMg->changeScene(actState);
+			}
 		}
 		break;
 	default:
 		break;
 	}
 
-	levelTimer = LEVEL_TIME;
 
-	// Para debug.
-	if (actState > 7)
-	{
-		actState = 0;
-	}
-	if (actState < 0)
-	{
-		actState = 7;
-	}
+	levelTimer = LEVEL_TIME;
 
 	// Esto no pero de momento si. Si va aqui donde si no.
 	if (sceneMg != nullptr)

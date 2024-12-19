@@ -13,7 +13,7 @@ class SceneManager;
 
 using namespace physx;
 
-constexpr float LEVEL_TIME = 60.0; // Tiempo para completar el nivel.
+constexpr float LEVEL_TIME = 1.0; // Tiempo para completar el nivel.
 
 
 class GameManager
@@ -45,7 +45,7 @@ private:
 	// Init del GameManager.
 	void initGameManager();
 	// Cambia el estado segun en que estado este.
-	void changeState();
+	void changeState(unsigned char key);
 	// Para setterar los textos.
 	void setTexts();
 

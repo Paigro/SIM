@@ -97,7 +97,7 @@ void SceneManager::update(float t)
 
 void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camera)
 {
-	switch (toupper(key))
+	/*switch (toupper(key))
 	{
 	case '0': // Escena con los sistemas de particulas.
 		changeScene(0);
@@ -131,7 +131,7 @@ void SceneManager::keyPressed(unsigned char key, const physx::PxTransform& camer
 		//break;
 		std::cout << "//----AVISO: no existe la escena: " << key << std::endl;
 		break;
-	}
+	}*/
 
 	// Llamar al keyPressed de la escena activa.
 	vScenes[actScene]->keyPressed(key, camera);
