@@ -2,6 +2,7 @@
 
 #include "Scene.h"
 
+
 Planet::Planet(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float planetSize, Vector4 initColor, Scene* mScene)
 	: myScene(mScene), position(initPos), size(planetSize)
 {

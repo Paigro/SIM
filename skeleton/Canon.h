@@ -11,7 +11,6 @@
 #include "StaticRigidBody.h"
 #include "DinamicRigidBody.h"
 
-
 using namespace physx;
 
 

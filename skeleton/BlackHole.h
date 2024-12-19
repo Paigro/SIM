@@ -8,6 +8,7 @@
 
 class Scene;
 
+
 class BlackHole
 {
 private:
