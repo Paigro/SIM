@@ -6,7 +6,7 @@ BaseLevelScene::BaseLevelScene(PxPhysics* physics, PxScene* scene, GameManager* 
 {
 	direction = { 0, 0, 0 };
 	angle = 0;
-	baseForce = 4000;
+	baseForce = SHOOT_FORCE;
 	forceMultiplier = 1;
 	display_text = "INIT SCENE";
 	display_text_color = Vector4(0, 1, 1, 1);

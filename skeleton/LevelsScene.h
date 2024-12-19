@@ -7,7 +7,7 @@ class LevelsScene : public Scene
 {
 private:
 
-
+	std::vector<bool> levelsCompleted;
 
 public:
 

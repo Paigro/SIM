@@ -11,6 +11,7 @@
 //class GameManager;
 #include "GameManager.h"
 
+
 class Scene
 {
 private:
@@ -26,6 +27,12 @@ protected:
 	PxScene* gScene = nullptr; // Referencia a la escena fisica.
 
 	GameManager* gameMg = nullptr; // Referencia al gameManager.
+
+
+	//------Getters y setters:
+
+	// Devuelve el gameManager.
+	const GameManager* getGameManager() { return gameMg; }
 
 public:
 

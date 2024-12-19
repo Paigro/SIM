@@ -4,7 +4,7 @@
 #include "StaticRigidBody.h"
 #include "TornadoForceGenerator.h"
 #include "ForceSystem.h"
-#include "Scene.h"
+#include "BaseLevelScene.h"
 #include "ParticleSystem.h"
 
 
@@ -14,12 +14,14 @@ private:
 
 	TornadoForceGenerator* blackHoleGen = nullptr; // La fuerza del agujero negro.
 
+	Scene* myScene = nullptr; // Escena en la que esta.
+
 public:
 
 	//------Constructoras y destructoras:
 
 	// Contructora base de BlackHole.
-	BlackHole(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float holeSize, Scene* myScene, Vector3 axis);
+	BlackHole(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float holeSize, Vector3 axis, Scene* mScene);
 	// Destructora de BlackHole.
 	~BlackHole();
 

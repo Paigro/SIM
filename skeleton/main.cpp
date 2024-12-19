@@ -232,6 +232,10 @@ void keyPress(unsigned char key, const PxTransform& camera)
 void onCollision(physx::PxActor* actor1, physx::PxActor* actor2)
 {
 	std::cout << "COLISIOONNNNNNNNNNN entr: " << actor1->getType() << " " << actor2->getType() << std::endl;
+	/*if (gameMg != nullptr)
+	{
+		gameMg->levelHasBeenLost();
+	}*/
 
 	PX_UNUSED(actor1);
 	PX_UNUSED(actor2);

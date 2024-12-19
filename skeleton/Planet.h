@@ -18,12 +18,14 @@ private:
 
 	TornadoForceGenerator* planetGravity = nullptr; // La gravedad del planeta.
 
+	Scene* myScene = nullptr; // Escena en la que esta.
+
 public:
 
 	//------Constructoras y destructoras:
 
 	// Contructora base de Planet.
-	Planet(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float planetSize, Vector4 initColor, Scene* myScene);
+	Planet(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float planetSize, Vector4 initColor, Scene* mScene);
 	// Destructora de Planet.
 	~Planet();
 

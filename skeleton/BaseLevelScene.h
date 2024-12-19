@@ -6,6 +6,7 @@
 #include "BlackHole.h"
 #include "SolarWind.h"
 
+const float SHOOT_FORCE = 800;
 
 class BaseLevelScene : public Scene
 {

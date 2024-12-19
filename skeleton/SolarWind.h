@@ -4,7 +4,7 @@
 #include "StaticRigidBody.h"
 #include "WindForceGenerator.h"
 #include "ForceSystem.h"
-#include "Scene.h"
+#include "BaseLevelScene.h"
 #include "ParticleSystem.h"
 
 
@@ -14,12 +14,14 @@ private:
 
 	WindForceGenerator* windGen = nullptr; // La fuerza del viento.
 
+	Scene* myScene = nullptr; // Escena en la que esta.
+
 public:
 
 	//------Constructoras y destructoras:
 
 	// Contructora base de SolarWind.
-	SolarWind(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float radius, float windSpeed, Vector3 windDir, Scene* myScene);
+	SolarWind(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float radius, float windSpeed, Vector3 windDir, Scene* mScene);
 	// Destructora de SolarWind.
 	~SolarWind();
 

@@ -9,8 +9,15 @@ Level2::Level2(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj)
 
 Level2::~Level2()
 {
-	planet = new Planet(gPhysics, gScene, Vector3(-150, 0, 0), 15, Vector4(0.2, 0.2, 0.9, 1.0), this);
-	solarWind = new SolarWind(gPhysics, gScene, Vector3(-150, 0, 0), 40, 20, Vector3(-1, -1, 0), this);
+	delete solarWind;
+}
+
+void Level2::initScene()
+{
+	planet = new Planet(gPhysics, gScene, Vector3(-150, 0, 0), 15, Vector4(0.9, 0.4, 0.4, 1.0), this);
+	solarWind = new SolarWind(gPhysics, gScene, Vector3(0, 50, 0), 175, 50, Vector3(0, -1, 0), this);
+
+	BaseLevelScene::initScene();
 }
 
 void Level2::updateScene(float t)

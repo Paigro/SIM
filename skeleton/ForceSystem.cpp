@@ -65,7 +65,6 @@ void ForceSystem::addForceToRigidBodies(std::vector<BaseRigidBody*> vRB, float t
 				Vector3 size = rb->getSize();
 				float maxSize = std::fmax(size.x, (std::fmax(size.y, size.z)));
 				rb->addForce(fg->generateForce(rb->getPose().p, rb->getVel(), maxSize)); // Aplicar fuerza.
-				std::cout << "//----------FUNCIONA???: " << std::endl;
 			}
 		}
 	}

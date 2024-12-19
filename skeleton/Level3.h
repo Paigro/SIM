@@ -7,7 +7,8 @@ class Level3 : public BaseLevelScene
 {
 private:
 
-
+	BlackHole* blackHole = nullptr; // Agujero negro
+	SolarWind* solarWind = nullptr; // Viento solar.
 
 public:
 
@@ -21,8 +22,8 @@ public:
 
 	//------Metodos heredadso:
 
+	// Inicializacion de la escena.
+	void initScene() override;
 	// Update de Level3.
 	void updateScene(float t) override;
-
-
 };
