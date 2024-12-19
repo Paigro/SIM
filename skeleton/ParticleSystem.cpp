@@ -12,7 +12,7 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 		generator = new FountainGenerator(initPos, initVel, maxParticles, 2.0, 6.0);
 		break;
 	case 'S': // Humo.
-		generator = new SmokeGenerator(initPos, initVel, maxParticles, 4.0, 8.0);
+		generator = new SmokeGenerator(initPos, initVel, maxParticles, 10.0, 15.0, parColor);
 		break;
 	case 'W': // OPCIONAL: fuego artificial. W de fireWork... :)
 		generator = new FireworkGenerator(initPos, initVel, maxParticles, 4.0, 4.0, 50);

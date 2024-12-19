@@ -28,6 +28,7 @@
 #include "Level1.h"
 #include "Level2.h"
 #include "Level3.h"
+#include "EndScene.h"
 
 
 using namespace physx;
@@ -99,9 +100,10 @@ void initScenes()
 	sceneMg->addScene(new InitScene(gPhysics, gScene, gameMg));
 	sceneMg->addScene(new TutoScene(gPhysics, gScene, gameMg));
 	sceneMg->addScene(new LevelsScene(gPhysics, gScene, gameMg));
-	sceneMg->addScene(new Level1(gPhysics, gScene, gameMg, 4));
-	sceneMg->addScene(new Level2(gPhysics, gScene, gameMg, 2));
-	sceneMg->addScene(new Level3(gPhysics, gScene, gameMg, 2));
+	sceneMg->addScene(new Level1(gPhysics, gScene, gameMg, 2));
+	sceneMg->addScene(new Level2(gPhysics, gScene, gameMg, 3));
+	sceneMg->addScene(new Level3(gPhysics, gScene, gameMg, 4));
+	sceneMg->addScene(new EndScene(gPhysics, gScene, gameMg));
 
 	std::cout << "//--MENSAJE: Escenas creadas." << std::endl;
 }

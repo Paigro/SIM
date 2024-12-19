@@ -45,5 +45,5 @@ public:
 	//
 	float getInnerRadius() { return size * 2.7; }
 	// 
-	Vector3 getPos() { return position; }
+	float getMaxRadius() { return size * 5; }
 };

@@ -56,11 +56,37 @@ void BaseLevelScene::updateScene(float t)
 			gameMg->levelHasBeenLost();
 		}
 		// Si esta dentro del agujero negro.
-		if (blackHole != nullptr)
+		float distanceToBHole = (rb->getPose().p - BLACKHOLE_POS).magnitude();
+		if (blackHole != nullptr && distanceToBHole < (blackHole->getRadius() / 3)) // NOTA: suponiendo que el horizonte de sucesos esta a 1/3 de su zona de afeccion.
 		{
-
+			gameMg->levelHasBeenLost();
 		}
 	}
+
+	// Para ganar el nivel:
+	int satellitesOrbiting = 0;
+
+
+	for (auto rb : vRigidBodies)
+	{
+		// Si esta dentro del planeta.
+		float distanceToPlanet = (rb->getPose().p - PLANET_POS).magnitude();
+		if (distanceToPlanet < planet->getMaxRadius())
+		{
+			satellitesOrbiting++;
+		}
+	}
+
+	if (satellitesOrbiting == objetive)
+	{
+		winTimer += t;
+		if (winTimer >= timeToWin)
+		{
+			gameMg->levelHasBeenWon();
+		}
+	}
+
+
 
 	Scene::updateScene(t);
 }

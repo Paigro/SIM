@@ -22,7 +22,7 @@ private:
 
 	enum GAMESTATES
 	{
-		INIT, TUTO, MENU, LVL1, LVL2, LVL3, LVL4
+		INIT, TUTO, MENU, LVL1, LVL2, LVL3, END
 	};
 
 	PxPhysics* gPhysics = nullptr; // Referencia a la fisica.
@@ -69,7 +69,7 @@ public:
 	virtual void keyPressed(unsigned char key, const physx::PxTransform& camera);
 
 
-	//------Metodos para el cambio de estado:
+	//------Metodos para el cambio de estado y sus resultados:
 
 	//
 	void levelHasBeenLost();
@@ -77,4 +77,6 @@ public:
 	void levelHasBeenWon();
 	// 
 	std::map<int, bool> getLevelResult();
+	//
+	std::pair<int, int> getWonsAndTotal() { return { levelsWon, totalLevels }; }
 };

@@ -9,6 +9,7 @@
 const float SHOOT_FORCE = 800;
 
 const Vector3 PLANET_POS = Vector3(-150, 0, 0);
+const Vector3 BLACKHOLE_POS = Vector3(-60, 30, 0);
 
 class BaseLevelScene : public Scene
 {
@@ -30,6 +31,9 @@ protected:
 
 	bool canShoot = true; // Controlador del disparo.
 	float shootRecharge = 0; // Cooldown del disparo.
+
+	float winTimer = 0;
+	float timeToWin = 4;
 
 public:
 

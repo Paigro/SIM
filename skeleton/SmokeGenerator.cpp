@@ -45,7 +45,7 @@ std::vector<Particle*> SmokeGenerator::CreateParticles(int actP, int maxP)
 		Particle* p = new Particle(initPos, newVel + medVel, { 0, 0.5, 0 }, 0.98, color, 4);
 		p->setMass(1.0);
 		p->setLifeTime(newTime);
-		p->setGravitable(false);
+		p->setGravitable(true);
 		auxParticles.push_back(p);
 	}
 

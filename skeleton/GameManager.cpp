@@ -42,13 +42,13 @@ void GameManager::setTexts()
 {
 	switch (actState)
 	{
-	case INIT: case TUTO:
+	case INIT: case TUTO: case END:
 		gameManagerText = " ";
 		break;
 	case MENU:
 		gameManagerText = "You win: " + std::to_string(levelsWon) + " / " + std::to_string(totalLevels);
 		break;
-	case LVL1: case LVL2: case LVL3: case LVL4:
+	case LVL1: case LVL2: case LVL3:
 		gameManagerText = "Time left: " + std::to_string(levelTimer);
 	default:
 		break;
@@ -62,7 +62,7 @@ void GameManager::levelHasBeenLost()
 	{
 		levelsResult[actState] = false;
 	}
-	else 
+	else
 	{
 		levelsResult.insert({ actState, false });
 	}
@@ -77,7 +77,7 @@ void GameManager::levelHasBeenWon()
 	{
 		levelsResult[actState] = true;
 	}
-	else 
+	else
 	{
 		levelsResult.insert({ actState, true });
 	}
@@ -102,7 +102,7 @@ bool GameManager::update(float t)
 
 	switch (actState)
 	{
-	case LVL1: case LVL2: case LVL3: case LVL4:
+	case LVL1: case LVL2: case LVL3:
 		if (levelTimer <= 0)
 		{
 			levelTimer = LEVEL_TIME;
@@ -117,6 +117,13 @@ bool GameManager::update(float t)
 	}
 
 	setTexts();
+
+	// Cuando completas todos los niveles:
+	if (levelsEnded == totalLevels)
+	{
+		sceneMg->changeScene(6);
+		actState = END;
+	}
 
 	return true;
 }

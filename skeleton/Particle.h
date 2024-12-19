@@ -104,6 +104,8 @@ public:
 	void setLifeTime(float t);
 	// le mete mas tiempo a la particula (Tque ha pasado + AddedTime).
 	void addLiveToParticle(float addedTime);
+	//
+	void setMss(float newSize);
 
 
 	//------Cambios importantes a la particula:

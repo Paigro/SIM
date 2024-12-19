@@ -101,6 +101,7 @@ void LevelsScene::checkResults()
 			else if (lvl.second == false)
 			{
 				lvl1->setColor(1.0, 0.0, 0.0, 1.0);
+				lvl1->setMss(8000);
 			}
 			break;
 		case 4:
@@ -111,6 +112,7 @@ void LevelsScene::checkResults()
 			else if (lvl.second == false)
 			{
 				lvl2->setColor(1.0, 0.0, 0.0, 1.0);
+				lvl2->setMss(8000);
 			}
 			break;
 		case 5:
@@ -121,6 +123,7 @@ void LevelsScene::checkResults()
 			else if (lvl.second == false)
 			{
 				lvl3->setColor(1.0, 0.0, 0.0, 1.0);
+				lvl3->setMss(8000);
 			}
 			break;
 		default:

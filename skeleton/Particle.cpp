@@ -99,6 +99,11 @@ void Particle::addLiveToParticle(float addedTime)
 	lifeTime = timeAlive + addedTime;
 }
 
+void Particle::setMss(float newSize)
+{
+	size = newSize;
+}
+
 void Particle::changeGravity(Vector3 newGrav)
 {
 	gravity = newGrav;

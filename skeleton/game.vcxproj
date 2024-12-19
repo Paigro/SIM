@@ -263,6 +263,7 @@
     <ClCompile Include="Canon.cpp" />
     <ClCompile Include="DinamicRigidBody.cpp" />
     <ClCompile Include="DosckScene.cpp" />
+    <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="ExplosionForceGenerator.cpp" />
     <ClCompile Include="ExplosionScene.cpp" />
     <ClCompile Include="FireworkGenerator.cpp" />
@@ -311,6 +312,7 @@
     <ClInclude Include="core.hpp" />
     <ClInclude Include="DinamicRigidBody.h" />
     <ClInclude Include="DosckScene.h" />
+    <ClInclude Include="EndScene.h" />
     <ClInclude Include="ExplosionForceGenerator.h" />
     <ClInclude Include="ExplosionScene.h" />
     <ClInclude Include="FireworkGenerator.h" />

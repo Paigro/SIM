@@ -44,7 +44,10 @@ void Canon::setActive(bool act)
 {
 	canonBody->setActive(act); // Activa/desactiva el cuerpo del canon.
 
-	qRigidBodies.front()->setActive(act); // Solo activa/desactiva la primera de la cola, el resto estan desactivados siempre.
+	if (!qRigidBodies.empty())
+	{
+		qRigidBodies.front()->setActive(act); // Solo activa/desactiva la primera de la cola, el resto estan desactivados siempre.
+	}
 }
 
 DinamicRigidBody* Canon::shoot()

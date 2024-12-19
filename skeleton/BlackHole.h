@@ -12,6 +12,8 @@ class BlackHole
 {
 private:
 
+	float size;
+
 	TornadoForceGenerator* blackHoleGen = nullptr; // La fuerza del agujero negro.
 
 	Scene* myScene = nullptr; // Escena en la que esta.
@@ -30,4 +32,10 @@ public:
 
 	// Settea si esta activo o no.
 	void setActive(bool act);
+
+
+	//------Getters y setters:
+
+	//
+	float getRadius() { return size; }
 };
