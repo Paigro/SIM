@@ -37,6 +37,21 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 		std::cout << "//----AVISO: ParticleSystem " << type << " muere en t: " << timeToLive << std::endl;
 	}
 }
+ParticleSystem::ParticleSystem(ParticleGenerator* parGen, float tim)
+{
+	generator = parGen;
+
+	if (timeToLive < 0.0)
+	{
+		dieByTime = false;
+		std::cout << "//----AVISO: ParticleSystem " << type << " tiene tiempo infinito." << std::endl;
+	}
+	else
+	{
+		dieByTime = true;
+		std::cout << "//----AVISO: ParticleSystem " << type << " muere en t: " << timeToLive << std::endl;
+	}
+}
 
 ParticleSystem::~ParticleSystem()
 {

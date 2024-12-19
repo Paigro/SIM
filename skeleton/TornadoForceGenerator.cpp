@@ -54,8 +54,8 @@ Vector3 TornadoForceGenerator::generateForce(Vector3 objPos, Vector3 objVel, flo
 
 	if (distanceToCentre < innerRadius)
 	{
-
-		return Vector3(0, 0, 0);
+		//force = -k * (relativePos / distanceToCentre);
+		return force;
 	}
 
 	//force = force - (objDir * objVel);

@@ -14,8 +14,8 @@ Level1::~Level1()
 
 void Level1::initScene()
 {
-	planet = new Planet(gPhysics, gScene, Vector3(-200, 0, 0), 20, Vector4(0.2, 0.2, 0.9, 1.0), this);
-	blackHole = new BlackHole(gPhysics, gScene, Vector3(-50, 40, 0), 5.0, this);
+	planet = new Planet(gPhysics, gScene, Vector3(-200, 0, 0), 15, Vector4(0.2, 0.2, 0.9, 1.0), this);
+	blackHole = new BlackHole(gPhysics, gScene, Vector3(-60, 40, 0), 60, this);
 
 	BaseLevelScene::initScene();
 }

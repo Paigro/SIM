@@ -7,6 +7,8 @@ class RandomGenerator : public ParticleGenerator
 {
 private:
 
+	float partSize; // Tamanyo de las particulas generadas.
+
 	float minTimeToLive; // Tiempo minimo que va a vivir cada particula.
 	float maxTimeToLive; // Tiempo maximo que va a vivir cada particula.
 
@@ -15,12 +17,16 @@ private:
 
 	Vector4 color; // Color de las particulas que van a salir.
 
+	Vector3 axis; // Eje en el que se crean las particulas.
+
+	bool gravitableParticles; // Si las particulas generadas caen por gravedad o no.
+
 public:
 
 	//------Constructoras y destructoras:
 
 	// Constructora de RandomGenerator.
-	RandomGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT, float minP, float maxP, Vector4 parColor = Vector4{ 1.0, 1.0, 1.0, 1.0 });
+	RandomGenerator(Vector3 ori, Vector3 vel, int nPar, float minT, float maxT, float minP, float maxP, Vector4 parColor = Vector4{ 1.0, 1.0, 1.0, 1.0 }, Vector3 genAxis = Vector3(1, 1, 1), bool grav = true, float parSize = 1.0);
 	// Destructora de RandomGenerator.
 	~RandomGenerator();
 

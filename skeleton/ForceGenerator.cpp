@@ -4,7 +4,7 @@
 ForceGenerator::ForceGenerator(Vector3 pos, float rad)
 	: position(pos), radius(rad)
 {
-	generateSphere();
+	//generateSphere();
 }
 
 ForceGenerator::~ForceGenerator()
@@ -32,7 +32,7 @@ void ForceGenerator::generateSphere()
 void ForceGenerator::setRadius(float newRad)
 {
 	radius = newRad;
-	generateSphere();
+	//generateSphere();
 }
 
 bool ForceGenerator::isOnRadius(Vector3 pos)
@@ -46,12 +46,12 @@ bool ForceGenerator::isOnRadius(Vector3 pos)
 
 void ForceGenerator::isActive(bool act)
 {
-	if (!act)
+	/*if (!act)
 	{
 		DeregisterRenderItem(renderItem);
 	}
 	else if (renderItem != nullptr)
 	{
 		RegisterRenderItem(renderItem);
-	}
+	}*/
 }

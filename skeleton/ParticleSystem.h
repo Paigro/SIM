@@ -38,6 +38,8 @@ public:
 
 	// Constructora de ParticleSystem.
 	ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, char typ, Vector4 parColor = { 1.0, 1.0, 1.0, 1.0 });
+	// Constructora de ParticleSystem pasandole un generador.
+	ParticleSystem(ParticleGenerator* parGen, float tim);
 	// Destructora de ParticleSystem.
 	~ParticleSystem();
 
