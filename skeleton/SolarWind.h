@@ -8,20 +8,20 @@
 #include "ParticleSystem.h"
 
 
-class BlackHole
+class SolarWind
 {
 private:
 
-	TornadoForceGenerator* blackHoleGen = nullptr; // La fuerza del agujero negro
+	TornadoForceGenerator* blackHoleBody = nullptr; // El agujero negro.
 
 public:
 
 	//------Constructoras y destructoras:
 
-	// Contructora base de BlackHole.
-	BlackHole(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float holeSize, Scene* myScene, Vector3 axis);
-	// Destructora de BlackHole.
-	~BlackHole();
+	// Contructora base de SolarWind.
+	SolarWind(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float holeSize, Scene* myScene, Vector3 axis);
+	// Destructora de SolarWind.
+	~SolarWind();
 
 
 	//------Metodos importantes:
