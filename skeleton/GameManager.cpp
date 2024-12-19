@@ -100,8 +100,20 @@ void GameManager::levelHasBeenLost()
 
 void GameManager::levelHasBeenWon()
 {
+	if (levelsResult.count(actState))
+	{
+		levelsResult[actState] = true;
+	}
+	else {
+		levelsResult.insert({ actState, true });
+	}
 	levelsWon++;
 	changeState();
+}
+
+std::map<int, bool> GameManager::getLevelResult()
+{
+	return levelsResult;
 }
 
 #pragma endregion
@@ -117,8 +129,8 @@ bool GameManager::update(float t)
 	case LVL1: case LVL2: case LVL3: case LVL4:
 		if (levelTimer <= 0)
 		{
-			changeState();
 			levelTimer = LEVEL_TIME;
+			changeState();
 		}
 		else
 		{
@@ -160,6 +172,8 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 	default:
 		break;
 	}
+
+	levelTimer = LEVEL_TIME;
 
 	// Para debug.
 	if (actState > 7)

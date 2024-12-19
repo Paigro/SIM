@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-//#include "SceneManager.h"
+#include <map>
 
 class SceneManager;
 
@@ -20,7 +20,7 @@ class GameManager
 {
 private:
 
-	enum GAMESTATES 
+	enum GAMESTATES
 	{
 		INIT, TUTO, MENU, LVL1, LVL2, LVL3, LVL4
 	};
@@ -37,7 +37,7 @@ private:
 	int totalLevels;
 	int levelsWon;
 
-
+	std::map<int, bool> levelsResult;
 
 
 	//------Metodos internos del GameManager:
@@ -76,4 +76,6 @@ public:
 	void levelHasBeenLost();
 	//
 	void levelHasBeenWon();
+	// 
+	std::map<int, bool> getLevelResult();
 };

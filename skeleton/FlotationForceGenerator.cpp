@@ -39,7 +39,7 @@ Vector3 FlotationForceGenerator::generateForce(Vector3 objPos, Vector3 objVel, f
 	return force;
 }
 
-bool FlotationForceGenerator::isOnRadius(Particle* part)
+bool FlotationForceGenerator::isOnRadius(Vector3 pos)
 {
-	return part->getPos().y <= height; // Solo esta "en el radio" si su algura es menor a la que hemos puesto que este el liquido.
+	return pos.y <= height; // Solo esta "en el radio" si su algura es menor a la que hemos puesto que este el liquido.
 }

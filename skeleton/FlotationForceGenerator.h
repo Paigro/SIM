@@ -27,5 +27,6 @@ public:
 	//
 	void updateFGen(float t) override {}
 	//
-	bool isOnRadius(Particle* part);
+	bool isOnRadius(Vector3 pos) override;
+
 };

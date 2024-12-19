@@ -1,13 +1,27 @@
 #pragma once
 
 #include "Scene.h"
+#include "FlotationForceGenerator.h"
+#include "ForceSystem.h"
 
 
 class LevelsScene : public Scene
 {
 private:
 
-	std::vector<bool> levelsCompleted;
+	std::map<int, bool> levelsResult;
+
+	Particle* lvl1 = nullptr;
+	Particle* lvl2 = nullptr;
+	Particle* lvl3 = nullptr;
+
+	Particle* sea = nullptr;
+
+
+	//------Metodos de LevelsScene:
+
+	//
+	void checkResults();
 
 public:
 

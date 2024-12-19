@@ -39,12 +39,12 @@ void Particle::setPose(physx::PxTransform newPose)
 	pose = newPose;
 }
 
-void Particle::setVel(Vector3 newPos)
+void Particle::setPos(Vector3 newPos)
 {
 	pose.p = newPos;
 }
 
-void Particle::setPos(Vector3 newVel)
+void Particle::setVel(Vector3 newVel)
 {
 	vel = newVel;
 }
