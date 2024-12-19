@@ -12,6 +12,7 @@ SceneManager::~SceneManager()
 		delete s;
 	}
 	vScenes.clear();
+	std::cout << "//--MENSAJE: SceneManager eliminado." << std::endl;
 }
 
 void SceneManager::addScene(Scene* sc)

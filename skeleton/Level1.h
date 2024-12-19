@@ -7,7 +7,7 @@ class Level1 : public BaseLevelScene
 {
 private:
 
-
+	BlackHole* blackHole = nullptr;
 
 public:
 

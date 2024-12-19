@@ -131,6 +131,9 @@
     <ClCompile Include="Planet.cpp">
       <Filter>ProyectoFinal\Obejtos</Filter>
     </ClCompile>
+    <ClCompile Include="BlackHole.cpp">
+      <Filter>ProyectoFinal\Obejtos</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -266,6 +269,9 @@
       <Filter>ProyectoFinal\Obejtos</Filter>
     </ClInclude>
     <ClInclude Include="Planet.h">
+      <Filter>ProyectoFinal\Obejtos</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackHole.h">
       <Filter>ProyectoFinal\Obejtos</Filter>
     </ClInclude>
   </ItemGroup>

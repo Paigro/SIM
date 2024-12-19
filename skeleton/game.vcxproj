@@ -258,6 +258,7 @@
     <ClCompile Include="BaseLevelScene.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="BaseRigidBody.cpp" />
+    <ClCompile Include="BlackHole.cpp" />
     <ClCompile Include="callbacks.cpp" />
     <ClCompile Include="Canon.cpp" />
     <ClCompile Include="DinamicRigidBody.cpp" />
@@ -304,6 +305,7 @@
     <ClInclude Include="BaseLevelScene.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BaseRigidBody.h" />
+    <ClInclude Include="BlackHole.h" />
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="Canon.h" />
     <ClInclude Include="core.hpp" />

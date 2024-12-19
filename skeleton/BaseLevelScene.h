@@ -3,6 +3,7 @@
 #include "Scene.h"
 #include "Canon.h"
 #include "Planet.h"
+#include "BlackHole.h"
 
 
 class BaseLevelScene : public Scene

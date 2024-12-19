@@ -7,7 +7,7 @@ Planet::Planet(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float plan
 	innerAthmosphere = new Particle(initPos, { 0, 0, 0 }, { 0, 0, 1, 0.5 }, planetSize * 3);
 	outerAthmosphere = new Particle(initPos, { 0, 0, 0 }, { 0, 0, 1, 0.2 }, planetSize * 5);
 
-	planetGravity = new TornadoForceGenerator(initPos, planetSize * 5, 0.25, { 0,0,1 }, planetSize * 3, 9.8);
+	planetGravity = new TornadoForceGenerator(initPos, planetSize * 5, 0.25, { 0, 0, 1 }, planetSize * 3, 9.8);
 	ForceSystem* forSys = new ForceSystem();
 	forSys->addForceGenerator(planetGravity);
 	myScene->addForceSistem(forSys);

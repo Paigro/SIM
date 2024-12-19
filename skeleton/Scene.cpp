@@ -50,7 +50,7 @@ Scene::~Scene()
 		delete rb;
 	}
 	vRigidBodies.clear();
-	std::cout << "adios escena" << std::endl;
+	std::cout << "//--MENSAJE: Scene eliminada." << std::endl;
 }
 
 #pragma endregion

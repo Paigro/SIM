@@ -14,11 +14,6 @@ ParticleSystem::ParticleSystem(Vector3 pos, Vector3 vel, int maxPar, float tim, 
 	case 'S': // Humo.
 		generator = new SmokeGenerator(initPos, initVel, maxParticles, 4.0, 8.0);
 		break;
-	case 'R': // LLuvia.
-		// PAIGRO2 AQUI: TODO
-	case 'N': // Niebla.
-		// PAIGRO2 AQUI: TODO
-		break;
 	case 'W': // OPCIONAL: fuego artificial. W de fireWork... :)
 		generator = new FireworkGenerator(initPos, initVel, maxParticles, 4.0, 4.0, 50);
 		break;
