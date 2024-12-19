@@ -57,7 +57,7 @@ void BaseLevelScene::updateScene(float t)
 		}
 		// Si esta dentro del agujero negro.
 		float distanceToBHole = (rb->getPose().p - BLACKHOLE_POS).magnitude();
-		if (blackHole != nullptr && distanceToBHole < (blackHole->getRadius() / 3)) // NOTA: suponiendo que el horizonte de sucesos esta a 1/3 de su zona de afeccion.
+		if (blackHole != nullptr && distanceToBHole < (blackHole->getRadius() / 4)) // NOTA: suponiendo que el horizonte de sucesos esta a 1/4 de su zona de afeccion.
 		{
 			gameMg->levelHasBeenLost();
 		}

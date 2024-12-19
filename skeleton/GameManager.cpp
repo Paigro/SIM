@@ -143,10 +143,6 @@ void GameManager::keyPressed(unsigned char key, const physx::PxTransform& camera
 			sceneMg->changeScene(2);
 			actState = MENU;
 			break;
-		case GameManager::LVL1: case GameManager::LVL2: case GameManager::LVL3:
-			sceneMg->changeScene(2);
-			actState = MENU;
-			break;
 		default:
 			break;
 		}
