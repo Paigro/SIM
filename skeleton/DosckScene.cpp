@@ -19,7 +19,7 @@ void DosckScene::initScene()
 
 
 	//------Viento:
-	windGen = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, Vector3{ 10, 0, 0 });
+	windGen = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, 10);
 	windGen->setActive(false);
 	forSys->addForceGenerator(windGen);
 

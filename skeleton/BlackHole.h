@@ -12,7 +12,7 @@ class BlackHole
 {
 private:
 
-	TornadoForceGenerator* blackHoleGen = nullptr; // La fuerza del agujero negro
+	TornadoForceGenerator* blackHoleGen = nullptr; // La fuerza del agujero negro.
 
 public:
 

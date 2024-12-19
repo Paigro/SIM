@@ -3,9 +3,9 @@
 BlackHole::BlackHole(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float holeSize, Scene* myScene, Vector3 axis)
 {
 	// He leido que la gravedad de un agujero negro puede ser 3 millones de veces la terrestre, yo voy a poner 40 porque si no es demasiado.
-	blackHoleBody = new TornadoForceGenerator(initPos, holeSize, 1.0, axis, 1.0, 40);
+	blackHoleGen = new TornadoForceGenerator(initPos, holeSize, 1.0, axis, 1.0, 40);
 	ForceSystem* forSys = new ForceSystem();
-	forSys->addForceGenerator(blackHoleBody);
+	forSys->addForceGenerator(blackHoleGen);
 	myScene->addForceSistem(forSys);
 
 	// NOTA: Para la conversion del axis del sistema de fuerzas al sistema de particulas porque van al reves. 

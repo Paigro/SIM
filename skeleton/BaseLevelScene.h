@@ -4,6 +4,7 @@
 #include "Canon.h"
 #include "Planet.h"
 #include "BlackHole.h"
+#include "SolarWind.h"
 
 
 class BaseLevelScene : public Scene

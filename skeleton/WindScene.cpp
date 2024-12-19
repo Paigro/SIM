@@ -21,7 +21,7 @@ void WindScene::initScene()
 	ForceSystem* forSys = new ForceSystem();
 
 	// Viento.
-	windGen = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, Vector3{ 10, 0, 0 });
+	windGen = new WindForceGenerator(Vector3{ 0, 0, 0 }, 100, 10);
 
 	// Se la metemos al sistema.
 	forSys->addForceGenerator(windGen);

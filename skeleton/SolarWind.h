@@ -2,7 +2,7 @@
 
 #include "Particle.h"
 #include "StaticRigidBody.h"
-#include "TornadoForceGenerator.h"
+#include "WindForceGenerator.h"
 #include "ForceSystem.h"
 #include "Scene.h"
 #include "ParticleSystem.h"
@@ -12,14 +12,14 @@ class SolarWind
 {
 private:
 
-	TornadoForceGenerator* blackHoleBody = nullptr; // El agujero negro.
+	WindForceGenerator* windGen = nullptr; // La fuerza del viento.
 
 public:
 
 	//------Constructoras y destructoras:
 
 	// Contructora base de SolarWind.
-	SolarWind(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float holeSize, Scene* myScene, Vector3 axis);
+	SolarWind(PxPhysics* gPhysics, PxScene* gScene, Vector3 initPos, float radius, float windSpeed, Vector3 windDir, Scene* myScene);
 	// Destructora de SolarWind.
 	~SolarWind();
 

@@ -9,7 +9,8 @@ Level2::Level2(PxPhysics* physics, PxScene* scene, GameManager* gm, int obj)
 
 Level2::~Level2()
 {
-	
+	planet = new Planet(gPhysics, gScene, Vector3(-150, 0, 0), 15, Vector4(0.2, 0.2, 0.9, 1.0), this);
+	solarWind = new SolarWind(gPhysics, gScene, Vector3(-150, 0, 0), 40, 20, Vector3(-1, -1, 0), this);
 }
 
 void Level2::updateScene(float t)

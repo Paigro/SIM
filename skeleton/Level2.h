@@ -7,6 +7,7 @@ class Level2 : public BaseLevelScene
 {
 private:
 
+	SolarWind* solarWind = nullptr; // Viento solar.
 
 public:
 
@@ -18,8 +19,10 @@ public:
 	~Level2();
 
 
-	//------Metodos heredadso:
-
+	//------Metodos heredadso:ç
+	
+	// Inicializacion de la escena.
+	void initScene() override;
 	// Update de Level2.
 	void updateScene(float t) override;
 
