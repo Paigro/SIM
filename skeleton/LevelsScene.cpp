@@ -52,12 +52,12 @@ void LevelsScene::initScene()
 
 void LevelsScene::updateScene(float t)
 {
-	display_text = "MENU";
-	display_text_position = Vector2(200, 315);
+	display_text = "Pulsar 1/2/3";
+	display_text_position = Vector2(200, 220);
 	display_text_color = Vector4(0, 0, 0, 1);
 
-	display_text_2 = "MENU";
-	display_text_position_2 = Vector2(210, 180);
+	display_text_2 = " ";
+	display_text_position_2 = Vector2(150, 240);
 	Scene::updateScene(t);
 }
 

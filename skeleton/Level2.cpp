@@ -23,7 +23,7 @@ void Level2::initScene()
 void Level2::updateScene(float t)
 {
 	display_text = "LEVEL 2";
-	display_text_position = Vector2(512 / 2, 512 / 2);
+	display_text_position = Vector2(0, 450);
 	display_text_color = Vector4(0, 0, 0, 1);
 
 	display_text_2 = " ";

@@ -24,7 +24,7 @@ void Level3::initScene()
 void Level3::updateScene(float t)
 {
 	display_text = "LEVEL 3";
-	display_text_position = Vector2(512 / 2, 512 / 2);
+	display_text_position = Vector2(0, 450);
 	display_text_color = Vector4(0, 0, 0, 1);
 
 	display_text_2 = " ";
